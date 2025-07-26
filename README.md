@@ -1,4 +1,4 @@
-# Feral File Docs (Public)
+# Feral File Docs
 
 Authoritative documentation for Feral File’s open technology stack.
 
