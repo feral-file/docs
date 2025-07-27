@@ -8,4 +8,4 @@ This site covers everything you need to **build, integrate, or collect** with Fe
 
 → The first device reference, **FF1 Founders Edition**, lives at `/devices/ff1/`.
 
-Need something not yet public? Email dev@feralfile.com.
+Need something not yet public? Email support@feralfile.com.
