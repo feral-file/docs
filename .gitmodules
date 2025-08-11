@@ -1,3 +1,3 @@
 [submodule "docs/devices/ff1"]
 	path = docs/devices/ff1
-	url = https://github.com/feral-file/ff1-docs
+	url = ../ff1-docs
