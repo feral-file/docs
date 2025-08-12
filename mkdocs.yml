@@ -3,6 +3,12 @@ site_url: https://docs.feralfile.com
 repo_url: https://github.com/feral-file/docs
 theme:
   name: material
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+
+extra_css:
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.css
 nav:
   - Home: index.md
   - Bands:
@@ -28,6 +34,10 @@ markdown_extensions:
   - admonition
   - attr_list
   - footnotes
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.details
   - pymdownx.tabbed
