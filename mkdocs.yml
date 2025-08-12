@@ -6,23 +6,22 @@ theme:
 nav:
   - Home: index.md
   - Bands:
-      - Overview: bands/overview.md
-  - Devices:
-      - FF1:
-          - Overview: devices/ff1/docs/index.md
-          - Get Started:
-              - Quickstart: devices/ff1/docs/getting-started/quickstart.md
-              - Playlists: devices/ff1/docs/getting-started/playlists.md
-              - Flashing: devices/ff1/docs/getting-started/flash-version.md
-          - Hardware:
-              - FF1 Board: devices/ff1/docs/hardware/ff1.md
-              - Enclosure: devices/ff1/docs/hardware/enclosure.md
-          - OS:
-              - Architecture: devices/ff1/docs/os/architecture.md
-              - OTA: devices/ff1/docs/os/ota.md
+    - Overview: bands/overview.md
+  - FF1:
+    - Overview: devices/ff1/docs/index.md
+    - Get Started:
+      - Quickstart: devices/ff1/docs/getting-started/quickstart.md
+      - Playlists: devices/ff1/docs/getting-started/playlists.md
+      - Flashing: devices/ff1/docs/getting-started/flash-version.md
+    - Hardware:
+      - FF1 Board: devices/ff1/docs/hardware/ff1.md
+      - Enclosure: devices/ff1/docs/hardware/enclosure.md
+    - OS:
+      - Architecture: devices/ff1/docs/os/architecture.md
+      - OTA: devices/ff1/docs/os/ota.md
   - API Reference: api/reference.md
   - SDK:
-      - Python: sdk/python.md
+    - Python: sdk/python.md
   - Contribute: contribute.md
   - FAQ: faq.md
 
