@@ -8,17 +8,17 @@ nav:
   - Bands:
     - Overview: bands/overview.md
   - FF1:
-    - Overview: devices/ff1/docs/index.md
+    - Overview: ff1/docs/index.md
     - Get Started:
-      - Quickstart: devices/ff1/docs/getting-started/quickstart.md
-      - Playlists: devices/ff1/docs/getting-started/playlists.md
-      - Flashing: devices/ff1/docs/getting-started/flash-version.md
+      - Quickstart: ff1/docs/getting-started/quickstart.md
+      - Playlists: ff1/docs/getting-started/playlists.md
+      - Flashing: ff1/docs/getting-started/flash-version.md
     - Hardware:
-      - FF1 Board: devices/ff1/docs/hardware/ff1.md
-      - Enclosure: devices/ff1/docs/hardware/enclosure.md
+      - FF1 Board: ff1/docs/hardware/ff1.md
+      - Enclosure: ff1/docs/hardware/enclosure.md
     - OS:
-      - Architecture: devices/ff1/docs/os/architecture.md
-      - OTA: devices/ff1/docs/os/ota.md
+      - Architecture: ff1/docs/os/architecture.md
+      - OTA: ff1/docs/os/ota.md
   - API Reference: api/reference.md
   - SDK:
     - Python: sdk/python.md
