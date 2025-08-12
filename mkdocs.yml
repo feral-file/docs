@@ -14,16 +14,18 @@ nav:
   - Bands:
     - Overview: bands/overview.md
   - FF1:
-    - Overview: ff1/docs/index.md
-    - Get Started:
+    - Home: ff1/docs/index.md
+    - Getting Started:
+      - Flash Version: ff1/docs/getting-started/flash-version.md
+      - App Testing Program: ff1/docs/getting-started/app-testing-program.md
       - Playlists: ff1/docs/getting-started/playlists.md
-      - Flashing: ff1/docs/getting-started/flash-version.md
     - Hardware:
       - FF1 Board: ff1/docs/hardware/ff1.md
       - Enclosure: ff1/docs/hardware/enclosure.md
     - How It Works:
-      - Display Flow: ff1/docs/how-it-works/display.md
-      - OTA Updates: ff1/docs/how-it-works/ota.md
+      - Life Cycle: ff1/docs/how-it-works/life-cycle.md
+      - Display: ff1/docs/how-it-works/display.md
+      - OTA: ff1/docs/how-it-works/ota.md
   - API Reference: api/reference.md
   - Contribute: contribute.md
   - FAQ: faq.md
