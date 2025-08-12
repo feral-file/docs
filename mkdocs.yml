@@ -10,15 +10,14 @@ nav:
   - FF1:
     - Overview: ff1/docs/index.md
     - Get Started:
-      - Quickstart: ff1/docs/getting-started/quickstart.md
       - Playlists: ff1/docs/getting-started/playlists.md
       - Flashing: ff1/docs/getting-started/flash-version.md
     - Hardware:
       - FF1 Board: ff1/docs/hardware/ff1.md
       - Enclosure: ff1/docs/hardware/enclosure.md
-    - OS:
-      - Architecture: ff1/docs/os/architecture.md
-      - OTA: ff1/docs/os/ota.md
+    - How It Works:
+      - Display Flow: ff1/docs/how-it-works/display.md
+      - OTA Updates: ff1/docs/how-it-works/ota.md
   - API Reference: api/reference.md
   - SDK:
     - Python: sdk/python.md
