@@ -11,22 +11,43 @@ extra_css:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.css
 nav:
   - Home: index.md
-  - Bands:
-    - Overview: bands/overview.md
   - FF1:
-    - Home: ff1/docs/index.md
+    - Home: ff1/index.md
     - Getting Started:
-      - Flash Version: ff1/docs/getting-started/flash-version.md
-      - App Testing Program: ff1/docs/getting-started/app-testing-program.md
-      - Playlists: ff1/docs/getting-started/playlists.md
-    - Hardware:
-      - FF1 Board: ff1/docs/hardware/ff1.md
-      - Enclosure: ff1/docs/hardware/enclosure.md
+      - Flash Version: ff1/getting-started/flash-version.md
+      - App Testing Program: ff1/getting-started/app-testing-program.md
+      - Playlists: ff1/getting-started/playlists.md
     - How It Works:
-      - Life Cycle: ff1/docs/how-it-works/life-cycle.md
-      - Display: ff1/docs/how-it-works/display.md
-      - OTA: ff1/docs/how-it-works/ota.md
-  - API Reference: api/reference.md
+      - Life Cycle: ff1/how-it-works/life-cycle.md
+      - Display: ff1/how-it-works/display.md
+      - OTA: ff1/how-it-works/ota.md
+    - Hardware:
+      - FF1 Board: ff1/hardware/ff1.md
+      - Enclosure: ff1/hardware/enclosure.md
+  - Exhibitions & Archive:
+    - Data Model: exhibitions-n-archive/data-model.md
+    - Token Metadata: exhibitions-n-archive/token-metadata.md
+    - Smart Contracts: exhibitions-n-archive/smart-contracts.md
+    - Data Endpoints: exhibitions-n-archive/data-endpoints.md
+  - Artwork SDK (JavaScript):
+    - Install & Basics: artwork-sdk/install-basics.md
+    - Read Token Metadata In-Artwork: artwork-sdk/token-metadata.md
+    - Event Listeners: artwork-sdk/event-listeners.md
+    - Security & Performance: artwork-sdk/security-performance.md
+  - DP-1 Protocol:
+    - Overview & JSON Schemas: dp1-protocol/overview-schemas.md
+    - Playlists: dp1-protocol/playlists.md
+    - Player Behavior: dp1-protocol/player-behavior.md
+  - API Reference:
+    - REST/OpenAPI: api-reference/rest-openapi.md
+    - Webhooks: api-reference/webhooks.md
+    - Auth & Rate-Limits: api-reference/auth-rate-limits.md
+  - LLM & Agents:
+    - Quickstart: llm-agents/quickstart.md
+    - Tool Specs: llm-agents/tool-specs.md
+    - Safety & Licensing Checks: llm-agents/safety-licensing.md
+  - Architecture:
+    - Overview: bands/overview.md
   - Contribute: contribute.md
   - FAQ: faq.md
 
