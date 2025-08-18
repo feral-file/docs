@@ -48,6 +48,7 @@ nav:
     - Safety & Licensing Checks: llm-agents/safety-licensing.md
   - Architecture:
     - Overview: bands/overview.md
+  - Changelog: changelog.md
   - Contribute: contribute.md
   - FAQ: faq.md
 
