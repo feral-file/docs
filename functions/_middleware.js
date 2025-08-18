@@ -1,4 +1,25 @@
 export const onRequest = async ({ request, env, next }) => {
+  const url = new URL(request.url);
+  const cookies = request.headers.get("Cookie") || "";
+  
+  // Check if request comes from app or has app cookie
+  const fromApp = url.searchParams.get("from") === "app";
+  const hasAppCookie = cookies.includes("app_access=true");
+  
+  // If coming from app or has valid app cookie, bypass authentication
+  if (fromApp || hasAppCookie) {
+    const response = await next();
+    
+    // Set app cookie if coming from app (lasts 30 days)
+    if (fromApp) {
+      const cookieValue = "app_access=true; Max-Age=2592000; Path=/; HttpOnly; Secure; SameSite=Strict";
+      response.headers.set("Set-Cookie", cookieValue);
+    }
+    
+    return response;
+  }
+  
+  // Original basic auth logic for non-app users
   const h = request.headers.get("Authorization") || "";
   if (!h.startsWith("Basic ")) {
     return new Response("Auth required", {
