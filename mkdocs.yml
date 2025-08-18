@@ -39,7 +39,7 @@ nav:
     - Playlists: dp1-protocol/playlists.md
     - Player Behavior: dp1-protocol/player-behavior.md
   - API Reference:
-    - REST/OpenAPI: api-reference/rest-openapi.md
+    - Command API: api-reference/command-api.md
     - Webhooks: api-reference/webhooks.md
     - Auth & Rate-Limits: api-reference/auth-rate-limits.md
   - LLM & Agents:
