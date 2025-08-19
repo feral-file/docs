@@ -2,6 +2,8 @@
 
 The Feral File Artwork JS Library uses a custom event system to notify your artwork when data is ready or errors occur. All events are dispatched on the `window` object.
 
+Attach listeners before calling the loaders—events may fire shortly after the request resolves.
+
 ## Event Types
 
 ### Provenance Events
@@ -23,6 +25,8 @@ Fired when provenance data has been successfully loaded from the blockchain.
 window.addEventListener('feralfile:provenance-ready', (event) => {
   const provenances = event.detail.provenances;
   console.log(`Found ${provenances.length} transactions`);
+
+  if (!Array.isArray(provenances)) return;
   
   // Example: Change artwork based on number of transfers
   const transfers = provenances.filter(p => p.type === 'transfer');
@@ -68,6 +72,8 @@ window.addEventListener('feralfile:provenance-request-error', (event) => {
 
 #### `feralfile:blockchain-info-ready`
 Fired when blockchain information (like current block height) is available.
+
+Note: the library exposes Ethereum block height; Tezos height is not fetched.
 
 **Event Detail:**
 ```javascript

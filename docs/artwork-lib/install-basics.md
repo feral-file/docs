@@ -11,12 +11,21 @@ The Feral File Artwork JS Library is a lightweight, dependency-free JavaScript l
 
 ### Installation
 
-#### CDN (Recommended)
+#### GitHub Releases (recommended)
 
-Load the library via CDN by adding the script tag to your HTML:
+Load the library via release asset URLs by adding the script tag to your HTML:
+
+Pin to a specific version (recommended)
 ```html
-<script src="https://ipfs.feralfile.com/ipfs/Qmc4zwYthfKRNMgoMJN16DEyjoxmZmjikLBzA1yVB7reDr" type="text/javascript"></script>
+<script src="https://github.com/feral-file/ffa-js/releases/download/v1.0.0/artwork_lib.min.js" type="text/javascript"></script>
 ```
+
+Or always latest (better for testing)
+```html
+<script src="https://github.com/feral-file/ffa-js/releases/latest/download/artwork_lib.min.js" type="text/javascript"></script>
+```
+
++ **Tip:** Use a pinned `vX.Y.Z` URL in production to avoid surprise upgrades; use `latest` only for testing.
 
 The script attaches a global:
 ```js
@@ -38,28 +47,19 @@ Download the latest release from [GitHub](https://github.com/feral-file/ffa-js/r
 ### Quickstart
   ```html
   <head>
-    <script src="https://ipfs.feralfile.com/ipfs/Qmc4zwYthfKRNMgoMJN16DEyjoxmZmjikLBzA1yVB7reDr" type="text/javascript"></script>
+    <script src="https://github.com/feral-file/ffa-js/releases/latest/download/artwork_lib.min.js" type="text/javascript"></script>
   </head>
   <body>
+    <!-- Always attach listeners before calling loaders (see Event Listeners guide) -->
     <script>
-      // Listen for results:
-      window.addEventListener('feralfile:provenance-ready', (e) => {
-        console.log('Provenance:', e.detail.provenances);
-      });
+      window.addEventListener('feralfile:provenance-ready', onProv);
+      window.addEventListener('feralfile:provenance-request-error', onProvErr);
+      window.addEventListener('feralfile:blockchain-info-ready', onHeight);
+      window.addEventListener('feralfile:blockchain-info-request-error', onHeightErr);
+    </script>
 
-      window.addEventListener('feralfile:blockchain-info-ready', (e) => {
-        console.log('Block height:', e.detail.height);
-      });
-
-       window.addEventListener('feralfile:provenance-request-error', (e) => {
-        console.log('Provenance request error:', e.detail.error);
-      });
-
-      window.addEventListener('feralfile:blockchain-info-request-error', (e) => {
-        console.log('Blockchain info request error:', e.detail.error);
-      });
-
-      // Load data, Kick off requests:
+    <script>
+      // Load onchain data
       FeralFile.loadProvenance();
       FeralFile.loadBlockchainInfo();
 
@@ -69,6 +69,8 @@ Download the latest release from [GitHub](https://github.com/feral-file/ffa-js/r
     </script>
   </body>
   ```
+
+  > See the [Event Listeners](event-listeners.md) documentation for detailed information about handling events
 
 ### Functions
   - `FeralFile.loadProvenance()`: void
@@ -88,7 +90,7 @@ Download the latest release from [GitHub](https://github.com/feral-file/ffa-js/r
     ```
 
 ### Events
-The SDK uses a custom event system to notify your artwork when data is ready. See the [Event Listeners](event-listeners.md) documentation for detailed information about handling events, error cases, and advanced patterns.
+The library uses a custom event system to notify your artwork when data is ready. See the [Event Listeners](event-listeners.md) documentation for detailed information about handling events, error cases, and advanced patterns.
 
 ### URL Parameters
 The library reads these from `window.location.search`:

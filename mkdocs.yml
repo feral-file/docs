@@ -29,11 +29,11 @@ nav:
     - Token Metadata: exhibitions-n-archive/token-metadata.md
     - Smart Contracts: exhibitions-n-archive/smart-contracts.md
     - Data Endpoints: exhibitions-n-archive/data-endpoints.md
-  - Artwork SDK (JavaScript):
-    - Install & Basics: artwork-sdk/install-basics.md
-    - Event Listeners: artwork-sdk/event-listeners.md
-    - Token Metadata In-Artwork: artwork-sdk/token-metadata.md
-    - Security & Performance: artwork-sdk/security-performance.md
+  - Artwork Library (JavaScript):
+    - Install & Basics: artwork-lib/install-basics.md
+    - Event Listeners: artwork-lib/event-listeners.md
+    - Token Metadata In-Artwork: artwork-lib/token-metadata.md
+    - Security & Performance: artwork-lib/security-performance.md
   - DP-1 Protocol:
     - Overview & JSON Schemas: dp1-protocol/overview-schemas.md
     - Playlists: dp1-protocol/playlists.md
