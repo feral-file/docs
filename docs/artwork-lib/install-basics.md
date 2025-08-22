@@ -11,27 +11,20 @@ The Feral File Artwork JS Library is a lightweight, dependency-free JavaScript l
 
 ### Installation
 
-#### Self-hosted (recommended for production)
+#### Include Library in Your Code Bundle
 
-**For maximum stability and reliability, artists should download and host the library themselves.** This approach ensures:
+For maximum stability and reliability, artists should download and include the library directly in their artwork folder. This approach ensures:
 
 - **Version stability**: Your artwork won't break if external URLs change
-- **Performance**: Faster loading from your own domain
-- **Reliability**: No dependency on external CDN availability
-- **Control**: You decide when to update library versions
+- **Bundle completeness**: Everything needed is included in your submission to Feral File
+- **No external dependencies**: Your artwork works independently
+- **Control**: You decide which library version to use
 
-Download the latest release from [GitHub](https://github.com/feral-file/ffa-js/releases) and host it on your server:
-
-```html
-<script src="./path/to/feralfile-artwork.js"></script>
-```
-
-#### GitHub Releases (for testing only)
-
-⚠️ **Not recommended for production artworks.** Use this method only during development and testing.
+Download the latest release of `artwork_lib.min.js` from [GitHub](https://github.com/feral-file/ffa-js/releases) and place it in your artwork folder.
+Load this JavaScript file in the `<head>` section of your HTML to ensure the library is available before your artwork code runs.
 
 ```html
-<script src="https://github.com/feral-file/ffa-js/releases/latest/download/artwork_lib.min.js" type="text/javascript"></script>
+<script src="./artwork_lib.min.js"></script>
 ```
 
 The script attaches a global:
@@ -46,12 +39,12 @@ window.FeralFile // { loadProvenance, loadBlockchainInfo, random, getVariables }
 
 ### Quickstart
 
-This example assumes you've downloaded and self-hosted the library (recommended approach):
+This example assumes you've downloaded and included the library in your artwork folder (recommended approach):
 
   ```html
   <head>
-    <!-- Self-hosted library - replace with your actual path -->
-    <script src="./feralfile-artwork.js" type="text/javascript"></script>
+    <!-- Library file included in your artwork folder -->
+    <script src="./artwork_lib.min.js" type="text/javascript"></script>
   </head>
   <body>
     <!-- Always attach listeners before calling loaders (see Event Listeners guide) -->
@@ -74,7 +67,7 @@ This example assumes you've downloaded and self-hosted the library (recommended 
   </body>
   ```
 
-  > **Note**: This example uses the self-hosted approach. If you're still in development/testing phase, you can temporarily use the GitHub releases URL, but remember to switch to self-hosting before deploying your artwork.
+  > **Note**: This example assumes the library file is in the same folder as your HTML file. When you ZIP your artwork for Feral File submission, make sure to include the library file in the bundle.
 
   > See the [Event Listeners](event-listeners.md) documentation for detailed information about handling events
 
