@@ -11,32 +11,32 @@ The Feral File Artwork JS Library is a lightweight, dependency-free JavaScript l
 
 ### Installation
 
-#### GitHub Releases (recommended)
+#### Self-hosted (recommended for production)
 
-Load the library via release asset URLs by adding the script tag to your HTML:
+**For maximum stability and reliability, artists should download and host the library themselves.** This approach ensures:
 
-Pin to a specific version (recommended)
+- **Version stability**: Your artwork won't break if external URLs change
+- **Performance**: Faster loading from your own domain
+- **Reliability**: No dependency on external CDN availability
+- **Control**: You decide when to update library versions
+
+Download the latest release from [GitHub](https://github.com/feral-file/ffa-js/releases) and host it on your server:
+
 ```html
-<script src="https://github.com/feral-file/ffa-js/releases/download/v1.0.0/artwork_lib.min.js" type="text/javascript"></script>
+<script src="./path/to/feralfile-artwork.js"></script>
 ```
 
-Or always latest (better for testing)
+#### GitHub Releases (for testing only)
+
+⚠️ **Not recommended for production artworks.** Use this method only during development and testing.
+
 ```html
 <script src="https://github.com/feral-file/ffa-js/releases/latest/download/artwork_lib.min.js" type="text/javascript"></script>
 ```
 
-+ **Tip:** Use a pinned `vX.Y.Z` URL in production to avoid surprise upgrades; use `latest` only for testing.
-
 The script attaches a global:
 ```js
 window.FeralFile // { loadProvenance, loadBlockchainInfo, random, getVariables }
-```
-
-#### Self-hosted
-
-Download the latest release from [GitHub](https://github.com/feral-file/ffa-js/releases) and host it yourself:
-```html
-<script src="./path/to/feralfile-artwork.js"></script>
 ```
 
 #### Browser Support
@@ -45,9 +45,13 @@ Download the latest release from [GitHub](https://github.com/feral-file/ffa-js/r
 - No Internet Explorer support
 
 ### Quickstart
+
+This example assumes you've downloaded and self-hosted the library (recommended approach):
+
   ```html
   <head>
-    <script src="https://github.com/feral-file/ffa-js/releases/latest/download/artwork_lib.min.js" type="text/javascript"></script>
+    <!-- Self-hosted library - replace with your actual path -->
+    <script src="./feralfile-artwork.js" type="text/javascript"></script>
   </head>
   <body>
     <!-- Always attach listeners before calling loaders (see Event Listeners guide) -->
@@ -69,6 +73,8 @@ Download the latest release from [GitHub](https://github.com/feral-file/ffa-js/r
     </script>
   </body>
   ```
+
+  > **Note**: This example uses the self-hosted approach. If you're still in development/testing phase, you can temporarily use the GitHub releases URL, but remember to switch to self-hosting before deploying your artwork.
 
   > See the [Event Listeners](event-listeners.md) documentation for detailed information about handling events
 
