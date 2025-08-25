@@ -1,4 +1,4 @@
-# FFX1 Device life cycle
+# FF1 Device life cycle
 
 ## App flows
 
@@ -122,7 +122,7 @@ All the events should only consider network connected scenario otherwise it can'
 
 We deploy the firmware versions through 2 main channels:
 - Dev channel: https://feralfile-device-distribution.bitmark-development.workers.dev/
-- Prod channel: https://x1.feral-file.workers.dev/
+- Prod channel: https://ff1.feral-file.workers.dev/
 
 Our versioning follow Semantic Versioning format.
 

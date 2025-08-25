@@ -21,7 +21,7 @@ The FF1 device implements a comprehensive OTA update system that can perform bot
 | Main Updater | `scripts/feral-updater.sh` | Entry point script that determines update type |
 | System Update | `scripts/feral-system-update.sh` | Full system image update via Btrfs snapshots |
 | Service Update | `scripts/feral-service-update.sh` | Package-only updates via pacman |
-| Configuration | `/home/feralfile/x1-config.json` | Update endpoint and authentication config |
+| Configuration | `/home/feralfile/ff1-config.json` | Update endpoint and authentication config |
 
 ## Update Flow
 

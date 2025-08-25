@@ -8,7 +8,7 @@ First, you will need to download the necessary software and the system image, th
 
 1. **Download and Install BalenaEtcher:** If you don't already have it, download and install BalenaEtcher, a tool for flashing OS images.  
 2. **Download the System Image:**  
-   * **URL:** [https://x1.feral-file.workers.dev](https://x1.feral-file.workers.dev){target="_blank"}
+   * **URL:** [https://ff1.feral-file.workers.dev](https://ff1.feral-file.workers.dev){target="_blank"}
    * **Account/password:** feralfile/portal
    * Download the latest image on the branch `release`
 3. **Flash the Image:**  
