@@ -12,11 +12,7 @@ extra_css:
 nav:
   - Home: index.md
   - FF1:
-    - Home: ff1/index.md
-    - Getting Started:
-      - Flash Version: ff1/getting-started/flash-version.md
-      - App Testing Program: ff1/getting-started/app-testing-program.md
-      - Playlists: ff1/getting-started/playlists.md
+    - Getting Started: ff1/index.md
     - How It Works:
       - Life Cycle: ff1/how-it-works/life-cycle.md
       - Display: ff1/how-it-works/display.md

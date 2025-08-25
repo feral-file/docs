@@ -12,6 +12,9 @@ Authoritative documentation for Feral File’s open technology stack.
 git clone https://github.com/feral-file/docs.git
 cd docs
 git submodule update --init   # pulls in ff1-docs
-pip install mkdocs-material
+python -m venv .venv 
+source .venv/bin/activate
+pip install -r requirements.txt
+
 mkdocs serve
 ```
