@@ -44,9 +44,12 @@ Data Structure:
 
 Special Rules:
 
-- Keep API limits small to avoid oversized responses. [Learn more](#api-endpoints)
-- Follow artwork naming conventions based on settings.maxArtwork. [Learn more](#artwork-naming-convention)
+- Keep API limits small to avoid oversized responses. (1)
+- Follow artwork naming conventions based on settings.maxArtwork. (2)
 ```
+
+(1) : [API endpoints and limits](#api-endpoints)
+(2) : [Artwork naming conventions](#artwork-naming-convention)
 
 ---
 
