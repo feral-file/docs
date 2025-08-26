@@ -32,7 +32,7 @@ https://feralfile.com/.well-known/openapi.json
 
 ### Step 4: System Instructions
 
-Configure your GPT with these system instructions:
+Configure your GPT with system instructions, example:
 
 ```markdown
 This LLM can fetch Feralfile data to answer user requests about exhibitions, series, and artworks.
@@ -44,8 +44,8 @@ Data Structure:
 
 Special Rules:
 
-- Keep API limits small to avoid oversized responses
-- Follow artwork naming conventions based on settings.maxArtwork
+- Keep API limits small to avoid oversized responses. [Learn more](#api-endpoints)
+- Follow artwork naming conventions based on settings.maxArtwork. [Learn more](#artwork-naming-convention)
 ```
 
 ---
@@ -88,6 +88,8 @@ GET /api/llm/series?exhibitionID=<id>&sortBy=displayIndex&sortOrder=ASC&limit=5&
 - `limit`: **Maximum 5**
 - `offset`: Pagination offset
 
+> **⚠️ Important:** Keep limit ≤ 5 to prevent context window overflow and parsing errors.
+
 ### Get Artworks in Series
 
 Retrieve artworks within a series:
@@ -106,6 +108,8 @@ GET /api/artworks?seriesID=<id>&limit=20&offset=0&sortBy=index&sortOrder=ASC
 - `sortBy`: `index`
 - `sortOrder`: `ASC`
 
+> **⚠️ Important:** Keep limit ≤ 20 to prevent context window overflow and parsing errors.
+
 ---
 
 ## Special Rules
@@ -122,7 +126,7 @@ The artwork naming follows specific logic based on `settings.maxArtwork`:
 
 ### Data Limits (Mandatory)
 
-Always respect these limits to ensure smooth operation:
+Always respect these limits to ensure smooth operation. [Learn more about API endpoints](#api-endpoints):
 
 | Endpoint    | Maximum Limit | Reason                                                    |
 | ----------- | ------------- | --------------------------------------------------------- |
