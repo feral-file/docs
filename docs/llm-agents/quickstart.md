@@ -1,17 +1,16 @@
 # LLM & Agents – Quickstart
 
-## 🚀 Introduction
+## Introduction
 
 This guide explains how to set up a Large Language Model (LLM) that can call APIs to fetch real-time data from **Feralfile**. The goal is to enable your AI agent to answer questions based on live data from exhibitions, series, and artworks.
 
 ### Quick Demo
 
-Try our preconfigured GPT right away:
-**👉 [Feralfile Data GPT](https://chatgpt.com/g/g-6894c9f2dfec8191a94e3ae0a7fe82dc-feralfile-data)**
+Try our preconfigured GPT right away: **[Feralfile Data GPT](https://chatgpt.com/g/g-6894c9f2dfec8191a94e3ae0a7fe82dc-feralfile-data)**
 
 ---
 
-## 🛠️ Setup Guide
+## Setup Guide
 
 ### Step 1: Create Custom GPT
 
@@ -51,9 +50,9 @@ Special Rules:
 
 ---
 
-## 📋 API Endpoints
+## API Endpoints
 
-### 🔍 Search Exhibitions
+### Search Exhibitions
 
 Find exhibitions by keyword:
 
@@ -67,11 +66,11 @@ GET /api/llm/exhibitions?keyword=<name>&sortBy=relevance&limit=2
 
 - `keyword`: Search term
 - `sortBy`: `relevance` (recommended)
-- `limit`: **Maximum 2** ⚠️
+- `limit`: **Maximum 2**
 
 > **⚠️ Important:** Keep limit ≤ 2 to prevent context window overflow and parsing errors.
 
-### 📚 Get Series in Exhibition
+### Get Series in Exhibition
 
 Retrieve series within an exhibition:
 
@@ -89,7 +88,7 @@ GET /api/llm/series?exhibitionID=<id>&sortBy=displayIndex&sortOrder=ASC&limit=5&
 - `limit`: **Maximum 5**
 - `offset`: Pagination offset
 
-### 🎨 Get Artworks in Series
+### Get Artworks in Series
 
 Retrieve artworks within a series:
 
@@ -109,9 +108,9 @@ GET /api/artworks?seriesID=<id>&limit=20&offset=0&sortBy=index&sortOrder=ASC
 
 ---
 
-## ⚙️ Special Rules
+## Special Rules
 
-### 🏷️ Artwork Naming Convention
+### Artwork Naming Convention
 
 The artwork naming follows specific logic based on `settings.maxArtwork`:
 
@@ -121,7 +120,7 @@ The artwork naming follows specific logic based on `settings.maxArtwork`:
 - **Otherwise:**
   Artwork name = `series.title + " " + artwork.name`
 
-### 📊 Data Limits (Mandatory)
+### Data Limits (Mandatory)
 
 Always respect these limits to ensure smooth operation:
 
@@ -133,7 +132,7 @@ Always respect these limits to ensure smooth operation:
 
 ---
 
-## 💡 Example Usage
+## Example Usage
 
 ### Prompt
 
