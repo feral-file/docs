@@ -28,8 +28,6 @@ nav:
   - Artwork Library (JavaScript):
     - Install & Basics: artwork-lib/install-basics.md
     - Event Listeners: artwork-lib/event-listeners.md
-    - Token Metadata In-Artwork: artwork-lib/token-metadata.md
-    - Security & Performance: artwork-lib/security-performance.md
   - DP-1 Protocol:
     - Overview & JSON Schemas: dp1-protocol/overview-schemas.md
     - Playlists: dp1-protocol/playlists.md
