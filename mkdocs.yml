@@ -21,7 +21,7 @@ nav:
       - FF1 Board: ff1/hardware/ff1.md
       - Enclosure: ff1/hardware/enclosure.md
   - Exhibitions & Archive:
-    - Data Model: exhibitions-n-archive/data-model.md
+    - Exhibition Structure & Data Model: exhibitions-n-archive/exhibition-structure.md
     - Token Metadata: exhibitions-n-archive/token-metadata.md
     - Smart Contracts: exhibitions-n-archive/smart-contracts.md
     - Data Endpoints: exhibitions-n-archive/data-endpoints.md
