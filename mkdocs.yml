@@ -20,6 +20,8 @@ nav:
     - Hardware:
       - FF1 Board: ff1/hardware/ff1.md
       - Enclosure: ff1/hardware/enclosure.md
+    - QEMU:
+      - macOS: ff1/qemu/macOS.md
   - Exhibitions & Archive:
     - Exhibition Structure & Data Model: exhibitions-n-archive/exhibition-structure.md
     - Token Metadata: exhibitions-n-archive/token-metadata.md

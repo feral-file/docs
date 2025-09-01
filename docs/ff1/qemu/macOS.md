@@ -4,6 +4,8 @@ This guide explains how to use QEMU to emulate the FF1 OS on a Mac. It is intend
 
 It's just for testing purpose.
 
+Note: This guide assumes you are comfortable with the terminal and basic Unix commands. For further help, consult the FF1 OS community or documentation.
+
 ## Prerequisites
 
 - macOS
@@ -60,5 +62,3 @@ It's just for testing purpose.
 6. Troubleshooting
     - Ensure the ISO path is correct and the file exists.
     - If you encounter permission issues, try `chmod +x install.sh run.sh`.
-
-Note: This guide assumes you are comfortable with the terminal and basic Unix commands. For further help, consult the FF1 OS community or documentation.
