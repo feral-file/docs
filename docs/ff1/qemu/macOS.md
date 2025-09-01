@@ -39,6 +39,7 @@ Note: This guide assumes you are comfortable with the terminal and basic Unix co
     ```
 
     The script will:
+
     - Check for Homebrew and QEMU, and install QEMU if missing
     - Copy required firmware files
     - Create a virtual disk image (ff1.qcow2)
