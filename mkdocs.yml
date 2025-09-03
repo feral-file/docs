@@ -23,7 +23,8 @@ nav:
     - QEMU:
       - macOS: ff1/qemu/macOS.md
   - Exhibitions & Archive:
-    - Exhibition Structure & Data Model: exhibitions-n-archive/exhibition-structure.md
+    - Exhibition Structure: exhibitions-n-archive/exhibition-structure.md
+    - Modeling Artworks: exhibitions-n-archive/modeling-work.md
     - Token Metadata: exhibitions-n-archive/token-metadata.md
     - Smart Contracts: exhibitions-n-archive/smart-contracts.md
     - Data Endpoints: exhibitions-n-archive/data-endpoints.md
