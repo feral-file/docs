@@ -13,6 +13,7 @@ The DP-1 Feed Server is the backbone infrastructure of the Display Protocol (DP-
 The Feed Server is a specialized web service that acts as the central hub for playlist management in the DP-1 protocol. It bridges the gap between content creation (through AI-powered commands or manual curation) and content consumption (on display devices like FF1 or other DP-1 compatible clients).
 
 **Key Functions:**
+
 - **Playlist Registry**: Stores and indexes DP-1 compliant playlists with unique identifiers
 - **Schema Validation**: Ensures all playlists conform to DP-1 specifications before storage
 - **Cryptographic Security**: Signs playlists with Ed25519 signatures for tamper-proof authenticity
@@ -69,16 +70,19 @@ graph TB
 The DP-1 Feed Server is built using modern, edge-optimized technologies:
 
 **Runtime Environment:**
+
 - **[Hono](https://hono.dev/)** - Ultra-fast web framework optimized for edge computing
 - **Cloudflare Workers** - Serverless execution environment with global distribution
 - **TypeScript** - Type-safe development with excellent tooling support
 
 **Storage & Infrastructure:**
+
 - **Cloudflare KV** - Global key-value store for playlist data
 - **Edge Caching** - Automatic caching at 200+ global locations
 - **CDN Integration** - Seamless content delivery optimization
 
 **Security & Validation:**
+
 - **Ed25519 Cryptography** - Digital signatures for playlist authenticity
 - **JSON Schema Validation** - Strict compliance with DP-1 specifications
 - **API Key Authentication** - Secure access control for write operations
@@ -177,6 +181,7 @@ curl -H "Authorization: Bearer your-api-key-here" \
 Creates a new playlist with automatic validation and signing.
 
 **Request Headers:**
+
 - `Content-Type: application/json`
 - `Authorization: Bearer <your-api-key>` (required)
 
@@ -247,8 +252,9 @@ Creates a new playlist with automatic validation and signing.
   "signature": "ed25519:0xabc..."
 }
 ```
-$$
+
 **Error Responses:**
+
 - `400 Bad Request` - Invalid playlist format or missing required fields
 - `401 Unauthorized` - Missing or invalid API key
 - `500 Internal Server Error` - Internal server error
@@ -260,6 +266,7 @@ $$
 Replace an existing playlist with automatic validation and signing.
 
 **Request Headers:**
+
 - `Content-Type: application/json`
 - `Authorization: Bearer <your-api-key>` (required)
 
@@ -330,8 +337,9 @@ Replace an existing playlist with automatic validation and signing.
   "signature": "ed25519:0xabc..."
 }
 ```
-$$
+
 **Error Responses:**
+
 - `400 Bad Request` - Invalid playlist format or missing required fields
 - `401 Unauthorized` - Missing or invalid API key
 - `500 Internal Server Error` - Internal server error
@@ -343,6 +351,7 @@ $$
 Update an existing playlist with automatic validation and signing.
 
 **Request Headers:**
+
 - `Content-Type: application/json`
 - `Authorization: Bearer <your-api-key>` (required)
 
@@ -396,8 +405,9 @@ Update an existing playlist with automatic validation and signing.
   "signature": "ed25519:0xabc..."
 }
 ```
-$$
+
 **Error Responses:**
+
 - `400 Bad Request` - Invalid playlist format or missing required fields or update protected fields.
 - `401 Unauthorized` - Missing or invalid API key
 - `500 Internal Server Error` - Internal server error
@@ -449,6 +459,7 @@ Retrieves a playlist by its unique identifier.
 ```
 
 **Error Responses:**
+
 - `400 Bad Request` - Playlist identifier format is invalid
 - `404 Not Found` - Playlist does not exist
 - `500 Internal Server Error` - Server error during retrieval
@@ -460,6 +471,7 @@ Retrieves a playlist by its unique identifier.
 Returns a paginated list of playlist metadata.
 
 **Query Parameters:**
+
 - `limit` (optional) - Number of results per page (default: 100, max: 100)
 - `cursor` (optional) - cursor point to the first item of the next page
 - `sort` (optional) - Sort order for creation time: `asc` or `desc` (default: `asc`)
@@ -501,9 +513,10 @@ Returns server status and version information.
 ```json
 {
   "status": "healthy",
-  "version": "1.2.0",
-  "timestamp": "2024-01-15T10:30:00Z",
-  "region": "DFW"
+  "timestamp": "2025-09-08T07:36:30.348Z",
+  "version": "1.0.0",
+  "environment": "development",
+  "runtime": "cloudflare-worker"
 }
 ```
 
@@ -526,11 +539,13 @@ The Feed Server implements comprehensive validation to ensure all stored playlis
 #### Validation Rules
 
 **Playlist Level:**
+
 - `dpVersion` must be a valid semantic version (e.g., "1.0.0")
 - `items` array must contain at least one item
 - `defaults.display` settings must be valid display parameters
 
 **Item Level:**
+
 - `duration` must be a positive integer (seconds)
 - `license` must be one of: `open`, `token`, `subscription`
 - `provenance` must include valid blockchain or off-chain metadata
@@ -572,11 +587,13 @@ The Feed Server uses Cloudflare KV for globally distributed storage with automat
 #### Storage Strategy
 
 **Playlist Storage:**
+
 - **Key Format**: `playlist:{id}` or `playlist:{slug}` (e.g., `playlist:d241c5ad-a5e0-451e-89ec-de442811a869`)
 - **Value**: Complete signed playlist JSON
 - **TTL**: No expiration (permanent storage)
 
 **Index Storage:**
+
 - **Key Format**: `playlist:created:asc:{timestamp}:{id}` or `playlist:created:desc:{timestamp}:{id}`
 - **Value**: Playlist ID for listing operations
 - **Purpose**: Enables efficient pagination and sorting

@@ -33,6 +33,7 @@ The Feed Server and Validator are the backbone components of the DP-1 protocol:
 
 ### Feed Server
 The Feed Server is a core entity of DP-1 that serves as a registry for playlists. It:
+
 - Stores validated playlists in a centralized registry
 - Validates playlists against DP-1 schema specifications
 - Distributes playlists to display clients and other consumers
@@ -41,13 +42,14 @@ The Feed Server is a core entity of DP-1 that serves as a registry for playlists
 
 ### Validator
 The Validator ensures playlist compliance with DP-1 standards by:
+
 - Validating playlist structure against the DP-1 schema
 - Checking required fields and data types
 - Verifying playlist metadata completeness
 - Rejecting non-compliant playlists with detailed error messages
 - Ensuring data integrity before playlist storage and distribution
 
-For detailed information about Feed Server implementation and configuration, see the dedicated [Feed Server section](#feed-server).
+For detailed information about Feed Server implementation and configuration, see the dedicated [Feed Server section](feed-server.md).
 
 ## Playlist Schema
 
@@ -66,14 +68,14 @@ The DP-1 Playlist Schema defines the following key components:
 
 A typical DP-1 playlist schema includes:
 
-- **Playlist ID**: Unique identifier for the playlist
-- **Title**: Display name of the playlist
-- **Items**: Array of content items, each containing:
-  - Media URL or reference
-  - Duration and timing information
-  - Metadata (title, artist, description)
-  - Display parameters
-- **Metadata**: Creation timestamp, DP-1 version, and administrative information
+* **Playlist ID**: Unique identifier for the playlist
+* **Title**: Display name of the playlist
+* **Items**: Array of content items, each containing:
+    - Media URL or reference
+    - Duration and timing information
+    - Metadata (title, artist, description)
+    - Display parameters
+* **Metadata**: Creation timestamp, DP-1 version, and administrative information
 
 ## DP-1 Schema Specification
 
@@ -86,6 +88,7 @@ Based on the official DP-1 specification, a Playlist consists of the following c
 **Note**: For the most accurate and up-to-date field definitions, data types, and requirements (required vs optional), please refer directly to the [Feed Server OpenAPI specification](https://github.com/display-protocol/dp1/blob/main/docs/feed-api.yaml) which contains the authoritative schema definitions.
 
 Key playlist fields include:
+
 - Unique playlist identifier
 - Protocol version information  
 - Creation timestamp
@@ -97,6 +100,7 @@ Key playlist fields include:
 ### Playlist Item Structure
 
 Each item within a playlist contains:
+
 - Unique item identifier
 - Creation timestamp
 - Display duration
@@ -113,42 +117,42 @@ Based on the DP-1 specification and API documentation, here are the detailed fie
 
 #### Playlist Fields
 
-- **`dpVersion`** (string, required): The DP-1 protocol version identifier (e.g., "1.0.0")
-- **`id`** (string, required): Unique identifier for the playlist
-- **`created`** (string, required): RFC3339 timestamp of playlist creation
-- **`title`** (string, optional): Human-readable name for the playlist
-- **`defaults`** (object, optional): Default display settings applied to all items
-  - **`display`** (object): Display configuration
-    - **`scaling`** (string): How content should be scaled (e.g., "fit")
-    - **`background`** (string): Background color (e.g., "#111")
-    - **`margin`** (string): Margin settings (e.g., "5%")
-- **`items`** (array, required): Array of playlist item objects
-- **`signature`** (string, required): Ed25519 cryptographic signature for authenticity verification
+* **`dpVersion`** (string, required): The DP-1 protocol version identifier (e.g., "1.0.0")
+* **`id`** (string, required): Unique identifier for the playlist
+* **`created`** (string, required): RFC3339 timestamp of playlist creation
+* **`title`** (string, optional): Human-readable name for the playlist
+* **`defaults`** (object, optional): Default display settings applied to all items
+    - **`display`** (object): Display configuration
+        - **`scaling`** (string): How content should be scaled (e.g., "fit")
+        - **`background`** (string): Background color (e.g., "#111")
+        - **`margin`** (string): Margin settings (e.g., "5%")
+* **`items`** (array, required): Array of playlist item objects
+* **`signature`** (string, required): Ed25519 cryptographic signature for authenticity verification
 
 #### Playlist Item Fields
 
 Each item in the `items` array contains:
 
-- **`id`** (string, required): Unique identifier for the content item
-- **`slug`** (string, required): URL-friendly identifier for the content item
-- **`title`** (string, optional): Human-readable title for the content item
-- **`source`** (string, optional): URL to the content source (e.g., HTML, video, image)
-- **`duration`** (integer, required): Display duration in seconds
-- **`license`** (string, required): Licensing information for the content (e.g., "open", "token", "subscription")
-- **`ref`** (string, optional): Reference to external metadata (e.g., IPFS URI to manifest)
-- **`override`** (object, optional): Override settings for this specific item
-- **`display`** (object, optional): Display settings specific to this item
-  - **`scaling`** (string): How content should be scaled (e.g., "fit")
-  - **`background`** (string): Background color (e.g., "#000000")
-  - **`margin`** (string): Margin settings (e.g., "5%", "5px")
-- **`repro`** (object, optional): Reproduction-specific settings (implementation-defined)
-- **`provenance`** (object, optional): Blockchain provenance information
-  - **`type`** (string): Type of provenance (e.g., "onChain", "seriesRegistry", "offChainURI")
-  - **`contract`** (object): Smart contract details
-    - **`chain`** (string): Blockchain network identifier (e.g., "evm", "tezos")
-    - **`standard`** (string): Token standard (e.g., "erc721", "erc1155", "fa2")
-    - **`address`** (string): Smart contract address
-    - **`tokenId`** (string): Token identifier on the blockchain
+* **`id`** (string, required): Unique identifier for the content item
+* **`slug`** (string, required): URL-friendly identifier for the content item
+* **`title`** (string, optional): Human-readable title for the content item
+* **`source`** (string, optional): URL to the content source (e.g., HTML, video, image)
+* **`duration`** (integer, required): Display duration in seconds
+* **`license`** (string, required): Licensing information for the content (e.g., "open", "token", "subscription")
+* **`ref`** (string, optional): Reference to external metadata (e.g., IPFS URI to manifest)
+* **`override`** (object, optional): Override settings for this specific item
+* **`display`** (object, optional): Display settings specific to this item
+    - **`scaling`** (string): How content should be scaled (e.g., "fit")
+    - **`background`** (string): Background color (e.g., "#000000")
+    - **`margin`** (string): Margin settings (e.g., "5%", "5px")
+* **`repro`** (object, optional): Reproduction-specific settings (implementation-defined)
+* **`provenance`** (object, optional): Blockchain provenance information
+    - **`type`** (string): Type of provenance (e.g., "onChain", "seriesRegistry", "offChainURI")
+    - **`contract`** (object): Smart contract details
+        - **`chain`** (string): Blockchain network identifier (e.g., "evm", "tezos")
+        - **`standard`** (string): Token standard (e.g., "erc721", "erc1155", "fa2")
+        - **`address`** (string): Smart contract address
+        - **`tokenId`** (string): Token identifier on the blockchain
 
 ### Schema Example
 
@@ -230,5 +234,6 @@ The validation process helps maintain data integrity and ensures interoperabilit
 ## Next Steps
 
 Now that you understand the basics of DP-1, you can explore:
+
 - [Feed Server Implementation](#feed-server.md) - Detailed guide to setting up and configuring Feed Servers
 - [Player Behavior](player-behavior.md) - How display clients interpret and render content
