@@ -33,7 +33,7 @@ nav:
     - Event Listeners: artwork-lib/event-listeners.md
   - DP-1 Protocol:
     - Overview & JSON Schemas: dp1-protocol/overview-schemas.md
-    - Playlists: dp1-protocol/playlists.md
+    - Feed Server: dp1-protocol/feed-server.md
     - Player Behavior: dp1-protocol/player-behavior.md
   - API Reference:
     - Command API: api-reference/command-api.md
