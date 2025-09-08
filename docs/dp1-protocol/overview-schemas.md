@@ -49,7 +49,7 @@ The Validator ensures playlist compliance with DP-1 standards by:
 - Rejecting non-compliant playlists with detailed error messages
 - Ensuring data integrity before playlist storage and distribution
 
-For detailed information about Feed Server implementation and configuration, see the dedicated [Feed Server section](feed-server.md).
+For detailed information about Feed Server implementation and configuration, see the dedicated [Feed Server](feed-server.md).
 
 ## Playlist Schema
 
@@ -235,5 +235,5 @@ The validation process helps maintain data integrity and ensures interoperabilit
 
 Now that you understand the basics of DP-1, you can explore:
 
-- [Feed Server Implementation](#feed-server.md) - Detailed guide to setting up and configuring Feed Servers
+- [Feed Server Implementation](feed-server.md) - Detailed guide to setting up and configuring Feed Servers
 - [Player Behavior](player-behavior.md) - How display clients interpret and render content
