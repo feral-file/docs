@@ -18,48 +18,54 @@ Note: This guide assumes you are comfortable with the terminal and basic Unix co
 
 ## Usage
 
-1. Clone the Repository
+1. Create a Working Directory
+   ```bash
+   mkdir ff1-qemu && cd ff1-qemu
+   ```
 
-    - Clone the FF1 OS repository to your local machine:
+2. Download the Required Scripts
+   ```bash
+   curl -O https://raw.githubusercontent.com/feral-file/ffos/refs/heads/develop/qemu/MacOS/install.sh
+   curl -O https://raw.githubusercontent.com/feral-file/ffos/refs/heads/develop/qemu/MacOS/run.sh
+   chmod +x install.sh run.sh
+   ```
 
-    ```bash
-    git clone https://github.com/feral-file/ffos.git
-    cd ffos/qemu/MacOS
-    ```
+3. Download the FF1 OS QEMU ISO
+   - Download the QEMU-specific ISO image for FF1 OS from the official distribution site: <https://ff1.feral-file.workers.dev/>
+   - Download the QEMU iso file
+   - Place the ISO file in your current directory (`ff1-qemu`)
 
-2. Download the FF1 OS QEMU ISO
-    - Download the QEMU-specific ISO image for FF1 OS from the official distribution site: <https://ff1.feral-file.workers.dev/>
-    - Download the QEMU iso file
-    - Place the ISO file in the `ffos/qemu/MacOS`
-3. Install the QEMU Script
-    - The repository provides a script to automate QEMU setup and launch.
+4. Install the QEMU Script
+   - The install script will automate QEMU setup and launch.
 
-    ```bash
-    ./install.sh FF1-other-qemu-0.0.1.iso
-    ```
+   ```bash
+   ./install.sh FF1-other-qemu-0.0.1.iso
+   ```
 
-    The script will:
+   The script will:
 
-    - Check for Homebrew and QEMU, and install QEMU if missing
-    - Copy required firmware files
-    - Create a virtual disk image (ff1.qcow2)
-    - Launch QEMU with recommended settings for FF1 OS
-    - Install FF1 OS and shutdown the virtual machine
-4. Run the QEMU VM
-    - Run the script to start running the installed FF1 OS.
+   - Check for Homebrew and QEMU, and install QEMU if missing
+   - Copy required firmware files
+   - Create a virtual disk image (ff1.qcow2)
+   - Launch QEMU with recommended settings for FF1 OS
+   - Install FF1 OS and shutdown the virtual machine
 
-    ```bash
-    ./run.sh
-    ```
+5. Run the QEMU VM
+   - Run the script to start running the installed FF1 OS.
 
-5. Accessing the Virtual Machine
-    - The VM will open in a new window using QEMU's Cocoa display.
-    - SSH access is forwarded to localhost:2222
+   ```bash
+   ./run.sh
+   ```
 
-    ```bash
-    ssh -p 2222 feralfile@localhost
-    ```
+6. Accessing the Virtual Machine
+   - The VM will open in a new window using QEMU's Cocoa display.
+   - SSH access is forwarded to localhost:2222
 
-6. Troubleshooting
-    - Ensure the ISO path is correct and the file exists.
-    - If you encounter permission issues, try `chmod +x install.sh run.sh`.
+   ```bash
+   ssh -p 2222 feralfile@localhost
+   ```
+
+7. Troubleshooting
+   - Ensure the ISO path is correct and the file exists.
+   - If you encounter permission issues, try `chmod +x install.sh run.sh`.
+   - Make sure all files (scripts and ISO) are in the same directory.
