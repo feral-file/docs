@@ -30,8 +30,9 @@ assignees: ''
 
 - **Environment**:  
   - FF OS: <e.g., v0.6>  
-  - App Version: <e.g., v0.63.0(579) Android>  
-  - Network: <e.g., Wi-Fi, no VPN>  
+  - Mobile App Version: <e.g., v0.63.0(579) Android>  
+  - Network: <e.g., Wi-Fi, no VPN>
+  - Screen: <e.g., Samsung Frame 55" 2024>
 
 - **Logs/Screenshots**:  
   <Paste logs from journalctl or runbook; attach images/videos. e.g., "See attached repro.mp4. Log: `sig verify failed` from pairing-api.">
