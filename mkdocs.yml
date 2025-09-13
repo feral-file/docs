@@ -32,9 +32,11 @@ nav:
     - Install & Basics: artwork-lib/install-basics.md
     - Event Listeners: artwork-lib/event-listeners.md
   - DP-1 Protocol:
-    - Overview & JSON Schemas: dp1-protocol/overview-schemas.md
-    - Feed Server: dp1-protocol/feed-server.md
-    - Player Behavior: dp1-protocol/player-behavior.md
+    - Overview: dp1-protocol/overview.md 
+    - Schemas: dp1-protocol/schemas.md 
+    - Feed Server: dp1-protocol/feed-server.md 
+    - Player Behavior: dp1-protocol/player-behavior.md 
+    - FF1 Integration: dp1-protocol/ff1-integration.md 
   - API Reference:
     - Command API: api-reference/command-api.md
     - Webhooks: api-reference/webhooks.md
