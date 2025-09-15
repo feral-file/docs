@@ -273,6 +273,7 @@ Grab by UUID or slug.
 Paginated metadata list.
 
 **Query Params:**
+
 - `limit` (opt, default 100, max 100)
 - `cursor` (opt, for next page)
 - `sort` (opt, `asc`/`desc` by created, default `asc`)
@@ -324,11 +325,13 @@ We run full checks on every submit to keep things DP-1 compliant.
 #### Validation Rules (Feral Flavor)
 
 **Playlist Level:**
+
 - `dpVersion` must match supported versions (e.g., "1.0.0")
 - At least one item in `items`
 - Display defaults must be sane
 
 **Item Level:**
+
 - `duration` > 0 seconds
 - `license` in ["open", "token", "subscription"]
 - Provenance must link to valid chains if on-chain
@@ -346,6 +349,7 @@ Errors come back detailed, like:
 Every playlist gets signed for trust—no tampering allowed.
 
 **How It Works:**
+
 1. Canonical JSON (per [RFC 8785](https://www.rfc-editor.org/rfc/rfc8785))
 2. SHA-256 hash
 3. Ed25519 sign with our private key
@@ -382,4 +386,4 @@ Feral's Feed Server makes DP-1 feel effortless—create, validate, distribute, d
 2. Test a playlist POST
 3. Check [Player Behavior](player-behavior.md) for FF1 rendering tips
 
-For protocol deep dives, head to [DP-1 spec](https://github.com/display-protocol/dp1/main/docs/spec.md).
+For protocol deep dives, head to [DP-1 spec](https://github.com/display-protocol/dp1/blob/main/docs/spec.md).
