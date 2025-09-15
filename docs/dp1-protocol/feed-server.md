@@ -11,6 +11,7 @@ Feral's DP-1 Feed Server is the production backbone for our digital art playlist
 This guide zooms in on our hosted instance—endpoints, auth, and workflows tailored to Feral exhibitions. For the open-source implementation details (like building your own), check out the [dp1-feed repo](https://github.com/display-protocol/dp1-feed).
 
 **Key Functions:**
+
 - **Playlist Registry**: Stores and indexes DP-1 compliant playlists with unique IDs
 - **Schema Validation**: Checks everything against DP-1 specs before saving
 - **Cryptographic Security**: Signs playlists with Ed25519 for authenticity
