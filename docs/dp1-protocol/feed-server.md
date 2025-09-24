@@ -368,7 +368,7 @@ Cloudflare KV handles the heavy lifting—global, replicated, no TTLs for perman
 
 ## Development & Deployment
 
-Want to run your own? The [dp1-feed repo](https://github.com/display-protocol/dp1-feed) has Cloudflare Workers and Node.js guides. For Feral-specific tweaks, hit up our [contribute.md](contribute.md).
+Want to run your own? The [dp1-feed repo](https://github.com/display-protocol/dp1-feed) has Cloudflare Workers and Node.js guides. For Feral-specific tweaks, hit up our [fork](https://github.com/feral-file/dp1-feed).
 
 ---
 

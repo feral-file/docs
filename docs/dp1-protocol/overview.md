@@ -13,7 +13,7 @@ Key DP-1 pieces in our ecosystem:
 
 - **Feed Server**: Our hosted registry [](https://feed.feralfile.com) stores, validates, and signs playlists. See [Feed Server](feed-server.md).
 - **Validator**: Ensures schema compliance and Ed25519 signatures. Use the open [DP-1 Validator](https://github.com/display-protocol/dp1-validator) CLI.
-- **Schema**: Defines playlists with metadata, items, and display rules. Dive into [schemas.md](schemas.md) or the [OpenAPI spec (raw)](https://github.com/display-protocol/dp1/blob/main/docs/feed-api.yaml).
+- **Schema**: Defines playlists with metadata, items, and display rules. Dive into [schemas.md](schemas.md) or the [OpenAPI spec (raw)](https://github.com/display-protocol/dp1-feed/blob/main/openapi.yaml).
 - **Display Client**: FF1 renders these—optimized for provenance checks and OTA updates.
 
 ## Benefits of DP-1
