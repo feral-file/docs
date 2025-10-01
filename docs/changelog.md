@@ -1,5 +1,35 @@
 # Change logs
 
+## Sep 30
+
+### FF1 firmware 0.8.0
+
+- Display Personal Collections
+
+Devices now support your personal Collection as a playlist, dynamically updating as your collection changes over time.
+
+### Mobile app 0.63.0
+
+- Factory Reset via Bluetooth
+
+Reset your FF1 directly from the app.
+
+- What’s Playing Next
+
+The Now Displaying bar now shows which artwork is coming up.
+
+- Add Viewing Addresses
+
+Add your Ethereum or Tezos addresses right in the Collection tab to sync your art.
+
+- Search & Add with the Prompt Bar
+
+Use natural language in the Prompt Bar to search playlists or add addresses.
+
+- Developer Support: QEMU Build
+
+Developers can now run the app in QEMU (see QEMU instructions).
+
 ## Sep 19
 
 ### FF1 firmware 0.7.0
