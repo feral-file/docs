@@ -1,4 +1,4 @@
-# Welcome to Feral File Docs (WORK IN PROGRESS)
+# Welcome to Feral File Docs
 
 This site covers everything you need to **build, integrate, or collect** with Feral File.
 
