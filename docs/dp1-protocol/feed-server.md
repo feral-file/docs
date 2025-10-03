@@ -11,6 +11,7 @@ Feral's DP-1 Feed Server is the production backbone for our digital art playlist
 This guide zooms in on our hosted instance—endpoints, auth, and workflows tailored to Feral exhibitions. For the open-source implementation details (like building your own), check out the [dp1-feed repo](https://github.com/display-protocol/dp1-feed).
 
 **Key Functions:**
+
 - **Playlist Registry**: Stores and indexes DP-1 compliant playlists with unique IDs
 - **Schema Validation**: Checks everything against DP-1 specs before saving
 - **Cryptographic Security**: Signs playlists with Ed25519 for authenticity
@@ -273,6 +274,7 @@ Grab by UUID or slug.
 Paginated metadata list.
 
 **Query Params:**
+
 - `limit` (opt, default 100, max 100)
 - `cursor` (opt, for next page)
 - `sort` (opt, `asc`/`desc` by created, default `asc`)
@@ -324,11 +326,13 @@ We run full checks on every submit to keep things DP-1 compliant.
 #### Validation Rules (Feral Flavor)
 
 **Playlist Level:**
+
 - `dpVersion` must match supported versions (e.g., "1.0.0")
 - At least one item in `items`
 - Display defaults must be sane
 
 **Item Level:**
+
 - `duration` > 0 seconds
 - `license` in ["open", "token", "subscription"]
 - Provenance must link to valid chains if on-chain
@@ -346,6 +350,7 @@ Errors come back detailed, like:
 Every playlist gets signed for trust—no tampering allowed.
 
 **How It Works:**
+
 1. Canonical JSON (per [RFC 8785](https://www.rfc-editor.org/rfc/rfc8785))
 2. SHA-256 hash
 3. Ed25519 sign with our private key
@@ -363,7 +368,7 @@ Cloudflare KV handles the heavy lifting—global, replicated, no TTLs for perman
 
 ## Development & Deployment
 
-Want to run your own? The [dp1-feed repo](https://github.com/display-protocol/dp1-feed) has Cloudflare Workers and Node.js guides. For Feral-specific tweaks, hit up our [contribute.md](contribute.md).
+Want to run your own? The [dp1-feed repo](https://github.com/display-protocol/dp1-feed) has Cloudflare Workers and Node.js guides. For Feral-specific tweaks, hit up our [fork](https://github.com/feral-file/dp1-feed).
 
 ---
 
@@ -382,4 +387,4 @@ Feral's Feed Server makes DP-1 feel effortless—create, validate, distribute, d
 2. Test a playlist POST
 3. Check [Player Behavior](player-behavior.md) for FF1 rendering tips
 
-For protocol deep dives, head to [DP-1 spec](https://github.com/display-protocol/dp1/main/docs/spec.md).
+For protocol deep dives, head to [DP-1 spec](https://github.com/display-protocol/dp1/blob/main/docs/spec.md).

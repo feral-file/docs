@@ -17,9 +17,7 @@ nav:
       - Life Cycle: ff1/how-it-works/life-cycle.md
       - Display: ff1/how-it-works/display.md
       - OTA: ff1/how-it-works/ota.md
-    - Hardware:
-      - FF1 Board: ff1/hardware/ff1.md
-      - Enclosure: ff1/hardware/enclosure.md
+    - Specification: ff1/specification.md
     - QEMU:
       - macOS: ff1/qemu/macOS.md
   - Exhibitions & Archive:

@@ -1,6 +1,6 @@
 # DP-1 Schemas
 
-For authoritative definitions, refer to the [DP-1 JSON schemas](https://github.com/display-protocol/dp1/main/docs/spec.md) and [Feed API spec](https://github.com/display-protocol/dp1/main/docs/feed-api.yaml) in the public repo.
+For authoritative definitions, refer to the [DP-1 JSON schemas](https://github.com/display-protocol/dp1/blob/main/docs/spec.md) and [Feed API spec](https://github.com/display-protocol/dp1-feed/blob/main/openapi.yaml) in the public repo.
 
 ## Feral File Examples
 Feral workflows often extend core schemas with exhibition metadata. Example for an FF1-bound artwork:
