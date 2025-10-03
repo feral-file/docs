@@ -1,11 +1,10 @@
-# Welcome to Feral File Docs (WORK IN PROGRESS)
+# Welcome to Feral File Docs
 
-This site covers everything you need to **build, integrate, or collect** with Feral File.
+Feral File is a cultural institution and technology company. We make it simple to **live with digital art every day** — through curated exhibitions, open protocols, and dedicated hardware.
 
-* Developers → dive into the **Display Protocol, FF OS, and hardware** under FF1.
-* Institutions & Collectors → see how to query live exhibitions via the **/api**.
-* Artists & Curators → bookmark this site; more material opens up after Wave 1 ships.
+* **Start with FF1** → [Getting Started](ff1/index.md), our art computer that plays digital art on any screen.
+* **Publish & integrate** → [DP-1 Protocol](dp1-protocol/overview.md), an open standard for sharing playlists of digital art.
+* **Explore exhibitions & data** → [Exhibitions & Archive](exhibitions-n-archive/exhibition-structure.md), our model for artworks, metadata, and APIs.
 
-→ The first device reference, **FF1**, lives at [ff1](ff1/index.md).
+Need something not yet public? Email [support@feralfile.com](mailto:support@feralfile.com).
 
-Need something not yet public? Email support@feralfile.com.
