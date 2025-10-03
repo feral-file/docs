@@ -70,7 +70,7 @@ FF1 normally updates itself when online. But you can also re-install manually if
 * **Art not loading?** Check internet connection and reload playlists.
 * **OTA update not working?** Reinstall manually as above.
 
-Still stuck? Email **[ff1@groups.io](mailto:ff1@groups.io)**.
+Still stuck? Email **[FF1alpha@groups.feralfile.com](mailto:FF1alpha@groups.feralfile.com)**.
 
 ---
 
