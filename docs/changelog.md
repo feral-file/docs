@@ -28,8 +28,8 @@ Add your Ethereum or Tezos addresses in the Collection tab to sync art you own.
 
 Use natural language in the Prompt Bar to search playlists or add addresses.
 
-**Developer Notes** <details>
-<summary>For builders</summary>
+<details>
+<summary>Developer Notes</summary>
 
 - QEMU build support (see QEMU instructions)
 </details>
@@ -70,8 +70,8 @@ Your device now keeps a closer eye on essential background services, showing cle
 
 Screen rotation now works correctly in landscape and portrait.
 
-**Developer Notes** <details>
-<summary>For builders</summary>
+<details>
+<summary>Developer Notes</summary>
 
 - Run FF1 firmware in QEMU for testing without physical hardware
 </details>
