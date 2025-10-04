@@ -106,7 +106,7 @@ Improved how your device stores and manages logs for better performance.
 
 **Reorganized Open Source**
 
-Cleaned up the open source repository structure.
+Split the original repository into two separate repos: [ffos](https://github.com/feral-file/ffos) for OS builds and [ffos-user](https://github.com/feral-file/ffos-user) for services. The original [feralfile-device](https://github.com/feral-file/feralfile-device/) repository has been archived.
 
 **FF1 Name Finalized**
 
