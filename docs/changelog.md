@@ -2,7 +2,7 @@
 
 ## Sep 30
 
-### FF1 Firmware 0.8.0 — Your Collection, Always Current
+### FF OS 0.8.0 — Your Collection, Always Current
 
 **Play Your Personal Collection**
 
@@ -38,7 +38,7 @@ Use natural language in the Prompt Bar to search playlists or add addresses.
 
 ## Sep 19
 
-### FF1 Firmware 0.7.0 — More Reliable Updates, Better Monitoring
+### FF OS 0.7.0 — More Reliable Updates, Better Monitoring
 
 **Redesigned Updates & Resets**
 
@@ -56,7 +56,7 @@ Reduced excessive Chromium logs for better performance and cleaner system output
 
 ## Sep 9
 
-### FF1 Firmware 0.6.0 — Smoother Setup, Clearer Errors
+### FF OS 0.6.0 — Smoother Setup, Clearer Errors
 
 **Improved Setup Flow**
 
@@ -73,14 +73,14 @@ Screen rotation now works correctly in landscape and portrait.
 <details>
 <summary>Developer Notes</summary>
 
-- Run FF1 firmware in QEMU for testing without physical hardware
+- Run FF OS in QEMU for testing without physical hardware
 </details>
 
 ---
 
 ## Aug 22
 
-### FF1 Firmware 0.5.0 — Faster Support, Quieter Alerts
+### FF OS 0.5.0 — Faster Support, Quieter Alerts
 
 **Improved Error Detection**
 
@@ -102,7 +102,7 @@ Improved how your device stores and manages logs for better performance.
 
 ## Aug 18
 
-### FF1 Firmware 0.4.0 — Cleaner Code, Consistent Identity
+### FF OS 0.4.0 — Cleaner Code, Consistent Identity
 
 **Reorganized Open Source**
 
