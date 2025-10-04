@@ -2,98 +2,112 @@
 
 ## Sep 30
 
-### FF1 firmware 0.8.0
+### FF1 Firmware 0.8.0 — Your Collection, Always Current
 
-- Display Personal Collections
+**Play Your Personal Collection**
 
-Devices now support your personal Collection as a playlist, dynamically updating as your collection changes over time.
+Your FF1 now plays your personal collection as a playlist that updates as your collection changes over time.
 
-### Mobile app 0.63.0
+---
 
-- Factory Reset via Bluetooth
+### Mobile App 0.63.0 — Easier Control, Smarter Curation
+
+**Factory Reset via Bluetooth**
 
 Reset your FF1 directly from the app.
 
-- What’s Playing Next
+**What's Playing Next**
 
-The Now Displaying bar now shows which artwork is coming up.
+The Now Playing bar now shows which artwork is coming up.
 
-- Add Viewing Addresses
+**Add Your Addresses**
 
-Add your Ethereum or Tezos addresses right in the Collection tab to sync your art.
+Add your Ethereum or Tezos addresses in the Collection tab to sync art you own.
 
-- Search & Add with the Prompt Bar
+**Search & Add with the Prompt Bar**
 
 Use natural language in the Prompt Bar to search playlists or add addresses.
 
-- Developer Support: QEMU Build
+**Developer Notes** <details>
+<summary>For builders</summary>
 
-Developers can now run the app in QEMU (see QEMU instructions).
+- QEMU build support (see QEMU instructions)
+</details>
+
+---
 
 ## Sep 19
 
-### FF1 firmware 0.7.0
+### FF1 Firmware 0.7.0 — More Reliable Updates, Better Monitoring
 
-- New OTA & Factory Reset Flow
+**Redesigned Updates & Resets**
 
-We’ve redesigned how your device handles system updates and resets. OTA updates are now more robust and reliable, and factory resets restore your system to a clean snapshot more effectively.
+OTA updates are now more robust and reliable. Factory resets restore your system to a clean snapshot more effectively.
 
-- Metrics Tracker Integration
+**System Monitoring**
 
-Your device now includes a built-in tracker to monitor system metrics. This allows us to better understand performance patterns and ensure your FF1 is running optimally.
+Your device now includes a built-in tracker to monitor system metrics.
 
-- Reduced Chromium Log Flooding
+**Cleaner Logs**
 
-We’ve silenced excessive Chromium logs that previously cluttered the system. This results in cleaner logs, better performance, and improved developer experience.
+Reduced excessive Chromium logs for better performance and cleaner system output.
+
+---
 
 ## Sep 9
 
-### FF1 firmware 0.6.0
+### FF1 Firmware 0.6.0 — Smoother Setup, Clearer Errors
 
-- Run FF1 on QEMU
+**Improved Setup Flow**
 
-You can now test and run the FF1 firmware inside QEMU. This makes development and troubleshooting much easier without needing physical hardware.
+Fixed an issue where the device sometimes stayed stuck on a screen instead of returning to the QR code page.
 
-- Improved Setup Flow
+**Better Service Monitoring**
 
-Fixed an issue where the device sometimes stayed stuck on a screen instead of returning to the QR code page. The setup process is now smoother and more reliable.
+Your device now keeps a closer eye on essential background services, showing clear error messages when something goes wrong.
 
-- Core Service Monitoring
+**Screen Rotation Fix**
 
-Your device now keeps a closer eye on essential background services. If something goes wrong, you’ll see a clear error message instead of being left in the dark.
+Screen rotation now works correctly in landscape and portrait.
 
-- Screen Rotation Fix
+**Developer Notes** <details>
+<summary>For builders</summary>
 
-We’ve resolved a problem with screen rotation. Whether in landscape or portrait, your display should now behave correctly every time.
+- Run FF1 firmware in QEMU for testing without physical hardware
+</details>
+
+---
 
 ## Aug 22
 
-### FF1 firmware 0.5.0
+### FF1 Firmware 0.5.0 — Faster Support, Quieter Alerts
 
-- Improved Error Tracking
+**Improved Error Detection**
 
-We've upgraded how your device detects and reports errors behind the scenes. This helps us identify and fix issues faster, keeping your FF1 running smoothly.
+Upgraded how your device detects and reports errors behind the scenes.
 
-- Smarter Error Notifications
+**Focused Alerts**
 
-We've fine-tuned error alerts to focus on the most critical issues, reducing unnecessary notifications so you’re only informed when it matters.
+Fine-tuned error alerts to focus on critical issues, reducing unnecessary notifications.
 
-- Send Logs Easily from the App
+**Send Logs from the App**
 
-You can now share device logs directly from the FF1 phone app! This makes it simple to send diagnostic information to our support team with just a few taps, helping resolve any issues quickly.
+Share device logs directly from the FF1 mobile app.
 
-- Better Log Organization
+**Better Log Management**
 
-We've improved how your device stores and manages logs, keeping them organized and ensuring they don’t take up extra space, which helps maintain top performance.
+Improved how your device stores and manages logs for better performance.
+
+---
 
 ## Aug 18
 
-### FF1 firmware 0.4.0
+### FF1 Firmware 0.4.0 — Cleaner Code, Consistent Identity
 
-- New Open Source Structure
+**Reorganized Open Source**
 
-We’ve reorganized the open source repository to make it cleaner and easier to work with for developers.
+Cleaned up the open source repository structure.
 
-- FF1 Branding Finalized
+**FF1 Name Finalized**
 
-The device name has officially changed from FFX1 to FF1, bringing a simpler and more consistent identity.
+The device is now officially FF1 (formerly FFX1).
