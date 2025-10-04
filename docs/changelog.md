@@ -8,8 +8,6 @@
 
 Your FF1 now plays your personal collection as a playlist that updates as your collection changes over time.
 
----
-
 ### Mobile App 0.63.0 — Easier Control, Smarter Curation
 
 **Factory Reset via Bluetooth**
