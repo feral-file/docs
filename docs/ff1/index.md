@@ -50,7 +50,7 @@ FF1 normally updates itself when online. But you can also re-install manually if
 ### Create a bootable USB
 
 1. Download [BalenaEtcher](https://balena.io/etcher).
-2. Download the latest system image: [ff1.feral-file.workers.dev](https://ff1.feral-file.workers.dev).
+2. Download the latest system image on branch `release`: [ff1.feral-file.workers.dev](https://ff1.feral-file.workers.dev).
 3. Use Etcher to flash the `.zip` onto a USB drive.
 
 ### Install
