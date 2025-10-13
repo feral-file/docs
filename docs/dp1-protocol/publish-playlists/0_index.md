@@ -10,3 +10,14 @@ Follow this steps path to share verifiable playlists with FF1.
 
 3. [Get Starred by Curators](./3_curator-stars-playlist.md) *(Coming soon)*  
    Learn how curator endorsements help your playlists surface in Community Stars.
+
+## Prerequisites
+
+- Node.js 22+ and Docker Desktop
+- Basic understanding of command line
+- FF1 app or device for testing
+
+## Need Help?
+
+- Check [DP1 Protocol Overview](../overview.md) for technical details
+- Review [Schemas](../schemas.md) for playlist format requirements
