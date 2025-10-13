@@ -1,5 +1,33 @@
 # Change logs
 
+## Oct 10
+
+### FF OS 0.8.1 — Ownership Tracking Fixed
+
+**Collections Sync Correctly**
+
+Transferred artworks now disappear from playlists as ownership changes. No stale items lingering after you've sold or moved a piece.
+
+### Mobile App 0.63.1 — Fixes for Smoother Daily Use
+
+**Now Playing Controls Restored**
+
+Rotate and fit/fill controls are back in the Now Playing bar.
+
+**Duplicate Items Removed**
+
+Fixed an issue where the same artwork appeared twice in Now Playing.
+
+**Navigation Scrolls to Current Work**
+
+Opening Now Playing now jumps directly to what's on screen.
+
+**Collection Reflects Transfers**
+
+Works you've transferred now disappear from your personal Collection properly.
+
+---
+
 ## Sep 30
 
 ### FF OS 0.8.0 — Your Collection, Always Current
