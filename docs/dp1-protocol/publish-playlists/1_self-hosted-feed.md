@@ -26,7 +26,7 @@ npm install
 
 > Most users should clone. Fork only if you plan to modify and publish your version
 
-## 2. Start local deps (1 command)
+## 2. Start local deps
 
 ### Option A: Docker Compose (recommend)
 ```bash
@@ -47,26 +47,23 @@ Before running `dp1-feed`, you need to configure environment variables. These te
 
 You can run dp1-feed with either Docker Compose (pre-set dev values) or manual .env setup.
 
-### Option A: Docker Compose Setup
+### Option A: Docker Compose Setup (Recommended for Testing)
 
-- The `docker-compose.yml` file includes pre-configured environment variables for development
+- The `docker-compose.yml` file includes pre-configured development values (Uses placeholder secrets: `dev-api-secret` and `dev-ed25519-private-key`)
+- No .env file needed for local testing
 
-- No .env file needed.
-
-⚠️ For production, edit `docker-compose.yml` to replace secrets with real values.
+⚠️ **For production**: Replace these placeholder values with real secrets (see [Security Notes](#security-notes) below).
 
 ### Option B: Manual Setup (without Docker)
 
 Create a `.env` file in the project root:
 ```typescript
-# Required
+# Security (replace with real values for production)
 API_SECRET=dev-api-secret                     # protects write endpoints
 ED25519_PRIVATE_KEY=dev-ed25519-private-key   # server signing key
 
-# etcd configuration
+# Dependencies
 ETCD_ENDPOINT=http://localhost:2379
-
-# NATS JetStream configuration
 NATS_ENDPOINT=nats://localhost:4222
 NATS_STREAM_NAME=DP1_WRITE_OPERATIONS
 NATS_SUBJECT_NAME=dp1.write.operations
@@ -75,23 +72,31 @@ NATS_SUBJECT_NAME=dp1.write.operations
 ENVIRONMENT=development
 ```
 
-### How to generate keys
+⚠️ **For production**: Replace `dev-api-secret` and `dev-ed25519-private-key` with real secrets (see [Security Notes](#security-notes) below).
 
-**API_SECRET** → any strong random string. Example:
+## Security Notes
 
+### Development vs Production Secrets
+
+**For local testing**: The provided placeholder values (`dev-api-secret`, `dev-ed25519-private-key`) are fine.
+
+**For production**: You MUST replace these with real secrets:
+
+### Generate Production Secrets
+
+**API_SECRET** - Protects write endpoints from unauthorized access:
 ```bash
 openssl rand -hex 32
-# Use this value in place of dev-api-secret.
+# Use this entire string as your API_SECRET
 ```
 
-**ED25519_PRIVATE_KEY** → generate an Ed25519 keypair. Example:
-
+**ED25519_PRIVATE_KEY** - Signs playlists cryptographically:
 ```bash
 openssl genpkey -algorithm ED25519 -outform DER | xxd -p -c 256
+# Use this entire hex string as your ED25519_PRIVATE_KEY
 ```
 
-**⚠️ Important:**
-Use the provided dev values only for local testing. For production:
+### Security Best Practices
 
 - Generate fresh secrets.
 - Store them in a secrets manager (Vault, AWS Secrets Manager, Cloudflare secrets, etc.).
@@ -104,10 +109,7 @@ Use the provided dev values only for local testing. For production:
 npm run node:build
 
 # dev server (auto-reload)
-
 npm run node:start:dev
-# or config with .env manually
-npm run node:start:dev:with-env
 
 # → http://localhost:8787
 ```
@@ -119,57 +121,77 @@ curl http://localhost:8787/api/v1/health
 # {"status":"ok"}
 ```
 
-## 5. Post your first playlist (signed by the server)
+## 5. Post your first playlist
 
-Create `playlist.json`:
+To post and retrieve playlists, you'll use the DP-1 Feed server's REST API.
 
+**POST** `/playlists`
+
+Submit a new one—we validate, sign, and store it.
+
+```bash
+curl -H "Authorization: Bearer your-api-key-here" \
+     -H "Content-Type: application/json" \
+     -X POST http://localhost:8787/api/v1/playlists \
+     -d @playlist.json
+```
+
+**Request Body Example:**
 ```json
 {
   "dpVersion": "1.0.0",
-  "title": "my-first-playlist",
+  "title": "Digital Art Showcase",
+  "defaults": {
+    "display": {
+      "scaling": "contain",
+      "background": "#000000",
+      "margin": 0
+    }
+  },
   "items": [
-    { "source": "https://example.com/art.html", "kind": "html", "duration": 300 }
+    {
+      "duration": 30,
+      "license": "open",
+      "source": "ipfs://cid",
+      "provenance": {
+        "type": "onChain",
+        "contract": {
+          "chain": "ethereum",
+          "standard": "ERC-721",
+          "address": "0x...",
+          "tokenId": "1"
+        }
+      }
+    }
   ]
 }
 ```
 
-POST (note the Bearer token):
-
-```bash
-curl -X POST http://localhost:8787/api/v1/playlists \
-  -H "Authorization: Bearer $API_SECRET" \
-  -H "Content-Type: application/json" \
-  -d @playlist.json | jq .
-```
-
-Fetch all playlists (should now include a signatures[] entry the server added):
-
-```bash
-curl -s http://localhost:8787/api/v1/playlists | jq .
-```
+_For more endpoints and request/response details, visit the [API Reference](../../dp1-protocol/feed-server.md#api-reference)._
 
 ## 6. Troubleshooting
 
-- **401 Unauthorized** → you didn’t send the header: `Authorization: Bearer <API_SECRET>`.
+- **401 Unauthorized** → Missing or incorrect `Authorization: Bearer <API_SECRET>` header
 
-- **No signatures[]** → server signing isn’t configured. Ensure one of:
-    * `SIGNING_PRIVATE_KEY_PATH=/path/to/dp1_signer` or
-    * `SIGNING_PRIVATE_KEY_PEM='-----BEGIN PRIVATE KEY----- …'`
+- **No signatures[]** → Server signing not configured. Check your `ED25519_PRIVATE_KEY` is set correctly (see [Security Notes](#security-notes))
 
 - **Port in use** → set PORT=8788 and restart.
 
 - **Deps not up** → docker compose ps (you should see etcd + NATS running).
 
 ---
-## (Optional) Cloudflare Worker deploy
-If you support Workers in your doc, give the 3-step path:
+## (Optional) Cloudflare Worker Deploy
+
+For public deployment, you can use [Cloudflare Workers](https://github.com/display-protocol/dp1-feed/blob/main/DEVELOPMENT.md#cloudflare-workers-development)
 
 ```bash
-# set secrets once
-npx wrangler secret put API_SECRET
-npx wrangler secret put SIGNING_PRIVATE_KEY_PEM   # paste PEM
+# Set secrets (use real values from Security Notes section)
+npm run worker:setup:secrets
 
-# deploy
+# Start with live reload
+npm run worker:dev
+
+# Deploy
 npm run worker:deploy
 ```
 
