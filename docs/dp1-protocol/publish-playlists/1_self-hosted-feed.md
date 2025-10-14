@@ -26,111 +26,98 @@ npm install
 
 > Most users should clone. Fork only if you plan to modify and publish your version
 
-## 2. Start local deps
+## 2. Choose Your Setup Method
 
-### Option A: Docker Compose (recommend)
+You can run the DP1 feed server in two ways:
+
+### 🐳 **Method A: Full Docker Setup (Recommended)**
+Everything runs in Docker - dependencies and server. No `.env` file needed.
+
+### ⚙️ **Method B: Manual Node.js Development**  
+Server runs directly with Node.js. Requires `.env` setup.
+Run dependencies (etcd and NATS) using Docker (recommended), or set them up manually if you prefer.
+
+---
+
+## Method A: Full Docker Setup
+
+### Run Everything with Docker
 ```bash
-docker compose up -d etcd nats
+# Start all services (etcd, NATS, and dp1-feed server)
+docker compose up -d
+
+# → Server runs at http://localhost:8787
 ```
 
-### Option B: Manual setup (without Docker)
-```bash
-# Start etcd
-etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://localhost:2379
+**That's it!** Docker Compose includes pre-configured development secrets (`dev-api-secret`, `dev-ed25519-private-key`).
 
-# Start NATS with JetStream
-nats-server -js
-```
-
-## 3. Configure Environment (one-time setup)
-Before running `dp1-feed`, you need to configure environment variables. These tell the server how to authenticate, sign playlists, and connect to its dependencies.
-
-You can run dp1-feed with either Docker Compose (pre-set dev values) or manual .env setup.
-
-### Option A: Docker Compose Setup (Recommended for Testing)
-
-- The `docker-compose.yml` file includes pre-configured development values (Uses placeholder secrets: `dev-api-secret` and `dev-ed25519-private-key`)
-- No .env file needed for local testing
-
-⚠️ **For production**: Replace these placeholder values with real secrets (see [Security Notes](#security-notes) below).
-
-### Option B: Manual Setup (without Docker)
-
-Create a `.env` file in the project root:
-```typescript
-# Security (replace with real values for production)
-API_SECRET=dev-api-secret                     # protects write endpoints
-ED25519_PRIVATE_KEY=dev-ed25519-private-key   # server signing key
-
-# Dependencies
-ETCD_ENDPOINT=http://localhost:2379
-NATS_ENDPOINT=nats://localhost:4222
-NATS_STREAM_NAME=DP1_WRITE_OPERATIONS
-NATS_SUBJECT_NAME=dp1.write.operations
-
-# Optional
-ENVIRONMENT=development
-```
-
-⚠️ **For production**: Replace `dev-api-secret` and `dev-ed25519-private-key` with real secrets (see [Security Notes](#security-notes) below).
-
-## Security Notes
-
-### Development vs Production Secrets
-
-**For local testing**: The provided placeholder values (`dev-api-secret`, `dev-ed25519-private-key`) are fine.
-
-**For production**: You MUST replace these with real secrets:
-
-### Generate Production Secrets
-
-**API_SECRET** - Protects write endpoints from unauthorized access:
-```bash
-openssl rand -hex 32
-# Use this entire string as your API_SECRET
-```
-
-**ED25519_PRIVATE_KEY** - Signs playlists cryptographically:
-```bash
-openssl genpkey -algorithm ED25519 -outform DER | xxd -p -c 256
-# Use this entire hex string as your ED25519_PRIVATE_KEY
-```
-
-### Security Best Practices
-
-- Generate fresh secrets.
-- Store them in a secrets manager (Vault, AWS Secrets Manager, Cloudflare secrets, etc.).
-- Never commit .env files with real keys to GitHub.
-
-## 4. Run the server
-
-```bash
-# build once
-npm run node:build
-
-# dev server (auto-reload)
-npm run node:start:dev
-
-# → http://localhost:8787
-```
+> **Security note:** The provided secrets are for development only. **Never use these values in production.** Always generate strong, unique secrets for any publicly accessible deployment.  
+> See [Security note](#5-security-notes) below for details.
 
 Health check:
-
 ```bash
 curl http://localhost:8787/api/v1/health
 # {"status":"ok"}
 ```
 
-## 5. Post your first playlist
+Skip to [Post Your First Playlist](#3-post-your-first-playlist) →
 
-To post and retrieve playlists, you'll use the DP-1 Feed server's REST API.
+---
 
-**POST** `/playlists`
+## Method B: Manual Node.js Development
 
-Submit a new one—we validate, sign, and store it.
+### B.1. Start Dependencies Only
+
+Option a. Docker Compose. Start only etcd and NATS in Docker
+```bash
+docker compose up -d etcd nats
+```
+
+Option b. Manual setup
 
 ```bash
-curl -H "Authorization: Bearer your-api-key-here" \
+# Start etcd (terminal tab no.1)
+etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://localhost:2379
+
+# Start NATS with JetStream (terminal tab no.2)
+nats-server -js
+
+# Open terminal tab no.3 to run server
+```
+
+### B.2. Configure Environment
+Create your development `.env` file:
+
+```bash
+cp .env.sample .env
+```
+
+Edit `.env` to set secrets. See [Security note](#5-security-notes) below for details.
+
+### B.3. Run Node.js Server
+```bash
+# Start dev server with live reload
+npm run node:dev
+
+# Or start production build
+npm run node:build
+npm run node:start
+
+# → http://localhost:8787
+```
+
+Health check:
+```bash
+curl http://localhost:8787/api/v1/health
+# {"status":"ok"}
+```
+
+## 3. Post Your First Playlist
+
+Both methods use the same API. Use the development secret `dev-api-secret`:
+
+```bash
+curl -H "Authorization: Bearer dev-api-secret" \
      -H "Content-Type: application/json" \
      -X POST http://localhost:8787/api/v1/playlists \
      -d @playlist.json
@@ -169,18 +156,50 @@ curl -H "Authorization: Bearer your-api-key-here" \
 
 _For more endpoints and request/response details, visit the [API Reference](../../dp1-protocol/feed-server.md#api-reference)._
 
-## 6. Troubleshooting
+## 4. Troubleshooting
 
-- **401 Unauthorized** → Missing or incorrect `Authorization: Bearer <API_SECRET>` header
+- **401 Unauthorized** → Missing or incorrect `Authorization: Bearer dev-api-secret` header
+- **No signatures[]** → Server signing not configured. Check your setup (see [Security Notes](#5-security-notess))
+- **Port in use**: Another process may be running on port 8787. You can:
+    - Change the `PORT` variable, e.g. `PORT=8788 npm run dev`, then restart the server.
+    - Or stop the existing process using port 8787 (`npx kill-port 8787` or by killing it in your task manager).
+    - On Windows, you can check with `netstat -ano | findstr :8787` to identify and terminate the process.
+    - On macOS/Linux, use `lsof -i :8787` and `kill <PID>`.
+    - Verify Docker or other services aren’t conflicting with your chosen port.
+    - Restart your computer if you're unsure what's using the port.
 
-- **No signatures[]** → Server signing not configured. Check your `ED25519_PRIVATE_KEY` is set correctly (see [Security Notes](#security-notes))
+## 5. Security Notes
 
-- **Port in use** → set PORT=8788 and restart.
+### Development vs Production Secrets
 
-- **Deps not up** → docker compose ps (you should see etcd + NATS running).
+**For local testing**: The provided placeholder values (`dev-api-secret`, `dev-ed25519-private-key`) are fine.
+
+**For production**: You MUST replace these with real secrets:
+
+### Generate Production Secrets
+
+**API_SECRET** - Protects write endpoints from unauthorized access:
+```bash
+openssl rand -hex 32
+# Use this entire string as your API_SECRET
+```
+
+**ED25519_PRIVATE_KEY** - Signs playlists cryptographically:
+```bash
+openssl genpkey -algorithm ED25519 -outform DER | xxd -p -c 256
+# Use this entire hex string as your ED25519_PRIVATE_KEY
+```
+
+### Security Best Practices
+
+- Generate fresh secrets.
+- Store them in a secrets manager (Vault, AWS Secrets Manager, Cloudflare secrets, etc.).
+- Never commit .env files with real keys to GitHub.
+
 
 ---
-## (Optional) Cloudflare Worker Deploy
+
+## 6. (Optional) Cloudflare Worker Deploy
 
 For public deployment, you can use [Cloudflare Workers](https://github.com/display-protocol/dp1-feed/blob/main/DEVELOPMENT.md#cloudflare-workers-development)
 
