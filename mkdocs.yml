@@ -33,6 +33,11 @@ nav:
     - Overview: dp1-protocol/overview.md 
     - Schemas: dp1-protocol/schemas.md 
     - Feed Server: dp1-protocol/feed-server.md 
+    - Publish Your Own Playlists:
+      - Overview: dp1-protocol/publish-playlists/0_index.md 
+      - Self-Hosted Feed: dp1-protocol/publish-playlists/1_self-hosted-feed.md 
+      - Add Your Feed in FF1 App: dp1-protocol/publish-playlists/2_add-feed-in-app.md 
+      - Curator Stars Playlist: dp1-protocol/publish-playlists/3_curator-stars-playlist.md 
     - Player Behavior: dp1-protocol/player-behavior.md 
     - FF1 Integration: dp1-protocol/ff1-integration.md 
   - API Reference:
