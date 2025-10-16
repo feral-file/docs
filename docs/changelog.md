@@ -1,5 +1,25 @@
 # Change logs
 
+## Oct 14
+
+### FF OS 0.9.0 — Hardware-Backed Security
+
+**TPM Identity**
+
+Your FF1 now stores its DeviceKey in the TPM (Trusted Platform Module). Hardware-backed identity that can't be copied or spoofed.
+
+**Manual Reflash Required**
+
+This release needs a one-time manual reflash ([flashing guide](https://docs.feralfile.com/ff1/#step-3-install-or-update-the-os)). Future updates return to over-the-air delivery.
+
+### Mobile App 0.63.1 — Objkt Playlists
+
+**Play Objkt**
+
+Browse and play Objkt playlists directly from the app.
+
+---
+
 ## Oct 10
 
 ### FF OS 0.8.1 — Ownership Tracking Fixed
