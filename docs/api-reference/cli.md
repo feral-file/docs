@@ -2,9 +2,10 @@
 
 FF1 CLI builds and validates DP‑1 (Display Protocol 1) playlists from NFT data using either natural language (AI‑orchestrated function calling) or deterministic parameters. For the DP‑1 spec, see [DP-1 Specification](https://github.com/display-protocol/dp1).
 
-Key characteristics:
+**Key characteristics:**
+
 - Deterministic by design: tool outputs are validated against DP‑1 before send.
-- OSS‑first: uses `viem` (Ethereum) and `@taquito/taquito` (Tezos).
+
 - Optional Ed25519 signing with canonical JSON via `dp1-js`.
 
 ### Install
