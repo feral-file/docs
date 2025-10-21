@@ -1,8 +1,6 @@
-## FF1‑CLI
-
 ### Overview
 
-FF1‑CLI builds and validates DP‑1 (Display Protocol 1) playlists from NFT data using either natural language (AI‑orchestrated function calling) or deterministic parameters. For the DP‑1 spec, see `https://github.com/display-protocol/dp1`.
+FF1 CLI builds and validates DP‑1 (Display Protocol 1) playlists from NFT data using either natural language (AI‑orchestrated function calling) or deterministic parameters. For the DP‑1 spec, see [DP-1 Specification](https://github.com/display-protocol/dp1).
 
 Key characteristics:
 - Deterministic by design: tool outputs are validated against DP‑1 before send.
@@ -150,17 +148,17 @@ Notes and constraints:
 
 ### Configuration reference
 
-See `https://github.com/feral-file/ff1-cli/blob/main/docs/CONFIGURATION.md` for all fields, environment variables, feed settings, and FF1 device selection rules. Minimal `config.json` and environment variable helpers are provided there.
+See [Configuration Guide](https://github.com/feral-file/ff1-cli/blob/main/docs/CONFIGURATION.md) for all fields, environment variables, feed settings, and FF1 device selection rules. Minimal `config.json` and environment variable helpers are provided there.
 
 ### Function calling architecture
 
-For how the model orchestrates tool calls, schemas, and the deterministic pipeline, see `https://github.com/feral-file/ff1-cli/blob/main/docs/FUNCTION_CALLING.md`. In short: parse intent → call tools to fetch/build → verify DP‑1 → optionally sign → optionally send.
+For how the model orchestrates tool calls, schemas, and the deterministic pipeline, see [Function Calling Details](https://github.com/feral-file/ff1-cli/blob/main/docs/FUNCTION_CALLING.md). In short: parse intent → call tools to fetch/build → verify DP‑1 → optionally sign → optionally send.
 
 ### See also
 
-- Command API reference: `command-api.md`
-- General CLI README: `https://github.com/feral-file/ff1-cli/blob/main/docs/README.md`
-- Examples: `https://github.com/feral-file/ff1-cli/blob/main/docs/EXAMPLES.md`
-- Configuration: `https://github.com/feral-file/ff1-cli/blob/main/docs/CONFIGURATION.md`
-- Function calling details: `https://github.com/feral-file/ff1-cli/blob/main/docs/FUNCTION_CALLING.md`
-- DP‑1 specification: `https://github.com/display-protocol/dp1`
+- [Command API reference](../api-reference/command-api.md)
+- [General CLI README](https://github.com/feral-file/ff1-cli/blob/main/docs/README.md)
+- [Examples](https://github.com/feral-file/ff1-cli/blob/main/docs/EXAMPLES.md)
+- [Configuration](https://github.com/feral-file/ff1-cli/blob/main/docs/CONFIGURATION.md)
+- [Function calling details](https://github.com/feral-file/ff1-cli/blob/main/docs/FUNCTION_CALLING.md)
+- [DP‑1 specification](https://github.com/display-protocol/dp1)
