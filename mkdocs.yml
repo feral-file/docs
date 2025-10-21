@@ -36,6 +36,7 @@ nav:
     - Player Behavior: dp1-protocol/player-behavior.md 
     - FF1 Integration: dp1-protocol/ff1-integration.md 
   - API Reference:
+    - FF1 CLI: api-reference/cli.md
     - Command API: api-reference/command-api.md
     - Webhooks: api-reference/webhooks.md
     - Auth & Rate-Limits: api-reference/auth-rate-limits.md
