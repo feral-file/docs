@@ -1,5 +1,45 @@
 # Change logs
 
+## Oct 21
+
+### FF OS 0.10.0 — Prompt-to-Playlist & Security
+
+**Prompt-to-Playlist Tool**
+
+We've published [ff1-cli](https://github.com/feral-file/ff1-cli), an open-source command-line tool that turns prompts into DP-1 playlists. Type a phrase, generate a playlist, and play it on your FF1—no web UI required. See the [ff1-cli documentation](https://docs.feralfile.com/api-reference/cli/).
+
+**OTA Security Update**
+
+Improved verification in the OTA update process for better reliability, file integrity, and source authority.
+
+**Manual Reflash Required**
+
+This release needs a manual reflash ([flashing guide](https://docs.feralfile.com/ff1/#step-3-install-or-update-the-os)). Future updates return to over-the-air delivery.
+
+### Mobile App 0.63.3 — Collection Sync Fixes
+
+**Personal Collections Refresh Reliably**
+
+Collections now refresh correctly after adding new works.
+
+**Now Playing Thumbnails Load**
+
+Thumbnails appear consistently in the footer bar.
+
+**Objkt Search Works**
+
+Search results now show up properly in the Prompt Bar.
+
+**Plays Works Without Provenance**
+
+Artworks missing provenance fields in DP-1 playlists now play as expected.
+
+**Smoother Animations**
+
+Collection views and playback flows run with less visual stutter.
+
+---
+
 ## Oct 14
 
 ### FF OS 0.9.0 — Hardware-Backed Security
