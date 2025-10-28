@@ -32,7 +32,9 @@ nav:
   - DP-1 Protocol:
     - Overview: dp1-protocol/overview.md 
     - Schemas: dp1-protocol/schemas.md 
-    - Feed Server: dp1-protocol/feed-server.md 
+    - Feed Server:
+      - Overview: dp1-protocol/feed-server.md 
+      - Self-Hosting a Feed Server: dp1-protocol/self-hosted-feed.md 
     - Player Behavior: dp1-protocol/player-behavior.md 
     - FF1 Integration: dp1-protocol/ff1-integration.md 
   - API Reference:
