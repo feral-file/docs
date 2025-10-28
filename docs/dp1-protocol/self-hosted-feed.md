@@ -235,3 +235,9 @@ npm run worker:dev
 # Deploy
 npm run worker:deploy
 ```
+
+## What's Next?
+
+Once your feed server is running, try to:
+
+→ **[Cast Playlists to FF1](../ff1/how-it-works/casting-playlists.md)** - Preview your playlists on FF1 devices before tokenizing
