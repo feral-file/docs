@@ -49,7 +49,7 @@ docker compose up -d
 # → Server runs at http://localhost:8787
 ```
 
-**That's it!** Docker Compose includes pre-configured development secrets (`dev-api-secret`, `dev-ed25519-private-key`).
+**That's it!** Docker Compose includes pre-configured development secrets (`test-api-secret`, `test-ed25519-private-key`).
 
 > **Security note:** The provided secrets are for development only. **Never use these values in production.** Always generate strong, unique secrets for any publicly accessible deployment.  
 > See [Security note](#5-security-notes) below for details.
@@ -114,10 +114,10 @@ curl http://localhost:8787/api/v1/health
 
 ## 3. Post Your First Playlist
 
-Both methods use the same API. Use the development secret `dev-api-secret`:
+Both methods use the same API. Use the development secret `test-api-secret`:
 
 ```bash
-curl -H "Authorization: Bearer dev-api-secret" \
+curl -H "Authorization: Bearer test-api-secret" \
      -H "Content-Type: application/json" \
      -X POST http://localhost:8787/api/v1/playlists \
      -d @playlist.json
@@ -158,7 +158,7 @@ _For more endpoints and request/response details, visit the [API Reference](../.
 
 ## 4. Troubleshooting
 
-- **401 Unauthorized** → Missing or incorrect `Authorization: Bearer dev-api-secret` header
+- **401 Unauthorized** → Missing or incorrect `Authorization: Bearer test-api-secret` header
 - **No signatures[]** → Server signing not configured. Check your setup (see [Security Notes](#5-security-notess))
 - **Port in use**: Another process may be running on port 8787. You can:
     - Change the `PORT` variable, e.g. `PORT=8788 npm run dev`, then restart the server.
@@ -172,7 +172,7 @@ _For more endpoints and request/response details, visit the [API Reference](../.
 
 ### Development vs Production Secrets
 
-**For local testing**: The provided placeholder values (`dev-api-secret`, `dev-ed25519-private-key`) are fine.
+**For local testing**: The provided placeholder values (`test-api-secret`, `test-ed25519-private-key`) are fine.
 
 **For production**: You MUST replace these with real secrets:
 
