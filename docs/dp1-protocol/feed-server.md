@@ -368,7 +368,14 @@ Cloudflare KV handles the heavy lifting—global, replicated, no TTLs for perman
 
 ## Development & Deployment
 
-Want to run your own? The [dp1-feed repo](https://github.com/display-protocol/dp1-feed) has Cloudflare Workers and Node.js guides. For Feral-specific tweaks, hit up our [fork](https://github.com/feral-file/dp1-feed).
+Want to run your own DP1 feed server? 
+
+→ **[Self-Hosting a Feed Server](self-hosted-feed.md)** - Complete setup guide with Docker and Node.js options
+
+For additional resources:
+
+- [dp1-feed repo](https://github.com/display-protocol/dp1-feed) - Official repository with documentation
+- [Feral File fork](https://github.com/feral-file/dp1-feed) - Feral-specific customizations
 
 ---
 

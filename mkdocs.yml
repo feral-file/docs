@@ -15,7 +15,8 @@ nav:
     - Getting Started: ff1/index.md
     - How It Works:
       - Life Cycle: ff1/how-it-works/life-cycle.md
-      - Display: ff1/how-it-works/display.md
+      - End-to-End Architecture: ff1/how-it-works/display.md
+      - Display Playlists on FF1: ff1/how-it-works/display-playlists-on-ff1.md
       - OTA: ff1/how-it-works/ota.md
     - Specification: ff1/specification.md
     - QEMU:
@@ -32,7 +33,9 @@ nav:
   - DP-1 Protocol:
     - Overview: dp1-protocol/overview.md 
     - Schemas: dp1-protocol/schemas.md 
-    - Feed Server: dp1-protocol/feed-server.md 
+    - Feed Server:
+      - Overview: dp1-protocol/feed-server.md 
+      - Run your own Feed Server: dp1-protocol/self-hosted-feed.md 
     - Player Behavior: dp1-protocol/player-behavior.md 
     - FF1 Integration: dp1-protocol/ff1-integration.md 
   - API Reference:
