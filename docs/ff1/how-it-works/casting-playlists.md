@@ -65,13 +65,13 @@ curl --request POST "http://192.168.1.100:1111/api/cast" \
         "items": [
           {
             "source": "https://example.com/artwork.html",
-            "duration": 15,
+            "duration": 300,
             "license": "open",
             "provenance": {
               "type": "onChain",
               "contract": {
-                "chain": "ethereum",
-                "standard": "ERC-721",
+                "chain": "evm",
+                "standard": "erc721",
                 "address": "0x1234567890123456789012345678901234567890",
                 "tokenId": "1"
               }

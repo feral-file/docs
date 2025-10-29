@@ -143,8 +143,8 @@ curl -H "Authorization: Bearer test-api-secret" \
       "provenance": {
         "type": "onChain",
         "contract": {
-          "chain": "ethereum",
-          "standard": "ERC-721",
+          "chain": "evm",
+          "standard": "erc721",
           "address": "0x...",
           "tokenId": "1"
         }
