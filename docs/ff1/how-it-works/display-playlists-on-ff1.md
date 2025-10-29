@@ -1,6 +1,6 @@
 # Display DP-1 Playlists on FF1
 
-Preview and test your DP-1 playlists on FF1 devices. This allows you to see how your artworks will display and ensure everything works correctly.
+Preview and test how your DP-1 playlists render on your FF1 device — a quick way to verify scaling, timing, and transitions before publishing.
 
 ## Prerequisites
 
@@ -8,7 +8,9 @@ Preview and test your DP-1 playlists on FF1 devices. This allows you to see how 
 - FF1 device ID, visible in the Feral File mobile app after your device is connected
 - DP-1 playlist (URL or JSON data)
 
-## Quick Commands
+## Run your first Commands
+
+You can cast a playlist either by URL or by sending the full JSON payload.
 
 ### Cast from URL
 ```bash
@@ -116,3 +118,4 @@ Copy the appropriate example above, replace the variables, and run it in your te
 
 - **Connection refused**: Check if FF1 device IP is correct and device is powered on
 - **Invalid JSON**: Validate your DP-1 playlist format
+- If the FF1 doesn’t respond, check that it’s on the same network.

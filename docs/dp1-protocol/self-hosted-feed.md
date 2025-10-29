@@ -3,6 +3,8 @@ This guide walks you through setting up a DP-1 feed server so you can publish yo
 
 > Goal: run a feed on http://localhost:8787, protect write endpoints with API_SECRET, and server-sign playlists with an Ed25519 private key.
 
+This feed server runs locally and signs playlists with your Ed25519 key, giving artists full control over how works are published and verified.
+
 ## 0. Prerequisites
 
 - Node.js 22+
@@ -33,7 +35,7 @@ You can run the DP1 feed server in two ways:
 ### 🐳 **Method A: Full Docker Setup (Recommended)**
 Everything runs in Docker - dependencies and server. No `.env` file needed.
 
-### ⚙️ **Method B: Manual Node.js Development**  
+### **Method B: Manual Node.js Development**  
 Server runs directly with Node.js. Requires `.env` setup.
 Run dependencies (etcd and NATS) using Docker (recommended), or set them up manually if you prefer.
 
@@ -52,7 +54,7 @@ docker compose up -d
 **That's it!** Docker Compose includes pre-configured development secrets (`test-api-secret`, `test-ed25519-private-key`).
 
 > **Security note:** The provided secrets are for development only. **Never use these values in production.** Always generate strong, unique secrets for any publicly accessible deployment.  
-> See [Security note](#5-security-notes) below for details.
+> See [Security note](#4-security-notes) below for details.
 
 Health check:
 ```bash
@@ -92,7 +94,7 @@ Create your development `.env` file:
 cp .env.sample .env
 ```
 
-Edit `.env` to set secrets. See [Security note](#5-security-notes) below for details.
+Edit `.env` to set secrets. See [Security note](#4-security-notes) below for details.
 
 ### B.3. Run Node.js Server
 ```bash
@@ -178,19 +180,7 @@ curl -H "Authorization: Bearer test-api-secret" \
 
 → **[Learn more about FF1 CLI](../api-reference/cli.md)** - Generate playlists from NFT data using AI or deterministic parameters
 
-## 4. Troubleshooting
-
-- **401 Unauthorized** → Missing or incorrect `Authorization: Bearer test-api-secret` header
-- **No signatures[]** → Server signing not configured. Check your setup (see [Security Notes](#5-security-notes))
-- **Port in use**: Another process may be running on port 8787. You can:
-    - Change the `PORT` variable, e.g. `PORT=8788 npm run dev`, then restart the server.
-    - Or stop the existing process using port 8787 (`npx kill-port 8787` or by killing it in your task manager).
-    - On Windows, you can check with `netstat -ano | findstr :8787` to identify and terminate the process.
-    - On macOS/Linux, use `lsof -i :8787` and `kill <PID>`.
-    - Verify Docker or other services aren’t conflicting with your chosen port.
-    - Restart your computer if you're unsure what's using the port.
-
-## 5. Security Notes
+## 4. Security Notes
 
 ### Development vs Production Secrets
 
@@ -218,6 +208,17 @@ openssl genpkey -algorithm ED25519 -outform DER | xxd -p -c 256
 - Store them in a secrets manager (Vault, AWS Secrets Manager, Cloudflare secrets, etc.).
 - Never commit .env files with real keys to GitHub.
 
+## 5. Troubleshooting
+
+- **401 Unauthorized** → Missing or incorrect `Authorization: Bearer test-api-secret` header
+- **No signatures[]** → Server signing not configured. Check your setup (see [Security Notes](#4-security-notes))
+- **Port in use**: Another process may be running on port 8787. You can:
+    - Change the `PORT` variable, e.g. `PORT=8788 npm run dev`, then restart the server.
+    - Or stop the existing process using port 8787 (`npx kill-port 8787` or by killing it in your task manager).
+    - On Windows, you can check with `netstat -ano | findstr :8787` to identify and terminate the process.
+    - On macOS/Linux, use `lsof -i :8787` and `kill <PID>`.
+    - Verify Docker or other services aren’t conflicting with your chosen port.
+    - Restart your computer if you're unsure what's using the port.
 
 ---
 
@@ -240,4 +241,4 @@ npm run worker:deploy
 
 Once your feed server is running, try to:
 
-→ **[Cast Playlists to FF1](../ff1/how-it-works/display-playlists-on-ff1.md)** - Preview your playlists on FF1 devices before tokenizing
+→ **[Display Your Playlists on FF1](../ff1/how-it-works/display-playlists-on-ff1.md)** - Preview your playlists on FF1 devices before tokenizing
