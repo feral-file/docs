@@ -1,5 +1,33 @@
 # Change logs
 
+## Oct 28
+
+### FF OS 0.11.0 — Security Hardening & Bug Fixes
+
+**OTA Security Hardening**
+
+Your FF1 now cryptographically verifies every OTA update before installation. No payload can be altered or tampered with in transit.
+
+**Automated Error Reporting**
+
+Crash logs and runtime exceptions are captured and sent automatically, helping us find and fix rare bugs faster.
+
+**Objkt Playback Fixed**
+
+Resolved a playback issue affecting certain Objkt artworks. All supported Objkt works now play normally through DP-1 playlists.
+
+**Manual Reflash Required**
+
+This release needs a manual reflash ([flashing guide](https://docs.feralfile.com/ff1/#step-3-install-or-update-the-os)). OTA is not supported for 0.10.0 → 0.11.0. OTA resumes for future releases.
+
+### Mobile App — Content Update
+
+**Objkt Playlists Temporarily Hidden**
+
+We've paused visibility for most Objkt playlists in the mobile app while rebuilding the indexing pipeline. Two selective playlists remain available for demo purposes. Objkt artworks play normally on your FF1, but the mobile app couldn't load thumbnails or some artworks reliably. The feature returns once the new indexer is stable.
+
+---
+
 ## Oct 21
 
 ### FF OS 0.10.0 — Prompt-to-Playlist & Security
