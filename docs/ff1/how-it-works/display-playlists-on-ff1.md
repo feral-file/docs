@@ -1,4 +1,4 @@
-# Casting DP-1 Playlists to FF1
+# Display DP-1 Playlists on FF1
 
 Preview and test your DP-1 playlists on FF1 devices. This allows you to see how your artworks will display and ensure everything works correctly.
 
