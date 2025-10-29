@@ -154,7 +154,7 @@ curl -H "Authorization: Bearer test-api-secret" \
 }
 ```
 
-_For more endpoints and request/response details, visit the [API Reference](../../dp1-protocol/feed-server.md#api-reference)._
+_For more endpoints and request/response details, visit the [API Reference](feed-server.md#api-reference)._
 
 ### Generate Playlists from Your NFT Collection
 
@@ -181,7 +181,7 @@ curl -H "Authorization: Bearer test-api-secret" \
 ## 4. Troubleshooting
 
 - **401 Unauthorized** → Missing or incorrect `Authorization: Bearer test-api-secret` header
-- **No signatures[]** → Server signing not configured. Check your setup (see [Security Notes](#5-security-notess))
+- **No signatures[]** → Server signing not configured. Check your setup (see [Security Notes](#5-security-notes))
 - **Port in use**: Another process may be running on port 8787. You can:
     - Change the `PORT` variable, e.g. `PORT=8788 npm run dev`, then restart the server.
     - Or stop the existing process using port 8787 (`npx kill-port 8787` or by killing it in your task manager).
