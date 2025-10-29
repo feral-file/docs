@@ -5,32 +5,32 @@ Preview and test your DP-1 playlists on FF1 devices. This allows you to see how 
 ## Prerequisites
 
 - FF1 device on your network
-- FF1 device IP address
+- FF1 device ID, visible in the Feral File mobile app after your device is connected
 - DP-1 playlist (URL or JSON data)
 
 ## Quick Commands
 
 ### Cast from URL
 ```bash
-curl --request POST "http://$ff1-ip:1111/api/cast" \
+curl --request POST "http://$device_ID.local:1111/api/cast" \
   --header "content-type:application/json" \
   --data '{"command": "displayPlaylist","request":{"playlistUrl":"$playlist_url", "intent": {"action": "now_display"}}}'
 ```
 
 ### Cast from JSON data
 ```bash
-curl --request POST "http://$ff1-ip:1111/api/cast" \
+curl --request POST "http://$device_ID.local:1111/api/cast" \
   --header "content-type:application/json" \
   --data '{"command": "displayPlaylist","request":{"playlist":{ $actual_playlist_json }, "intent": {"action": "now_display"}}}'
 ```
 
-> 💡 **That's it!** Just replace the variables (`$ff1-ip`, `$playlist_url`, `$actual_playlist_json`) with your values and run the command.
+> 💡 **That's it!** Just replace the variables (`$device_ID`, `$playlist_url`, `$actual_playlist_json`) with your values and run the command.
 
 ### Variable Reference
 
 Replace these placeholders in the commands above:
 
-- **`$ff1-ip`** → Your FF1 device IP address (e.g., `192.168.1.100`)
+- **`$device_ID`** → The unique device ID for your FF1. You can [find it](#1-locate-your-ff1-device-id) in the Feral File mobile app after your FF1 is connected.
 - **`$playlist_url`** → URL to your DP-1 playlist JSON file (e.g., `https://my-feed.example.com/playlists/playlist-ID`)
 - **`$actual_playlist_json`** → Your complete DP-1 playlist JSON content (see examples below)
 
@@ -86,20 +86,17 @@ curl --request POST "http://192.168.1.100:1111/api/cast" \
 
 ## Step-by-Step Guide
 
-### 1. Find Your FF1 Device IP Address
+### 1. Locate Your FF1 Device ID
 
-You need the local IP address of your FF1 device to send cast commands.
+To cast a playlist, you'll need your unique FF1 Device ID:
 
-**How to find the IP address (on FF1 device or Linux-based systems):**
+1. Open the Feral File mobile app.
+2. Tap the menu icon (☰) in the upper right corner.
+3. Go to `FF1 Settings`.
+4. Scroll down to `Device Information`.
+5. Copy the `Device Id`—you'll use this to direct commands to your FF1.
 
-1. Open a terminal or command prompt on your FF1 device (or the device running FF1).
-2. Run:
-   ```bash
-   ip a
-   ```
-3. Look for an entry like `inet 192.168.x.x` or `inet 10.x.x.x` under your active network interface (commonly `eth0`, `wlan0`, or similar).
-   - The number after `inet` (e.g., `192.168.1.100`) is your device’s IP address on the local network.
-
+Having the correct Device ID ensures your playlist is sent to the right FF1 device.
 
 ### 2. Prepare Your Playlist
 Choose one method:
