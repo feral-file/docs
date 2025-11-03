@@ -10,16 +10,16 @@ Preview and test how your DP-1 playlists render on your FF1 device — a quick w
 
 ## Run your first Commands
 
-You can cast a playlist either by URL or by sending the full JSON payload.
+You can send a playlist either by URL or by sending the full JSON payload.
 
-### Cast from URL
+### Send from URL
 ```bash
 curl --request POST "http://$device_ID.local:1111/api/cast" \
   --header "content-type:application/json" \
   --data '{"command": "displayPlaylist","request":{"playlistUrl":"$playlist_url", "intent": {"action": "now_display"}}}'
 ```
 
-### Cast from JSON data
+### Send from JSON data
 ```bash
 curl --request POST "http://$device_ID.local:1111/api/cast" \
   --header "content-type:application/json" \
@@ -38,7 +38,7 @@ Replace these placeholders in the commands above:
 
 ## Complete Examples
 
-### Example 1: Cast from URL
+### Example 1: Send from URL
 ```bash
 # Replace with your actual FF1 IP and playlist URL
 curl --request POST "http://192.168.1.100:1111/api/cast" \
@@ -46,7 +46,7 @@ curl --request POST "http://192.168.1.100:1111/api/cast" \
   --data '{"command": "displayPlaylist","request":{"playlistUrl":"https://feed.example.com/my-playlist.json", "intent": {"action": "now_display"}}}'
 ```
 
-### Example 2: Cast from JSON data
+### Example 2: Send from JSON data
 ```bash
 # Replace with your actual FF1 IP and playlist JSON
 curl --request POST "http://192.168.1.100:1111/api/cast" \
@@ -90,7 +90,7 @@ curl --request POST "http://192.168.1.100:1111/api/cast" \
 
 ### 1. Locate Your FF1 Device ID
 
-To cast a playlist, you'll need your unique FF1 Device ID:
+To send a playlist, you'll need your unique FF1 Device ID:
 
 1. Open the Feral File mobile app.
 2. Tap the menu icon (☰) in the upper right corner.
