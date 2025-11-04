@@ -1,5 +1,25 @@
 # Change logs
 
+## Nov 4
+
+### FF OS 0.12.0 — Enhanced Observability
+
+**Real-Time Performance Metrics**
+
+Your FF1 now reports performance and stability metrics in real time. This deeper visibility helps us spot regressions quickly and focus fixes where they matter most.
+
+**OTA Compatibility Guard**
+
+If your FF1 encounters a version gap that prevents a direct upgrade, it now guides you with clear instructions—usually a one-time manual flash. This keeps devices from getting stuck mid-update.
+
+### Mobile App 0.63.4 — Launch Screen Fix
+
+**App Launch Fixed**
+
+Resolved an issue where the app could freeze during its first launch. If the problem persists, contact us through in-app support.
+
+---
+
 ## Oct 28
 
 ### FF OS 0.11.0 — Security Hardening & Bug Fixes
