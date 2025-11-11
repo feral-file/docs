@@ -1,5 +1,42 @@
 # Change logs
 
+## Nov 11
+
+### FF OS 0.13.0 — Vulkan Rendering & iOS Bluetooth
+
+**Vulkan Rendering for AMD Devices**
+
+Artworks now play correctly on AMD-based FF1 units. This update activates the Vulkan graphics pipeline on AMD hardware, fixing visual glitches and video playback issues.
+
+**iOS Bluetooth Optimization**
+
+Pairing with iOS devices is smoother and faster. Connection stability and command response have both improved.
+
+**Manual Reflash Required**
+
+This release needs a manual reflash ([flashing guide](https://docs.feralfile.com/ff1/#step-3-install-or-update-the-os)).
+
+### Mobile App 0.64.0 — Rebuilt Art Indexer
+
+**Faster, More Accurate Collections**
+
+Your collection data is now accurate and near-instant. The new indexer rewrites how artworks are tracked and updated:
+
+- Collections sort by token acquisition time
+- Wallet transfers appear within seconds
+- Art Blocks metadata pulled directly from source for greater accuracy
+- Reliable thumbnails through redundant IPFS gateways
+
+**Objkt Playlists Return Soon**
+
+Now that the indexer is stable, Objkt playlists re-enable later this week using the same new data pipeline.
+
+**Indexer Stability Note**
+
+This is a complete rewrite of the indexing system. If you see missing metadata or broken thumbnails, please report them through in-app support.
+
+---
+
 ## Nov 4
 
 ### FF OS 0.12.0 — Enhanced Observability
