@@ -8,7 +8,7 @@
 
 We've fixed pairing failures and dropped sessions that required multiple reconnect attempts. Connections should now work reliably from the first attempt. If you still encounter issues, let us know through in-app support.
 
-### Mobile App 0.65.0 — Major UI Refresh
+### Mobile App 0.66.0 — Major UI Refresh
 
 **Redesigned From the Ground Up**
 
