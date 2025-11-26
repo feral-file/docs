@@ -1,5 +1,21 @@
 # Change logs
 
+## Nov 25
+
+### FF OS 0.14.0 — Bluetooth Connection Improvements
+
+**More Reliable Pairing**
+
+We've fixed pairing failures and dropped sessions that required multiple reconnect attempts. Connections should now work reliably from the first attempt. If you still encounter issues, let us know through in-app support.
+
+### Mobile App 0.65.0 — Major UI Refresh
+
+**Redesigned From the Ground Up**
+
+New navigation patterns, refined typography, updated color palette, and streamlined flows throughout. This is the first phase of the redesign, with more polish coming in future releases.
+
+---
+
 ## Nov 11
 
 ### FF OS 0.13.0 — Vulkan Rendering & iOS Bluetooth
