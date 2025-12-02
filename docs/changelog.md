@@ -1,5 +1,37 @@
 # Change logs
 
+## Dec 2
+
+### FF OS 0.15.0 — OTA Firmware Upgrade Support
+
+**OTA Firmware Components**
+
+System components like BlueZ now update over the air. Future firmware releases install normally without requiring a manual reflash.
+
+**Bluetooth Connection Recovery**
+
+Fixed a rare handshake failure that could break communication between the mobile app and your FF1 while artwork continued to play. Connection recovery is now reliable.
+
+**Manual Reflash Required**
+
+This release needs a manual reflash ([flashing guide](https://docs.feralfile.com/ff1/#step-3-install-or-update-the-os)). OTA resumes for future releases.
+
+### Feral File Mobile App 0.66.8 — Interface Refinements
+
+**Smoother Navigation**
+
+Animations, transitions, and visuals have been updated for a more consistent experience.
+
+**Optional Explore Bar**
+
+The Explore bar is now hidden by default. Enable it under **Preferences → Settings** if you want quick access to search and discovery tools.
+
+**Clearer Bluetooth Pairing**
+
+Pairing and reconnecting now show clearer progress states and error messages, making setup more transparent.
+
+---
+
 ## Nov 25
 
 ### FF OS 0.14.0 — Bluetooth Connection Improvements
@@ -8,7 +40,7 @@
 
 We've fixed pairing failures and dropped sessions that required multiple reconnect attempts. Connections should now work reliably from the first attempt. If you still encounter issues, let us know through in-app support.
 
-### Mobile App 0.66.0 — Major UI Refresh
+### Mobile App 0.65.0 — Major UI Refresh
 
 **Redesigned From the Ground Up**
 
