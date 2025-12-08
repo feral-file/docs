@@ -88,7 +88,7 @@ You’re fully set up when your TV shows **artwork** instead of just the QR code
 
 If you’re already at this point, you **do not** need to reinstall the OS. The rest of this page is for advanced troubleshooting and testing.
 
----
+
 
 ## Step 3 (Advanced): Reinstall the OS from USB
 
@@ -131,7 +131,7 @@ The install process is now completely hands-off. No BIOS changes or keyboard are
 
 If you see the QR code after reinstalling, go back to **Step 2** to pair with the app.
 
----
+
 
 ## Troubleshooting
 
@@ -167,7 +167,7 @@ If FF1 **shows the QR code and plays art**, your OS is healthy. In that case, fo
 
 Still stuck? Email **[support@feralfile.com](mailto:support@feralfile.com)** with a short description of what you see on the screen and what you’ve already tried.
 
----
+
 
 ## Next Steps
 
