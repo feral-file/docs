@@ -4,7 +4,6 @@
 
 FF1 updates itself automatically over the air (OTA). For resets, troubleshooting, or experiments, you can also reinstall the OS manually. This guide covers the basics: what you need, installing the app, setting up hardware, (optionally) reinstalling the OS, and playing your first playlist.
 
----
 
 ## Before You Start
 
@@ -18,7 +17,6 @@ Make sure you have:
 
 Once you have these, you’re ready to go.
 
----
 
 ## The FF1 Stack
 
@@ -29,7 +27,6 @@ Once you have these, you’re ready to go.
 | **Feral File App** | Mobile controller for pairing and playlists | Lets you pair your device and manage what plays.         |
 | **DP-1 Protocol**  | Open format for art playlists               | Anyone can publish and share art feeds.                  |
 
----
 
 ## Step 1: Install the Feral File App
 
@@ -37,14 +34,9 @@ The app is your FF1’s remote control. Use it to pair, manage playlists, and ad
 
 > These are **pre-release / test** builds, so you may need to accept TestFlight or testing terms.
 
-- **Android** (testing link): <https://play.google.com/apps/testing/com.bitmark.autonomy_client>  
-  (Use the same Google account you shared with us for testing.)
-- **iPhone** (TestFlight): <https://testflight.apple.com/join/SBt1LsfR>  
-  (You may need to install the TestFlight app first.)
+- [Android](https://play.google.com/apps/testing/com.bitmark.autonomy_client)  - make sure to join the "Beta".
+- [iPhone](https://testflight.apple.com/join/SBt1LsfR) - You may need to install the TestFlight app first.
 
-Once installed, the Feral File app updates like any other app.
-
----
 
 ## Step 2: Plug In Your FF1 and Pair
 
@@ -84,7 +76,7 @@ If the camera link doesn’t appear, or you prefer to start in the app:
 
 1. Open the **Feral File app** on your phone.
 2. Tap the **menu icon** (☰) in the corner to open the main menu.
-3. Choose **“Scan QR”** or **“Add / Connect Device”** (wording may vary slightly between builds).
+3. Choose **“Scan”** (wording may vary slightly between builds).
 4. Use the in-app scanner to **scan the QR code** on your TV.
 5. Follow the in-app steps to finish pairing.
 
@@ -92,10 +84,7 @@ This path is also how you’ll add additional FF1 devices later.
 
 ### 2.5 “You’re done” success state
 
-You’re fully set up when:
-
-- Your TV shows **artwork or a playlist UI** instead of just the QR code, and  
-- The app shows that it’s **connected to your FF1** (you can select and control playlists).
+You’re fully set up when your TV shows **artwork** instead of just the QR code and the app shows the **now playing bar** (you can select and control playlists).
 
 If you’re already at this point, you **do not** need to reinstall the OS. The rest of this page is for advanced troubleshooting and testing.
 
@@ -120,7 +109,7 @@ You’ll need a USB drive (at least 8 GB recommended). This process will erase t
 1. Download **BalenaEtcher**: <https://balena.io/etcher>
 2. Download the latest FF1 system image on branch `release`: <https://ff1.feral-file.workers.dev>
 3. Open Etcher and:
-   - **Select image** → choose the file you downloaded (usually a `.zip` or `.img` file).
+   - **Select image** → choose the file you downloaded (an `.iso`  file).
    - **Select target** → choose your USB drive carefully.
    - **Flash** → wait for Etcher to finish and validate.
 
@@ -176,7 +165,7 @@ A few common issues and fixes:
 
 If FF1 **shows the QR code and plays art**, your OS is healthy. In that case, focus on pairing, playlists, or network rather than reflashing.
 
-Still stuck? Email **[FF1alpha@groups.feralfile.com](mailto:FF1alpha@groups.feralfile.com)** with a short description of what you see on the screen and what you’ve already tried.
+Still stuck? Email **[support@feralfile.com](mailto:support@feralfile.com)** with a short description of what you see on the screen and what you’ve already tried.
 
 ---
 
