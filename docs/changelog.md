@@ -1,5 +1,36 @@
 # Change logs
 
+## Dec 10
+
+### FF OS 1.0.1 — Playlist Reliability & Faster Recovery
+
+**Playlists Advance Correctly**
+
+Fixed an issue where FF1 could play only the first artwork in a playlist and then stop. The playback queue now moves through the full sequence as expected.
+
+**Faster Factory Reset & Log Upload**
+
+Factory reset and log upload now run primarily over Wi‑Fi instead of Bluetooth. Resets complete faster and logs reach us more reliably for debugging. If Wi‑Fi is unavailable or fails, FF1 automatically falls back to Bluetooth so recovery still works.
+
+### Feral File Mobile App 1.0.0 — Dedicated FF1 Controller
+
+**New FF1-Focused App**
+
+We’ve launched a new mobile app dedicated to FF1 setup and control, with updated onboarding, menus, and setup flows to make first-time pairing and daily use simpler.
+
+**Collection & Playback Fixes**
+
+- Correct token ordering for works affected by address-agnostic provenance  
+- Fix for the first two artworks sometimes showing as “Unknown Artist / Unknown Title” with no thumbnail  
+- Reliable playlist thumbnails after adding an address  
+- “Play” button in user playlists now starts playback as expected
+
+**Simpler Sign-In**
+
+The new app no longer requires a passkey to use. You can control FF1 more quickly while we continue to evolve the long-term account and credential model.
+
+---
+
 ## Dec 2
 
 ### FF OS 0.15.0 — OTA Firmware Upgrade Support
