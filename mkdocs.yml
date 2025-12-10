@@ -19,8 +19,6 @@ nav:
       - Send Playlists to FF1: ff1/how-it-works/send-playlists-to-ff1.md
       - OTA: ff1/how-it-works/ota.md
     - Specification: ff1/specification.md
-    - QEMU:
-      - macOS: ff1/qemu/macOS.md
   - Exhibitions & Archive:
     - Exhibition Structure: exhibitions-n-archive/exhibition-structure.md
     - Modeling Artworks: exhibitions-n-archive/modeling-work.md
