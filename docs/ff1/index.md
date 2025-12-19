@@ -22,7 +22,7 @@ Make sure you have:
 1. Connect **HDMI** from FF1 to your screen.
 2. Plug in the **power adapter** to FF1 and to the wall.
 3. Turn on your TV/monitor and choose the correct **HDMI input**.
-4. Turn FF1 on (or plug it in, if it auto-powers).
+4. Turn FF1 on (just plug it in, it auto-powers).
 
 On a normal first boot (or after a good install), FF1 will show a **pairing screen with a QR code**.
 
