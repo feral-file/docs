@@ -1,5 +1,29 @@
 # Change logs
 
+## Dec 17
+
+### FF OS 1.0.2 — More reliable playlist playback
+
+**Playlists Start Consistently**
+
+Fixed an edge case where tapping **Play on FF1** from a playlist could fail to start playback on the device, even though the same artwork would play when launched directly.
+
+### Feral File Mobile App 1.0.2 — Readability & Stability
+
+**Improved Readability**
+
+Typography is now larger and more consistent across onboarding and core screens, making the app easier to scan when your phone is acting as an FF1 controller.
+
+**More Stable Browsing**
+
+Resolved a crash that could occur while scrolling and loading more items in **Playlists**, **Channels**, and **Works**.
+
+**My Collection Ordering Stays Stable**
+
+Fixed a case where works could jump to the top of **My Collection** even when nothing changed for the connected wallet. “Recent” should now reflect your own adds and transfers.
+
+---
+
 ## Dec 10
 
 ### FF OS 1.0.1 — Playlist Reliability & Faster Recovery
@@ -20,9 +44,9 @@ We’ve launched a new mobile app dedicated to FF1 setup and control, with updat
 
 **Collection & Playback Fixes**
 
-- Correct token ordering for works affected by address-agnostic provenance  
-- Fix for the first two artworks sometimes showing as “Unknown Artist / Unknown Title” with no thumbnail  
-- Reliable playlist thumbnails after adding an address  
+- Correct token ordering for works affected by address-agnostic provenance
+- Fix for the first two artworks sometimes showing as “Unknown Artist / Unknown Title” with no thumbnail
+- Reliable playlist thumbnails after adding an address
 - “Play” button in user playlists now starts playback as expected
 
 **Simpler Sign-In**
