@@ -1,5 +1,55 @@
 # Change logs
 
+## Jan 10 2026
+
+### FF OS 1.0.4 — Stable playback with large artworks
+
+**Player Crash Fix for Large Artwork Data**
+
+Fixed a crash in the FF1 player when playlists include large artwork payloads. This also reduces the knock‑on effects we saw on the phone side (app lag and occasional loss of connection while FF1 is under load).
+
+**Bluetooth Reconnect Without Re-Scanning QR**
+
+After the initial QR setup, the mobile app can scan and reconnect to FF1 over Bluetooth without scanning the TV QR code again. This makes setup one-scan-per-install, and it gives users a recovery path when the app forgets the device.
+
+### Feral File Mobile App 1.0.5 — Connectivity, UX, and Support
+
+**Offline Recovery**
+
+If you launch the app while offline, it now restores connection automatically once the internet is back.
+
+**Friendlier Prompt Bar Errors**
+
+Errors in the Prompt Bar now show human-friendly messages instead of technical failures.
+
+**QR + Camera Permission Fix**
+
+Fixed a camera permission error on first-time QR scanning.
+
+**Now Playing + Collection Sync Fixes**
+
+- Tapping the currently playing artwork from the Now Playing bar no longer shows a blank screen
+- Now Playing bar reliably updates the active artwork
+- Collection artwork lists stay in sync between Home and Playlists without needing an app restart
+
+**Navigation Fix**
+
+Fixed the “→ All” button disappearing after returning from the All Curated Playlists view.
+
+**FF1 Connection Improvement**
+
+The app no longer requires a second QR scan to connect to FF1 after install.
+
+**Play Tooltip**
+
+Added a tooltip to explain how to play art from the mobile app.
+
+**Support**
+
+Customer support is now handled via email: support@feralfile.com
+
+---
+
 ## Dec 17
 
 ### FF OS 1.0.2 — More reliable playlist playback
