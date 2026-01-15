@@ -1,5 +1,27 @@
 # Change logs
 
+## Jan 15 2026
+
+### Feral File Mobile App 1.0.6 — Smoother FF1 setup and recovery
+
+**Setup continues without a second QR scan**
+
+FF1 still shows a QR code to get you into the app, but you shouldn’t have to scan it twice. After install, the app can discover a nearby FF1 over Bluetooth and continue setup. If there’s more than one FF1 nearby, you can pick the one you want before connecting.
+
+**Wi‑Fi setup is clearer when you’re moving fast**
+
+Choosing a Wi‑Fi network now centers the SSID list as the main action, with **Other network…** as the fallback. If FF1 can’t connect, the app now gives a clearer error and a better next step (for example: double-check the password, try again, or move FF1 to a stronger signal).
+
+**Reconnect is no longer a dead end after reinstall**
+
+If you delete and reinstall the app (or use **Forget I exist**), you can re-discover and reconnect to an existing FF1 instead of getting stuck without a connect path.
+
+**My Collection search stays fresh**
+
+After you add an address, **My Collection** search updates when indexing completes—without needing an app restart.
+
+---
+
 ## Jan 10 2026
 
 ### FF OS 1.0.4 — Stable playback with large artworks
