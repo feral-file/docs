@@ -1,5 +1,19 @@
 # Change logs
 
+## Jan 19 2026
+
+### FF OS 1.0.5 — HDMI orientation + crash recovery
+
+**Orientation stays correct after HDMI hot‑plug**
+
+FF1 no longer resets screen orientation to the default when you unplug/replug HDMI, so artworks keep playing in the intended orientation.
+
+**Playback resumes after service recovery**
+
+If the playback service crashes and restarts, FF1 now resumes the current playlist correctly instead of getting stuck.
+
+---
+
 ## Jan 15 2026
 
 ### Feral File Mobile App 1.0.6 — Smoother FF1 setup and recovery
