@@ -1,5 +1,27 @@
 # Change logs
 
+## Jan 28 2026
+
+### Feral File Mobile App 1.0.7 — More reliable collections, Now Playing, and device controls
+
+**Collections stay usable while indexing catches up**
+
+Large collections no longer fail all‑or‑nothing during indexing. When works are still syncing, the app keeps browsing and playback usable with what’s ready, and collection status is rendered from the server’s stage + counts. **Rebuild metadata** is safe again—it no longer produces empty playlists or makes the **Me** section disappear after an app restart. When a work can’t load, the app avoids blank “Error” tiles and shows a clear unavailable state instead.
+
+**Channels load consistently**
+
+The Channels tab no longer intermittently shows only the default **Feral File** channel.
+
+**Now Playing stays accurate for single‑art playback**
+
+Switching between single artworks no longer causes the Now Playing bar to desync, and expanding the Now Playing bar no longer shows an empty view.
+
+**Sleep / Screen Off replaces Power Off**
+
+Device control defaults to a reversible Sleep/Screen Off action, with a reliable wake path and clearer recovery when FF1 isn’t reachable.
+
+---
+
 ## Jan 19 2026
 
 ### FF OS 1.0.5 — HDMI orientation + crash recovery
