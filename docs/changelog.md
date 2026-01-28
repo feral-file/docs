@@ -6,7 +6,7 @@
 
 **Faster loads with a larger Chromium cache**
 
-FF1 now keeps a larger Chromium cache, reducing repeat network requests. Pages and artwork assets load faster, and it saves bandwidth on slower connections.
+FF1 now keeps a larger Chromium cache, reducing repeat network requests. Artworks load faster, and it saves bandwidth on slower connections.
 
 **Internet detection is more forgiving during onboarding**
 
@@ -14,7 +14,7 @@ FF1 now handles unstable internet and brief network drops more gracefully during
 
 **Clear confirmation when OTA is triggered from the app**
 
-When you trigger an OTA update from the mobile app, FF1 now shows a clearer confirmation that the update was received and started.
+Starting with FF OS 1.0.6, when you trigger an OTA update from the mobile app, FF1 shows a clearer confirmation that the update was received and started. (On earlier versions like 1.0.5, OTA may still run in the background without an on-screen confirmation.)
 
 **Bigger log uploads for better debugging**
 
