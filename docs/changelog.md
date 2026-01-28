@@ -2,6 +2,24 @@
 
 ## Jan 28 2026
 
+### FF OS 1.0.6 — Faster loads, smoother onboarding, and better recovery
+
+**Faster loads with a larger Chromium cache**
+
+FF1 now keeps a larger Chromium cache, reducing repeat network requests. Pages and artwork assets load faster, and it saves bandwidth on slower connections.
+
+**Internet detection is more forgiving during onboarding**
+
+FF1 now handles unstable internet and brief network drops more gracefully during onboarding, so setup is less likely to get blocked at the exact wrong moment.
+
+**Clear confirmation when OTA is triggered from the app**
+
+When you trigger an OTA update from the mobile app, FF1 now shows a clearer confirmation that the update was received and started.
+
+**Bigger log uploads for better debugging**
+
+FF1 can now upload larger logs, giving us more context when diagnosing tricky issues.
+
 ### Feral File Mobile App 1.0.7 — More reliable collections, Now Playing, and device controls
 
 **Collections stay usable while indexing catches up**
@@ -16,9 +34,9 @@ The Channels tab no longer intermittently shows only the default **Feral File** 
 
 Switching between single artworks no longer causes the Now Playing bar to desync, and expanding the Now Playing bar no longer shows an empty view.
 
-**Sleep / Screen Off replaces Power Off**
+**Sleep / Screen Off for power saving**
 
-Device control defaults to a reversible Sleep/Screen Off action, with a reliable wake path and clearer recovery when FF1 isn’t reachable.
+You can now put FF1 to sleep to turn off the screen and save power, with a reliable wake path when you’re ready to play again.
 
 ---
 
