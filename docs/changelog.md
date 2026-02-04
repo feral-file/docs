@@ -1,5 +1,29 @@
 # Change logs
 
+## Feb 4 2026
+
+### FF OS 1.0.7 — Automatic timezone
+
+**FF1 uses the right timezone automatically**
+
+FF1 now automatically sets the correct timezone. This matters for works that change behavior based on local time—so what you see on screen matches the artist’s intent wherever the device is.
+
+### Feral File Mobile App 1.0.9 — Updates, browsing, and faster syncing
+
+**Manually update FF OS when you missed the overnight window**
+
+FF OS updates are usually applied automatically overnight. If your FF1 was powered off during that window, you can now trigger an update from the mobile app once the device is back online.
+
+**Playlists browsing stays smooth**
+
+Playlists no longer jump back to the top while loading or refreshing, and loading performance is smoother during longer browsing sessions.
+
+**Faster My Collection sync (with a note)**
+
+We reduced redundant requests during token syncing, which should make first-time sync and incremental updates noticeably faster—especially for larger collections.
+
+---
+
 ## Jan 28 2026
 
 ### FF OS 1.0.6 — Faster loads, smoother onboarding, and better recovery
