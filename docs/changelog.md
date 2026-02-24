@@ -2,15 +2,15 @@
 
 ## Feb 24 2026
 
-### FF OS 1.0.8 — Smarter resets and recovery updates
+### FF OS 1.0.8 — Fewer reboots and smarter recovery
 
-**Improved OTA/factory reset mechanism**
+**OTA and factory reset complete in a single reboot**
 
-The system now reboots only once during OTA and factory reset, and includes enhanced failure fallback support so recovery stays reliable even when something goes wrong.
+FF1 now reboots just once during OTA updates and factory resets. Improved failure fallback support keeps recovery on track automatically if something goes wrong mid-process.
 
-**Recovery update functionality**
+**Recovery baseline stays current**
 
-You can now update the system's factory reset version directly, keeping the recovery baseline current without a full reflash.
+FF1 can now update its factory reset version over time. If you ever need to factory reset, you recover to a more current state—with fewer follow-up OTA steps to get back up and running.
 
 ---
 
