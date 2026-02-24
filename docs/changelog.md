@@ -1,5 +1,19 @@
 # Change logs
 
+## Feb 24 2026
+
+### FF OS 1.0.8 — Smarter resets and recovery updates
+
+**Improved OTA/factory reset mechanism**
+
+The system now reboots only once during OTA and factory reset, and includes enhanced failure fallback support so recovery stays reliable even when something goes wrong.
+
+**Recovery update functionality**
+
+You can now update the system's factory reset version directly, keeping the recovery baseline current without a full reflash.
+
+---
+
 ## Feb 4 2026
 
 ### FF OS 1.0.7 — Automatic timezone
