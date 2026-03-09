@@ -26,9 +26,8 @@ This path uses the canonical commands from `feral-file/ff1-cli`.
 # 1) Install (shortest path)
 npm i -g ff1-cli
 
-# 2) Initialize and verify config
-ff1 config init
-ff1 config validate
+# 2) Run guided setup
+ff1 setup
 
 # 3) Build one playlist
 ff1 chat "Get tokens 1,2,3 from Ethereum contract 0xabc" -o playlist.json
@@ -59,8 +58,17 @@ curl -fsSL https://feralfile.com/ff1-cli-install | bash
 ### Alternate: one-off with npx
 
 ```bash
-npx ff1-cli config init
+npx ff1-cli setup
 npx ff1-cli chat
+```
+
+### Manual configuration path (advanced)
+
+If you are scripting setup or need direct config actions:
+
+```bash
+ff1 config init
+ff1 config validate
 ```
 
 ## Commands by job
