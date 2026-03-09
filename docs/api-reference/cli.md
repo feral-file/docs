@@ -26,21 +26,19 @@ This path uses the canonical commands from `feral-file/ff1-cli`.
 # 1) Install (shortest path)
 npm i -g ff1-cli
 
-# 2) Initialize and verify config
-ff1 config init
-ff1 config validate
+# 2) Run guided setup
+ff1 setup
 
 # 3) Build one playlist
 ff1 chat "Get tokens 1,2,3 from Ethereum contract 0xabc" -o playlist.json
 
-# 4) Validate playlist
-ff1 validate playlist.json
-
-# 5) If your device is configured, play on FF1
-ff1 send playlist.json -d "Living Room Display"
+# 4) Play on FF1
+ff1 send playlist.json
 ```
 
-You are successful when `playlist.json` validates and, if a device is available, the playlist plays on FF1.
+You are successful when the playlist builds and plays on your configured FF1.
+
+`ff1 chat` already performs playlist validation during the build flow, so a separate `validate` command is optional for this first run.
 
 ## Install options
 
@@ -59,8 +57,17 @@ curl -fsSL https://feralfile.com/ff1-cli-install | bash
 ### Alternate: one-off with npx
 
 ```bash
-npx ff1-cli config init
+npx ff1-cli setup
 npx ff1-cli chat
+```
+
+### Manual configuration path (advanced)
+
+If you are scripting setup or need direct config actions:
+
+```bash
+ff1 config init
+ff1 config validate
 ```
 
 ## Commands by job
@@ -88,11 +95,10 @@ ff1 chat "Get token 42 from Tezos contract KT1abc" -o playlist.json
 ff1 build ./params.json -o playlist.json
 ```
 
-### Validate, then play
+### Play on your configured FF1
 
 ```bash
-ff1 validate playlist.json
-ff1 send playlist.json -d "Living Room Display"
+ff1 send playlist.json
 ```
 
 ## Common failure points
