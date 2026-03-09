@@ -1,165 +1,117 @@
-### Overview
+# FF1 CLI: Start Here
 
-FF1 CLI builds and validates DP‑1 (Display Protocol 1) playlists from NFT data using either natural language (AI‑orchestrated function calling) or deterministic parameters. For the DP‑1 spec, see [DP-1 Specification](https://github.com/display-protocol/dp1).
+FF1 CLI is a command-line tool that builds DP-1 playlists from NFT and feed data.
 
-**Key characteristics:**
+Use it when you want the shortest path from a prompt to visible playback on an FF1 art computer.
 
-- Deterministic by design: tool outputs are validated against DP‑1 before send.
+- What this is: the primary command workflow for building and sending playlists.
+- Why use it: fastest route from prompt to play on FF1 reference hardware.
+- What to do next: run the first success flow below.
 
-- Optional Ed25519 signing with canonical JSON via `dp1-js`.
+## Version note
 
-### Install
+Examples in this page align with current FF1 CLI behavior, which builds playlists with `dpVersion: 1.0.0`.
 
-Use the Node.js workflow provided by the project:
+The canonical DP-1 specification is currently `v1.1.0` and adds multi-signature support via `signatures`.
 
-```bash
-npm install
-```
+FF1 CLI currently emits `dpVersion: 1.0.0` with legacy top-level `signature` behavior in its default playlist flow.
 
-Initialize and validate configuration:
+Use your toolchain's supported version and verify against the canonical spec before production use.
 
-```bash
-npm run dev -- config init
-npm run dev -- config validate
-```
+## First success in minutes
 
-Optional build for production:
+This path uses the canonical commands from `feral-file/ff1-cli`.
 
 ```bash
-npm run build
-node dist/index.js chat
+# 1) Install (shortest path)
+npm i -g ff1-cli
+
+# 2) Initialize and verify config
+ff1 config init
+ff1 config validate
+
+# 3) Build one playlist
+ff1 chat "Get tokens 1,2,3 from Ethereum contract 0xabc" -o playlist.json
+
+# 4) Validate playlist
+ff1 validate playlist.json
+
+# 5) If your device is configured, play on FF1
+ff1 send playlist.json -d "Living Room Display"
 ```
 
-### Quick start
+You are successful when `playlist.json` validates and, if a device is available, the playlist plays on FF1.
 
-Natural language (AI‑orchestrated):
+## Install options
+
+### Primary
 
 ```bash
-npm run dev chat
-npm run dev -- chat "Get tokens 1,2,3 from Ethereum contract 0xabc" -o playlist.json
+npm i -g ff1-cli
 ```
 
-Deterministic (no AI):
+### Alternate: prebuilt binary installer
 
 ```bash
-npm run dev -- build examples/params-example.json -o playlist.json
+curl -fsSL https://feralfile.com/ff1-cli-install | bash
 ```
 
-### Commands and flags
-
-- `chat [content]` – AI‑driven natural language playlists
-  - Options: `-o, --output <file>`, `-m, --model <name>`, `-v, --verbose`
-- `build [params.json]` – Deterministic build from JSON file or stdin
-  - Options: `-o, --output <file>`, `-v, --verbose`
-- `validate <file>` / `verify <file>` – Validate a DP‑1 playlist file
-- `sign <file>` – Sign playlist with Ed25519
-  - Options: `-k, --key <base64>`, `-o, --output <file>`
-- `send <file>` – Send playlist to an FF1 device
-  - Options: `-d, --device <name>`, `--skip-verify`
-- `config <init|show|validate>` – Manage configuration
-
-Models are configured in `config.json` and can be switched at runtime via `--model`.
-
-### Examples
-
-Setup:
+### Alternate: one-off with npx
 
 ```bash
-npm install
-npm run dev -- config init
-npm run dev -- config validate
+npx ff1-cli config init
+npx ff1-cli chat
 ```
 
-Natural language:
+## Commands by job
+
+- Build playlist from natural language: `ff1 chat [content]`
+- Build playlist from deterministic params: `ff1 build [params.json]`
+- Validate a playlist file or URL: `ff1 validate <file-or-url>`
+- Sign a playlist: `ff1 sign <file>`
+- Send a playlist to FF1: `ff1 send <file-or-url>`
+- Play a direct media URL: `ff1 play <url>`
+- Publish to feed server: `ff1 publish <file>`
+- Configure and inspect setup: `ff1 config <init|show|validate>`
+
+## Copy-paste examples
+
+### Build from natural language
 
 ```bash
-# Interactive chat
-npm run dev chat
-
-# One‑shot requests
-npm run dev -- chat "Get tokens 1,2,3 from Ethereum contract 0xabc" -o playlist.json
-npm run dev -- chat "Get token 42 from Tezos contract KT1abc"
-npm run dev -- chat "Get 3 items from Social Codes and 2 from 0xdef" -v
-
-# Switch model
-npm run dev -- chat "your request" --model grok
-npm run dev -- chat "your request" --model chatgpt
-npm run dev -- chat "your request" --model gemini
+ff1 chat "Get token 42 from Tezos contract KT1abc" -o playlist.json
 ```
 
-Deterministic build (no AI):
+### Build without AI
 
 ```bash
-# From file
-npm run dev -- build examples/params-example.json -o playlist.json
-
-# From stdin
-cat examples/params-example.json | npm run dev -- build -o playlist.json
+ff1 build ./params.json -o playlist.json
 ```
 
-AI‑orchestrated deterministic flow (prompts):
+### Validate, then play
 
 ```bash
-# Show tool‑call progress and validation
-npm run dev -- chat "Build a playlist of my Tezos works from address tz1... plus 3 from Social Codes" -v -o playlist.json
-
-# Switch model if desired
-npm run dev -- chat "Build playlist from Ethereum address 0x... and 2 from Social Codes" --model chatgpt -v
+ff1 validate playlist.json
+ff1 send playlist.json -d "Living Room Display"
 ```
 
-One‑shot complex prompt:
+## Common failure points
 
-```bash
-# Combine sources, shuffle, set per‑item duration, and send to a device
-npm run dev -- chat "Get tokens 1,2 from contract 0xabc and token 42 from KT1xyz; shuffle; 6 seconds each; send to 'Living Room Display'." -o playlist.json -v
-```
+- `config validate` fails: run `ff1 config show`, fix API keys and model settings, then re-run validation.
+- `chat` fails with provider/auth errors: confirm provider API key env vars or `config.json` values.
+- `send` cannot find device: check device host/name in config and make sure FF1 is reachable on your network.
+- `send` version error: FF1 OS is below minimum supported version for that command; update FF1 OS and retry.
+- Signature expectations differ by toolchain: many current CLI flows produce legacy top-level `signature` instead of `signatures[]`.
 
-Validate / sign / send:
+## Deeper references
 
-```bash
-# Validate playlist
-npm run dev -- validate playlist.json
+- Full usage and workflow docs: <https://github.com/feral-file/ff1-cli/blob/main/docs/README.md>
+- Configuration reference: <https://github.com/feral-file/ff1-cli/blob/main/docs/CONFIGURATION.md>
+- Function-calling details: <https://github.com/feral-file/ff1-cli/blob/main/docs/FUNCTION_CALLING.md>
+- More examples: <https://github.com/feral-file/ff1-cli/blob/main/docs/EXAMPLES.md>
+- DP-1 protocol spec: <https://github.com/display-protocol/dp1/blob/main/docs/spec.md>
+- DP-1 validator behavior: <https://github.com/display-protocol/dp1-validator>
 
-# Sign playlist
-npm run dev -- sign playlist.json -o signed.json
+## Next step
 
-# Send to device (verifies by default)
-npm run dev -- send playlist.json -d "Living Room Display"
-```
-
-### Troubleshooting
-
-Configuration and diagnostics:
-
-```bash
-# Show current configuration
-npm run dev -- config show
-
-# Reinitialize config
-npm run dev -- config init
-
-# Validate config and surface actionable errors
-npm run dev -- config validate
-```
-
-Notes and constraints:
-- Max 20 items total across all requirements
-- Duration per item defaults to 10s (configurable)
-- Device selection: omit `-d` to use the first configured device, or pass exact `--device <name>`
-
-### Configuration reference
-
-See [Configuration Guide](https://github.com/feral-file/ff1-cli/blob/main/docs/CONFIGURATION.md) for all fields, environment variables, feed settings, and FF1 device selection rules. Minimal `config.json` and environment variable helpers are provided there.
-
-### Function calling architecture
-
-For how the model orchestrates tool calls, schemas, and the deterministic pipeline, see [Function Calling Details](https://github.com/feral-file/ff1-cli/blob/main/docs/FUNCTION_CALLING.md). In short: parse intent → call tools to fetch/build → verify DP‑1 → optionally sign → optionally send.
-
-### See also
-
-- [Command API reference](../api-reference/command-api.md)
-- [General CLI README](https://github.com/feral-file/ff1-cli/blob/main/docs/README.md)
-- [Examples](https://github.com/feral-file/ff1-cli/blob/main/docs/EXAMPLES.md)
-- [Configuration](https://github.com/feral-file/ff1-cli/blob/main/docs/CONFIGURATION.md)
-- [Function calling details](https://github.com/feral-file/ff1-cli/blob/main/docs/FUNCTION_CALLING.md)
-- [DP‑1 specification](https://github.com/display-protocol/dp1)
+Run the FF1 bridge flow: [From valid DP-1 playlist to FF1 playback](../dp1-protocol/ff1-integration.md).

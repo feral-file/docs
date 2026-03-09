@@ -1,199 +1,39 @@
-# LLM & Agents – Quickstart
+# LLM & Agents Quickstart
 
-## Introduction
+This section is for teams building LLM or agent tooling around Feral File APIs.
 
-This guide explains how to set up a Large Language Model (LLM) that can call APIs to fetch real-time data from **Feralfile**. The goal is to enable your AI agent to answer questions based on live data from exhibitions, series, and artworks.
+It is a support layer, not a separate product track.
 
-### Quick Demo
+- What this is: a thin setup guide for tool-calling with Feral File APIs.
+- Why use it: connect an agent safely without duplicating protocol or CLI logic.
+- What to do next: choose FF1 CLI or DP-1 as your primary execution path.
 
-Try our preconfigured GPT right away: **[Feralfile Data GPT](https://chatgpt.com/g/g-6894c9f2dfec8191a94e3ae0a7fe82dc-feralfile-data)**
+## What this is for
 
----
+- Connect an LLM tool to OpenAPI endpoints.
+- Keep calls deterministic and small.
+- Route execution to the right primary docs path.
 
-## Setup Guide
+## Use these primary paths
 
-### Step 1: Create Custom GPT
+- Playlist generation and playback workflows: [FF1 CLI: Start Here](../api-reference/cli.md)
+- Protocol correctness, schemas, validator, and feeds: [DP-1: Start Here](../dp1-protocol/overview.md)
 
-Start by creating your own GPT instance in ChatGPT.
+## Minimal setup
 
-### Step 2: Configure API Action
+1. Import OpenAPI schema:
+   - `https://feralfile.com/.well-known/openapi.json`
+2. Add system instructions that keep requests scoped and explicit.
+3. Keep request limits small to avoid oversized context and unstable outputs.
+4. Validate generated playlist payloads with [DP-1 Validator Quickstart](../dp1-protocol/validator.md).
 
-Add an action to enable your GPT to call Feralfile APIs directly (no authentication required).
+## Guardrails
 
-### Step 3: Import OpenAPI Schema
+- Do not treat this section as a replacement for CLI docs.
+- Do not duplicate DP-1 schema or feed operation docs in agent prompts.
+- Keep protocol operations in DP-1 pages and command workflows in FF1 CLI pages.
+- Do not claim end-to-end DP-1 `v1.1.0` parity across all tools unless verified in upstream repos.
 
-Use our predefined schema:
+## Next step
 
-```
-https://feralfile.com/.well-known/openapi.json
-```
-
-> **Note:** This schema follows the OpenAPI standard, making it directly compatible with GPT custom actions and describes all available Feralfile API endpoints.
-
-### Step 4: System Instructions
-
-Configure your GPT with system instructions, example:
-
-```markdown
-This LLM can fetch Feralfile data to answer user requests about exhibitions, series, and artworks.
-
-Data Structure:
-
-- An exhibition contains multiple series
-- A series contains multiple artworks
-
-Special Rules:
-
-- Keep API limits small to avoid oversized responses. (1)
-- Follow artwork naming conventions based on settings.maxArtwork. (2)
-```
-
-(1) : [API endpoints and limits](#api-endpoints)
-(2) : [Artwork naming conventions](#artwork-naming-convention)
-
----
-
-## API Endpoints
-
-### Search Exhibitions
-
-Find exhibitions by keyword:
-
-**Endpoint:**
-
-```http
-GET /api/llm/exhibitions?keyword=<name>&sortBy=relevance&limit=2
-```
-
-**Parameters:**
-
-- `keyword`: Search term
-- `sortBy`: `relevance` (recommended)
-- `limit`: **Maximum 2**
-
-> **⚠️ Important:** Keep limit ≤ 2 to prevent context window overflow and parsing errors.
-
-### Get Series in Exhibition
-
-Retrieve series within an exhibition:
-
-**Endpoint:**
-
-```http
-GET /api/llm/series?exhibitionID=<id>&sortBy=displayIndex&sortOrder=ASC&limit=5&offset=0
-```
-
-**Parameters:**
-
-- `exhibitionID`: Exhibition UUID
-- `sortBy`: `displayIndex`
-- `sortOrder`: `ASC`
-- `limit`: **Maximum 5**
-- `offset`: Pagination offset
-
-> **⚠️ Important:** Keep limit ≤ 5 to prevent context window overflow and parsing errors.
-
-### Get Artworks in Series
-
-Retrieve artworks within a series:
-
-**Endpoint:**
-
-```http
-GET /api/artworks?seriesID=<id>&limit=20&offset=0&sortBy=index&sortOrder=ASC
-```
-
-**Parameters:**
-
-- `seriesID`: Series UUID
-- `limit`: **Maximum 20**
-- `offset`: Pagination offset
-- `sortBy`: `index`
-- `sortOrder`: `ASC`
-
-> **⚠️ Important:** Keep limit ≤ 20 to prevent context window overflow and parsing errors.
-
----
-
-## Special Rules
-
-### Artwork Naming Convention
-
-The artwork naming follows specific logic based on `settings.maxArtwork`:
-
-- **If `settings.maxArtwork = 1`:**
-  Artwork name = `series.title`
-
-- **Otherwise:**
-  Artwork name = `series.title + " " + artwork.name`
-
-### Data Limits (Mandatory)
-
-Always respect these limits to ensure smooth operation. [Learn more about API endpoints](#api-endpoints):
-
-| Endpoint    | Maximum Limit | Reason                                                    |
-| ----------- | ------------- | --------------------------------------------------------- |
-| Exhibitions | 2             | Prevents context overflow                                 |
-| Series      | 5             | Prevents context overflow                                 |
-| Artworks    | 20            | Prevents context overflow and optimal parsing performance |
-
----
-
-## Example Usage
-
-### Prompt
-
-```
-Show me the name of the newest exhibition on Feralfile
-```
-
-### GPT Function Call
-
-```json
-{
-  "domain": "feralfile.com",
-  "method": "get",
-  "path": "/api/llm/exhibitions",
-  "operation": "getExhibitionList",
-  "operation_hash": "a387f38a2b8a40df3263c75d3e1d22e697233c6c",
-  "is_consequential": false,
-  "params": {
-    "limit": 1,
-    "offset": 0,
-    "sortBy": "openAt",
-    "sortOrder": "DESC"
-  }
-}
-```
-
-### API Response (truncated)
-
-```json
-{
-  "response_data": {
-    "result": [
-      {
-        "id": "96a205cc-3e5c-46a7-9662-478dbec8209d",
-        "title": "Net Evil",
-        "slug": "net-evil-das",
-        "exhibitionStartAt": "2025-08-26T16:00:00Z",
-        "previewDuration": 0,
-        "curatorAlumniAccountID": "d900e15b-2510-42f5-b832-18f9ffe46471",
-        "setReservation": 0,
-        "noteTitle": "Dark Patterns",
-        "noteBrief": "<p>In Net Evil, seven artists use the seven deadly sins to explore how evil inhabits the internet. By reflecting how the web enables misdeeds, each work reveals how the occurrence of nefarious behavior on the internet is not a new phenomenon, but part of a long history of human indecency.</p>",
-        "note": "",
-        "coverURI": "exhibition-thumbnails/96a205cc-3e5c-46a7-9662-478dbec8209d/1755593015",
-        "highlightOrder": 10000,
-        (etc),
-      }
-    ]
-  }
-}
-```
-
-### GPT Response
-
-```
-The newest exhibition on Feralfile is "Net Evil", curated by Mackenzie Davenport.
-```
+Choose your execution path: [FF1 CLI first run](../api-reference/cli.md) or [DP-1 integrator start](../dp1-protocol/overview.md).

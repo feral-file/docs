@@ -1,38 +1,31 @@
 # Player Behavior
 
-DP-1 players like FF1 interpret playlists via a standardized lifecycle. For core rules, see [DP-1 spec](https://github.com/display-protocol/dp1/blob/main/docs/spec.md).
+This page explains how players consume DP-1 playlists at runtime.
 
-## FF1-Specific Behavior
-FF1 (Feral's reference hardware) renders DP-1 content with these optimizations:
+- What this is: runtime behavior guidance for playback clients.
+- Why use it: helps debug validation, fetch, and playback issues.
+- What to do next: confirm your player behavior against the canonical DP-1 spec.
 
-### Render Hints
-- **Scaling/Margins**: Defaults to "fit" with 5% margins; overrides per item take precedence.
-- **Backgrounds**: Supports hex colors; falls back to black (#000) for unstyled items.
-- **Transitions**: 1s fade between items; disabled for "instant" license types (e.g., subscription previews needing quick loads).
+## Version and compatibility note
 
-### Asset Locators
-FF1 resolves sources via:
-- **URLs**: Direct fetch (e.g., HTTPS/IPFS); caches for OTA updates (see [FF1 OTA](../ff1/how-it-works/ota.md)).
-- **Provenance Checks**: Verifies on-chain token ownership before token-gated renders.
-- **Fallbacks**: If source fails, displays static thumbnail from `ref` (IPFS manifest).
+- Canonical DP-1 spec is currently `v1.1.0`.
+- Some adjacent tooling still centers `dpVersion: 1.0.0` payloads and legacy top-level `signature` behavior.
+- Do not assume blanket end-to-end `1.1.0` parity across CLI, validator, and feed operator unless explicitly verified in those repos.
 
-### Lifecycle
-1. Fetch playlist from Feed Server.
-2. Validate signature.
-3. Loop items indefinitely (or until interrupted, e.g., new playlist via OTA), respecting durations.
-4. Handle errors: Log to console; skip to next item.
-   - **Power Cycle?** FF1 retries fetches on boot; check logs via SSH for provenance fails.
+## Runtime sequence (player view)
 
-Example FF1 config in playlist:
-```json
-{
-  "defaults": {
-    "display": { "scaling": "fit", "margin": "5%" }
-  }
-}
-```
+1. Load playlist from URL or feed endpoint.
+2. Validate playlist structure for the toolchain version in use.
+3. Verify trust metadata (`signature` or `signatures`) according to implemented verifier capabilities.
+4. Render items in order with item/default display settings.
+5. On failure, surface a clear error and continue according to player policy.
 
-For QEMU testing, see [FF1 QEMU](../ff1/qemu/macOS.md).
+## FF1 as reference hardware
 
-.
+FF1 is Feral File's art computer and a reference hardware path for DP-1 playback.
 
+Use FF1 behavior as one implementation path, not as the protocol definition.
+
+## Next step
+
+Use the bridge flow: [From DP-1 playlist to FF1 playback](ff1-integration.md).

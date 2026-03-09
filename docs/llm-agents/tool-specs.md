@@ -1,9 +1,9 @@
 # Tool Specs
 
-Coming soon
+This path is kept for link continuity.
 
-## OpenAI
+Use the active guide for LLM tool-calling scope, guardrails, and live integration links.
 
-## Anthropic
+## Next step
 
-## Gemini
+Open [LLM & Agents Quickstart](quickstart.md).
