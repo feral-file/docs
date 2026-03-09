@@ -11,6 +11,8 @@ extra_css:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.css
 nav:
   - Home: index.md
+  - FF1 CLI:
+    - Start Here: api-reference/cli.md
   - FF1:
     - Getting Started: ff1/index.md
     - How It Works:
@@ -29,22 +31,19 @@ nav:
     - Install & Basics: artwork-lib/install-basics.md
     - Event Listeners: artwork-lib/event-listeners.md
   - DP-1 Protocol:
-    - Overview: dp1-protocol/overview.md 
-    - Schemas: dp1-protocol/schemas.md 
+    - Start Here (Integrators): dp1-protocol/overview.md
+    - Validator Quickstart: dp1-protocol/validator.md
+    - Schemas: dp1-protocol/schemas.md
     - Feed Server:
-      - Overview: dp1-protocol/feed-server.md 
-      - Run your own Feed Server: dp1-protocol/self-hosted-feed.md 
-    - Player Behavior: dp1-protocol/player-behavior.md 
-    - FF1 Integration: dp1-protocol/ff1-integration.md 
+      - Hosted Feed (Feral File): dp1-protocol/feed-server.md
+      - Run your own Feed Server: dp1-protocol/self-hosted-feed.md
+    - FF1 Playback Bridge: dp1-protocol/ff1-integration.md
+    - Player Behavior: dp1-protocol/player-behavior.md
   - API Reference:
-    - FF1 CLI: api-reference/cli.md
     - Command API: api-reference/command-api.md
     - Webhooks: api-reference/webhooks.md
-    - Auth & Rate-Limits: api-reference/auth-rate-limits.md
   - LLM & Agents:
     - Quickstart: llm-agents/quickstart.md
-    - Tool Specs: llm-agents/tool-specs.md
-    - Safety & Licensing Checks: llm-agents/safety-licensing.md
   - Architecture:
     - Overview: bands/overview.md
   - Changelog: changelog.md

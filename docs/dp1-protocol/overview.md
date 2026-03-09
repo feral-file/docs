@@ -1,33 +1,51 @@
-# DP-1 Protocol Overview
+# DP-1: Start Here (Integrators)
 
-## Feral File's Implementation
-DP-1 is an open protocol for blockchain-native digital art display, enabling interoperable playlists across devices. Feral File seeds this ecosystem with FF1 hardware as the reference implementation and hosts a production Feed Server at [feed.feralfile.com](https://feed.feralfile.com).
+DP-1 is an open, vendor-neutral protocol for signed digital art playlists.
 
-For the full vendor-neutral spec, see the [public DP-1 repo](https://github.com/display-protocol/dp1), including [design principles (raw)](https://github.com/display-protocol/dp1/blob/main/docs/spec.md).
+Use DP-1 when you want portable playback across compatible players, with validation and signature checks as the trust baseline.
 
-### Why DP-1 for Feral File
-The digital display landscape faces challenges like fragmented standards and data integrity—DP-1 fixes that with unified validation and verifiable authenticity. For us, it powers seamless exhibitions: token-gated art on FF1s, AI-generated playlists, and global distribution.
+- What this is: the protocol entry point for integrators.
+- Why use it: one playlist format that can be validated and played across compatible systems.
+- What to do next: validate one minimal playlist first.
 
-## Core Components
-Key DP-1 pieces in our ecosystem:
+## Version note
 
-- **Feed Server**: Our hosted registry [](https://feed.feralfile.com) stores, validates, and signs playlists. See [Feed Server](feed-server.md).
-- **Validator**: Ensures schema compliance and Ed25519 signatures. Use the open [DP-1 Validator](https://github.com/display-protocol/dp1-validator) CLI.
-- **Schema**: Defines playlists with metadata, items, and display rules. Dive into [schemas.md](schemas.md) or the [OpenAPI spec (raw)](https://github.com/display-protocol/dp1-feed/blob/main/openapi.yaml).
-- **Display Client**: FF1 renders these—optimized for provenance checks and OTA updates.
+Canonical DP-1 specification is currently `v1.1.0`.
 
-## Benefits of DP-1
-- **Interoperability**: Content flows to FF1s, web players, and beyond.
-- **Data Integrity**: Built-in validation prevents breaks.
-- **Scalability**: Easy to scale exhibitions with new sources.
-- **Trust**: On-chain provenance verifies NFTs.
-- **Flexibility**: Supports open/token/subscription licenses.
+In this first-run flow, some examples use `dpVersion: 1.0.0` for compatibility with current CLI/operator tooling in the ecosystem.
 
-## Key Feral Integrations
-- **Exhibitions**: Model artworks as DP-1 playlists for token-gated displays (see [Exhibition Structure](../exhibitions-n-archive/exhibition-structure.md)).
-- **AI Commands**: Generate playlists via natural language (see [Quickstart](../llm-agents/quickstart.md)).
-- **FF1 Devices**: Render with hardware tweaks (see [Player Behavior](player-behavior.md)).
+Treat the spec as authoritative and choose the version your toolchain supports.
 
-## Next Steps
-- [Schemas](schemas.md) for Feral examples.
-- Set up access to our [Feed Server](feed-server.md).
+Do not assume blanket end-to-end `1.1.0` parity across CLI, validator, and feed operator unless explicitly verified in those repos.
+
+## First success flow
+
+1. Validate one minimal playlist with the validator.
+2. Review the core object model (`playlist`, `items`, `display`, `provenance`).
+3. Publish or host the validated playlist.
+4. Play it on FF1 (reference hardware) or another compatible player.
+
+## Canonical references
+
+- DP-1 specification (authoritative, currently v1.1.0): <https://github.com/display-protocol/dp1/blob/main/docs/spec.md>
+- DP-1 repository: <https://github.com/display-protocol/dp1>
+- Feed server implementation (OpenAPI + server): <https://github.com/display-protocol/dp1-feed>
+- Validator implementation and behavior notes: <https://github.com/display-protocol/dp1-validator>
+
+## Fast links for this site
+
+- Validate first: [Validator Quickstart](validator.md)
+- Understand object model: [Schemas](schemas.md)
+- Hosted feed guidance (Feral File): [Hosted Feed](feed-server.md)
+- Run your own feed: [Self-Hosted Feed](self-hosted-feed.md)
+- Short FF1 bridge: [From DP-1 to FF1 playback](ff1-integration.md)
+
+## Notes on roles
+
+- **DP-1** is the protocol.
+- **FF1** is Feral File's art computer and reference hardware.
+- You can integrate DP-1 without FF1.
+
+## Next step
+
+Run [Validator Quickstart](validator.md) and validate one playlist.

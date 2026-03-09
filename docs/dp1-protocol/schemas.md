@@ -1,45 +1,59 @@
 # DP-1 Schemas
 
-For authoritative definitions, refer to the [DP-1 JSON schemas](https://github.com/display-protocol/dp1/blob/main/docs/spec.md) and [Feed API spec](https://github.com/display-protocol/dp1-feed/blob/main/openapi.yaml) in the public repo.
+This page explains the DP-1 object model in plain language and links the canonical schema sources.
 
-## Feral File Examples
-Feral workflows often extend core schemas with exhibition metadata. Example for an FF1-bound artwork:
+## Version note
+
+Canonical DP-1 specification is currently `v1.1.0`.
+
+The minimal example on this page uses `dpVersion: 1.0.0` for compatibility with current FF1 CLI output in the first-run flow.
+
+For production behavior, follow the canonical spec version your toolchain supports.
+
+Ecosystem tooling is transitional. Do not assume full `v1.1.0` end-to-end parity across all adjacent repos unless explicitly verified there.
+
+## Canonical sources
+
+- DP-1 specification and schema rules: <https://github.com/display-protocol/dp1/blob/main/docs/spec.md>
+- Feed server OpenAPI (operator API): <https://github.com/display-protocol/dp1-feed/blob/main/openapi.yaml>
+
+## Object model at a glance
+
+- `playlist`
+  - Top-level container with `dpVersion`, identity fields, display defaults, and `items`.
+- `defaults`
+  - Optional baseline values inherited by items (for example display settings, license, duration).
+- `items[]`
+  - The ordered media entries a player can render.
+- `display`
+  - Rendering preferences such as scaling, background, and margin.
+- `provenance`
+  - Optional source-of-truth metadata (for example on-chain contract context).
+- `signature` or `signatures`
+  - Integrity and trust metadata defined by the DP-1 spec version in use.
+
+## Minimal playlist shape
 
 ```json
 {
   "dpVersion": "1.0.0",
-  "id": "feral-exhibit-001",
-  "slug": "generative-sunset",
-  "title": "Generative Sunset",
-  "created": "2025-09-13T00:00:00Z",
-  "defaults": {
-    "display": { "scaling": "fit", "background": "#000" }
-  },
+  "id": "385f79b6-a45f-4c1c-8080-e93a192adccc",
+  "title": "Minimal DP-1 Playlist",
+  "created": "2025-10-17T07:02:03Z",
   "items": [
     {
-      "id": "item-001",
-      "slug": "sunset-loop",
-      "source": "https://cdn.feralfile.com/art/sunset.html",
-      "duration": 300,
-      "license": "token",
-      "ref": "ipfs://manifest-for-exhibition",  // Feral extension for token metadata
-      "provenance": {
-        "type": "onChain",
-        "contract": { "chain": "evm", "standard": "erc721", "address": "0x...", "tokenId": "123" }
-      }
+      "id": "item-1",
+      "title": "Example Item",
+      "source": "https://example.com/artwork.html",
+      "duration": 30,
+      "license": "open"
     }
-  ],
-  "signature": "ed25519:<hex>"
+  ]
 }
 ```
 
-## Quick Validation
-Use the open-source [DP-1 Validator](https://github.com/display-protocol/dp1-validator) to check your playlist:
-```bash
-./dp1-validator playlist --playlist "https://your-url/playlist.json" --pubkey "your-pubkey-hex"
-```
-It verifies signatures, schemas, and assets—essential for Feral submissions.
+Use this as a shape reference only. For authoritative field behavior and version rules, use the canonical spec.
 
-Validate with the open [DP-1 Validator](https://github.com/display-protocol/dp1-validator). For Feral-specific validation in exhibitions, see [Token Metadata](../exhibitions-n-archive/token-metadata.md).
+## Next step
 
-See also: Full field list in the [DP-1 spec](https://github.com/display-protocol/dp1/blob/main/docs/spec.md).
+Run [Validator Quickstart](validator.md) on your own payload.
