@@ -1,5 +1,37 @@
 # Change logs
 
+## Mar 9 2026
+
+### FF OS 1.0.9 — Stronger defaults, full-length video, and richer logs
+
+**FF1 is more secure by default**
+
+SSH access via username and password is now disabled. If you need to connect to FF1 directly—for development or debugging—use [ff1-cli](https://github.com/feral-file/ff1-cli) to connect instead.
+
+**Videos that were cutting off early now play their full length**
+
+A video indexing issue was causing some artworks to play shorter than intended. If a video in your collection was affected, open the Feral File app and use **Rebuild Metadata** to restore full-length playback.
+
+**More detailed logs for faster fixes**
+
+FF1 now captures more detail when crashes or failures occur, helping us identify and resolve issues faster.
+
+### Feral File Mobile App 1.1.0 — Smoother browsing, audio control, and all exhibitions
+
+**Smoother scrolling and faster collection sync**
+
+The app has been rebuilt from the ground up. Scrolling through large collections stays smooth even when many thumbnails are loading, and collection sync is faster and lighter—no more freezing or lag while your library updates. Since this is a complete rewrite, you may spot occasional rough edges—let us know through in-app support if anything seems off.
+
+**Control audio from the app**
+
+You can now adjust audio directly from the Feral File app while artwork is playing on FF1.
+
+**All Feral File exhibitions are now channels**
+
+Every Feral File exhibition is now visible as a channel in the app. Previously only a selection appeared—now the full archive is there to browse and play.
+
+---
+
 ## Feb 24 2026
 
 ### FF OS 1.0.8 — Fewer reboots and smarter recovery
