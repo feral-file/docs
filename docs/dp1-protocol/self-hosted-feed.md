@@ -15,7 +15,7 @@ This page covers operator usage only. It is separate from Feral File's hosted pr
 
 ## Version and compatibility note
 
-- Canonical DP-1 protocol spec is currently `v1.1.0`: <https://github.com/display-protocol/dp1/blob/main/docs/spec.md>
+- Canonical DP-1 protocol spec is currently `v1.1.0`: <https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md>
 - Current operator examples are often centered on `dpVersion: 1.0.0`.
 - Treat those examples as practical implementation baselines, not blanket ecosystem parity claims.
 
