@@ -1,5 +1,27 @@
 # Change logs
 
+## Mar 17 2026
+
+### Feral File Mobile App 1.1.3 — Favorites, cleaner collections, and reliability fixes
+
+**Save works to your Favorites playlist**
+
+You can now favorite works from your collection to save them to a dedicated Favorites playlist—a simple way to curate exactly what you want playing on FF1.
+
+**Your collection stays accurate**
+
+Works that can no longer be played—because their source is offline or unreachable—are now automatically removed from your collection.
+
+**FF1 devices no longer go missing after upgrading**
+
+Upgrading from an older version of the app could cause paired FF1 devices to disappear from the device list. This is now fixed.
+
+**Work count in the Me section is now correct**
+
+The work count in the Me section now shows the correct number while scrolling.
+
+---
+
 ## Mar 9 2026
 
 ### FF OS 1.0.9 — Stronger defaults, full-length video, and richer logs
