@@ -30,7 +30,7 @@ npm i -g ff1-cli
 ff1 setup
 
 # 3) Build one playlist
-ff1 chat "Get tokens 1,2,3 from Ethereum contract 0xabc" -o playlist.json
+ff1 chat "Get 3 works from reas.eth" -o playlist.json
 
 # 4) Play on FF1
 ff1 send playlist.json
@@ -86,8 +86,22 @@ ff1 config validate
 ### Build from natural language
 
 ```bash
-ff1 chat "Get token 42 from Tezos contract KT1abc" -o playlist.json
+ff1 chat "Get 3 works from reas.eth" -o playlist.json
+ff1 chat "Get 3 works from einstein-rosen.tez" -o playlist.json
+ff1 chat "Get tokens 52932,52457 from Ethereum contract 0xb932a70A57673d89f4acfFBE830E8ed7f75Fb9e0" -o playlist.json
 ```
+
+### Build from Feral File feed playlists
+
+Use exhibition titles from:
+<https://github.com/feral-file/dp1-feed/tree/main/playlists>
+
+```bash
+ff1 chat "Get 3 from Unsupervised" -o playlist.json
+ff1 chat "Get 3 from Unsupervised and 2 from reas.eth" -o playlist.json
+```
+
+Feed playlist requests depend on configured feed servers and network reachability.
 
 ### Build without AI
 
