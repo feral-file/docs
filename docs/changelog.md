@@ -1,5 +1,19 @@
 # Change logs
 
+## Mar 19 2026
+
+### FF OS 1.0.10 — Shuffle and loop controls, and stability for heavy artworks
+
+**Shuffle and loop controls for playlists**
+
+You can now set a playlist to shuffle its play order, loop continuously, or both.
+
+**FF1 handles memory-intensive artworks without getting stuck**
+
+Some complex artworks can demand more memory than the system has available. Previously this would crash FF1 and leave it unable to switch to a different artwork. FF1 now handles these cases and recovers without getting stuck.
+
+---
+
 ## Mar 17 2026
 
 ### Feral File Mobile App 1.1.3 — Favorites, cleaner collections, and reliability fixes
