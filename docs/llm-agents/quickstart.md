@@ -27,6 +27,12 @@ It is a support layer, not a separate product track.
 3. Keep request limits small to avoid oversized context and unstable outputs.
 4. Validate generated playlist payloads with [DP-1 Validator Quickstart](../dp1-protocol/validator.md).
 
+If your agent should run FF1 CLI directly, use this ready prompt as your starting point:
+
+- <https://github.com/feral-file/ff1-cli/blob/main/examples/openclaw-ff1-skill.md>
+
+This keeps the flow simple: status -> config validate -> build -> validate -> send/publish, and reports failing command + code when a step breaks.
+
 ## Guardrails
 
 - Do not treat this section as a replacement for CLI docs.
