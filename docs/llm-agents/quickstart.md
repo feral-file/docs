@@ -29,7 +29,7 @@ It is a support layer, not a separate product track.
 
 If your agent should run FF1 CLI directly, use this ready prompt as your starting point:
 
-- <https://github.com/feral-file/ff1-cli/blob/main/examples/openclaw-ff1-skill.md>
+- <https://github.com/feral-file/ff1-cli/blob/main/skills/ff1-control/SKILL.md>
 
 This keeps the flow simple: status -> config validate -> build -> validate -> send/publish, and reports failing command + code when a step breaks.
 

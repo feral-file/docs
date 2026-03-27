@@ -129,7 +129,7 @@ ff1 send playlist.json
 - Configuration reference: <https://github.com/feral-file/ff1-cli/blob/main/docs/CONFIGURATION.md>
 - Function-calling details: <https://github.com/feral-file/ff1-cli/blob/main/docs/FUNCTION_CALLING.md>
 - More examples: <https://github.com/feral-file/ff1-cli/blob/main/docs/EXAMPLES.md>
-- OpenClaw FF1 skill prompt: <https://github.com/feral-file/ff1-cli/blob/main/examples/openclaw-ff1-skill.md>
+- OpenClaw FF1 skill prompt: <https://github.com/feral-file/ff1-cli/blob/main/skills/ff1-control/SKILL.md>
 - DP-1 protocol spec: <https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md>
 - DP-1 validator behavior: <https://github.com/display-protocol/dp1-validator>
 
