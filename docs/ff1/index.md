@@ -74,7 +74,7 @@ Use this section only if:
 ### Create a bootable USB
 
 1. Download **BalenaEtcher**: <https://balena.io/etcher>
-2. Download the latest system image on branch `release`: <https://ff1.feral-file.workers.dev>
+2. Download the latest system image on branch `release`: <https://ffos.feralfile.com>
 3. Use Etcher to flash the image onto a USB drive.
 
 ### Install (fully automatic)
