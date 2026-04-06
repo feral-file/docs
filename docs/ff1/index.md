@@ -59,6 +59,8 @@ You do **not** need to install the app ahead of time — scanning the QR code wi
 - **Android:** <https://play.google.com/store/apps/details?id=com.feralfile.app>  
 - **iPhone:** <https://apps.apple.com/us/app/feral-file-controller/id6755812386>
 
+For development, source access, or contribution to the mobile controller, use the canonical public repo: [feral-file/ff-app](https://github.com/feral-file/ff-app).
+
 ---
 
 ## Step 3 (Advanced): Reinstall FF OS from USB

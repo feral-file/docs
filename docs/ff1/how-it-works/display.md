@@ -13,7 +13,7 @@ The FF1 ecosystem enables users to create and display artwork playlists through 
 ## Architecture Components
 
 ### Core Services
-- **Mobile App** (`feralfile-app`) - Flutter-based mobile controller
+- **Mobile App** ([`ff-app`](https://github.com/feral-file/ff-app)) - Canonical Flutter-based FF1 and Digital Art System mobile controller
 - **Command API** (`ff-cloud-command-service`) - AI-powered command processing service  
 - **DP1 Feed Server** (`dp1-feed`) - Playlist storage and distribution
 - **Relayer** (`ff1-relayer`) - WebSocket bridge between mobile and device
