@@ -1,5 +1,27 @@
 # Change logs
 
+## Apr 6 2026
+
+### Feral File Mobile App 1.1.6 — Richer FF1 controls, steadier setup, and snappier sync
+
+**Firmware updates through the relayer**
+
+Device Configuration now supports relayer-based firmware updates, with a clearer path when an update is available.
+
+**Monitor controls when your hardware supports them**
+
+When FFP/DDC is available on your FF1 setup, you can adjust brightness, contrast, monitor volume, and power from Device Configuration—so you can tune how works look and sound without leaving the app.
+
+**Setup and Wi‑Fi reconnect are easier to trust**
+
+Device setup is orchestrated more clearly, reconnect paths surface better diagnostics when something goes wrong, and if sending Wi‑Fi credentials fails, the connecting state clears instead of leaving the app stuck on loading.
+
+**Browsing and viewing feel tighter**
+
+The Now Displaying bar uses sharper thumbnails, back navigation and titles track routes more reliably, HTML text selection reads clearly on dark surfaces, work counts use the right singular or plural wording, and the Favorite row on work detail appears only when that work is actually in your Favorites.
+
+---
+
 ## Mar 19 2026
 
 ### FF OS 1.0.10 — Shuffle and loop controls, and stability for heavy artworks
