@@ -79,6 +79,10 @@ ff1 config validate
 - Send a playlist to FF1: `ff1 send <file-or-url>`
 - Play a direct media URL: `ff1 play <url>`
 - Publish to feed server: `ff1 publish <file>`
+- Manage SSH access on FF1: `ff1 ssh <enable|disable>`
+- List configured devices: `ff1 device list`
+- Add a device (with mDNS discovery): `ff1 device add`
+- Remove a device: `ff1 device remove <name>`
 - Configure and inspect setup: `ff1 config <init|show|validate>`
 
 ## Copy-paste examples
