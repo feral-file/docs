@@ -97,8 +97,10 @@ ff1 chat "Get tokens 52932,52457 from Ethereum contract 0xb932a70A57673d89f4acfF
 
 ### Build from Feral File feed playlists
 
-Use exhibition titles from:
+Legacy reference (archived `feral-file/dp1-feed`): use exhibition titles from:
 <https://github.com/feral-file/dp1-feed/tree/main/playlists>
+
+The current open-source feed implementation is [`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2); see [Run your own Feed Server](../dp1-protocol/self-hosted-feed.md).
 
 ```bash
 ff1 chat "Get 3 from Unsupervised" -o playlist.json

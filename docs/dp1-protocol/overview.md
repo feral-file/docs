@@ -29,7 +29,7 @@ Do not assume blanket end-to-end `1.1.0` parity across CLI, validator, and feed 
 
 - DP-1 specification (authoritative, currently v1.1.0): <https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md>
 - DP-1 repository: <https://github.com/display-protocol/dp1>
-- Feed server implementation (OpenAPI + server): <https://github.com/display-protocol/dp1-feed>
+- Feed server implementation (OpenAPI + server): <https://github.com/display-protocol/dp1-feed-v2>
 - Validator implementation and behavior notes: <https://github.com/display-protocol/dp1-validator>
 
 ## Fast links for this site

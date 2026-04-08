@@ -15,7 +15,7 @@ Ecosystem tooling is transitional. Do not assume full `v1.1.0` end-to-end parity
 ## Canonical sources
 
 - DP-1 specification and schema rules: <https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md>
-- Feed server OpenAPI (operator API): <https://github.com/display-protocol/dp1-feed/blob/main/openapi.yaml>
+- Feed server OpenAPI (operator API): <https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml>
 
 ## Object model at a glance
 

@@ -15,7 +15,7 @@ The FF1 ecosystem enables users to create and display artwork playlists through 
 ### Core Services
 - **Mobile App** ([`ff-app`](https://github.com/feral-file/ff-app)) - Canonical Flutter-based FF1 and Digital Art System mobile controller
 - **Command API** (`ff-cloud-command-service`) - AI-powered command processing service  
-- **DP1 Feed Server** (`dp1-feed`) - Playlist storage and distribution
+- **DP1 Feed Server** ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) — playlist storage and distribution (open-source reference; see [DP-1 hosted vs self-hosted](../../dp1-protocol/feed-server.md))
 - **Relayer** (`ff1-relayer`) - WebSocket bridge between mobile and device
 - **Device OS** (`feralfile-device`) - FF1 device firmware and services
 - **Display Engine** (`player-wrapper-ui`) - Chromium-based artwork renderer
@@ -29,7 +29,7 @@ sequenceDiagram
     participant User
     participant Mobile as Mobile App<br/>(Flutter)
     participant CommandAPI as Command API<br/>(Cloudflare Workers)
-    participant DP1Feed as DP1 Feed Server<br/>(Hono/Cloudflare)
+    participant DP1Feed as DP1 Feed Server<br/>(Go/Gin + PostgreSQL)
     participant Relayer as Relayer<br/>(WebSocket Bridge)
     participant Connectd as FF1 Connectd<br/>(Go Daemon)
     participant Player as Chromium Player<br/>(HTML/JS)
@@ -110,8 +110,8 @@ The AI system selects appropriate artworks based on:
 Generated playlists are stored in the DP-1 Feed Server system:
 
 #### Secure Storage
-- **Cryptographic Signing** - All playlists receive Ed25519 signatures for tamper-proof authenticity
-- **Distributed Storage** - Cloudflare KV provides global edge storage for low-latency access
+- **Cryptographic Signing** - Playlists are signed with Ed25519 for tamper-proof authenticity
+- **Persistent storage** - PostgreSQL holds playlist data and related metadata behind the feed API
 - **Schema Validation** - Strict adherence to DP-1 specification ensures compatibility
 
 #### Access Control
@@ -215,11 +215,10 @@ The Chromium-based player handles diverse artwork types:
 ### Streaming Response
 - **NDJSON Streaming** - Progressive command processing feedback
 - **Parallel Processing** - Concurrent playlist generation and validation
-- **Edge Computing** - Cloudflare Workers for global latency reduction
 
-### Caching Strategy
-- **KV Storage** - Cloudflare KV for playlist caching
-- **CDN Distribution** - Global artwork asset distribution  
+
+### Caching and persistence
+- **Feed storage** - PostgreSQL in the feed service for playlist persistence and queries ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2))
 - **Device Caching** - Local artwork caching on FF1 devices
 
 ---

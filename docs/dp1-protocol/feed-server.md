@@ -19,7 +19,7 @@ Base URL:
 ## Hosted vs self-hosted
 
 - Hosted (this page): managed endpoint at `feed.feralfile.com`
-- Self-hosted: run your own open-source reference feed operator (`display-protocol/dp1-feed`) in your infrastructure
+- Self-hosted: run your own open-source reference feed operator ([`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) in your infrastructure
 
 If you need full control, use [Run your own Feed Server](self-hosted-feed.md).
 
@@ -41,13 +41,13 @@ curl -H "Authorization: Bearer your-api-key-here" \
 
 ## API reference source
 
-- Canonical feed server OpenAPI: <https://github.com/display-protocol/dp1-feed/blob/main/openapi.yaml>
+- Canonical feed server OpenAPI: <https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml>
 
 ## Notes
 
 - DP-1 is protocol-first and vendor-neutral; the hosted feed is one deployment option.
 - The open-source reference operator repo is not the same thing as Feral File's hosted production feed service.
-- If you need deployment details, storage model, or infrastructure tuning, use the open implementation docs in `display-protocol/dp1-feed`.
+- If you need deployment details, storage model, or infrastructure tuning, use the open implementation docs in [`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2).
 
 ## Next step
 
