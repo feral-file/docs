@@ -33,7 +33,7 @@ ff1 setup
 ff1 chat "Get 3 works from reas.eth" -o playlist.json
 
 # 4) Play on FF1
-ff1 send playlist.json
+ff1 play playlist.json
 ```
 
 You are successful when the playlist builds and plays on your configured FF1.
@@ -76,8 +76,7 @@ ff1 config validate
 - Build playlist from deterministic params: `ff1 build [params.json]`
 - Validate a playlist file or URL: `ff1 validate <file-or-url>`
 - Sign a playlist: `ff1 sign <file>`
-- Send a playlist to FF1: `ff1 send <file-or-url>`
-- Play a direct media URL: `ff1 play <url>`
+- Play a playlist file, playlist URL, or media URL on FF1: `ff1 play <source>`
 - Publish to feed server: `ff1 publish <file>`
 - Manage SSH access on FF1: `ff1 ssh <enable|disable>`
 - List configured devices: `ff1 device list`
@@ -118,15 +117,22 @@ ff1 build ./params.json -o playlist.json
 ### Play on your configured FF1
 
 ```bash
-ff1 send playlist.json
+# Local playlist file
+ff1 play playlist.json
+
+# Hosted playlist URL
+ff1 play "https://cdn.example.com/playlist.json"
+
+# Direct media URL
+ff1 play "https://example.com/video.mp4" --skip-verify
 ```
 
 ## Common failure points
 
-- `config validate` fails: run `ff1 config show`, fix API keys and model settings, then re-run validation.
+- `config validate` fails: run `ff1 config show`, fix model settings, then re-run validation. An LLM API key is optional and only required for `ff1 chat`.
 - `chat` fails with provider/auth errors: confirm provider API key env vars or `config.json` values.
-- `send` cannot find device: check device host/name in config and make sure FF1 is reachable on your network.
-- `send` version error: FF1 OS is below minimum supported version for that command; update FF1 OS and retry.
+- `play` cannot find device: check device host/name in config and make sure FF1 is reachable on your network.
+- `play` version error: FF1 OS is below minimum supported version for that command; update FF1 OS and retry.
 - Signature expectations differ by toolchain: many current CLI flows produce legacy top-level `signature` instead of `signatures[]`.
 
 ## Deeper references

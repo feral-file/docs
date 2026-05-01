@@ -28,7 +28,7 @@ Replace:
 
 ## If you prefer CLI
 
-Use [FF1 CLI: Start Here](../api-reference/cli.md) and end with `ff1 send`.
+Use [FF1 CLI: Start Here](../api-reference/cli.md) and end with `ff1 play`.
 
 ## Common failure points
 
