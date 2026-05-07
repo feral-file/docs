@@ -1,5 +1,27 @@
 # Change logs
 
+## Apr 17 2026
+
+### Feral File Mobile App 1.1.7 — Playlist catalog updates, iOS stability, and clearer recovery
+
+**Updated playlist format support**
+
+The app adopts DP-1 1.1.0 structured playlist signatures so playlists and channels stay aligned with the current catalog schema, including migration and snapshot handling.
+
+**More stable on iOS**
+
+WebKit webview updates reduce teardown crashes when leaving web content, and a startup crash path in Now Displaying sync is fixed.
+
+**Stronger local data recovery**
+
+Database close and reopen are sequenced more safely after seed replace, with clearer ordering when schema reset fails so the app can recover instead of staying stuck.
+
+**Easier Now Displaying**
+
+The full expanded row for playlist items is tappable, not only a narrow label area.
+
+---
+
 ## Apr 6 2026
 
 ### Feral File Mobile App 1.1.6 — Richer FF1 controls, steadier setup, and snappier sync
