@@ -1,6 +1,32 @@
 # Change logs
 
-## Apr 17 2026
+## Apr 15 2026
+
+### Feral File Mobile App 1.1.8 — Steadier FF1 connection, playback parity, and calmer multitasking
+
+**FF1 Wi‑Fi and reconnect**
+
+The app coordinates pause and connect on the relayer path, serializes connect work while teardown finishes, and tightens reconnect behavior—so staying online with FF1 is less likely to get stuck in between states.
+
+**Loop and shuffle match FF1**
+
+A `none` loop mode joins clearer shuffle vs loop behavior, and the now-playing repeat UI aligns with FF1 so controls match what FF1 actually does.
+
+**Playlists recover from damaged local rows**
+
+Malformed playlist rows are healed when you open the app, repair metadata is preserved, and startup is safer when data is bad—so playlists from channels are more likely to load instead of failing quietly.
+
+**Onboarding and dialogs**
+
+Add-address flow defers navigation until the route is still current, and info dialogs use safer context—fewer wrong-screen moments while you finish setup.
+
+**Playback and layout polish**
+
+You get a playback progress indicator with a bottom fade; audio, video, and web playback pause when the app goes to the background; grid and Wi‑Fi screens are cleaned up; when the Now Displaying bar is hidden, the bottom fade adjusts so the layout stays balanced.
+
+---
+
+## Apr 8 2026
 
 ### Feral File Mobile App 1.1.7 — Playlist catalog updates, iOS stability, and clearer recovery
 
