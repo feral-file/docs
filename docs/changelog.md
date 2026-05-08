@@ -1,5 +1,31 @@
 # Change logs
 
+## May 6 2026
+
+### Feral File Mobile App 1.1.9 — Richer channels and FF1 control, steadier catalog data
+
+**Stronger catalog and seed handling**
+
+Startup validates bundled catalog swaps more strictly, recovers cleanly if a swap was interrupted, and tightens reset cleanup—including clearer rollback paths—so browsing stays consistent after updates or recovery.
+
+**All Channels organized by publisher**
+
+Curated channels group under their publisher with sticky headers, lists can refresh in parallel, and stale publishers read more clearly—so scanning channels is easier and lists feel fresher.
+
+**Control FF1 from work detail and the touchpad**
+
+Refresh what is playing on FF1 from a work’s detail screen. Over Wi‑Fi you can use touchpad gestures—tap, drag, click-and-drag, and pinch zoom—and when the app falls back from Wi‑Fi to BLE, it establishes BLE before sending BLE commands.
+
+**Work detail shows channel context**
+
+Works carry channel metadata and channel lookup tracks navigation more reliably as you move through the app.
+
+**Pairing QR and interface polish**
+
+Pairing QR availability stays aligned with the device’s display URL state. Menus, onboarding icons, the main bar when titles are off-center, and work detail toolbars also get layout and visual tidy-ups.
+
+---
+
 ## Apr 15 2026
 
 ### Feral File Mobile App 1.1.8 — Steadier FF1 connection, playback parity, and calmer multitasking
