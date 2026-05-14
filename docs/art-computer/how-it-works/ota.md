@@ -1,8 +1,8 @@
-# FF1 Over-the-Air (OTA) Update
+# Art Computer Over-the-Air (OTA) Update
 
 ## Overview
 
-The FF1 device implements a comprehensive OTA update system that can perform both full system image updates and incremental package updates. The system is designed to be robust, with automatic rollback capabilities and progress reporting through the device's display.
+The Art Computer implements a comprehensive OTA update system that can perform both full system image updates and incremental package updates. The system is designed to be robust, with automatic rollback capabilities and progress reporting through the device's display.
 
 ## Architecture Components
 
@@ -170,7 +170,7 @@ This prevents setup completion while an update is in progress and provides clear
 
 ## Summary
 
-The FF1 OTA system provides:
+The Art Computer OTA system provides:
 - **Dual Update Modes** - Full system images for major changes, packages for minor updates
 - **Robust Recovery** - Multiple rollback options and atomic operations
 - **Progress Visibility** - Real-time progress reporting through device display

@@ -20,12 +20,12 @@ This page explains how players consume DP-1 playlists at runtime.
 4. Render items in order with item/default display settings.
 5. On failure, surface a clear error and continue according to player policy.
 
-## FF1 as reference hardware
+## The Art Computer as reference hardware
 
-FF1 is Feral File's art computer and a reference hardware path for DP-1 playback.
+The Art Computer is Feral File's reference hardware path for DP-1 playback.
 
-Use FF1 behavior as one implementation path, not as the protocol definition.
+Use Art Computer behavior as one implementation path, not as the protocol definition.
 
 ## Next step
 
-Use the bridge flow: [From DP-1 playlist to FF1 playback](ff1-integration.md).
+Use the bridge flow: [From DP-1 playlist to Art Computer playback](art-computer-integration.md).

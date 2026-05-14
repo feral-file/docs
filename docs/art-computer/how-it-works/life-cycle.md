@@ -1,4 +1,4 @@
-# FF1 Device life cycle
+# Art Computer life cycle
 
 ## App flows
 
@@ -6,7 +6,7 @@
 
 ```mermaid
 flowchart TD
-    FF1Start[FF1 Start] --> Bluetooth(Start Bluetooth)
+    FF1Start[Art Computer Start] --> Bluetooth(Start Bluetooth)
     Bluetooth --> HasInternet(Has Internet)
 
     HasInternet --> |No| QRCode1(Display QRCode)

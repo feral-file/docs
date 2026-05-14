@@ -9,18 +9,33 @@ extra_javascript:
 
 extra_css:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.css
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        # Renamed 2026-05-13 (FF1 -> Art Computer / ff1-cli -> ff-cli).
+        # Keep these old paths working for inbound links from search results,
+        # partner docs, and previous Substack posts.
+        ff1/index.md: art-computer/index.md
+        ff1/specification.md: art-computer/specification.md
+        ff1/how-it-works/life-cycle.md: art-computer/how-it-works/life-cycle.md
+        ff1/how-it-works/display.md: art-computer/how-it-works/display.md
+        ff1/how-it-works/ota.md: art-computer/how-it-works/ota.md
+        ff1/how-it-works/send-playlists-to-ff1.md: art-computer/how-it-works/send-playlists-to-art-computer.md
+        dp1-protocol/ff1-integration.md: dp1-protocol/art-computer-integration.md
+
 nav:
   - Home: index.md
-  - FF1 CLI:
+  - ff-cli:
     - Start Here: api-reference/cli.md
-  - FF1:
-    - Getting Started: ff1/index.md
+  - Art Computer:
+    - Getting Started: art-computer/index.md
     - How It Works:
-      - Life Cycle: ff1/how-it-works/life-cycle.md
-      - End-to-End Architecture: ff1/how-it-works/display.md
-      - Send Playlists to FF1: ff1/how-it-works/send-playlists-to-ff1.md
-      - OTA: ff1/how-it-works/ota.md
-    - Specification: ff1/specification.md
+      - Life Cycle: art-computer/how-it-works/life-cycle.md
+      - End-to-End Architecture: art-computer/how-it-works/display.md
+      - Send Playlists to the Art Computer: art-computer/how-it-works/send-playlists-to-art-computer.md
+      - OTA: art-computer/how-it-works/ota.md
+    - Specification: art-computer/specification.md
   - Exhibitions & Archive:
     - Exhibition Structure: exhibitions-n-archive/exhibition-structure.md
     - Modeling Artworks: exhibitions-n-archive/modeling-work.md
@@ -37,7 +52,7 @@ nav:
     - Feed Server:
       - Hosted Feed (Feral File): dp1-protocol/feed-server.md
       - Run your own Feed Server: dp1-protocol/self-hosted-feed.md
-    - FF1 Playback Bridge: dp1-protocol/ff1-integration.md
+    - Art Computer Playback Bridge: dp1-protocol/art-computer-integration.md
     - Player Behavior: dp1-protocol/player-behavior.md
   - API Reference:
     - Command API: api-reference/command-api.md
