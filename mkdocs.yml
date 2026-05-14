@@ -23,6 +23,7 @@ plugins:
         ff1/how-it-works/ota.md: art-computer/how-it-works/ota.md
         ff1/how-it-works/send-playlists-to-ff1.md: art-computer/how-it-works/send-playlists-to-art-computer.md
         dp1-protocol/ff1-integration.md: dp1-protocol/art-computer-integration.md
+        dp1-protocol/validator.md: dp1-protocol/dp1-cli.md
 
 nav:
   - Home: index.md
@@ -47,7 +48,7 @@ nav:
     - Event Listeners: artwork-lib/event-listeners.md
   - DP-1 Protocol:
     - Start Here (Integrators): dp1-protocol/overview.md
-    - Validator Quickstart: dp1-protocol/validator.md
+    - DP-1 CLI (public beta): dp1-protocol/dp1-cli.md
     - Schemas: dp1-protocol/schemas.md
     - Feed Server:
       - Hosted Feed (Feral File): dp1-protocol/feed-server.md

@@ -8,11 +8,11 @@ This page is the shortest bridge from a valid DP-1 playlist to visible playback 
 
 Version note: this bridge accepts any playlist that validates for your toolchain. Current ff-cli examples in these docs emit `dpVersion: 1.0.0`; canonical DP-1 spec is `v1.1.0`.
 
-Validator quickstart in this docs path focuses on structure checks and legacy top-level signature verification.
+Use [dp1-cli](dp1-cli.md) (**public beta**) for DP-1 validation and signing; it uses [dp1-go](https://github.com/display-protocol/dp1-go) for schema checks and signature semantics. **dp1-cli** is the **actively maintained** successor to the legacy **dp1-validator** release line in the [same GitHub repository](https://github.com/display-protocol/dp1-cli) (different tags; the legacy line is frozen).
 
 ## Shortest path
 
-1. Validate your playlist: [Validator Quickstart](validator.md)
+1. Validate your playlist: [DP-1 CLI quickstart](dp1-cli.md)
 2. Send playlist to the Art Computer:
 
 ```bash

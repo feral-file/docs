@@ -26,7 +26,7 @@ If you need full control, use [Run your own Feed Server](self-hosted-feed.md).
 ## Minimal hosted flow
 
 1. Build or prepare a valid DP-1 playlist.
-2. Validate first with [Validator Quickstart](validator.md).
+2. Validate first with [dp1-cli](dp1-cli.md) (public beta).
 3. POST to hosted feed.
 4. Retrieve by ID or slug.
 

@@ -56,4 +56,4 @@ Use this as a shape reference only. For authoritative field behavior and version
 
 ## Next step
 
-Run [Validator Quickstart](validator.md) on your own payload.
+Run [DP-1 CLI quickstart](dp1-cli.md) on your own payload.

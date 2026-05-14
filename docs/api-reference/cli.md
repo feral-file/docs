@@ -143,7 +143,7 @@ ff-cli play "https://example.com/video.mp4" --skip-verify
 - More examples: <https://github.com/feral-file/ff-cli/blob/main/docs/EXAMPLES.md>
 - OpenClaw skill prompt: <https://github.com/feral-file/ff-cli/blob/main/skills/ff-control/SKILL.md>
 - DP-1 protocol spec: <https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md>
-- DP-1 validator behavior: <https://github.com/display-protocol/dp1-validator>
+- DP-1 CLI (**public beta**; validate, sign, verify, publish): <https://github.com/display-protocol/dp1-cli> — **dp1-cli** is the **actively maintained** successor to the legacy **dp1-validator** tag line in that **same repository** (legacy tags are frozen).
 
 ## Next step
 

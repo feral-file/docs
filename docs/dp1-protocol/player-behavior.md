@@ -10,7 +10,7 @@ This page explains how players consume DP-1 playlists at runtime.
 
 - Canonical DP-1 spec is currently `v1.1.0`.
 - Some adjacent tooling still centers `dpVersion: 1.0.0` payloads and legacy top-level `signature` behavior.
-- Do not assume blanket end-to-end `1.1.0` parity across CLI, validator, and feed operator unless explicitly verified in those repos.
+- Do not assume blanket end-to-end `1.1.0` parity across CLIs (for example ff-cli and dp1-cli), legacy validation tools, and feed operator unless explicitly verified in those repos.
 
 ## Runtime sequence (player view)
 

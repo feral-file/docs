@@ -17,7 +17,7 @@ It is a support layer, not a separate product track.
 ## Use these primary paths
 
 - Playlist generation and playback workflows: [ff-cli: Start Here](../api-reference/cli.md)
-- Protocol correctness, schemas, validator, and feeds: [DP-1: Start Here](../dp1-protocol/overview.md)
+- Protocol correctness, schemas, dp1-cli (validation and signing; public beta), and feeds: [DP-1: Start Here](../dp1-protocol/overview.md)
 
 ## Minimal setup
 
@@ -25,7 +25,7 @@ It is a support layer, not a separate product track.
    - `https://feralfile.com/.well-known/openapi.json`
 2. Add system instructions that keep requests scoped and explicit.
 3. Keep request limits small to avoid oversized context and unstable outputs.
-4. Validate generated playlist payloads with [DP-1 Validator Quickstart](../dp1-protocol/validator.md).
+4. Validate generated playlist payloads with [DP-1 CLI quickstart](../dp1-protocol/dp1-cli.md) (**public beta**).
 
 If your agent should run ff-cli directly, use this ready prompt as your starting point:
 
