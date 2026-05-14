@@ -1,5 +1,19 @@
 # Change logs
 
+## May 14 2026
+
+### FF OS 1.0.15 — Scheduled sleep and wake
+
+**Set daily sleep and wake times**
+
+FF1 can now follow an enabled sleep and wake schedule using local wall-clock times. The schedule is stored on the device and survives a reboot, so installs can turn on and off at the expected times without manual touch.
+
+**Wake or sleep FF1 from Device Configuration**
+
+When supported firmware is connected, Device Configuration can wake FF1 now or put it to sleep now. The FFP power state follows the FF1 sleep transition, so the panel and player stay aligned.
+
+---
+
 ## May 6 2026
 
 ### Feral File Mobile App 1.1.9 — Richer channels and FF1 control, steadier catalog data
