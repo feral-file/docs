@@ -12,7 +12,7 @@ This page shows a minimal first run with the open-source DP-1 validator.
 
 Canonical DP-1 specification is currently `v1.1.0`.
 
-This quickstart uses a minimal `dpVersion: 1.0.0` payload to match current FF1 CLI output and validator examples.
+This quickstart uses a minimal `dpVersion: 1.0.0` payload to match current ff-cli output and validator examples.
 
 Use the version your integration emits, and validate it against the canonical spec rules.
 

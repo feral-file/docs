@@ -6,7 +6,7 @@ This page explains the DP-1 object model in plain language and links the canonic
 
 Canonical DP-1 specification is currently `v1.1.0`.
 
-The minimal example on this page uses `dpVersion: 1.0.0` for compatibility with current FF1 CLI output in the first-run flow.
+The minimal example on this page uses `dpVersion: 1.0.0` for compatibility with current ff-cli output in the first-run flow.
 
 For production behavior, follow the canonical spec version your toolchain supports.
 

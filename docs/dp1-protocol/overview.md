@@ -23,7 +23,7 @@ Do not assume blanket end-to-end `1.1.0` parity across CLI, validator, and feed 
 1. Validate one minimal playlist with the validator.
 2. Review the core object model (`playlist`, `items`, `display`, `provenance`).
 3. Publish or host the validated playlist.
-4. Play it on FF1 (reference hardware) or another compatible player.
+4. Play it on the Art Computer (Feral File's reference hardware) or another compatible player.
 
 ## Canonical references
 
@@ -38,13 +38,13 @@ Do not assume blanket end-to-end `1.1.0` parity across CLI, validator, and feed 
 - Understand object model: [Schemas](schemas.md)
 - Hosted feed guidance (Feral File): [Hosted Feed](feed-server.md)
 - Run your own feed: [Self-Hosted Feed](self-hosted-feed.md)
-- Short FF1 bridge: [From DP-1 to FF1 playback](ff1-integration.md)
+- Short Art Computer bridge: [From DP-1 to Art Computer playback](art-computer-integration.md)
 
 ## Notes on roles
 
 - **DP-1** is the protocol.
-- **FF1** is Feral File's art computer and reference hardware.
-- You can integrate DP-1 without FF1.
+- **The Art Computer** is Feral File's reference hardware (model designation: FF1).
+- You can integrate DP-1 without the Art Computer.
 
 ## Next step
 

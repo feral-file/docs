@@ -1,8 +1,8 @@
-# Getting Started with FF1
+# Getting Started with the Art Computer
 
-**FF1 is an art computer by Feral File.** It plays digital art on any screen. Plug it into a TV, projector, or monitor, scan a QR code, and your collection of art appears.
+**The Art Computer is Feral File's instrument for digital art.** It plays digital art on any screen. Plug it into a TV, projector, or monitor, scan a QR code, and your collection of art appears.
 
-FF1 updates itself automatically over the air (OTA). For resets, troubleshooting, or experiments, you can also reinstall the OS manually. This guide covers the basics: what you need, plugging in FF1, pairing, and (optionally) reinstalling FF OS.
+The Art Computer updates itself automatically over the air (OTA). For resets, troubleshooting, or experiments, you can also reinstall the OS manually. This guide covers the basics: what you need, plugging it in, pairing, and (optionally) reinstalling FF OS.
 
 ---
 
@@ -10,21 +10,21 @@ FF1 updates itself automatically over the air (OTA). For resets, troubleshooting
 
 Make sure you have:
 
-- An **FF1** unit and its power adapter
+- An **Art Computer** and its power adapter
 - An **HDMI cable** and a TV / monitor / projector
 - A **phone** (iOS or Android) with internet access
 - Your **Wi-Fi network name and password**
 
 ---
 
-## Step 1: Plug In Your FF1
+## Step 1: Plug In Your Art Computer
 
-1. Connect **HDMI** from FF1 to your screen.
-2. Plug in the **power adapter** to FF1 and to the wall.
+1. Connect **HDMI** from the Art Computer to your screen.
+2. Plug in the **power adapter** to the Art Computer and to the wall.
 3. Turn on your TV/monitor and choose the correct **HDMI input**.
-4. Turn FF1 on (just plug it in, it auto-powers).
+4. Turn the Art Computer on (just plug it in, it auto-powers).
 
-On a normal first boot (or after a good install), FF1 will show a **pairing screen with a QR code**.
+On a normal first boot (or after a good install), the Art Computer will show a **pairing screen with a QR code**.
 
 ---
 
@@ -48,7 +48,7 @@ What happens next:
 You’re fully set up when:
 
 - Your TV shows **artwork or a playlist UI** instead of just the QR code, and  
-- The app shows that it’s **connected to your FF1** (you can select and control playlists).
+- The app shows that it’s **connected to your Art Computer** (you can select and control playlists).
 
 ---
 
@@ -65,7 +65,7 @@ For development, source access, or contribution to the mobile controller, use th
 
 ## Step 3 (Advanced): Reinstall FF OS from USB
 
-Most people never need to do this. FF1 updates itself automatically when it’s online.
+Most people never need to do this. The Art Computer updates itself automatically when it’s online.
 
 Use this section only if:
 
@@ -81,12 +81,12 @@ Use this section only if:
 
 ### Install (fully automatic)
 
-1. **Power off FF1** (unplug the power cable).
-2. Plug the **USB installer** into FF1.
-3. Plug the **power cable back in**. FF1 will boot from the USB automatically.
-4. **Wait until FF1 shuts itself down.** (The screen may go blank during install.)
+1. **Power off the Art Computer** (unplug the power cable).
+2. Plug the **USB installer** into the Art Computer.
+3. Plug the **power cable back in**. The Art Computer will boot from the USB automatically.
+4. **Wait until the Art Computer shuts itself down.** (The screen may go blank during install.)
 5. Remove the USB.
-6. **Power-cycle FF1** (unplug power, then plug it back in).
+6. **Power-cycle the Art Computer** (unplug power, then plug it back in).
 
 After booting, you should see the **pairing QR code** again. Go back to **Step 2** to pair.
 
@@ -95,7 +95,7 @@ After booting, you should see the **pairing QR code** again. Go back to **Step 2
 ## Troubleshooting
 
 - **I don’t see a QR code.**  
-  Confirm the TV is on the correct HDMI input. Try a different HDMI cable/port. Power-cycle FF1.
+  Confirm the TV is on the correct HDMI input. Try a different HDMI cable/port. Power-cycle the Art Computer.
 
 - **My phone camera doesn’t show a link.**  
   Try better lighting, hold the camera steady, and make sure you’re close enough for focus. Some phones require enabling QR scanning in Camera settings.

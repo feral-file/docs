@@ -77,7 +77,7 @@ curl -X POST http://localhost:8787/api/v1/playlists \
 curl http://localhost:8787/api/v1/playlists/<playlist-id-or-slug>
 ```
 
-If you need to generate playlists quickly, use [FF1 CLI: Start Here](../api-reference/cli.md), then post the result to your operator.
+If you need to generate playlists quickly, use [ff-cli: Start Here](../api-reference/cli.md), then post the result to your operator.
 
 ## Security essentials
 

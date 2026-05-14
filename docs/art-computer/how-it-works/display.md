@@ -1,19 +1,19 @@
-# FF1 AI-First Playlist Creation and Display Flow
+# Art Computer AI-First Playlist Creation and Display Flow
 
-*A complete technical documentation of how users create playlists through AI commands and display them on FF1 devices*
+*A complete technical documentation of how users create playlists through AI commands and display them on the Art Computer*
 
 ---
 
 ## Overview
 
-The FF1 ecosystem enables users to create and display artwork playlists through natural language commands (voice or text). The system processes these commands through AI to generate DP-1 compliant playlists, stores them in a distributed feed system, and delivers them to FF1 devices for display.
+The Art Computer enables users to create and display artwork playlists through natural language commands (voice or text). The system processes these commands through AI to generate DP-1 compliant playlists, stores them in a distributed feed system, and delivers them to the Art Computer for display.
 
 ---
 
 ## Architecture Components
 
 ### Core Services
-- **Mobile App** ([`ff-app`](https://github.com/feral-file/ff-app)) - Canonical Flutter-based FF1 and Digital Art System mobile controller
+- **Mobile App** ([`ff-app`](https://github.com/feral-file/ff-app)) - Canonical Flutter-based Art Computer and Digital Art System mobile controller
 - **Command API** (`ff-cloud-command-service`) - AI-powered command processing service  
 - **DP1 Feed Server** ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) — playlist storage and distribution (open-source reference; see [DP-1 hosted vs self-hosted](../../dp1-protocol/feed-server.md))
 - **Relayer** (`ff1-relayer`) - WebSocket bridge between mobile and device
@@ -223,4 +223,4 @@ The Chromium-based player handles diverse artwork types:
 
 ---
 
-This architecture enables seamless, AI-driven playlist creation and display, providing users with an intuitive way to control their FF1 devices through natural language while maintaining security, performance, and reliability.
+This architecture enables seamless, AI-driven playlist creation and display, providing users with an intuitive way to control their Art Computer through natural language while maintaining security, performance, and reliability.
