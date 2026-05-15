@@ -1,5 +1,27 @@
 # Change logs
 
+## May 15 2026
+
+### Feral File Mobile App 1.1.10 — FF1 sleep scheduling, clearer hardware names, and steadier control
+
+**Scheduled sleep and wake**
+
+Device Configuration can set FF1 sleep and wake on a schedule, with clearer setup when firmware supports it, validated time entry, and a passive indicator that stays aligned with the device state.
+
+**Names that match what you see in the UI**
+
+Customer-facing wording now favors **Art Computer** and **Art Panel** instead of FF1/FFP-style labels, so menus and setup read like the hardware names we use outwardly.
+
+**More dependable FF1 control when connections shift**
+
+Reconnect and relayer pause handling were hardened against lifecycle races—so pairing and control flows are less likely to feel out of sync after a flaky connection.
+
+**Support logs without surprise**
+
+The support diagnostics flow separates consent more clearly, respects which device is active when logs are gathered, and tightens onboarding teardown edge cases—so troubleshooting requests are clearer and safer to complete.
+
+---
+
 ## May 14 2026
 
 ### FF OS 1.0.15 — Scheduled sleep and wake
