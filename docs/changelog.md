@@ -152,7 +152,7 @@ The work count in the Me section now shows the correct number while scrolling.
 
 **FF1 is more secure by default**
 
-SSH access via username and password is now disabled. If you need to connect to FF1 directly—for development or debugging—use [ff1-cli](https://github.com/feral-file/ff1-cli) to connect instead.
+SSH access via username and password is now disabled. If you need to connect to FF1 directly—for development or debugging—use [ff1-cli](https://github.com/feral-file/ff-cli) to connect instead.
 
 **Videos that were cutting off early now play their full length**
 
@@ -536,7 +536,7 @@ We've paused visibility for most Objkt playlists in the mobile app while rebuild
 
 **Prompt-to-Playlist Tool**
 
-We've published [ff1-cli](https://github.com/feral-file/ff1-cli), an open-source command-line tool that turns prompts into DP-1 playlists. Type a phrase, generate a playlist, and play it on your FF1—no web UI required. See the [ff1-cli documentation](https://docs.feralfile.com/api-reference/cli/).
+We've published [ff1-cli](https://github.com/feral-file/ff-cli), an open-source command-line tool that turns prompts into DP-1 playlists. Type a phrase, generate a playlist, and play it on your FF1—no web UI required. See the [ff1-cli documentation](https://docs.feralfile.com/api-reference/cli/).
 
 **OTA Security Update**
 
