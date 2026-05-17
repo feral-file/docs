@@ -24,7 +24,7 @@ This path uses the canonical commands from `feral-file/ff-cli`.
 
 ```bash
 # 1) Install (shortest path)
-npm i -g ff-cli
+npm i -g @feralfile/cli
 
 # 2) Run guided setup
 ff-cli setup
@@ -45,7 +45,7 @@ You are successful when the playlist builds and plays on your configured Art Com
 ### Primary
 
 ```bash
-npm i -g ff-cli
+npm i -g @feralfile/cli
 ```
 
 ### Alternate: prebuilt binary installer
@@ -57,8 +57,8 @@ curl -fsSL https://feralfile.com/ff-cli-install | bash
 ### Alternate: one-off with npx
 
 ```bash
-npx ff-cli setup
-npx ff-cli chat
+npx @feralfile/cli setup
+npx @feralfile/cli chat
 ```
 
 ### Manual configuration path (advanced)
