@@ -17,6 +17,7 @@ It is a support layer, not a separate product track.
 ## Use these primary paths
 
 - Playlist generation and playback workflows: [ff-cli: Start Here](../api-reference/cli.md)
+    - If your agent already has a URL, raw on-chain coordinates, or a wallet address in hand, use `ff-cli find <input>` — no LLM key required.
 - Protocol correctness, schemas, dp1-cli (validation and signing; public beta), and feeds: [DP-1: Start Here](../dp1-protocol/overview.md)
 
 ## Minimal setup

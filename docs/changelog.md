@@ -1,5 +1,29 @@
 # Change logs
 
+## May 25 2026
+
+### ff-cli 1.2.0 — Paste a URL, get a playable playlist
+
+**Find an artwork from anywhere**
+
+A new `ff-cli find` command takes a marketplace URL, raw on-chain coordinates (`ethereum:{contract}:{tokenId}` / `tezos:{contract}:{tokenId}`), or a wallet address and builds a DP-1 playlist you can save, play on the Art Computer, or publish. Marketplace coverage is Objkt, fxhash (gentk pages, live iterations, and projects), Art Blocks collections, OpenSea, SuperRare, Feral File exhibitions, and Neort. Wallet-address input picks an artwork from that address's catalog. No LLM API key required.
+
+**Stronger playlist delivery**
+
+A series of fixes closes gaps where an unsigned or invalidly-signed playlist could reach the Art Computer. The shared send path now verifies before delivery; auto-signing is restricted to synthesized media playlists. `ff-cli find --play` runs through the same verification gate as `ff-cli play`, with a `--skip-verify` escape hatch.
+
+**DP-1 1.1.0 with signatures[]**
+
+All build flows (`chat`, `build`, `find`) emit `dpVersion: 1.1.0` with the multi-signature `signatures[]` envelope, matching the canonical DP-1 spec.
+
+**Install**
+
+```bash
+npm install -g @feralfile/cli
+```
+
+---
+
 ## May 15 2026
 
 ### Feral File Mobile App 1.1.10 — FF1 sleep scheduling, clearer hardware names, and steadier control

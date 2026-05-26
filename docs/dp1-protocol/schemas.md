@@ -4,13 +4,11 @@ This page explains the DP-1 object model in plain language and links the canonic
 
 ## Version note
 
-Canonical DP-1 specification is currently `v1.1.0`.
+Canonical DP-1 specification is currently `v1.1.0`. ff-cli now emits `dpVersion: 1.1.0` with `signatures[]`.
 
-The minimal example on this page uses `dpVersion: 1.0.0` for compatibility with current ff-cli output in the first-run flow.
+The minimal example on this page uses `dpVersion: 1.0.0` as a brevity reference for the object model. For production behavior, follow the canonical spec version your toolchain supports.
 
-For production behavior, follow the canonical spec version your toolchain supports.
-
-Ecosystem tooling is transitional. Do not assume full `v1.1.0` end-to-end parity across all adjacent repos unless explicitly verified there.
+Ecosystem tooling is still partly transitional. Do not assume full `v1.1.0` end-to-end parity across all adjacent repos unless explicitly verified there.
 
 ## Canonical sources
 

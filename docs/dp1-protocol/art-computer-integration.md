@@ -6,7 +6,7 @@ The Art Computer is Feral File's reference hardware for playback.
 
 This page is the shortest bridge from a valid DP-1 playlist to visible playback on the Art Computer.
 
-Version note: this bridge accepts any playlist that validates for your toolchain. Current ff-cli examples in these docs emit `dpVersion: 1.0.0`; canonical DP-1 spec is `v1.1.0`.
+Version note: this bridge accepts any playlist that validates for your toolchain. ff-cli and the canonical DP-1 spec are both at `v1.1.0`.
 
 Use [dp1-cli](dp1-cli.md) (**public beta**) for DP-1 validation and signing; it uses [dp1-go](https://github.com/display-protocol/dp1-go) for schema checks and signature semantics. **dp1-cli** is the **actively maintained** successor to the legacy **dp1-validator** release line in the [same GitHub repository](https://github.com/display-protocol/dp1-cli) (different tags; the legacy line is frozen).
 
