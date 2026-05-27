@@ -1,99 +1,55 @@
 # Agents Quickstart
 
-This page is for developers using coding agents — **Claude Code, Codex, Cursor, OpenCode** — who want to drive Feral File from a chat.
+## Paste this into your coding agent
 
-If you're integrating an autonomous backend service, the same surfaces apply; the recipes below just use a coding agent because that's the shortest path to seeing it work.
+> Read https://docs.feralfile.com/agents/quickstart/ and set me up to play artwork on my Art Computer.
 
-## TL;DR
+Your agent runs the setup below. Works in Claude Code, Codex, Cursor, OpenCode, or any agent that can shell out.
 
-- Install `ff-cli`. Your agent already knows how to call CLIs — that's the whole integration.
-- Most useful first command: `ff-cli find <URL or wallet>` — **no LLM key required**.
-- For deterministic flow, paste the [ff-control skill](https://github.com/feral-file/ff-cli/blob/main/skills/ff-control/SKILL.md) into your agent's system prompt.
+## Setup (the agent runs this)
 
-## Pick the right surface
+Run these in order. On any non-zero exit, stop and report the failing command and exit code — don't paper over errors.
 
-| You want to... | Use |
-|---|---|
-| Build a playlist, play it on an Art Computer, or publish to a feed | [**ff-cli**](../api-reference/cli.md) |
-| Validate, sign, or publish DP-1 protocol payloads | [**dp1-cli**](../dp1-protocol/dp1-cli.md) (public beta) |
-| Query Feral File exhibitions, series, or artworks from your own code | **Exhibitions OpenAPI** (below) |
+1. **Install `ff-cli`:**
+   ```bash
+   curl -fsSL https://feralfile.com/ff-cli-install | bash
+   ```
+   Use `npm i -g @feralfile/cli` instead if the user prefers a Node-managed install.
 
-## Five-minute first win
+2. **Install the `ff-control` skill so the agent surfaces it automatically next time.**
+   For Claude Code:
+   ```bash
+   git clone --depth=1 https://github.com/feral-file/ff-cli /tmp/ff-cli \
+     && mkdir -p ~/.claude/skills \
+     && cp -r /tmp/ff-cli/skills/ff-control ~/.claude/skills/
+   ```
+   For Codex, target `~/.codex/skills/` with the same `cp` command.
 
-In your terminal:
+3. **Configure:**
+   ```bash
+   ff-cli setup
+   ```
+   Interactive. An LLM API key is only required for `ff-cli chat` — skip it if the user just wants to play URLs or wallets.
 
-```bash
-npm i -g @feralfile/cli
-ff-cli setup
-```
+4. **Add the user's Art Computer:**
+   ```bash
+   ff-cli device add
+   ```
+   Discovers via mDNS. If discovery fails, ask the user for the device hostname or IP.
 
-Then in **Claude Code, Codex, Cursor, or any coding agent**, paste:
+5. **Run what the user asked for.** Most common starting point:
+   ```bash
+   ff-cli find <url-or-wallet-from-user> --play
+   ```
+   `ff-cli find` accepts marketplace URLs (Art Blocks, Objkt, fxhash, OpenSea, SuperRare, Feral File, Neort), raw on-chain coords (`ethereum:0x…:tokenId`, `tezos:KT1…:tokenId`), and wallet addresses.
 
-> Use ff-cli to make a playlist from <https://www.artblocks.io/collection/ringers-by-dmitri-cherniak> and play it on my Art Computer.
+## What's actually here
 
-The agent will run `ff-cli find` → `ff-cli play`. That's the integration.
+- **[ff-cli](../api-reference/cli.md)** — build playlists, play artwork, publish feeds. The action surface.
+- **[dp1-cli](../dp1-protocol/dp1-cli.md)** (public beta) — validate, sign, and publish DP-1 protocol payloads.
+- **Exhibitions OpenAPI** — `https://feralfile.com/.well-known/openapi.json`. Read-only endpoints for discovering exhibitions, series, and artworks. Complementary to `ff-cli`, not an alternative.
+- **No MCP server today.** Use `ff-cli` (CLI) or the Exhibitions OpenAPI (HTTP).
 
-For more `find` inputs (wallets, on-chain coords, other marketplaces), see [Find from a URL or address](../api-reference/cli.md#find-from-a-url-or-address).
+## On-device agents
 
-## Tighter control: drop in the ff-control skill
-
-If you want the agent to follow a deterministic flow and report failures concisely, give it the ff-control prompt:
-
-<https://github.com/feral-file/ff-cli/blob/main/skills/ff-control/SKILL.md>
-
-How to install:
-
-- **Claude Code** — drop the skill directory into your user skills:
-  ```bash
-  git clone --depth=1 https://github.com/feral-file/ff-cli /tmp/ff-cli \
-    && mkdir -p ~/.claude/skills \
-    && cp -r /tmp/ff-cli/skills/ff-control ~/.claude/skills/
-  ```
-  Claude Code will surface it automatically when you ask about playlists, Art Computer playback, or publishing.
-- **Codex** — drop the skill directory into your user skills:
-  ```bash
-  git clone --depth=1 https://github.com/feral-file/ff-cli /tmp/ff-cli \
-    && mkdir -p ~/.codex/skills \
-    && cp -r /tmp/ff-cli/skills/ff-control ~/.codex/skills/
-  ```
-  Codex will surface it automatically when you ask about playlists, Art Computer playback, or publishing.
-- **Cursor / OpenCode** — paste the body into `.cursor/rules/` or the equivalent system-prompt slot for your tool.
-- **Any other agent** — use it as the system prompt for that conversation.
-
-It validates config, builds, validates the playlist, and sends or publishes — surfacing the failing command + exit code on any error. See [`SKILL.md`](https://github.com/feral-file/ff-cli/blob/main/skills/ff-control/SKILL.md) for the exact prompt.
-
-## Exhibitions OpenAPI (read-only Feral File data)
-
-Feral File publishes a small OpenAPI 3.1 spec tuned for LLM consumption — read-only endpoints under `/api/llm/...` that let an agent search and paginate exhibitions, series, and artworks:
-
-```
-https://feralfile.com/.well-known/openapi.json
-```
-
-This is complementary to `ff-cli`, not an alternative. Use it when the agent needs to *discover* Feral File content (which exhibitions exist, what's in a series, search by keyword); use `ff-cli` when it needs to *do* something (build a playlist, play it, publish it). Most agent frameworks accept an OpenAPI URL as a tool spec — feed it in and the model gets typed call signatures.
-
-For everything else (write actions, devices, full surface area), use `ff-cli`.
-
-## What about MCP?
-
-There is **no Feral File MCP server today**. Use `ff-cli` (CLI calls — which any coding agent handles natively) or the OpenAPI schema (HTTP) instead.
-
-## What people build
-
-- **"Play this URL"** — paste a marketplace URL, get playback: `ff-cli find <url> --play`
-- **"Make a playlist from this wallet"** — `ff-cli find <address>`
-- **Daily auto-curated exhibition** — agent + `ff-cli chat` + `ff-cli publish` on a cron
-- **Pre-publish validation** — `dp1-cli validate` in CI before signing a feed payload
-
-## Guardrails
-
-- Keep agent prompts small and scoped — large prompts produce unstable outputs.
-- Don't duplicate DP-1 schemas or feed-operation docs into your agent prompt; link to them.
-- Keep protocol operations in DP-1 pages, command workflows in `ff-cli` pages.
-- Don't claim end-to-end DP-1 `v1.1.0` parity unless verified in the upstream repos.
-
-## Next step
-
-- Hands-on with the CLI: [ff-cli first run](../api-reference/cli.md)
-- Protocol-side integration: [DP-1 start here](../dp1-protocol/overview.md)
-- Validate before publishing: [dp1-cli quickstart](../dp1-protocol/dp1-cli.md)
+OpenClaw and variants ("Claws") run agentic workflows *on* the Art Computer itself — same category as the coding agents above, different deployment shape. Public docs for OpenClaw will land here as it matures.
