@@ -52,8 +52,6 @@ nav:
       - Run your own Feed Server: dp1-protocol/self-hosted-feed.md
     - Art Computer Playback Bridge: dp1-protocol/art-computer-integration.md
     - Player Behavior: dp1-protocol/player-behavior.md
-  - API Reference:
-    - Command API: api-reference/command-api.md
   - Agents:
     - Quickstart: agents/quickstart.md
   - Changelog: changelog.md

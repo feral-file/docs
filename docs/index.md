@@ -1,28 +1,19 @@
-# Welcome to Feral File Docs
+# Feral File
 
-This is the technical documentation for Feral File tools and protocol.
+Feral File is a cultural institution and technology company championing computational art for a global audience. Computational art runs, responds, and evolves through code, models, and data.
 
-- What this is: docs for Art Computer workflows, DP-1 integration, and supporting API/agent usage.
-- Why use it: get from setup to trusted playback quickly.
-- What to do next: choose one start path below.
+[feralfile.com](https://feralfile.com) is where the exhibitions live and where collectors browse. These pages are the other side of the institution. They cover the Digital Art System (the Art Computer and the Art Panel), the open DP-1 protocol, and the tools that let your software (and the agents working on your behalf) talk to us.
 
-Canonical protocol truth for DP-1 lives in `display-protocol/dp1` (current spec `v1.1.0`).
+## Start here
 
-## Choose your start
+- **Play artwork on an Art Computer using a coding agent** → [Agents Quickstart](agents/quickstart.md)
+- **Drive Feral File from the command line** → [ff-cli: Start Here](api-reference/cli.md)
 
-- **I want to build playlists and play them on the Art Computer**
-  - Start with [ff-cli: Start Here](api-reference/cli.md)
-- **I want to integrate DP-1 into my own systems**
-  - Start with [DP-1: Start Here (Integrators)](dp1-protocol/overview.md)
-- **I'm using a coding agent (Claude Code, Codex, Cursor, OpenCode)**
-  - Start with [Agents Quickstart](agents/quickstart.md)
+## What's here
 
-## Product map
-
-- **The Art Computer** is Feral File's reference hardware (model designation: FF1).
-- **DP-1** is the open, vendor-neutral protocol.
-- **Agents** is a setup guide for driving Feral File from coding agents (Claude Code, Codex, Cursor, OpenCode) and on-device runtimes (OpenClaw and variants). It points at ff-cli, DP-1, and the Exhibitions OpenAPI — it doesn't replace their docs.
-
-## Next step
-
-Open one start page above and complete the first success flow.
+- **[ff-cli](api-reference/cli.md)** — command-line tool. Build a DP-1 playlist from a URL or wallet, play it on a device, publish it to a feed.
+- **[Art Computer](art-computer/index.md)** — the computational engine of the Digital Art System. Plug it into any screen, or pair it with the Art Panel, to play DP-1 playlists.
+- **[DP-1 Protocol](dp1-protocol/overview.md)** — open, vendor-neutral protocol for signed digital art playlists. Schema, validation, feed servers.
+- **[Exhibitions & Archive](exhibitions-n-archive/exhibition-structure.md)** — how exhibitions, series, and artworks are structured. For agents reading exhibition data, use the [Exhibitions OpenAPI](https://feralfile.com/.well-known/openapi.json).
+- **[Artwork Library (JS)](artwork-lib/install-basics.md)** — JavaScript library for software artworks. Provides provenance, deterministic randomness, and on-chain data.
+- **[Agents](agents/quickstart.md)** — for coding agents (off-device) and OpenClaw runtimes (on-device).
