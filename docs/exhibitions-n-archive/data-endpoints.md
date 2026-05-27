@@ -1,3 +1,0 @@
-# Data Endpoints
-
-Coming soon

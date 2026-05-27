@@ -1,4 +1,4 @@
-# LLM & Agents Quickstart
+# Agents Quickstart
 
 This page is for developers using coding agents — **Claude Code, Codex, Cursor, OpenCode** — who want to drive Feral File from a chat.
 
@@ -50,12 +50,13 @@ How to install:
     && cp -r /tmp/ff-cli/skills/ff-control ~/.claude/skills/
   ```
   Claude Code will surface it automatically when you ask about playlists, Art Computer playback, or publishing.
-- **Codex** — install the ff-cli plugin from the Feral File marketplace:
+- **Codex** — drop the skill directory into your user skills:
   ```bash
-  codex plugin marketplace add feral-file/ff-cli --ref main \
-    && codex plugin add ff-cli@feral-file
+  git clone --depth=1 https://github.com/feral-file/ff-cli /tmp/ff-cli \
+    && mkdir -p ~/.codex/skills \
+    && cp -r /tmp/ff-cli/skills/ff-control ~/.codex/skills/
   ```
-  Codex will surface the bundled `ff-control` skill automatically when you ask about playlists, Art Computer playback, or publishing.
+  Codex will surface it automatically when you ask about playlists, Art Computer playback, or publishing.
 - **Cursor / OpenCode** — paste the body into `.cursor/rules/` or the equivalent system-prompt slot for your tool.
 - **Any other agent** — use it as the system prompt for that conversation.
 

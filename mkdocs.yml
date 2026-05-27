@@ -40,9 +40,6 @@ nav:
   - Exhibitions & Archive:
     - Exhibition Structure: exhibitions-n-archive/exhibition-structure.md
     - Modeling Artworks: exhibitions-n-archive/modeling-work.md
-    - Token Metadata: exhibitions-n-archive/token-metadata.md
-    - Smart Contracts: exhibitions-n-archive/smart-contracts.md
-    - Data Endpoints: exhibitions-n-archive/data-endpoints.md
   - Artwork Library (JavaScript):
     - Install & Basics: artwork-lib/install-basics.md
     - Event Listeners: artwork-lib/event-listeners.md
@@ -57,14 +54,10 @@ nav:
     - Player Behavior: dp1-protocol/player-behavior.md
   - API Reference:
     - Command API: api-reference/command-api.md
-    - Webhooks: api-reference/webhooks.md
-  - LLM & Agents:
-    - Quickstart: llm-agents/quickstart.md
-  - Architecture:
-    - Overview: bands/overview.md
+  - Agents:
+    - Quickstart: agents/quickstart.md
   - Changelog: changelog.md
   - Contribute: contribute.md
-  - FAQ: faq.md
 
 markdown_extensions:
   - admonition
