@@ -14,14 +14,14 @@ Canonical protocol truth for DP-1 lives in `display-protocol/dp1` (current spec 
   - Start with [ff-cli: Start Here](api-reference/cli.md)
 - **I want to integrate DP-1 into my own systems**
   - Start with [DP-1: Start Here (Integrators)](dp1-protocol/overview.md)
-- **I am setting up LLM tools**
+- **I'm using a coding agent (Claude Code, Codex, Cursor, OpenCode)**
   - Start with [LLM & Agents Quickstart](llm-agents/quickstart.md)
 
 ## Product map
 
 - **The Art Computer** is Feral File's reference hardware (model designation: FF1).
 - **DP-1** is the open, vendor-neutral protocol.
-- **LLM / Agents** is a support layer that helps you call APIs and tools; it does not replace ff-cli or DP-1 docs.
+- **LLM / Agents** is a setup guide for driving Feral File from coding agents (Claude Code, Codex, Cursor, OpenCode). It points at ff-cli, DP-1, and the Exhibitions OpenAPI — it doesn't replace their docs.
 
 ## Next step
 
