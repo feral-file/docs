@@ -23,7 +23,12 @@ Run these in order. On any non-zero exit, stop and report the failing command an
      && mkdir -p ~/.claude/skills \
      && cp -r /tmp/ff-cli/skills/ff-control ~/.claude/skills/
    ```
-   For Codex, target `~/.codex/skills/` with the same `cp` command.
+   For Codex:
+   ```bash
+   git clone --depth=1 https://github.com/feral-file/ff-cli /tmp/ff-cli \
+     && mkdir -p ~/.codex/skills \
+     && cp -r /tmp/ff-cli/skills/ff-control ~/.codex/skills/
+   ```
 
 3. **Configure:**
    ```bash
