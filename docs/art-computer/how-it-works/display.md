@@ -15,7 +15,7 @@ The Art Computer enables users to create and display artwork playlists through n
 ### Core Services
 - **Mobile App** ([`ff-app`](https://github.com/feral-file/ff-app)) - Canonical Flutter-based Art Computer and Digital Art System mobile controller
 - **Command API** (`ff-cloud-command-service`) - AI-powered command processing service  
-- **DP1 Feed Server** ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) — playlist storage and distribution (open-source reference; see [DP-1 hosted vs self-hosted](../../dp1-protocol/feed-server.md))
+- **DP1 Feed Server** ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) — playlist storage and distribution (open-source reference; see [Hosted Feed (Feral File)](../../hosted-feed/index.md) for the managed option)
 - **Relayer** (`ff1-relayer`) - WebSocket bridge between mobile and device
 - **Device OS** (`feralfile-device`) - FF1 device firmware and services
 - **Display Engine** (`player-wrapper-ui`) - Chromium-based artwork renderer

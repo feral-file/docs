@@ -25,6 +25,7 @@ plugins:
         dp1-protocol/ff1-integration.md: ff-cli/index.md
         # Renamed 2026-05-27 (cleaner section URLs).
         api-reference/cli.md: ff-cli/index.md
+        dp1-protocol/feed-server.md: hosted-feed/index.md
 
 nav:
   - Home: index.md
@@ -37,13 +38,7 @@ nav:
       - End-to-End Architecture: art-computer/how-it-works/display.md
       - OTA: art-computer/how-it-works/ota.md
     - Specification: art-computer/specification.md
-  - Hosted Feed: dp1-protocol/feed-server.md
-  - Exhibitions & Archive:
-    - Exhibition Structure: exhibitions-n-archive/exhibition-structure.md
-    - Modeling Artworks: exhibitions-n-archive/modeling-work.md
-  - Artwork Library:
-    - Install & Basics: artwork-lib/install-basics.md
-    - Event Listeners: artwork-lib/event-listeners.md
+  - Hosted Feed: hosted-feed/index.md
   - Contact: https://feralfile.com/legal/contact
 
 markdown_extensions:
