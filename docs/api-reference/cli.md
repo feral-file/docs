@@ -174,6 +174,3 @@ ff-cli play "https://example.com/video.mp4" --skip-verify
 - DP-1 protocol spec: <https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md>
 - DP-1 CLI (**public beta**; validate, sign, verify, publish): <https://github.com/display-protocol/dp1-cli> — **dp1-cli** is the **actively maintained** successor to the legacy **dp1-validator** tag line in that **same repository** (legacy tags are frozen).
 
-## Next step
-
-Run the Art Computer bridge flow: [From valid DP-1 playlist to Art Computer playback](../dp1-protocol/art-computer-integration.md).

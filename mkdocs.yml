@@ -21,8 +21,8 @@ plugins:
         ff1/how-it-works/life-cycle.md: art-computer/how-it-works/life-cycle.md
         ff1/how-it-works/display.md: art-computer/how-it-works/display.md
         ff1/how-it-works/ota.md: art-computer/how-it-works/ota.md
-        ff1/how-it-works/send-playlists-to-ff1.md: art-computer/how-it-works/send-playlists-to-art-computer.md
-        dp1-protocol/ff1-integration.md: dp1-protocol/art-computer-integration.md
+        ff1/how-it-works/send-playlists-to-ff1.md: api-reference/cli.md
+        dp1-protocol/ff1-integration.md: api-reference/cli.md
 
 nav:
   - Home: index.md
@@ -35,12 +35,9 @@ nav:
     - How It Works:
       - Life Cycle: art-computer/how-it-works/life-cycle.md
       - End-to-End Architecture: art-computer/how-it-works/display.md
-      - Send Playlists to the Art Computer: art-computer/how-it-works/send-playlists-to-art-computer.md
       - OTA: art-computer/how-it-works/ota.md
     - Specification: art-computer/specification.md
-  - DP-1 on Feral File:
-    - Hosted Feed: dp1-protocol/feed-server.md
-    - Art Computer Playback Bridge: dp1-protocol/art-computer-integration.md
+  - Hosted Feed: dp1-protocol/feed-server.md
   - Exhibitions & Archive:
     - Exhibition Structure: exhibitions-n-archive/exhibition-structure.md
     - Modeling Artworks: exhibitions-n-archive/modeling-work.md
