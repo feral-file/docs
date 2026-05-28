@@ -4,12 +4,12 @@ Feral File is a cultural institution and technology company championing computat
 
 [feralfile.com](https://feralfile.com) is where the exhibitions live and where collectors browse. These pages are the other side of the institution. They cover the Digital Art System (the Art Computer and the Art Panel) and the tools that let your software (and the agents working on your behalf) talk to us.
 
-We also sponsor [DP-1](https://github.com/display-protocol/dp1) — an open, vendor-neutral protocol for digital art playlists, designed to let the system outgrow us. The spec, integrator guides, and tooling live at [display-protocol/dp1](https://github.com/display-protocol/dp1) and [display-protocol/dp1-cli](https://github.com/display-protocol/dp1-cli).
+[DP-1](https://github.com/display-protocol/dp1) is the other half of our work: an open, vendor-neutral protocol for digital art playlists, designed to let the system outgrow us. Spec, integrator guides, and tooling live at [display-protocol/dp1](https://github.com/display-protocol/dp1) and [display-protocol/dp1-cli](https://github.com/display-protocol/dp1-cli).
 
 ## Start here
 
-- **Play artwork on an Art Computer using a coding agent** → [Agents Quickstart](agents/quickstart.md)
-- **Drive Feral File from the command line** → [ff-cli: Start Here](api-reference/cli.md)
+- **In conversation** — through Claude Code, Codex, Cursor, or OpenCode. Find artworks, build playlists, play them on your Art Computer, publish to a feed, all in chat. → [Agents Quickstart](agents/quickstart.md)
+- **From the terminal** — same capabilities via `ff-cli`. Find, build, validate, sign, play, publish, and manage devices. → [ff-cli: Start Here](api-reference/cli.md)
 
 ## What's here
 
@@ -17,5 +17,5 @@ We also sponsor [DP-1](https://github.com/display-protocol/dp1) — an open, ven
 - **[Art Computer](art-computer/index.md)** — the computational engine of the Digital Art System. Plug it into any screen, or pair it with the Art Panel, to play DP-1 playlists.
 - **[DP-1 on Feral File](dp1-protocol/feed-server.md)** — our hosted DP-1 feed at `feed.feralfile.com` and the bridge from a valid DP-1 playlist to Art Computer playback. The protocol itself lives at [display-protocol/dp1](https://github.com/display-protocol/dp1).
 - **[Exhibitions & Archive](exhibitions-n-archive/exhibition-structure.md)** — how exhibitions, series, and artworks are structured. For agents reading exhibition data, use the [Exhibitions OpenAPI](https://feralfile.com/.well-known/openapi.json).
-- **[Artwork Library (JS)](artwork-lib/install-basics.md)** — JavaScript library for software artworks. Provides provenance, deterministic randomness, and on-chain data.
+- **[Artwork Library](artwork-lib/install-basics.md)** — for software artworks. Provides provenance, deterministic randomness, and on-chain data.
 - **[Agents](agents/quickstart.md)** — for coding agents (off-device) and OpenClaw runtimes (on-device).

@@ -39,7 +39,7 @@ nav:
   - Exhibitions & Archive:
     - Exhibition Structure: exhibitions-n-archive/exhibition-structure.md
     - Modeling Artworks: exhibitions-n-archive/modeling-work.md
-  - Artwork Library (JavaScript):
+  - Artwork Library:
     - Install & Basics: artwork-lib/install-basics.md
     - Event Listeners: artwork-lib/event-listeners.md
   - DP-1 on Feral File:
@@ -47,8 +47,6 @@ nav:
     - Art Computer Playback Bridge: dp1-protocol/art-computer-integration.md
   - Agents:
     - Quickstart: agents/quickstart.md
-  - Changelog: changelog.md
-  - Contribute: contribute.md
 
 markdown_extensions:
   - admonition
