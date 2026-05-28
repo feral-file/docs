@@ -21,13 +21,15 @@ plugins:
         ff1/how-it-works/life-cycle.md: art-computer/how-it-works/life-cycle.md
         ff1/how-it-works/display.md: art-computer/how-it-works/display.md
         ff1/how-it-works/ota.md: art-computer/how-it-works/ota.md
-        ff1/how-it-works/send-playlists-to-ff1.md: api-reference/cli.md
-        dp1-protocol/ff1-integration.md: api-reference/cli.md
+        ff1/how-it-works/send-playlists-to-ff1.md: ff-cli/index.md
+        dp1-protocol/ff1-integration.md: ff-cli/index.md
+        # Renamed 2026-05-27 (cleaner section URLs).
+        api-reference/cli.md: ff-cli/index.md
 
 nav:
   - Home: index.md
-  - Agents: agents/quickstart.md
-  - ff-cli: api-reference/cli.md
+  - Agents: agents/index.md
+  - ff-cli: ff-cli/index.md
   - Art Computer:
     - Getting Started: art-computer/index.md
     - How It Works:

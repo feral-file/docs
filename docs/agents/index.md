@@ -2,7 +2,7 @@
 
 ## Paste this into your coding agent
 
-> Read https://docs.feralfile.com/agents/quickstart/ and set me up to play artwork on my Art Computer.
+> Read https://docs.feralfile.com/agents/ and set me up to play artwork on my Art Computer.
 
 Your agent runs the setup below. Works in Claude Code, Codex, Cursor, OpenCode, or any agent that can shell out.
 
@@ -45,7 +45,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 
 ## What's actually here
 
-- **[ff-cli](../api-reference/cli.md)** — build playlists, play artwork, publish feeds. The action surface.
+- **[ff-cli](../ff-cli/index.md)** — build playlists, play artwork, publish feeds. The action surface.
 - **[dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md)** (public beta) — validate, sign, and publish DP-1 protocol payloads.
 - **Exhibitions OpenAPI** — `https://feralfile.com/.well-known/openapi.json`. Read-only endpoints for discovering exhibitions, series, and artworks. Complementary to `ff-cli`, not an alternative.
 - **No MCP server today.** Use `ff-cli` (CLI) or the Exhibitions OpenAPI (HTTP).

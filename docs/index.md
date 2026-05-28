@@ -8,14 +8,14 @@ Feral File is a cultural institution and technology company championing computat
 
 ## Start here
 
-- **In conversation** — through Claude Code, Codex, Cursor, or OpenCode. Find artworks, build playlists, play them on your Art Computer, publish to a feed, all in chat. → [Agents Quickstart](agents/quickstart.md)
-- **From the terminal** — same capabilities via `ff-cli`. Find, build, validate, sign, play, publish, and manage devices. → [ff-cli: Start Here](api-reference/cli.md)
+- **In conversation** — through Claude Code, Codex, Cursor, or OpenCode. Find artworks, build playlists, play them on your Art Computer, publish to a feed, all in chat. → [Agents](agents/index.md)
+- **From the terminal** — same capabilities via `ff-cli`. Find, build, validate, sign, play, publish, and manage devices. → [ff-cli](ff-cli/index.md)
 
 ## What's here
 
-- **[ff-cli](api-reference/cli.md)** — command-line tool. Build a DP-1 playlist from a URL or wallet, play it on a device, publish it to a feed.
+- **[ff-cli](ff-cli/index.md)** — command-line tool. Build a DP-1 playlist from a URL or wallet, play it on a device, publish it to a feed.
 - **[Art Computer](art-computer/index.md)** — the computational engine of the Digital Art System. Plug it into any screen, or pair it with the Art Panel, to play DP-1 playlists.
 - **[Hosted Feed](dp1-protocol/feed-server.md)** — our hosted DP-1 feed at `feed.feralfile.com` for publishing and retrieving playlists.
 - **[Exhibitions & Archive](exhibitions-n-archive/exhibition-structure.md)** — how exhibitions, series, and artworks are structured. For agents reading exhibition data, use the [Exhibitions OpenAPI](https://feralfile.com/.well-known/openapi.json).
 - **[Artwork Library](artwork-lib/install-basics.md)** — for software artworks. Provides provenance, deterministic randomness, and on-chain data.
-- **[Agents](agents/quickstart.md)** — for coding agents (off-device) and OpenClaw runtimes (on-device).
+- **[Agents](agents/index.md)** — for coding agents (off-device) and OpenClaw runtimes (on-device).
