@@ -47,6 +47,7 @@ nav:
     - Art Computer Playback Bridge: dp1-protocol/art-computer-integration.md
   - Agents:
     - Quickstart: agents/quickstart.md
+  - Contact: https://feralfile.com/legal/contact
 
 markdown_extensions:
   - admonition
