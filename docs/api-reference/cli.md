@@ -128,7 +128,7 @@ Combine with `--play`, `--publish`, or `--output` to skip straight to delivery; 
 Legacy reference (archived `feral-file/dp1-feed`): use exhibition titles from:
 <https://github.com/feral-file/dp1-feed/tree/main/playlists>
 
-The current open-source feed implementation is [`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2); see [Run your own Feed Server](../dp1-protocol/self-hosted-feed.md).
+The current open-source feed implementation is [`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2); see its [Quick Start](https://github.com/display-protocol/dp1-feed-v2#quick-start) to run your own.
 
 ```bash
 ff-cli chat "Get 3 from Unsupervised" -o playlist.json

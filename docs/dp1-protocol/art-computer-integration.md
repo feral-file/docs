@@ -8,11 +8,11 @@ This page is the shortest bridge from a valid DP-1 playlist to visible playback 
 
 Version note: this bridge accepts any playlist that validates for your toolchain. ff-cli and the canonical DP-1 spec are both at `v1.1.0`.
 
-Use [dp1-cli](dp1-cli.md) (**public beta**) for DP-1 validation and signing; it uses [dp1-go](https://github.com/display-protocol/dp1-go) for schema checks and signature semantics. **dp1-cli** is the **actively maintained** successor to the legacy **dp1-validator** release line in the [same GitHub repository](https://github.com/display-protocol/dp1-cli) (different tags; the legacy line is frozen).
+Use [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md) (**public beta**) for DP-1 validation and signing; it uses [dp1-go](https://github.com/display-protocol/dp1-go) for schema checks and signature semantics. **dp1-cli** is the **actively maintained** successor to the legacy **dp1-validator** release line in the [same GitHub repository](https://github.com/display-protocol/dp1-cli) (different tags; the legacy line is frozen).
 
 ## Shortest path
 
-1. Validate your playlist: [DP-1 CLI quickstart](dp1-cli.md)
+1. Validate your playlist: [dp1-cli quickstart](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md)
 2. Send playlist to the Art Computer:
 
 ```bash
@@ -39,4 +39,4 @@ Use [ff-cli: Start Here](../api-reference/cli.md) and end with `ff-cli play`.
 
 ## Next step
 
-Tune playback behavior in [Player Behavior](player-behavior.md).
+For DP-1 player runtime guidance, see the canonical spec at [`display-protocol/dp1`](https://github.com/display-protocol/dp1).

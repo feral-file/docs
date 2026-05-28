@@ -46,7 +46,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 ## What's actually here
 
 - **[ff-cli](../api-reference/cli.md)** — build playlists, play artwork, publish feeds. The action surface.
-- **[dp1-cli](../dp1-protocol/dp1-cli.md)** (public beta) — validate, sign, and publish DP-1 protocol payloads.
+- **[dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md)** (public beta) — validate, sign, and publish DP-1 protocol payloads.
 - **Exhibitions OpenAPI** — `https://feralfile.com/.well-known/openapi.json`. Read-only endpoints for discovering exhibitions, series, and artworks. Complementary to `ff-cli`, not an alternative.
 - **No MCP server today.** Use `ff-cli` (CLI) or the Exhibitions OpenAPI (HTTP).
 

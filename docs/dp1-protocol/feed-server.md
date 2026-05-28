@@ -21,12 +21,12 @@ Base URL:
 - Hosted (this page): managed endpoint at `feed.feralfile.com`
 - Self-hosted: run your own open-source reference feed operator ([`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) in your infrastructure
 
-If you need full control, use [Run your own Feed Server](self-hosted-feed.md).
+If you need full control, use [run your own using `dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2#quick-start).
 
 ## Minimal hosted flow
 
 1. Build or prepare a valid DP-1 playlist.
-2. Validate first with [dp1-cli](dp1-cli.md) (public beta).
+2. Validate first with [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md) (public beta).
 3. POST to hosted feed.
 4. Retrieve by ID or slug.
 
@@ -51,4 +51,4 @@ curl -H "Authorization: Bearer your-api-key-here" \
 
 ## Next step
 
-If you want your own deployment, follow [Run your own Feed Server](self-hosted-feed.md).
+If you want your own deployment, follow [run your own using `dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2#quick-start).

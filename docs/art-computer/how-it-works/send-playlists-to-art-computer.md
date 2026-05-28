@@ -104,7 +104,7 @@ Having the correct Device ID ensures your playlist is sent to the right Art Comp
 Choose one method:
 
 **Option A: Use a playlist URL**
-- Host your DP-1 playlist JSON file on a web server—this can be your own self-hosted [Feed Server](../../dp1-protocol/self-hosted-feed.md)
+- Host your DP-1 playlist JSON file on a web server—this can be your own self-hosted [`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2#quick-start)
 - Use the public URL where your playlist is served (e.g., `https://your-server.com/playlists/playlist-ID`)
 
 **Option B: Use inline JSON**
