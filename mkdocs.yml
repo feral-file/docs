@@ -26,10 +26,8 @@ plugins:
 
 nav:
   - Home: index.md
-  - Agents:
-    - Quickstart: agents/quickstart.md
-  - ff-cli:
-    - Start Here: api-reference/cli.md
+  - Agents: agents/quickstart.md
+  - ff-cli: api-reference/cli.md
   - Art Computer:
     - Getting Started: art-computer/index.md
     - How It Works:
