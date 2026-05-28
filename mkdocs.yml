@@ -26,6 +26,8 @@ plugins:
 
 nav:
   - Home: index.md
+  - Agents:
+    - Quickstart: agents/quickstart.md
   - ff-cli:
     - Start Here: api-reference/cli.md
   - Art Computer:
@@ -36,17 +38,15 @@ nav:
       - Send Playlists to the Art Computer: art-computer/how-it-works/send-playlists-to-art-computer.md
       - OTA: art-computer/how-it-works/ota.md
     - Specification: art-computer/specification.md
+  - DP-1 on Feral File:
+    - Hosted Feed: dp1-protocol/feed-server.md
+    - Art Computer Playback Bridge: dp1-protocol/art-computer-integration.md
   - Exhibitions & Archive:
     - Exhibition Structure: exhibitions-n-archive/exhibition-structure.md
     - Modeling Artworks: exhibitions-n-archive/modeling-work.md
   - Artwork Library:
     - Install & Basics: artwork-lib/install-basics.md
     - Event Listeners: artwork-lib/event-listeners.md
-  - DP-1 on Feral File:
-    - Hosted Feed: dp1-protocol/feed-server.md
-    - Art Computer Playback Bridge: dp1-protocol/art-computer-integration.md
-  - Agents:
-    - Quickstart: agents/quickstart.md
   - Contact: https://feralfile.com/legal/contact
 
 markdown_extensions:
