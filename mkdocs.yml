@@ -41,6 +41,11 @@ nav:
   - Hosted Feed: hosted-feed/index.md
   - Contact: https://feralfile.com/legal/contact
 
+# Pages built and served but intentionally absent from the nav.
+# changelog.md is fetched by the mobile app at /changelog/ — keep it published.
+not_in_nav: |
+  changelog.md
+
 markdown_extensions:
   - admonition
   - attr_list
