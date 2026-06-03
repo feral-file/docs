@@ -24,6 +24,40 @@ npm install -g @feralfile/cli
 
 ---
 
+## May 25 2026
+
+### Feral File Mobile App 1.1.11 — Smoother FF1 setup, playback overlays that match the work, and settings polish
+
+**FF1 setup finishes cleanly**
+
+Setup over BLE now tears down when pairing succeeds, so you are not left in a stale setup session after FF1 is ready.
+
+**Onboarding when FF1 is already set up**
+
+If the Art Computer is already configured, onboarding shows a **Continue** action instead of pushing you through setup again.
+
+**Setup screens that fit on screen**
+
+Button labels and layout were adjusted so setup copy does not overflow on smaller phones.
+
+**Playback overlays match the work**
+
+Still-image works no longer show volume or interact overlays, and overlay visibility follows what the work type actually supports—so controls only appear when they apply.
+
+**Now Playing without a misleading progress bar**
+
+Single-work playlists hide the progress bar, so you are not shown playlist progress that does not exist.
+
+**Clearer GPU health on FF1**
+
+Device metrics use neutral colors for GPU readings, with temperature warnings when thresholds are crossed—easier to scan at a glance.
+
+**Settings and menu clarity**
+
+Forget local data copy is clearer about what is removed. **Add Address** uses a plus icon so the action reads at a glance.
+
+---
+
 ## May 15 2026
 
 ### Feral File Mobile App 1.1.10 — FF1 sleep scheduling, clearer hardware names, and steadier control
