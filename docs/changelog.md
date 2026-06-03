@@ -1,5 +1,19 @@
 # Change logs
 
+## May 31 2026
+
+### Feral File Mobile App 1.1.13 — Faster Art Computer setup
+
+**Fewer steps to set up your Art Computer**
+
+The extra welcome splash between scanning or choosing a device and pairing is gone—one less tap on every setup.
+
+**Setup screens that read cleanly**
+
+Onboarding layout no longer lets the **Continue** button overlap the last line of body copy, so setup text stays readable on smaller phones.
+
+---
+
 ## May 29 2026
 
 ### Feral File Mobile App 1.1.12 — Calmer onboarding, steadier FF1 playback controls, and clearer device care
