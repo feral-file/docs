@@ -1,5 +1,31 @@
 # Change logs
 
+## May 29 2026
+
+### Feral File Mobile App 1.1.12 — Calmer onboarding, steadier FF1 playback controls, and clearer device care
+
+**Onboarding that matches how we talk about art**
+
+Onboarding copy now follows the current Feral File voice—calm and art-first. The add-address step drops ownership-coded wording, and the start-setup splash aligns with the language on the Art Computer box insert.
+
+**Setup labels that fit on screen**
+
+The **Setup Art Computer** action on the add-screens step has room to display fully, so the label no longer truncates on smaller phones.
+
+**Repeat-off stays off on FF1**
+
+When you turn repeat off for what is playing on FF1, that choice persists across taps and reconnects instead of snapping back.
+
+**More accurate GPU usage on FF1**
+
+GPU usage readings now reflect actual load more accurately when the device provides busy-time metrics.
+
+**Factory reset clears the device from the app**
+
+After a factory reset on FF1, the app removes that device from your list so you are not left controlling a box that was wiped.
+
+---
+
 ## May 25 2026
 
 ### ff-cli 1.2.0 — Paste a URL, get a playable playlist
