@@ -1,5 +1,15 @@
 # Change logs
 
+## Jun 3 2026
+
+### Feral File Mobile App 1.1.14 — Pair from a link without getting stuck
+
+**Device-connect links open a safe path to pairing**
+
+When you open the app from an external device-connect link, Home now anchors the Art Computer scan step so navigation can unwind cleanly before Connect opens. Pairing from a link is less likely to leave you on a stuck screen stack.
+
+---
+
 ## May 31 2026
 
 ### Feral File Mobile App 1.1.13 — Faster Art Computer setup
