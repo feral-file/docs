@@ -1,5 +1,35 @@
 # Change logs
 
+## Jun 9 2026
+
+### Feral File Mobile App 1.2.0 — Discover tab, easier Art Computer setup, and richer work details
+
+**Discover what to play next**
+
+A new **Discover** tab brings a discovery feed that loads as you browse, pulls from live local providers, and hydrates curated channels and playlists once your catalog seed is ready.
+
+**Easier path to set up an Art Computer**
+
+**Setup Art Computer** is available from the device picker, the no-paired sheet offers a direct setup link, and Wi‑Fi errors route to the right setup step so failures are easier to recover from.
+
+**Wi‑Fi credentials remembered during setup**
+
+During Art Computer setup, Wi‑Fi credentials can be saved securely unless you decline—with obscured password prefill when you return, so you are less likely to retype everything from scratch.
+
+**Work descriptions with formatting**
+
+Work detail descriptions now render markdown, so artist statements and notes read with proper structure instead of plain unformatted text.
+
+**Playback bar thumbnails that fit**
+
+The Now Playing bar fixes thumbnail aspect ratio and alignment so artwork previews look correct while you browse.
+
+**Playlist display settings stay in spec**
+
+Display preferences for playlists follow the current DP-1 format, so what you set in the app stays aligned with what FF1 expects.
+
+---
+
 ## Jun 3 2026
 
 ### Feral File Mobile App 1.1.14 — Pair from a link without getting stuck
