@@ -26,6 +26,86 @@ npm install -g @feralfile/cli
 
 ---
 
+## Jun 9 2026
+
+### Feral File Mobile App 1.2.0 — Discover tab, easier Art Computer setup, and richer work details
+
+**Discover what to play next**
+
+A new **Discover** tab brings a discovery feed that loads as you browse, pulls from live local providers, and hydrates curated channels and playlists once your catalog seed is ready.
+
+**Easier path to set up an Art Computer**
+
+**Setup Art Computer** is available from the device picker, the no-paired sheet offers a direct setup link, and Wi‑Fi errors route to the right setup step so failures are easier to recover from.
+
+**Wi‑Fi credentials remembered during setup**
+
+During Art Computer setup, Wi‑Fi credentials can be saved securely unless you decline—with obscured password prefill when you return, so you are less likely to retype everything from scratch.
+
+**Work descriptions with formatting**
+
+Work detail descriptions now render markdown, so artist statements and notes read with proper structure instead of plain unformatted text.
+
+**Playback bar thumbnails that fit**
+
+The Now Playing bar fixes thumbnail aspect ratio and alignment so artwork previews look correct while you browse.
+
+**Playlist display settings stay in spec**
+
+Display preferences for playlists follow the current DP-1 format, so what you set in the app stays aligned with what FF1 expects.
+
+---
+
+## Jun 3 2026
+
+### Feral File Mobile App 1.1.14 — Pair from a link without getting stuck
+
+**Device-connect links open a safe path to pairing**
+
+When you open the app from an external device-connect link, Home now anchors the Art Computer scan step so navigation can unwind cleanly before Connect opens. Pairing from a link is less likely to leave you on a stuck screen stack.
+
+---
+
+## May 31 2026
+
+### Feral File Mobile App 1.1.13 — Faster Art Computer setup
+
+**Fewer steps to set up your Art Computer**
+
+The extra welcome splash between scanning or choosing a device and pairing is gone—one less tap on every setup.
+
+**Setup screens that read cleanly**
+
+Onboarding layout no longer lets the **Continue** button overlap the last line of body copy, so setup text stays readable on smaller phones.
+
+---
+
+## May 29 2026
+
+### Feral File Mobile App 1.1.12 — Calmer onboarding, steadier FF1 playback controls, and clearer device care
+
+**Onboarding that matches how we talk about art**
+
+Onboarding copy now follows the current Feral File voice—calm and art-first. The add-address step drops ownership-coded wording, and the start-setup splash aligns with the language on the Art Computer box insert.
+
+**Setup labels that fit on screen**
+
+The **Setup Art Computer** action on the add-screens step has room to display fully, so the label no longer truncates on smaller phones.
+
+**Repeat-off stays off on FF1**
+
+When you turn repeat off for what is playing on FF1, that choice persists across taps and reconnects instead of snapping back.
+
+**More accurate GPU usage on FF1**
+
+GPU usage readings now reflect actual load more accurately when the device provides busy-time metrics.
+
+**Factory reset clears the device from the app**
+
+After a factory reset on FF1, the app removes that device from your list so you are not left controlling a box that was wiped.
+
+---
+
 ## May 25 2026
 
 ### ff-cli 1.2.0 — Paste a URL, get a playable playlist
@@ -47,6 +127,40 @@ All build flows (`chat`, `build`, `find`) emit `dpVersion: 1.1.0` with the multi
 ```bash
 npm install -g @feralfile/cli
 ```
+
+---
+
+## May 25 2026
+
+### Feral File Mobile App 1.1.11 — Smoother FF1 setup, playback overlays that match the work, and settings polish
+
+**FF1 setup finishes cleanly**
+
+Setup over BLE now tears down when pairing succeeds, so you are not left in a stale setup session after FF1 is ready.
+
+**Onboarding when FF1 is already set up**
+
+If the Art Computer is already configured, onboarding shows a **Continue** action instead of pushing you through setup again.
+
+**Setup screens that fit on screen**
+
+Button labels and layout were adjusted so setup copy does not overflow on smaller phones.
+
+**Playback overlays match the work**
+
+Still-image works no longer show volume or interact overlays, and overlay visibility follows what the work type actually supports—so controls only appear when they apply.
+
+**Now Playing without a misleading progress bar**
+
+Single-work playlists hide the progress bar, so you are not shown playlist progress that does not exist.
+
+**Clearer GPU health on FF1**
+
+Device metrics use neutral colors for GPU readings, with temperature warnings when thresholds are crossed—easier to scan at a glance.
+
+**Settings and menu clarity**
+
+Forget local data copy is clearer about what is removed. **Add Address** uses a plus icon so the action reads at a glance.
 
 ---
 
