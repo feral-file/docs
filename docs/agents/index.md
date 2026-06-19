@@ -34,7 +34,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
    ```bash
    ff-cli setup
    ```
-   Interactive. An LLM API key is only required for `ff-cli chat` — skip it if the user just wants to play URLs or wallets.
+   Interactive, and quick — ff-cli needs no LLM API key. Setup just configures the signing key and the user's Art Computer.
 
 4. **Add the user's Art Computer:**
    ```bash
