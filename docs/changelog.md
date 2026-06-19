@@ -1,5 +1,18 @@
 # Change logs
 
+## June 19 2026
+
+### ff-cli 2.0.1 — Playback timing fixes
+
+A patch release on top of 2.0.0.
+
+- **Signed media URLs play correctly again.** A media URL with a query string or fragment — e.g. `art.png?sig=…` or `clip.mp4#t=1`, common for signed/CDN links — was misread and could play as a still or lose its display duration. The type is now read from the URL path only, so images get their duration and videos play their natural length.
+- **`play` points marketplace links to `find`.** Pasting a marketplace URL `play` can't cast directly (for example a legacy Art Blocks `/projects/{id}` link) now tells you to use `ff-cli find <url> --play` instead of trying to render the web page.
+
+Update with `npm i -g @feralfile/cli@latest`.
+
+---
+
 ## June 18 2026
 
 ### ff-cli 2.0.0 — Deterministic CLI, no API key
