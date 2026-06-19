@@ -1,5 +1,31 @@
 # Change logs
 
+## June 18 2026
+
+### ff-cli 2.0.0 — Deterministic CLI, no API key
+
+**Chat is gone — your coding agent is the chat now**
+
+ff-cli no longer ships a built-in `chat` command or any LLM integration. Natural language belongs in a coding agent — Claude Code, Codex, Cursor — which drives ff-cli's commands directly through the `ff-control` skill. `ff-cli setup` no longer asks for an Anthropic / OpenAI / Grok / Gemini API key, and none is required to find, build, sign, play, or publish.
+
+This is a breaking change: the `chat` command and the `defaultModel` / `models` config block are removed. Existing `config.json` files keep working — the now-unused keys are simply ignored.
+
+**Interactive web art plays open-ended**
+
+`ff-cli play <url>` for an interactive or generative web page now renders the live page and leaves it running, instead of cutting and restarting it every few seconds. ff-cli previously misclassified unknown URLs as static images and stamped a fixed display duration; HTML and other web pages now play with no forced duration, so a conformant player parks on them indefinitely.
+
+**`play` points you to `find` for marketplace links**
+
+Hand `ff-cli play` a marketplace URL, on-chain coordinates, or a wallet address and it now points you to `ff-cli find <input> --play`, which resolves the artwork through the indexer — rather than trying to cast the web page itself. `play` stays the exact-source command (playlist files, hosted playlists, direct media/web URLs); `find` stays the discovery command.
+
+**Install**
+
+```bash
+npm install -g @feralfile/cli
+```
+
+---
+
 ## May 25 2026
 
 ### ff-cli 1.2.0 — Paste a URL, get a playable playlist
