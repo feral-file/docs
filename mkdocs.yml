@@ -3,12 +3,15 @@ site_url: https://docs.feralfile.com
 repo_url: https://github.com/feral-file/docs
 theme:
   name: material
+  features:
+    - content.code.copy
 
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
 
 extra_css:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.css
+  - stylesheets/extra.css
 plugins:
   - search
   - redirects:

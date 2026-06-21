@@ -1,0 +1,6 @@
+/* Let the agent-prompt code block read like a sentence: wrap instead of
+   scrolling horizontally, while still getting Material's hover copy button. */
+.copy-prompt code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}

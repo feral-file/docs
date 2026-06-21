@@ -2,7 +2,11 @@
 
 ## Paste this into your coding agent
 
-> Read https://docs.feralfile.com/agents/ and set me up to play artwork on my Art Computer.
+Hover over the prompt and click the copy button in its top-right corner:
+
+```{ .text .copy-prompt }
+Read https://docs.feralfile.com/agents/ and set me up to play artwork on my Art Computer.
+```
 
 Your agent runs the setup below. Works in Claude Code, Codex, Cursor, OpenCode, or any agent that can shell out.
 
