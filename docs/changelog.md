@@ -1,5 +1,23 @@
 # Change logs
 
+## Jun 23 2026
+
+### Feral File Mobile App 1.3.0 — Smoother setup, steadier playback, and more reliable playlist management
+
+**Playlist management is more reliable.** Create and delete playlists, rename them, and reorder items inside a playlist without losing your place. It is easier to shape a playlist around the work you want to play, and the flow now feels steadier as you edit, refresh, or move between playlists so the structure you set up keeps pace with the current DP-1 format.
+
+**Playback controls follow the intended design.** Shuffle and repeat now behave the way they should in Now Playing, and the sleep indicator no longer gets in the way.
+
+**Taps are easier to hit.** Shared touch targets now enforce the 44px minimum, which makes controls more reliable to use and reduces missed taps.
+
+**Setup and connect are clearer.** The owner-contact flow now feels less repetitive, remembers the prompt state, and handles rate-limited device responses more gracefully so pairing stays on track.
+
+**Display defaults are more consistent.** The Canvas setting now starts on Fill instead of Fit, so content frames more naturally by default.
+
+**Support is easier to resolve.** Logs are attached automatically, which cuts down the back-and-forth when you need help.
+
+---
+
 ## June 19 2026
 
 ### ff-cli 2.0.1 — Playback timing fixes
