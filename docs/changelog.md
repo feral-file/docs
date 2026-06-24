@@ -12,7 +12,7 @@ Pairing is more reliable too. Setting up an Art Computer no longer stalls when t
 
 ---
 
-## June 19 2026
+## Jun 19 2026
 
 ### ff-cli 2.0.1 — Playback timing fixes
 
@@ -25,7 +25,7 @@ Update with `npm i -g @feralfile/cli@latest`.
 
 ---
 
-## June 18 2026
+## Jun 18 2026
 
 ### ff-cli 2.0.0 — Deterministic CLI, no API key
 
