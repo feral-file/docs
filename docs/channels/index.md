@@ -1,34 +1,33 @@
 # Channels
 
-A **channel** is a persistent, signed collection of playlists with a publisher
-identity. People follow a channel on their Art Computer; when you add or update
-its playlists, their devices pick up the change. A playlist is a one-time
-selection — a channel is something you keep.
+A channel is a persistent, signed collection of playlists with a publisher
+identity. People follow a channel on their Art Computer, and the playlists you
+add or reorder show up on their device. A playlist is a one-time selection; a
+channel is something you keep.
 
-Use a channel when you want an ongoing, followable presence (a gallery, a
-curator, a platform) rather than a single hand-off.
+Reach for a channel when you want an ongoing, followable presence — a gallery, a
+curator, a platform — rather than a single hand-off.
 
-!!! note "Playlists come first"
-    A channel references playlists, it doesn't contain artworks directly. Build
-    your playlists first — see **[ff-cli](../ff-cli/index.md)** or the
-    **[Hosted Feed](../hosted-feed/index.md)** — then add them to a channel.
+!!! note "Build your playlists first"
+    A channel references playlists, not artworks. Make the playlists first with
+    [ff-cli](../ff-cli/index.md) or the [Hosted Feed](../hosted-feed/index.md),
+    then point a channel at them.
 
-## Two ways to make one
+## Make a channel
 
 === "No-code (web)"
 
-    [**publisher.feralfile.com**](https://publisher.feralfile.com) is the
-    no-code way to create and run a channel. Sign in, create a channel, give it
-    a title and description, add your playlists in the order you want them, and
-    publish. Publishing signs the channel under your publisher identity so
-    devices can verify it.
+    [publisher.feralfile.com](https://publisher.feralfile.com) creates and
+    publishes channels with no API keys and no JSON. Sign in, assemble your
+    playlists into a channel, and publish. Publishing signs the channel under
+    your publisher identity so devices can verify it.
 
-    This is the right path for curators and partners — no API keys, no JSON.
+    This is the path for curators and partners.
 
-=== "API (programmatic)"
+=== "API"
 
-    Channels are first-class on the hosted DP-1 feed. Read operations are
-    public; writes need a Bearer API key.
+    Channels are first-class on the hosted feed. Reads are public; writes need a
+    Bearer API key.
 
     Base URL: `https://feed.feralfile.com/api/v1`
 
@@ -45,22 +44,18 @@ curator, a platform) rather than a single hand-off.
 
     `channel.json` is a DP-1 channel: `title`, `slug`, a `publisher` identity,
     and an ordered `playlists` array of playlist URLs, plus optional `summary`,
-    `coverImage`, and `curators`. The feed signs the channel server-side on
-    write. For the authoritative field list and every endpoint
-    (`GET`/`POST`/`PUT`/`PATCH`/`DELETE` on `/channels` and
-    `/channels/{id}`), see the feed
-    [OpenAPI](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml)
-    and the [channel extension schema](https://github.com/display-protocol/dp1/tree/main/extensions/channels).
+    `coverImage`, and `curators`. The feed signs the channel on write. For the
+    full field list and every endpoint, see the canonical
+    [feed OpenAPI](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml)
+    and [channel extension schema](https://github.com/display-protocol/dp1/tree/main/extensions/channels).
 
-## How following works
+## Reach followers
 
 A channel carries at least one **feed** signature and one **publisher**
 signature; conforming players verify both before they trust it. Once a device
-follows your channel, the playlists you add or reorder propagate to it — that's
-the difference between a channel and a one-off playlist hand-off.
+follows your channel, every playlist you add or reorder propagates to it — that
+is what a channel gives you over a one-off playlist.
 
-## See also
+## Next step
 
-- **[Agents Quickstart](../agents/index.md)** — set up a coding agent to build the playlists a channel points at.
-- **[Hosted Feed](../hosted-feed/index.md)** — the managed endpoint channels and playlists live on.
-- **[ff-cli](../ff-cli/index.md)** — build and publish the playlists.
+Build the playlists your channel will point at — see [ff-cli](../ff-cli/index.md).
