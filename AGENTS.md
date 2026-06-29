@@ -88,16 +88,6 @@ Goal:
 
 - discover OpenAPI and tool-compatible docs without duplicating FF1 CLI or DP-1 onboarding
 
-## Writing style
-
-- Plain language
-- Short paragraphs
-- Verb-first headings
-- Calm, credible, human
-- No hype
-- Start with why it matters, then show the next concrete step
-- End pages with one obvious next action
-
 ## Build and validation
 
 - Respect the existing MkDocs / Material setup
