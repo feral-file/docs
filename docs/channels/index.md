@@ -2,11 +2,11 @@
 
 A channel is a persistent, signed collection of playlists with a publisher
 identity. People follow a channel on their Art Computer, and the playlists you
-add or reorder show up on their device. A playlist is a one-time selection; a
+add or reorder show up on their device. A playlist is a one-time selection. A
 channel is something you keep.
 
-Reach for a channel when you want an ongoing, followable presence — a gallery, a
-curator, a platform — rather than a single hand-off.
+Reach for a channel when you want an ongoing, followable presence (a gallery, a
+curator, a platform) rather than a single hand-off.
 
 !!! note "Build your playlists first"
     A channel references playlists, not artworks. Make the playlists first with
@@ -26,7 +26,7 @@ curator, a platform — rather than a single hand-off.
 
 === "API"
 
-    Channels are first-class on the hosted feed. Reads are public; writes need a
+    Channels are first-class on the hosted feed. Reads are public. Writes need a
     Bearer API key.
 
     Base URL: `https://feed.feralfile.com/api/v1`
@@ -52,10 +52,10 @@ curator, a platform — rather than a single hand-off.
 ## Reach followers
 
 A channel carries at least one **feed** signature and one **publisher**
-signature; conforming players verify both before they trust it. Once a device
-follows your channel, every playlist you add or reorder propagates to it — that
-is what a channel gives you over a one-off playlist.
+signature, and conforming players verify both before they trust it. Once a
+device follows your channel, every playlist you add or reorder propagates to it.
+That propagation is what a channel gives you over a one-off playlist.
 
 ## Next step
 
-Build the playlists your channel will point at — see [ff-cli](../ff-cli/index.md).
+Build the playlists your channel will point at. See [ff-cli](../ff-cli/index.md).
