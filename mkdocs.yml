@@ -42,6 +42,7 @@ nav:
       - OTA: art-computer/how-it-works/ota.md
     - Specification: art-computer/specification.md
   - Hosted Feed: hosted-feed/index.md
+  - Channels: channels/index.md
   - Contact: https://feralfile.com/legal/contact
 
 # Pages built and served but intentionally absent from the nav.
