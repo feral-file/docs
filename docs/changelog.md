@@ -1,6 +1,18 @@
 # Change logs
 
-## June 19 2026
+## Jun 23 2026
+
+### Feral File Mobile App 1.3.0 — Build playlists in the app
+
+You can now build playlists directly in the app. Create one, name it, reorder the works inside it, and delete it when you're done. This is the feature people kept asking for, and it's here.
+
+Playback picked up two fixes. Shuffle and repeat now work correctly in Now Playing, and the sleep indicator no longer sits on top of the controls.
+
+Pairing is more reliable too. Setting up an Art Computer no longer stalls when the device limits how quickly it responds.
+
+---
+
+## Jun 19 2026
 
 ### ff-cli 2.0.1 — Playback timing fixes
 
@@ -13,7 +25,7 @@ Update with `npm i -g @feralfile/cli@latest`.
 
 ---
 
-## June 18 2026
+## Jun 18 2026
 
 ### ff-cli 2.0.0 — Deterministic CLI, no API key
 
