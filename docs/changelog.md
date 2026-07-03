@@ -1,5 +1,25 @@
 # Change logs
 
+## Jun 30 2026
+
+### Feral File Mobile App 1.3.1 — Browse, search, and setup reliability
+
+**Browse now starts with publishers.** Publisher-first sections now surface **More** and **All** drill-ins, and publisher titles resolve from the shared publisher data so the browse experience stays consistent.
+
+**Browse tabs keep a cleaner layout.** The bottom spacing on browse tabs is tightened up so the home screen no longer leaves extra room at the bottom.
+
+**Search favors artists sooner.** Artist matches now rank ahead of title matches in item search, making people easier to find when both could apply.
+
+**Playlist changes stay controlled.** Curated channels and playlists can no longer be mutated by mistake, and legacy user playlists are rebuilt into **My Collection**.
+
+**FF1 setup and recovery are more resilient.** Setup now polls for phase changes, handles recovery better, and resumes more reliably after a cold start. Pairing and teardown are also hardened.
+
+**External art computer consent is handled explicitly.** The app now includes a consent flow for external art computers.
+
+**Data handling is more forgiving.** Malformed playlist items in watch streams are ignored, enrich recovers better from partial failures, and token ingest is more resilient when DP-1 metadata is malformed.
+
+---
+
 ## Jun 23 2026
 
 ### Feral File Mobile App 1.3.0 — Build playlists in the app
