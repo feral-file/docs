@@ -15,6 +15,8 @@ Make sure you have:
 - A **phone** (iOS or Android) with internet access
 - Your **Wi-Fi network name and password**
 
+Setting up on a managed network (museum, office, campus)? See [Network Requirements](./network-requirements.md) for the firewall and Wi-Fi policies your IT team will ask about.
+
 ---
 
 ## Step 1: Plug In Your Art Computer
@@ -96,6 +98,9 @@ After booting, you should see the **pairing QR code** again. Go back to **Step 2
 
 - **I don’t see a QR code.**  
   Confirm the TV is on the correct HDMI input. Try a different HDMI cable/port. Power-cycle the Art Computer.
+
+- **The Art Computer seems to restart over and over (boot loop).**  
+  A failing HDMI cable can look exactly like a boot loop: the screen drops and re-syncs while the Art Computer itself is running fine. Swap in a known-good HDMI cable before assuming the device is faulty.
 
 - **My phone camera doesn’t show a link.**  
   Try better lighting, hold the camera steady, and make sure you’re close enough for focus. Some phones require enabling QR scanning in Camera settings.

@@ -41,6 +41,7 @@ nav:
       - End-to-End Architecture: art-computer/how-it-works/display.md
       - OTA: art-computer/how-it-works/ota.md
     - Specification: art-computer/specification.md
+    - Network Requirements: art-computer/network-requirements.md
   - Hosted Feed: hosted-feed/index.md
   - Contact: https://feralfile.com/legal/contact
 
