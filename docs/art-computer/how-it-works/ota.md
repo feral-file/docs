@@ -153,7 +153,7 @@ The setupd daemon continuously monitors these structured logs using regular expr
 ### Services
 - **`feral-updater@.service`** - Template service for update instances
 - **`feral-updater-run@.service`** - Run-specific update service with unique ID
-- **`feral-updater@.timer`** - Periodic update checking (weekly)
+- **`feral-updater@.timer`** - Scheduled update checking (daily at 03:00 with a randomized delay of up to 2 hours)
 
 ### Logging
 All update processes log to `/home/feralfile/.logs/updaterd.log` with structured format for monitoring and debugging.

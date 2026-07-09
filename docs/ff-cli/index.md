@@ -161,8 +161,8 @@ ff-cli play "https://example.com/video.mp4" --skip-verify
 ## Common failure points
 
 - `config validate` fails: run `ff-cli config show`, fix the reported values, then re-run validation.
-- `play` cannot find device: check device host/name in config and make sure the Art Computer is reachable on your network.
-- `play` version error: FF1 OS is below minimum supported version for that command; update FF1 OS and retry.
+- `play` cannot find device: check device host/name in config and make sure the Art Computer is reachable on your network. On managed networks (museums, offices), see [Network Requirements](../art-computer/network-requirements.md).
+- `play` version error: FF OS is below the minimum supported version for that command; update FF OS and retry.
 - Signature shape across the ecosystem: ff-cli emits the spec-current `signatures[]`, but some other tools still emit the legacy top-level `signature`. If you integrate with multiple tools, verify both forms validate as expected.
 
 ## Deeper references

@@ -1,12 +1,12 @@
-# Art Computer AI-First Playlist Creation and Display Flow
+# Art Computer End-to-End Architecture
 
-*A complete technical documentation of how users create playlists through AI commands and display them on the Art Computer*
+*How a natural language command becomes artwork on the screen*
 
 ---
 
 ## Overview
 
-The Art Computer enables users to create and display artwork playlists through natural language commands (voice or text). The system processes these commands through AI to generate DP-1 compliant playlists, stores them in a distributed feed system, and delivers them to the Art Computer for display.
+Users can create and play artwork playlists through natural language commands (voice or text) in the mobile app. The system parses these commands to generate DP-1 compliant playlists, stores them in a feed server, and delivers them to the Art Computer for playback.
 
 ---
 
@@ -17,7 +17,7 @@ The Art Computer enables users to create and display artwork playlists through n
 - **Command API** (`ff-cloud-command-service`) - AI-powered command processing service  
 - **DP1 Feed Server** ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) — playlist storage and distribution (open-source reference; see [Hosted Feed (Feral File)](../../hosted-feed/index.md) for the managed option)
 - **Relayer** (`ff1-relayer`) - WebSocket bridge between mobile and device
-- **Device OS** (`feralfile-device`) - FF1 device firmware and services
+- **Device OS** ([`ffos`](https://github.com/feral-file/ffos)) - FF OS, the Art Computer's runtime and system services
 - **Display Engine** (`player-wrapper-ui`) - Chromium-based artwork renderer
 
 ---
@@ -70,7 +70,7 @@ Both input methods support the same natural language processing capabilities and
 
 ### 2. AI Command Processing
 
-The Command API receives user commands and processes them through sophisticated AI systems:
+The Command API receives user commands and processes them in three stages:
 
 #### Intent Parsing
 Natural language commands are analyzed to extract:
@@ -81,10 +81,10 @@ Natural language commands are analyzed to extract:
 - **Style attributes** - Genre, medium, or aesthetic descriptors
 
 #### Voice Transcription
-Audio commands are processed using OpenAI Whisper for accurate speech-to-text conversion, with domain-specific training for art and artist terminology.
+Audio commands are transcribed to text using OpenAI Whisper before command parsing.
 
 #### Entity Resolution
-Parsed entities are matched against comprehensive databases of artworks, artists, and collections using vector similarity and fuzzy string matching algorithms.
+Parsed entities are matched against databases of artworks, artists, and collections using vector similarity and fuzzy string matching.
 
 ### 3. DP-1 Playlist Generation
 
@@ -121,7 +121,7 @@ Generated playlists are stored in the DP-1 Feed Server system:
 
 ### 5. Command Relay to Device
 
-The mobile app communicates with FF1 devices through a secure relay system:
+The mobile app communicates with the Art Computer through a secure relay system:
 
 #### Secure Routing
 - **HMAC Authentication** - Topic-based message routing with cryptographic verification
@@ -136,7 +136,7 @@ Commands include:
 
 ### 6. Device Command Processing
 
-FF1 devices receive and process commands through the connectd daemon:
+The Art Computer receives and processes commands through the `connectd` daemon:
 
 #### Command Validation
 - **Authentication** - Verify command authenticity and authorization
@@ -176,7 +176,7 @@ The Chromium-based player handles diverse artwork types:
 1. **User Input** → Mobile app captures voice/text commands
 2. **AI Processing** → Command API parses intent and generates playlists  
 3. **Storage** → DP1 Feed Server stores signed playlists
-4. **Routing** → Relayer forwards commands to specific FF1 devices
+4. **Routing** → Relayer forwards commands to specific Art Computers
 5. **Device Processing** → Connectd daemon handles commands via CDP
 6. **Display** → Chromium player renders artwork on screen
 
@@ -219,8 +219,4 @@ The Chromium-based player handles diverse artwork types:
 
 ### Caching and persistence
 - **Feed storage** - PostgreSQL in the feed service for playlist persistence and queries ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2))
-- **Device Caching** - Local artwork caching on FF1 devices
-
----
-
-This architecture enables seamless, AI-driven playlist creation and display, providing users with an intuitive way to control their Art Computer through natural language while maintaining security, performance, and reliability.
+- **Device Caching** - Local artwork caching on the Art Computer

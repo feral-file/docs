@@ -32,6 +32,14 @@ Also allow:
 
 ---
 
+## Wired Ethernet
+
+The Art Computer has a Gigabit Ethernet port behind its removable side panels (see the [specification](./specification.md)). On networks where wireless policy is the sticking point, wiring the device is often the simplest fix: the egress rules above still apply, but Wi-Fi onboarding, captive portals, and wireless isolation drop out of the picture.
+
+The stock enclosure ships sealed for simplicity. If you want the port permanently accessible, we have a 3D-printable side panel design with the LAN port exposed — email [support@feralfile.com](mailto:support@feralfile.com) for the files.
+
+---
+
 ## Controlling with the Feral File app (default)
 
 The phone never connects to the Art Computer over your LAN. Both the phone and the device open outbound WebSocket connections to the cloud relayer, which brokers commands between them.

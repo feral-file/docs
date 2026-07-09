@@ -40,11 +40,11 @@ Run these in order. On any non-zero exit, stop and report the failing command an
    ```
    Interactive, and quick — ff-cli needs no LLM API key. Setup just configures the signing key and the user's Art Computer.
 
-4. **Add the user's Art Computer:**
+4. **Add the user's Art Computer.** Ask the user for the device's IP address or hostname, then register it directly:
    ```bash
-   ff-cli device add
+   ff-cli device add --host http://<device-ip>:1111 --name "<name>"
    ```
-   Discovers via mDNS. If discovery fails, ask the user for the device hostname or IP.
+   Bare `ff-cli device add` attempts mDNS discovery instead, but mDNS is unreliable across subnets and often blocked on managed networks — prefer the explicit host. Setting up on a museum, office, or campus network? See [Network Requirements](../art-computer/network-requirements.md).
 
 5. **Run what the user asked for.** Most common starting point:
    ```bash

@@ -88,7 +88,7 @@ flowchart TD
 
 ## Telemetry (Heartbeat)
 
-All the events should only consider network connected scenario otherwise it can't be sent over heartbeat.
+Heartbeats are only sent while the device has network connectivity.
 
 ### Device status
 | Field | Type | Description |
@@ -97,13 +97,12 @@ All the events should only consider network connected scenario otherwise it can'
 | `MAC Address` | String | The unique, immutable MAC address of the network interface. |
 | `Build` | String | The current firmware build version (e.g., "develop-0.0.1"). |
 | `Screen Info` | String | String detailing screen status (e.g., "1920x1080@60"). |
-| `CPU Temp` | Number | The core CPU temperature in Celsius (°C). **Alerts if > 55.** |
-| `CPU Usage` | Percent | The current CPU utilization (0.00 to 1.00). **Alerts if > 0.80.** |
-| `GPU Usage` | Percent | The current GPU utilization (0.00 to 1.00). **Alerts if > 0.80.** |
-| `Memory Usage`| Percent | The percentage of total RAM currently in use (0.00 to 1.00). **Alerts if > 0.80.** |
-| `Disk Usage` | Percent | The percentage of total disk storage currently in use (0.00 to 1.00). **Alerts if > 0.80.** |
+| `CPU Temp` | Number | The core CPU temperature in Celsius (°C). |
+| `CPU Usage` | Percent | The current CPU utilization (0.00 to 1.00). |
+| `GPU Usage` | Percent | The current GPU utilization (0.00 to 1.00). |
+| `Memory Usage`| Percent | The percentage of total RAM currently in use (0.00 to 1.00). |
+| `Disk Usage` | Percent | The percentage of total disk storage currently in use (0.00 to 1.00). |
 | `Uptime` | String | The duration the device has been running since last boot, in "D H:M:S" format. |
-| `Status` | String | **(Calculated)** "✅ Online" or "❌ Offline". Derived in the spreadsheet, not sent by device. |
 | `Public Key` | String | The device's public key for signature verification. |
 | `Signature` | String | The payload's cryptographic signature for data integrity. |
 | `Page` | String | The setupd page state. |
@@ -120,10 +119,11 @@ All the events should only consider network connected scenario otherwise it can'
 
 ## Version control
 
-We deploy the firmware versions through 2 main channels:
-- Dev channel: https://ffosdev.feralfile.com/
-- Prod channel: https://ffos.feralfile.com
+FF OS images are deployed on two branches:
 
-Our versioning follow Semantic Versioning format.
+- `develop` — internal development builds
+- `release` — production builds, served from https://ffos.feralfile.com
 
-Each channel has API to specific min_version and latest_version. If the current version on the device is older than min_version, it's forced to update. Otherwise, it will update to the latest version silently at 3am.
+Versioning follows the Semantic Versioning format.
+
+Each branch's API specifies a `min_version` and a `latest_version`. If the version on the device is older than `min_version`, the device is forced to update. Otherwise it updates to the latest version silently at 3am.

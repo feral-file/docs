@@ -1,7 +1,8 @@
-# FF1 Specification
+# Art Computer Specification
 
 | Item | Spec |
 |------|------|
+| **Model** | FF1 |
 | **Dimensions** | Approx. 128 × 128 × 42 mm vertical enclosure |
 | **CPU** | AMD Ryzen 7 7735U (8 cores, 16 threads, up to 4.75 GHz) |
 | **GPU** | Integrated AMD Radeon 680M graphics (hardware-accelerated 4K decode) |
