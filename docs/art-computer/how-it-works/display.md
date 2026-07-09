@@ -6,7 +6,7 @@
 
 ## Overview
 
-Users can create and play artwork playlists through natural language commands (voice or text) in the mobile app. The system parses these commands to generate DP-1 compliant playlists, stores them in a feed server, and delivers them to the Art Computer for playback.
+Users can create and play artwork playlists through natural language text commands in the mobile app. The system parses these commands to generate DP-1 compliant playlists, stores them in a feed server, and delivers them to the Art Computer for playback.
 
 ---
 
@@ -34,9 +34,9 @@ sequenceDiagram
     participant Connectd as FF1 Connectd<br/>(Go Daemon)
     participant Player as Chromium Player<br/>(HTML/JS)
 
-    User->>Mobile: Voice/Text Command<br/>"Show me Unsupervised art"
+    User->>Mobile: Text Command<br/>"Show me Unsupervised art"
     
-    Mobile->>CommandAPI: POST /api/v1/text or /voice<br/>command + device_names
+    Mobile->>CommandAPI: POST /api/v1/text<br/>command + device_names
     CommandAPI->>CommandAPI: AI Intent Parsing<br/>NLP + Entity Recognition
     CommandAPI->>DP1Feed: Generate DP1 Playlist<br/>JSON with signatures
     DP1Feed-->>CommandAPI: Playlist URL + ID
@@ -58,19 +58,11 @@ sequenceDiagram
 
 ### 1. User Command Input
 
-Users interact with the mobile app through natural language commands using either:
-
-#### Text Commands
-Users type commands like "show me unsupervised art" or "display Refik Anadol's work" into a text input field. The interface provides immediate feedback and command history.
-
-#### Voice Commands  
-Users speak commands naturally through a microphone button. Voice input is captured as audio files and processed for speech-to-text transcription before command parsing.
-
-Both input methods support the same natural language processing capabilities and result in identical downstream processing.
+Users type natural language commands like "show me unsupervised art" or "display Refik Anadol's work" into a text input field in the mobile app. The interface provides immediate feedback and command history.
 
 ### 2. AI Command Processing
 
-The Command API receives user commands and processes them in three stages:
+The Command API receives user commands and processes them in two stages:
 
 #### Intent Parsing
 Natural language commands are analyzed to extract:
@@ -79,9 +71,6 @@ Natural language commands are analyzed to extract:
 - **Action types** - Commands like "show", "display", "play", "find"
 - **Duration preferences** - Time-based filtering for playlist length
 - **Style attributes** - Genre, medium, or aesthetic descriptors
-
-#### Voice Transcription
-Audio commands are transcribed to text using OpenAI Whisper before command parsing.
 
 #### Entity Resolution
 Parsed entities are matched against databases of artworks, artists, and collections using vector similarity and fuzzy string matching.
@@ -173,7 +162,7 @@ The Chromium-based player handles diverse artwork types:
 
 ## Data Flow Summary
 
-1. **User Input** → Mobile app captures voice/text commands
+1. **User Input** → Mobile app captures text commands
 2. **AI Processing** → Command API parses intent and generates playlists  
 3. **Storage** → DP1 Feed Server stores signed playlists
 4. **Routing** → Relayer forwards commands to specific Art Computers
