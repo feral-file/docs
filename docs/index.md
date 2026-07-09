@@ -10,6 +10,7 @@ Feral File is a cultural institution and technology company championing computat
 
 - **In conversation** — through Claude Code, Codex, Cursor, or OpenCode. Find artworks, build playlists, play them on your Art Computer, publish to a feed, all in chat. → [Agents](agents/index.md)
 - **From the terminal** — same capabilities via `ff-cli`. Find, build, validate, sign, play, publish, and manage devices. → [ff-cli](ff-cli/index.md)
+- **From the browser** — sign and publish DP-1 playlists with your wallet, no tooling required (early release). → [DP-1 Publisher](https://publisher.feralfile.com)
 
 ## What's here
 

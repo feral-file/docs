@@ -30,6 +30,8 @@ Reads (retrieve a playlist by ID or slug) require no authentication.
 Writes authenticate one of two ways, per the [feed OpenAPI spec](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml):
 
 - **Signed playlist (the public path).** A request whose body carries a non-empty, verifiable `signatures[]` array is accepted on its signatures alone — no API key needed. The server verifies the signatures before persisting anything.
+
+    Prefer a browser to a terminal? [DP-1 Publisher](https://publisher.feralfile.com) handles this flow for you: sign a playlist with your wallet and publish it to the hosted feed. It is an early release — feedback to [support@feralfile.com](mailto:support@feralfile.com) is welcome.
 - **API key** (`Authorization: Bearer <key>`). On the hosted feed this key is preconfigured server infrastructure; Feral File does not issue API keys. Use the signed-playlist path instead, or run your own feed where you configure your own key.
 
 DELETE and registry operations always require the API key, so they are not publicly available on the hosted feed.
