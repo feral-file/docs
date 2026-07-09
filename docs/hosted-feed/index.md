@@ -23,20 +23,30 @@ Base URL:
 
 If you need full control, use [run your own using `dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2#quick-start).
 
+## Authentication
+
+Reads (retrieve a playlist by ID or slug) require no authentication.
+
+Writes authenticate one of two ways, per the [feed OpenAPI spec](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml):
+
+- **Signed playlist (the public path).** A request whose body carries a non-empty, verifiable `signatures[]` array is accepted on its signatures alone — no API key needed. The server verifies the signatures before persisting anything.
+- **API key** (`Authorization: Bearer <key>`). On the hosted feed this key is preconfigured server infrastructure; Feral File does not issue API keys. Use the signed-playlist path instead, or run your own feed where you configure your own key.
+
+DELETE and registry operations always require the API key, so they are not publicly available on the hosted feed.
+
 ## Minimal hosted flow
 
-1. Build or prepare a valid DP-1 playlist.
-2. Validate first with [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md) (public beta).
-3. POST to hosted feed.
+1. Build and sign a DP-1 playlist (`ff-cli sign`, or [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md), public beta).
+2. Validate it with dp1-cli.
+3. POST it to the hosted feed — the signatures authenticate the request.
 4. Retrieve by ID or slug.
 
 Example POST:
 
 ```bash
-curl -H "Authorization: Bearer your-api-key-here" \
-  -H "Content-Type: application/json" \
+curl -H "Content-Type: application/json" \
   -X POST https://feed.feralfile.com/api/v1/playlists \
-  -d @playlist.json
+  -d @signed-playlist.json
 ```
 
 ## API reference source
