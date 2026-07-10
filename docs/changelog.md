@@ -1,5 +1,21 @@
 # Change logs
 
+## Jul 10 2026
+
+### Feral File Mobile App 1.3.3 — FF1 setup reliability and release browsing
+
+**FF1 setup completes after OTA without a false failure.** A firmware update could finish successfully while the app still showed "Setup could not finish." Setup now builds the navigate and teardown snapshot from the same polling BLE session instead of a separate connect path, so a successful update leads to a successful finish.
+
+**FF1 setup handles slow devices and dropped connections.** The BLE command layer is hardened for slow responses and mid-command disconnects, with clearer retry copy on Wi-Fi setup screens when something needs another try.
+
+**Release browsing is more reliable.** The indexer caches release metadata and persists `release_id` on items, so release-scoped browsing stays consistent as your catalog loads.
+
+**Release detail navigation is smoother.** Scoped release flows now follow one path, so moving through release details is less likely to hit inconsistent screens.
+
+**Legacy signed channels load correctly.** DP-1 signatures with an optional `0x` prefix are accepted again, so older signed payloads still verify.
+
+---
+
 ## Jun 30 2026
 
 ### Feral File Mobile App 1.3.1 — Browse, search, and setup reliability
