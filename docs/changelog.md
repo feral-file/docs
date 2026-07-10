@@ -1,5 +1,19 @@
 # Change logs
 
+## Jul 6 2026
+
+### Feral File Mobile App 1.3.2 — Channel and playlist About tabs, steadier play on FF1, and clearer copy
+
+**Channel and playlist details are easier to scan.** Detail pages now split into a primary content tab and an **About** tab, with description previews, **Read more** for longer text, clearer metadata rows, and indexing status where it belongs.
+
+**Browser Pairing is back on supported FF1 builds.** Device Settings shows Browser Pairing again when your Art Computer runs a supported FFOS version, so linking stays available without workarounds.
+
+**Playlist play on FF1 is more resilient.** Casting a playlist is steadier: local playlists convert cleanly for playback, and rows that cannot be read no longer block the entire playlist from playing.
+
+**Copy is clearer across the app.** Wi‑Fi, Device ID, accessibility labels, and playlist messages now use consistent native English wording, with checks in place to keep future copy on track.
+
+---
+
 ## Jun 30 2026
 
 ### Feral File Mobile App 1.3.1 — Browse, search, and setup reliability
