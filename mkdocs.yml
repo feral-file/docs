@@ -43,6 +43,7 @@ nav:
     - Specification: art-computer/specification.md
     - Network Requirements: art-computer/network-requirements.md
   - Hosted Feed: hosted-feed/index.md
+  - Channels: channels/index.md
   - Contact: https://feralfile.com/legal/contact
 
 # Pages built and served but intentionally absent from the nav.
