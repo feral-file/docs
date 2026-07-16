@@ -27,7 +27,7 @@ Users can create and play artwork playlists through natural language text comman
 ```mermaid
 sequenceDiagram
     participant User
-    participant Mobile as Mobile App<br/>(Flutter)
+    participant Mobile as Mobile App
     participant CommandAPI as Command API<br/>(Cloudflare Workers)
     participant DP1Feed as DP1 Feed Server<br/>(Go/Gin + PostgreSQL)
     participant Relayer as Relayer<br/>(WebSocket Bridge)
