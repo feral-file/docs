@@ -1,5 +1,21 @@
 # Change logs
 
+## Jul 16 2026
+
+### Feral File Mobile App 1.3.4 — Durable Add, secure ff-cli pairing, and steadier playlists
+
+**Add supports addresses, domains, and token URLs with durable progress.** Add now accepts addresses, domains, and supported marketplace or token URLs in one flow. Each preview resolves on its own, and selected additions can keep resolving in the background after you leave or restart the app.
+
+**Pair ff-cli securely with your Art Computer.** The app verifies the device, CLI code, and a security check before transferring the relay topic—without exposing your credential.
+
+**Art library updates stay reliable while collections resolve.** Newly added collections no longer interrupt art-library updates when resolvers are still running.
+
+**Address playlists show newest ownership first.** Provenance ordering is restored so the newest ownership appears first across pagination, refreshes, and existing collections.
+
+**Address labels stay readable on playlist rows.** Address labels return to the trailing edge of playlist rows, with safe truncation for long values.
+
+---
+
 ## Jul 10 2026
 
 ### Feral File Mobile App 1.3.3 — FF1 setup reliability and release browsing
