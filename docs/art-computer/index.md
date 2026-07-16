@@ -61,7 +61,7 @@ You do **not** need to install the app ahead of time — scanning the QR code wi
 - **Android:** <https://play.google.com/store/apps/details?id=com.feralfile.app>  
 - **iPhone:** <https://apps.apple.com/us/app/feral-file-controller/id6755812386>
 
-For development, source access, or contribution to the mobile controller, use the canonical public repo: [feral-file/ff-app](https://github.com/feral-file/ff-app).
+The Feral File app is Feral File's proprietary product shell. For the open protocol and developer tooling, see the [DP-1 specification](https://github.com/display-protocol/dp1) and [ff-cli](../ff-cli/index.md).
 
 ---
 

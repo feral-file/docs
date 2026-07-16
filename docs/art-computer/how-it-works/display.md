@@ -13,7 +13,7 @@ Users can create and play artwork playlists through natural language text comman
 ## Architecture Components
 
 ### Core Services
-- **Mobile App** ([`ff-app`](https://github.com/feral-file/ff-app)) - Canonical Flutter-based Art Computer and Digital Art System mobile controller
+- **Mobile App** - Art Computer and Digital Art System controller
 - **Command API** (`ff-cloud-command-service`) - AI-powered command processing service  
 - **DP1 Feed Server** ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) — playlist storage and distribution (open-source reference; see [Hosted Feed (Feral File)](../../hosted-feed/index.md) for the managed option)
 - **Relayer** (`ff1-relayer`) - WebSocket bridge between mobile and device
