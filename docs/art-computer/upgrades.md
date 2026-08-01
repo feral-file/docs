@@ -82,8 +82,10 @@ A flagship Gen 5 drive draws roughly twice the active power for performance this
 
 You will need a small Phillips screwdriver and a USB drive of 8 GB or larger.
 
-!!! warning "The antennas are attached to the side panels"
-    The wireless antennas are mounted to the mesh side panels, with leads running to the board. Open the panel slowly and do not pull it away from the chassis. Note how the leads are routed before you disconnect anything, and reseat them the same way on reassembly. A pinched or unseated antenna lead is the most common way an upgrade ends in a device that works but will not hold Wi-Fi.
+!!! warning "The end plates come loose when the lid does"
+    The two mesh end plates are not screwed in. They slide into slots and the lid holds them captive, so expect both to fall out as you lift the lid off.
+
+    One of them carries the Wi-Fi antennas, joined to the board by two fine coaxial leads. Support that plate instead of letting it drop and hang on them. A tugged antenna lead is the most common way an upgrade ends in a device that works but will not hold Wi-Fi.
 
 **A replacement SSD arrives blank.** The stock drive ships with FF OS already imaged; yours will not. Reinstalling FF OS is a required step, not an optional one. Read [Step 3 of Getting Started](./index.md#step-3-advanced-reinstall-ff-os-from-usb) before you begin, and prepare the USB installer first — it is easier to do while the device is still running.
 
@@ -93,10 +95,10 @@ You will need a small Phillips screwdriver and a USB drive of 8 GB or larger.
 
 1. **Prepare the USB installer first**, following [Step 3 of Getting Started](./index.md#step-3-advanced-reinstall-ff-os-from-usb). Do this before opening the case.
 2. **Unplug the power cable.** Wait a few seconds.
-3. **Remove the mesh side panel**, minding the antenna leads.
+3. **Remove the four screws and lift off the finned lid.** The memory and the SSD are directly underneath. Both end plates will likely come loose as the lid clears — catch the one with the antenna leads rather than letting it hang.
 4. **Swap the SSD.** Remove the retaining screw, lift the old drive out at a shallow angle, seat the new one the same way, and refit the screw. Do not overtighten.
 5. **Swap the memory.** Release the clips on each side of the stock module; it will spring up. Lift it out, then seat each new module at roughly a 30° angle and press down until the clips latch. Fill both slots.
-6. **Reassemble**, reseating the antenna leads as they were.
+6. **Slide both end plates back into their slots**, refit the lid, and replace the four screws. The lid is what holds the plates in, so they will sit loose until it is back on.
 7. **Reinstall FF OS** from the USB installer, following Getting Started Step 3.
 
 When the install finishes, the Art Computer shuts itself down. Remove the USB drive, power-cycle, and you should land on the pairing QR code.
@@ -119,7 +121,7 @@ Everything else fails loudly, and the troubleshooting below covers it.
 
 - **No QR code after the upgrade.** Confirm the TV is on the right HDMI input and the USB installer has been removed. If the screen stays dark, power down, reopen, and reseat the SSD and both memory modules.
 - **No video at all after the upgrade.** Almost always a memory module that is not fully latched. Power down, remove both modules, and reseat them until the clips snap.
-- **Wi-Fi will not connect after the upgrade.** Check the antenna leads. This is the usual cause.
+- **Wi-Fi will not connect after the upgrade.** Check the antenna leads where they meet the board. Pulling on the loose end plate is the usual cause.
 - **The install never finishes.** Re-flash the USB installer with the current `release` image and try again.
 
 Still stuck? Email **[support@feralfile.com](mailto:support@feralfile.com)**.
