@@ -20,6 +20,8 @@ This page is for owners who want more headroom: a large local library, or real-t
 
 Nothing else inside is user-serviceable. The CPU and GPU are soldered, and the wireless card, antennas, and thermal assembly should be left alone.
 
+The mesh end plates are a separate matter — those you can redesign and print yourself, and the CAD is published under an open license. See [Print Your Own Faceplates](./faceplates/index.md).
+
 ---
 
 ## What to buy
