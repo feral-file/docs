@@ -53,6 +53,7 @@ nav:
       - End-to-End Architecture: art-computer/how-it-works/display.md
       - OTA: art-computer/how-it-works/ota.md
     - Specification: art-computer/specification.md
+    - Browser Integration: art-computer/browser-integration.md
     - Upgrades: art-computer/upgrades.md
     - Print Your Own Faceplates: art-computer/faceplates/index.md
     - Network Requirements: art-computer/network-requirements.md
