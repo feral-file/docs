@@ -30,15 +30,23 @@
           width="169" height="101">
       </a>
 
+      {#-
+        The two labeled sections the live desktop header renders. Learn is
+        deliberately absent: on feralfile.com it is not a labeled item at all
+        but a ≡ dropdown built from the learning manifest, and docs is not
+        that section anyway.
+
+        No dot is filled. docs.feralfile.com is its own property, not a
+        section of feralfile.com — this nav exists to get back, not to say
+        "you are here."
+      -#}
       <ul class="ff-header__nav">
         {% for item in [
           {"label": "Exhibitions", "url": "https://feralfile.com/exhibitions"},
-          {"label": "System",      "url": "https://feralfile.com/system"},
-          {"label": "Learn",       "url": "https://feralfile.com/learn"}
+          {"label": "System",      "url": "https://feralfile.com/system"}
         ] %}
           <li class="ff-header__nav-item">
-            <a href="{{ item.url }}"
-              {% if item.label == "Learn" %}aria-current="true"{% endif %}>
+            <a href="{{ item.url }}">
               <span class="ff-header__dot" aria-hidden="true"></span>
               <span>{{ item.label }}</span>
             </a>

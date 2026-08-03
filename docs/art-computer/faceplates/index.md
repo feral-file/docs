@@ -12,7 +12,7 @@ Every plate is **108.76 × 34.00 × 2.50 mm**. The drawings below are true front
 
 ### faceplate-mesh
 
-![The plain mesh faceplate: a ten by eight grid of slots, no openings](faceplate-mesh.svg){ width="100%" }
+![The plain mesh faceplate: a ten by eight grid of slots, no openings](faceplate-mesh.svg){ .drawing width="100%" }
 
 The plain plate. Air intake, and the one the Wi-Fi antennas are stuck to.
 
@@ -20,7 +20,7 @@ The plain plate. Air intake, and the one the Wi-Fi antennas are stuck to.
 
 ### faceplate-ports
 
-![The ported faceplate: the same slot grid on the left, with HDMI, USB-C, and a round power jack opening on the right](faceplate-ports.svg){ width="100%" }
+![The ported faceplate: the same slot grid on the left, with HDMI, USB-C, and a round power jack opening on the right](faceplate-ports.svg){ .drawing width="100%" }
 
 The plate as shipped: power, HDMI, and USB-C. Air exhaust.
 
@@ -28,7 +28,7 @@ The plate as shipped: power, HDMI, and USB-C. Air exhaust.
 
 ### faceplate-ports-ethernet
 
-![The ported faceplate with an additional rectangular Ethernet opening cut into the slot grid](faceplate-ports-ethernet.svg){ width="100%" }
+![The ported faceplate with an additional rectangular Ethernet opening cut into the slot grid](faceplate-ports-ethernet.svg){ .drawing width="100%" }
 
 The same plate with an Ethernet opening. Not a shipping part — this is the one to start from if you want wired networking.
 

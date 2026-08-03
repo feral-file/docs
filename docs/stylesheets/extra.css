@@ -215,9 +215,8 @@ body {
   border-radius: 50%;
 }
 
-.ff-header__nav a[aria-current] .ff-header__dot {
-  background-color: currentcolor;
-}
+/* No filled state: docs is not one of feralfile.com's sections, so the header
+   never claims currency. See overrides/main.html. */
 
 /* Drawer and search toggles: narrow screens only. */
 .ff-header__drawer,
@@ -656,7 +655,23 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   11. Narrow screens
+   11. Line drawings
+   -------------------------------------------------------------------------- */
+
+/* The CAD elevations are `fill="currentColor"`, but an SVG loaded through
+   `<img>` is an isolated document — `currentColor` resolves to that
+   document's own black and cannot inherit the page. The files stay
+   ink-on-white so they remain correct when downloaded, printed, or reused
+   under CC BY-SA; the inversion is ours, for this ground only.
+
+   Tag drawings explicitly rather than styling all images: a screenshot or a
+   photograph added later must not be inverted. */
+.md-typeset img.drawing {
+  filter: invert(1);
+}
+
+/* --------------------------------------------------------------------------
+   12. Narrow screens
    -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 76.234375em) {
