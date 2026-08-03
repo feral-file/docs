@@ -3,6 +3,17 @@ site_url: https://docs.feralfile.com
 repo_url: https://github.com/feral-file/docs
 theme:
   name: material
+  custom_dir: overrides
+  # PP Mori and Space Mono are self-hosted in docs/fonts and declared in
+  # stylesheets/extra.css. `false` stops Material from pulling Google Fonts.
+  font: false
+  logo: images/feralfile-symbol.svg
+  palette:
+    scheme: slate
+    # Without this Material stamps data-md-color-primary="indigo" on <body>,
+    # which is what tints the drawer's repo card. Brand colors still come from
+    # stylesheets/extra.css.
+    primary: black
   features:
     - content.code.copy
 

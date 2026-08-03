@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{#-
+  Brand header. Replaces Material's default header with the Feral File
+  horizontal lockup and the same global nav feralfile.com ships in
+  feralfile-client `src/app/core/header_v3` — Exhibitions / System / Learn,
+  each marked by a circle, filled when that section is current. Docs lives
+  under Learn, so Learn is always the filled one here.
+
+  Keeps `md-header` and `data-md-component="header"`: Material's JS measures
+  this element to offset anchor scrolling and to position the search results.
+-#}
+{% block header %}
+  <header class="md-header ff-header" data-md-component="header">
+    <nav class="ff-header__inner" aria-label="{{ lang.t('header') }}">
+      <label class="ff-header__drawer" for="__drawer" aria-label="{{ lang.t('nav') }}">
+        {% include ".icons/material/menu.svg" %}
+      </label>
+
+      <a href="https://feralfile.com/" class="ff-header__logo" aria-label="Feral File">
+        <img
+          class="ff-header__lockup"
+          src="{{ 'images/feralfile-lockup.svg' | url }}"
+          alt="Feral File"
+          width="436" height="56">
+        <img
+          class="ff-header__symbol"
+          src="{{ 'images/feralfile-symbol.svg' | url }}"
+          alt="Feral File"
+          width="169" height="101">
+      </a>
+
+      <ul class="ff-header__nav">
+        {% for item in [
+          {"label": "Exhibitions", "url": "https://feralfile.com/exhibitions"},
+          {"label": "System",      "url": "https://feralfile.com/system"},
+          {"label": "Learn",       "url": "https://feralfile.com/learn"}
+        ] %}
+          <li class="ff-header__nav-item">
+            <a href="{{ item.url }}"
+              {% if item.label == "Learn" %}aria-current="true"{% endif %}>
+              <span class="ff-header__dot" aria-hidden="true"></span>
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      {% if "material/search" in config.plugins %}
+        <label class="ff-header__search-toggle" for="__search" aria-label="{{ lang.t('search') }}">
+          {% include ".icons/material/magnify.svg" %}
+        </label>
+      {% endif %}
+    </nav>
+  </header>
+{% endblock %}
+
+{#-
+  The mock puts search at the top of the left rail rather than in the header,
+  so `partials/search.html` moves into the primary sidebar. Material's search
+  JS binds by `data-md-component`, not by position, and the header keeps the
+  `__search` toggle so the mobile overlay still opens.
+-#}
+{% block site_nav %}
+  {% if nav %}
+    {% if page.meta and page.meta.hide %}
+      {% set hidden = "hidden" if "navigation" in page.meta.hide %}
+    {% endif %}
+    <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" {{ hidden }}>
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% if "material/search" in config.plugins %}
+            {% include "partials/search.html" %}
+          {% endif %}
+          {% include "partials/nav.html" %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if "toc.integrate" not in features %}
+    {% if page.meta and page.meta.hide %}
+      {% set hidden = "hidden" if "toc" in page.meta.hide %}
+    {% endif %}
+    <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" {{ hidden }}>
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% include "partials/toc.html" %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

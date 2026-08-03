@@ -1,6 +1,730 @@
+/* ==========================================================================
+   Feral File brand layer for MkDocs Material.
+
+   Values come from feralfile-client/design/web.tokens.json — the same tokens
+   feralfile.com renders from. Do not invent new colors or type steps here;
+   add them to the token file first.
+
+     Color   Black #000000 · White #FFFFFF · Medium Grey #B7B7B7
+             Dark Grey #4A4A4A · Dark Dark Grey #232323 · Highlight #ECFF0C
+     Type    H1 48/110% · Body 20/130% · Small 16/120% (PP Mori)
+             Mono 14/120% (Space Mono) · Mobile H1 28/110%
+
+   Material's root font-size is 125%, so 1rem = 20px. Every size below is
+   expressed in rem against that: 2.4rem = 48px, 1rem = 20px, .8rem = 16px,
+   .7rem = 14px.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Typefaces
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "PP Mori";
+  src: url("../fonts/PPMori-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Mori";
+  src: url("../fonts/PPMori-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Mori";
+  src: url("../fonts/PPMori-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tokens
+   -------------------------------------------------------------------------- */
+
+:root {
+  --ff-black: #000000;
+  --ff-white: #ffffff;
+  --ff-medium-grey: #b7b7b7;
+  --ff-light-grey: #e3e3e3;
+  --ff-dark-grey: #4a4a4a;
+  --ff-dark-dark-grey: #232323;
+  --ff-highlight: #ecff0c;
+
+  --ff-sans: "PP Mori", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ff-mono: "Space Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --md-text-font: var(--ff-sans);
+  --md-code-font: var(--ff-mono);
+}
+
+/* Material's dark scheme, repainted. `slate` already wires every dark-mode
+   variable; we only restate the ones the brand actually names. */
+[data-md-color-scheme="slate"] {
+  --md-hue: 0deg;
+
+  --md-default-bg-color: var(--ff-black);
+  --md-default-bg-color--light: var(--ff-black);
+  --md-default-bg-color--lighter: var(--ff-black);
+  --md-default-bg-color--lightest: var(--ff-black);
+
+  --md-default-fg-color: var(--ff-white);
+  --md-default-fg-color--light: var(--ff-medium-grey);
+  --md-default-fg-color--lighter: var(--ff-dark-grey);
+  --md-default-fg-color--lightest: var(--ff-dark-dark-grey);
+
+  /* `--dark` and `--light` are what the drawer's repo card and the search
+     placeholder read from; left unset they fall back to Material indigo. */
+  --md-primary-fg-color: var(--ff-black);
+  --md-primary-fg-color--light: var(--ff-dark-dark-grey);
+  --md-primary-fg-color--dark: var(--ff-dark-dark-grey);
+  --md-primary-bg-color: var(--ff-white);
+  --md-primary-bg-color--light: var(--ff-medium-grey);
+  --md-accent-fg-color: var(--ff-highlight);
+
+  --md-typeset-color: var(--ff-white);
+  --md-typeset-a-color: var(--ff-white);
+  --md-typeset-mark-color: var(--ff-highlight);
+
+  --md-code-bg-color: var(--ff-dark-dark-grey);
+  --md-code-fg-color: var(--ff-white);
+
+  --md-footer-bg-color: var(--ff-black);
+  --md-footer-bg-color--dark: var(--ff-black);
+  --md-footer-fg-color: var(--ff-white);
+  --md-footer-fg-color--light: var(--ff-medium-grey);
+  --md-footer-fg-color--lighter: var(--ff-dark-grey);
+
+  --md-shadow-z1: none;
+  --md-shadow-z2: none;
+  --md-shadow-z3: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Page frame
+   -------------------------------------------------------------------------- */
+
+body {
+  background-color: var(--ff-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The mock runs a 1360px content field inside a 1440px frame. Material's
+   default grid caps at 61rem (1220px), which leaves the three columns
+   cramped once the sidebar is 325px. */
+.md-grid {
+  max-width: 68rem;
+}
+
+/* The mock opens the content field 160px below the lockup. 100px keeps that
+   air without stranding deep reference pages behind a screen of nothing. */
+.md-main__inner {
+  margin-top: 5rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Header — see overrides/main.html for the markup
+   -------------------------------------------------------------------------- */
+
+/* Both classes: the palette ships `[data-md-color-primary=black] .md-header`,
+   which outranks a single class. */
+.md-header.ff-header {
+  background-color: var(--ff-black);
+  color: var(--ff-white);
+  box-shadow: none;
+}
+
+/* content-box so the lockup lands on the same left edge as `.md-grid`, which
+   caps its *content* at 68rem and gets its gutter from the parent. */
+.ff-header__inner {
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 2rem 0.8rem;
+  max-width: 68rem;
+}
+
+.ff-header__logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.ff-header__lockup {
+  display: block;
+  width: auto;
+  height: 2.8rem;
+}
+
+.ff-header__symbol {
+  display: none;
+  width: auto;
+  height: 2.8rem;
+}
+
+.ff-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-header__nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ff-white);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.ff-header__nav a:hover {
+  color: var(--ff-highlight);
+}
+
+.ff-header__dot {
+  display: block;
+  flex: none;
+  box-sizing: border-box;
+  width: 0.6rem;
+  height: 0.6rem;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+}
+
+.ff-header__nav a[aria-current] .ff-header__dot {
+  background-color: currentcolor;
+}
+
+/* Drawer and search toggles: narrow screens only. */
+.ff-header__drawer,
+.ff-header__search-toggle {
+  display: none;
+  flex: none;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.ff-header__drawer svg,
+.ff-header__search-toggle svg {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentcolor;
+}
+
+/* --------------------------------------------------------------------------
+   5. Typography
+   -------------------------------------------------------------------------- */
+
+.md-typeset {
+  font-size: 1rem;
+  line-height: 1.3;
+  color: var(--ff-white);
+}
+
+.md-typeset h1 {
+  margin: 0 0 2rem;
+  color: var(--ff-white);
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+/* The token file names one heading step. Everything below H1 steps down
+   through the body and small sizes rather than inventing new ones. */
+.md-typeset h2 {
+  margin: 2.4rem 0 0.8rem;
+  color: var(--ff-white);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.md-typeset h3 {
+  margin: 1.6rem 0 0.6rem;
+  color: var(--ff-white);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  margin: 1.2rem 0 0.4rem;
+  color: var(--ff-white);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.md-typeset p,
+.md-typeset li {
+  color: var(--ff-white);
+}
+
+.md-typeset hr {
+  border-bottom-color: var(--ff-dark-grey);
+}
+
+.md-typeset blockquote {
+  border-left-color: var(--ff-dark-grey);
+  color: var(--ff-medium-grey);
+}
+
+/* --------------------------------------------------------------------------
+   6. Links
+   -------------------------------------------------------------------------- */
+
+.md-typeset a {
+  color: var(--ff-white);
+  text-decoration: underline;
+  text-decoration-color: var(--ff-dark-grey);
+  text-underline-offset: 0.15em;
+}
+
+.md-typeset a:hover,
+.md-typeset a:focus-visible {
+  color: var(--ff-highlight);
+  text-decoration-color: var(--ff-highlight);
+}
+
+/* Heading anchors stay quiet until the heading is hovered. */
+.md-typeset .headerlink {
+  color: var(--ff-dark-grey);
+  text-decoration: none;
+}
+
+.md-typeset :is(h1, h2, h3, h4, h5, h6):hover .headerlink {
+  color: var(--ff-medium-grey);
+}
+
+/* --------------------------------------------------------------------------
+   7. Code
+   -------------------------------------------------------------------------- */
+
+.md-typeset code,
+.md-typeset pre {
+  font-size: 0.7rem;
+  font-feature-settings: normal;
+}
+
+.md-typeset code {
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  background-color: var(--ff-dark-dark-grey);
+  color: var(--ff-white);
+}
+
+/* Blocks run looser than the 120% the token names — 14px monospace at 1.2
+   is unreadable across a full terminal transcript. */
+.md-typeset pre > code {
+  padding: 1rem;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+/* Pygments ships a full colour palette; the brand has one accent. Reset every
+   token to the body colour, then re-assign only the three distinctions that
+   help someone read a command. Order matters — the reset and the roles below
+   have equal specificity. */
+.md-typeset .highlight [class] {
+  color: var(--ff-white);
+}
+
+/* comments */
+.md-typeset .highlight :is(.c, .c1, .ch, .cm, .cp, .cpf, .cs) {
+  color: var(--ff-medium-grey);
+  font-style: normal;
+}
+
+/* keywords and operators */
+.md-typeset .highlight :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .o, .ow) {
+  color: var(--ff-highlight);
+}
+
+/* strings */
+.md-typeset .highlight :is(.s, .s1, .s2, .sa, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss, .sx) {
+  color: var(--ff-light-grey);
+}
+
+.md-typeset .md-clipboard {
+  color: var(--ff-dark-grey);
+}
+
+.md-typeset .md-clipboard:hover,
+.md-typeset :hover > .md-clipboard {
+  color: var(--ff-highlight);
+}
+
 /* Let the agent-prompt code block read like a sentence: wrap instead of
    scrolling horizontally, while still getting Material's hover copy button. */
 .copy-prompt code {
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   8. Sidebars
+   -------------------------------------------------------------------------- */
+
+/* 325px — the mock's rail. Material pins rail content to 11.5rem through a
+   `padding-right: calc(100% - 11.5rem)` scrollbar gutter, so the width and the
+   gutter have to move together or the links stay 230px wide.
+
+   Desktop only: below 76.25em the primary sidebar is an off-canvas drawer
+   parked at `left: -12.1rem`, and widening it without moving that offset
+   leaves a strip of drawer showing over the page. The table of contents keeps
+   Material's width — the mock has no second rail to copy. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 16.85rem;
+  }
+
+  [dir="ltr"] .md-sidebar--primary .md-sidebar__inner {
+    padding-right: calc(100% - 16.25rem);
+  }
+
+  [dir="rtl"] .md-sidebar--primary .md-sidebar__inner {
+    padding-left: calc(100% - 16.25rem);
+  }
+}
+
+.md-nav {
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.md-nav__title {
+  color: var(--ff-medium-grey);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* At desktop Material pins the site name above the rail links. The lockup in
+   the header already says it. (Below 76.25em the same label is the drawer's
+   close affordance, so it only goes away up here.) */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav--primary > .md-nav__title {
+    display: none;
+  }
+}
+
+.md-nav__link {
+  padding: 0.25rem 0;
+  color: var(--ff-medium-grey);
+  font-weight: 300;
+}
+
+.md-nav__link:is(:hover, :focus-visible) {
+  color: var(--ff-white);
+}
+
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  color: var(--ff-white);
+}
+
+.md-nav__icon {
+  color: inherit;
+}
+
+/* Table of contents — absent from the mock, which shows a page with no
+   headings. Kept for real pages, pushed back to grey. */
+.md-sidebar--secondary .md-nav__title {
+  color: var(--ff-dark-grey);
+  text-transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   9. Search
+   -------------------------------------------------------------------------- */
+
+.md-search__form {
+  border-radius: 10px;
+  background-color: var(--ff-dark-dark-grey);
+  box-shadow: none;
+}
+
+.md-search__form:hover {
+  background-color: var(--ff-dark-dark-grey);
+}
+
+.md-search__input {
+  font-size: 0.8rem;
+  color: var(--ff-white);
+}
+
+.md-search__input::placeholder {
+  color: var(--ff-medium-grey);
+}
+
+.md-search__icon {
+  color: var(--ff-medium-grey);
+}
+
+.md-search__output {
+  border-radius: 10px;
+}
+
+/* Search sits at the top of the left rail in the mock, so overrides/main.html
+   renders `partials/search.html` there instead of in the header. Material's
+   desktop search assumes the header: the inner floats right and grows to
+   34.4rem on focus, and the results panel is revealed through a sibling
+   selector rooted at `.md-header`. All three assumptions are restated below
+   for the new home — without them the form collapses the adjacent nav link
+   (a flex container avoiding the float) and results never become visible. */
+@media screen and (min-width: 60em) {
+  .md-sidebar--primary .md-search {
+    padding: 0 0 1rem;
+  }
+
+  .md-sidebar--primary .md-search__inner {
+    float: none;
+    width: 100%;
+    padding: 0;
+    transition: none;
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-container .md-sidebar--primary .md-search__inner {
+    width: 100%;
+  }
+
+  /* 50px field, per the mock. Material pins the magnifier to a fixed `top`
+     sized for its own 1.8rem field, so it gets re-centred here. */
+  .md-sidebar--primary .md-search__form {
+    height: 2.5rem;
+    padding: 0;
+  }
+
+  .md-sidebar--primary .md-search__icon[for="__search"] {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* The panel stays inside the rail: `.md-sidebar__scrollwrap` is
+     `overflow-y: auto`, so anything wider is clipped mid-word rather than
+     overlapping the page. It gets its own edge because on a black ground the
+     shadow Material leans on reads as nothing. */
+  .md-sidebar--primary .md-search__output {
+    top: 100%;
+    width: 100%;
+    border: 1px solid var(--ff-dark-grey);
+    border-radius: 10px;
+    background-color: var(--ff-black);
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-container .md-sidebar--primary .md-search__output {
+    opacity: 1;
+  }
+
+  .md-sidebar--primary .md-search__scrollwrap {
+    width: auto;
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-container .md-sidebar--primary .md-search__scrollwrap {
+    max-height: 75vh;
+  }
+
+  /* Material dims the page behind the header-hosted overlay; from the rail
+     that just greys out the docs while you read the results. */
+  .md-sidebar--primary .md-search__overlay {
+    display: none;
+  }
+}
+
+.md-search-result__meta,
+.md-search-result__article .md-search-result__teaser {
+  color: var(--ff-medium-grey);
+}
+
+.md-search-result__item {
+  box-shadow: 0 -1px 0 var(--ff-dark-dark-grey);
+}
+
+.md-search-result__more > summary > div {
+  color: var(--ff-medium-grey);
+}
+
+.md-search-result__more > summary:hover > div {
+  color: var(--ff-highlight);
+  background-color: transparent;
+}
+
+.md-search-result__link:is(:focus, :hover) {
+  background-color: var(--ff-dark-dark-grey);
+}
+
+/* --------------------------------------------------------------------------
+   10. Tables, admonitions, footer
+   -------------------------------------------------------------------------- */
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--ff-dark-grey);
+  border-radius: 10px;
+  /* clips the header row's fill to the rounded corners */
+  overflow: hidden;
+  background-color: transparent;
+  font-size: 0.8rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--ff-dark-dark-grey);
+  color: var(--ff-white);
+  font-weight: 400;
+}
+
+.md-typeset table:not([class]) td {
+  border-top: 1px solid var(--ff-dark-grey);
+  color: var(--ff-white);
+  vertical-align: top;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid var(--ff-dark-grey);
+  border-radius: 10px;
+  box-shadow: none;
+  background-color: transparent;
+  font-size: 0.8rem;
+}
+
+.md-typeset :is(.admonition-title, summary) {
+  background-color: var(--ff-dark-dark-grey);
+  font-weight: 400;
+}
+
+.md-typeset :is(.admonition-title, summary)::before {
+  background-color: var(--ff-medium-grey);
+}
+
+.md-typeset .tabbed-labels > label {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.md-footer,
+.md-footer-meta {
+  background-color: var(--ff-black);
+}
+
+.md-footer__link {
+  opacity: 1;
+  color: var(--ff-medium-grey);
+}
+
+.md-footer__link:hover {
+  color: var(--ff-white);
+}
+
+.md-copyright {
+  color: var(--ff-dark-grey);
+}
+
+/* Mermaid renders on the black ground; give diagrams room to breathe. */
+.mermaid {
+  margin: 1.5rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. Narrow screens
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 76.234375em) {
+  .ff-header__drawer {
+    display: block;
+    order: -1;
+  }
+
+  /* Material separates the open drawer from the page with a shadow, which is
+     invisible against black. */
+  .md-sidebar--primary {
+    border-right: 1px solid var(--ff-dark-grey);
+  }
+
+  .md-nav--primary .md-nav__title {
+    display: block;
+    background-color: var(--ff-black);
+    color: var(--ff-white);
+    box-shadow: none;
+  }
+
+  .md-nav--primary .md-nav__title ~ .md-nav__list {
+    box-shadow: none;
+  }
+
+  .md-nav--primary .md-nav__item {
+    border-top: 1px solid var(--ff-dark-dark-grey);
+  }
+}
+
+@media screen and (max-width: 59.984375em) {
+  .ff-header__inner {
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+
+  .ff-header__search-toggle {
+    display: block;
+  }
+
+  .ff-header__nav {
+    display: none;
+  }
+
+  .md-typeset h1 {
+    font-size: 1.4rem; /* 28px — Mobile H1 */
+    margin-bottom: 1.2rem;
+  }
+
+  .md-typeset {
+    font-size: 0.8rem;
+  }
+
+  /* The mock's 100px opening is a desktop gesture; on a phone it is a screen
+     of nothing before the first line. */
+  .md-main__inner {
+    margin-top: 1.5rem;
+  }
+
+  /* The horizontal lockup is 436px wide; on a tablet that is more than half
+     the header. Swap to the stacked mark at the same width the global nav
+     drops out. */
+  .ff-header__lockup {
+    display: none;
+  }
+
+  .ff-header__symbol {
+    display: block;
+    height: 2rem;
+  }
 }
