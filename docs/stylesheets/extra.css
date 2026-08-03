@@ -126,17 +126,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* The mock runs a 1360px content field inside a 1440px frame. Material's
-   default grid caps at 61rem (1220px), which leaves the three columns
-   cramped once the sidebar is 325px. */
 .md-grid {
   max-width: 68rem;
 }
 
-/* The mock opens the content field 160px below the lockup. 100px keeps that
-   air without stranding deep reference pages behind a screen of nothing. */
+/* Left-anchored, not centred. feralfile.com runs a full-bleed header with a
+   fixed 40px gutter, so its logo sits at x=40 at every width; a centred grid
+   only agrees with that at exactly 1440 and drifts on wider monitors. The
+   field is still capped at 68rem so prose keeps its measure — the mock is
+   left-anchored too, with slack on the right rather than even margins.
+
+   Top margin: the mock opens the content 160px below the lockup. 100px keeps
+   that air without stranding deep reference pages behind a screen of nothing. */
 .md-main__inner {
-  margin-top: 5rem;
+  margin: 5rem auto 0 40px;
 }
 
 /* --------------------------------------------------------------------------
@@ -151,16 +154,14 @@ body {
   box-shadow: none;
 }
 
-/* content-box so the lockup lands on the same left edge as `.md-grid`, which
-   caps its *content* at 68rem and gets its gutter from the parent. */
+/* Full bleed with a 40px gutter, exactly as feralfile.com's `.main-header`
+   does it — so the lockup lands on x=40 at every viewport width, and on the
+   same left edge as the rail below it. */
 .ff-header__inner {
   display: flex;
   align-items: center;
-  box-sizing: content-box;
   gap: 1rem;
-  margin: 0 auto;
-  padding: 2rem 0.8rem;
-  max-width: 68rem;
+  padding: 40px;
 }
 
 .ff-header__logo {
@@ -173,13 +174,13 @@ body {
 .ff-header__lockup {
   display: block;
   width: auto;
-  height: 2.8rem;
+  height: 56px;
 }
 
 .ff-header__symbol {
   display: none;
   width: auto;
-  height: 2.8rem;
+  height: 56px;
 }
 
 .ff-header__nav {
@@ -205,18 +206,28 @@ body {
   color: var(--ff-highlight);
 }
 
-.ff-header__dot {
-  display: block;
-  flex: none;
-  box-sizing: border-box;
-  width: 0.6rem;
-  height: 0.6rem;
-  border: 1px solid currentcolor;
-  border-radius: 50%;
+.ff-header__out {
+  font-size: 0.7rem;
+  line-height: 1;
 }
 
-/* No filled state: docs is not one of feralfile.com's sections, so the header
-   never claims currency. See overrides/main.html. */
+/* Shown only inside the narrow-screen drawer; see section 12. */
+.ff-drawer-out {
+  display: none;
+}
+
+/* Names the property. The logotype says which institution; this says which of
+   its two faces you are on. Sized to the logotype's cap height so it reads as
+   part of the lockup rather than as the first nav item. */
+.ff-header__property {
+  align-self: center;
+  margin-left: 1.2rem;
+  padding-left: 1.2rem;
+  border-left: 1px solid var(--ff-dark-grey);
+  color: var(--ff-white);
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
 
 /* Drawer and search toggles: narrow screens only. */
 .ff-header__drawer,
@@ -684,6 +695,31 @@ body {
      invisible against black. */
   .md-sidebar--primary {
     border-right: 1px solid var(--ff-dark-grey);
+  }
+
+  /* Pinned to the foot of the drawer. `.md-nav--primary` is absolutely
+     positioned and fills the whole panel, so anything after it in the markup
+     lands underneath and never shows. */
+  .ff-drawer-out {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border-top: 1px solid var(--ff-dark-grey);
+    background-color: var(--ff-black);
+    color: var(--ff-medium-grey);
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+
+  /* Keep the last nav item clear of the pinned bar. */
+  .md-nav--primary .md-nav__title ~ .md-nav__list {
+    padding-bottom: 3rem;
   }
 
   .md-nav--primary .md-nav__title {

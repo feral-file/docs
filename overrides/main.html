@@ -17,7 +17,12 @@
         {% include ".icons/material/menu.svg" %}
       </label>
 
-      <a href="https://feralfile.com/" class="ff-header__logo" aria-label="Feral File">
+      {#-
+        The lockup names this property and goes to the docs home. It must not
+        leave the site: the mark is the identity of the page you are on, not a
+        way out of it. Crossing to feralfile.com is a separate, labelled act.
+      -#}
+      <a href="{{ nav.homepage.url | url }}" class="ff-header__logo" aria-label="Feral File Docs">
         <img
           class="ff-header__lockup"
           src="{{ 'images/feralfile-lockup.svg' | url }}"
@@ -28,30 +33,22 @@
           src="{{ 'images/feralfile-symbol.svg' | url }}"
           alt="Feral File"
           width="169" height="101">
+        <span class="ff-header__property">Docs</span>
       </a>
 
       {#-
-        The two labeled sections the live desktop header renders. Learn is
-        deliberately absent: on feralfile.com it is not a labeled item at all
-        but a ≡ dropdown built from the learning manifest, and docs is not
-        that section anyway.
-
-        No dot is filled. docs.feralfile.com is its own property, not a
-        section of feralfile.com — this nav exists to get back, not to say
-        "you are here."
+        The way across. docs.feralfile.com and feralfile.com are two faces of
+        one institution, not parent and child, so this reads as a crossing
+        rather than a "back" link — and it does not borrow feralfile.com's
+        section dots, which mark position inside that site.
       -#}
       <ul class="ff-header__nav">
-        {% for item in [
-          {"label": "Exhibitions", "url": "https://feralfile.com/exhibitions"},
-          {"label": "System",      "url": "https://feralfile.com/system"}
-        ] %}
-          <li class="ff-header__nav-item">
-            <a href="{{ item.url }}">
-              <span class="ff-header__dot" aria-hidden="true"></span>
-              <span>{{ item.label }}</span>
-            </a>
-          </li>
-        {% endfor %}
+        <li class="ff-header__nav-item">
+          <a href="https://feralfile.com/">
+            <span>feralfile.com</span>
+            <span class="ff-header__out" aria-hidden="true">↗</span>
+          </a>
+        </li>
       </ul>
 
       {% if "material/search" in config.plugins %}
@@ -81,6 +78,16 @@
             {% include "partials/search.html" %}
           {% endif %}
           {% include "partials/nav.html" %}
+          {#-
+            The header's crossing is hidden on narrow screens, and the lockup
+            now stays inside the docs — without this there would be no way back
+            to feralfile.com from a phone. Hidden at desktop, where the header
+            already carries it.
+          -#}
+          <a class="ff-drawer-out" href="https://feralfile.com/">
+            <span>feralfile.com</span>
+            <span class="ff-header__out" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </div>
