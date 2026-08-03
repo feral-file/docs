@@ -84,7 +84,9 @@ The ported plate is that same array with 24 slots left out to make room for the 
 Both Wi-Fi antennas are adhesive flexible-circuit strips stuck to the **inside face of the plain plate**. They radiate straight through it. So:
 
 - **No carbon-fill, glass-fill, or metal-fill filament.** These will kill Wi-Fi. Plain ABS, ASA, or PETG only.
-- **Keep somewhere for them to stick.** There is no mounting geometry to reproduce — no bosses, no clips, no recesses. The antennas are peel-and-stick, applied by hand onto the webbing between the slots. Keeping the stock grid is the reliable move, because it puts them back exactly where they were. If you change the pattern, take the plate off first and look at where yours actually sit.
+- **Keep the webbing.** There is no mounting geometry to reproduce — no bosses, no clips, no recesses. The antennas are peel-and-stick, applied by hand, and on this plate the mesh runs edge to edge, so the strips of material *between* the slots are the entire surface they have to hold onto.
+
+That second point is the one to watch. It means web width is a functional dimension on the plain plate, not a styling choice. A more open pattern — wider slots, thinner webs — can pass the airflow test above and still fail, because the antennas will not stay stuck. If you are redesigning this plate, keep the stock grid, or leave a solid strip where your antennas land.
 
 ### 3. It has to fit
 
