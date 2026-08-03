@@ -6,13 +6,35 @@ The obvious reason to make one is a port. The board inside carries far more I/O 
 
 ---
 
-## Download
+## The three plates
 
-| File | What it is |
-| :-- | :-- |
-| **faceplate-mesh** · [STEP](faceplate-mesh.stp) · [3MF](faceplate-mesh.3mf) · [STL](faceplate-mesh.stl) | The plain plate. No openings. This is the one carrying the Wi-Fi antennas. |
-| **faceplate-ports** · [STEP](faceplate-ports.stp) · [3MF](faceplate-ports.3mf) · [STL](faceplate-ports.stl) | The plate as shipped: power, HDMI, and USB-C. |
-| **faceplate-ports-ethernet** · [STEP](faceplate-ports-ethernet.stp) · [3MF](faceplate-ports-ethernet.3mf) · [STL](faceplate-ports-ethernet.stl) | The same plate with an Ethernet opening added. Not a shipping part. |
+Every plate is **108.76 × 34.00 × 2.50 mm**. The drawings below are true front elevations, generated from the CAD itself — what you see is what is in the file.
+
+### faceplate-mesh
+
+![The plain mesh faceplate: a ten by eight grid of slots, no openings](faceplate-mesh.svg){ width="100%" }
+
+The plain plate. Air intake, and the one the Wi-Fi antennas are stuck to.
+
+[STEP](faceplate-mesh.stp) · [3MF](faceplate-mesh.3mf) · [STL](faceplate-mesh.stl)
+
+### faceplate-ports
+
+![The ported faceplate: the same slot grid on the left, with HDMI, USB-C, and a round power jack opening on the right](faceplate-ports.svg){ width="100%" }
+
+The plate as shipped: power, HDMI, and USB-C. Air exhaust.
+
+[STEP](faceplate-ports.stp) · [3MF](faceplate-ports.3mf) · [STL](faceplate-ports.stl)
+
+### faceplate-ports-ethernet
+
+![The ported faceplate with an additional rectangular Ethernet opening cut into the slot grid](faceplate-ports-ethernet.svg){ width="100%" }
+
+The same plate with an Ethernet opening. Not a shipping part — this is the one to start from if you want wired networking.
+
+[STEP](faceplate-ports-ethernet.stp) · [3MF](faceplate-ports-ethernet.3mf) · [STL](faceplate-ports-ethernet.stl)
+
+---
 
 Take **STEP** if you want to modify the design — it is the real solid model, and every CAD tool reads it. Take **3MF** or **STL** if you only want to print it.
 
@@ -45,14 +67,24 @@ The stock plates measure **roughly 25% open area** — 912 mm² on the ported pl
 
 These numbers are measured from the stock parts, not derived from a thermal model. Treat them as "match the factory plate," not as a validated threshold.
 
+Both plates use the same grid, which is the simplest thing to copy:
+
+| | |
+| :-- | :-- |
+| Slot | 8.50 × 1.50 mm, rounded ends (R 0.75) |
+| Array | 10 columns × 8 rows |
+| Pitch | 10.50 mm horizontal, 3.50 mm vertical |
+| Web between slots | 3.50 mm horizontal, 2.00 mm vertical |
+| Border | ~2.6 mm at the sides, ~4 mm top and bottom |
+
+The ported plate is that same array with 24 slots left out to make room for the connectors, which is why its open area is the lowest of the three.
+
 ### 2. It has to let the radio through
 
 Both Wi-Fi antennas are adhesive flexible-circuit strips stuck to the **inside face of the plain plate**. They radiate straight through it. So:
 
 - **No carbon-fill, glass-fill, or metal-fill filament.** These will kill Wi-Fi. Plain ABS, ASA, or PETG only.
-- **Leave flat, solid areas at both ends of the inner face** — roughly the outer third at each end. That is where the antennas land. Do not run mesh edge to edge.
-
-There is no mounting geometry to reproduce. No bosses, no clips, no recesses. The antennas are peel-and-stick, applied by hand.
+- **Keep somewhere for them to stick.** There is no mounting geometry to reproduce — no bosses, no clips, no recesses. The antennas are peel-and-stick, applied by hand onto the webbing between the slots. Keeping the stock grid is the reliable move, because it puts them back exactly where they were. If you change the pattern, take the plate off first and look at where yours actually sit.
 
 ### 3. It has to fit
 
