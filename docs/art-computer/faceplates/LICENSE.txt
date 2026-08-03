@@ -1,0 +1,42 @@
+Art Computer faceplate CAD
+Copyright (c) 2026 Feral File
+
+The CAD files in this directory --
+
+    faceplate-mesh.stp / .3mf / .stl
+    faceplate-ports.stp / .3mf / .stl
+    faceplate-ports-ethernet.stp / .3mf / .stl
+
+-- are licensed under the Creative Commons Attribution-ShareAlike 4.0
+International License (SPDX: CC-BY-SA-4.0).
+
+Full legal code:  https://creativecommons.org/licenses/by-sa/4.0/legalcode
+Plain-language summary:  https://creativecommons.org/licenses/by-sa/4.0/
+
+In short, you are free to:
+
+  Share   -- copy and redistribute the files in any medium or format
+  Adapt   -- remix, transform, and build upon them, for any purpose,
+             including commercially
+
+under two conditions:
+
+  Attribution -- credit Feral File, link to the license, and say whether
+                 you made changes.
+  ShareAlike  -- if you remix or build upon the files, distribute your
+                 version under this same license.
+
+Suggested attribution:
+
+    Based on the Art Computer faceplate by Feral File
+    (https://docs.feralfile.com/art-computer/faceplates/),
+    licensed under CC BY-SA 4.0.
+
+NO WARRANTY. These files are provided as-is. The airflow, radio, and fit
+guidance published alongside them is measured from the production parts,
+not derived from a validated thermal or RF model. A custom faceplate is
+your design; test it.
+
+This license covers the faceplate CAD only. It does not extend to any
+other part of the Art Computer, to Feral File trademarks, or to the rest
+of this documentation site.

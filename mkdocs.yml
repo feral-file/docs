@@ -42,6 +42,7 @@ nav:
       - OTA: art-computer/how-it-works/ota.md
     - Specification: art-computer/specification.md
     - Upgrades: art-computer/upgrades.md
+    - Print Your Own Faceplates: art-computer/faceplates/index.md
     - Network Requirements: art-computer/network-requirements.md
   - Hosted Feed: hosted-feed/index.md
   - Contact: https://feralfile.com/legal/contact
