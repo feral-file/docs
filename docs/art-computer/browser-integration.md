@@ -29,13 +29,18 @@ origin, and the browser metadata sent at channel join.
 
 ## Mount the button
 
-The library lives in
-[`feral-file/ff-art-computer-handoff`](https://github.com/feral-file/ff-art-computer-handoff)
-under `clients/session-recipient/js` (`@feral-file/mint-pairing-requester-js`,
-consumed from the repo — not yet on npm).
+Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play)
+(source lives in [`feral-file/play`](https://github.com/feral-file/play)):
+
+```sh
+npm i @feralfile/play
+```
+
+For a static site with no build step, import it straight from a CDN instead:
+`import { mountPlayOnArtComputerButton } from "https://esm.sh/@feralfile/play"`.
 
 ```ts
-import { mountPlayOnArtComputerButton } from "@feral-file/mint-pairing-requester-js";
+import { mountPlayOnArtComputerButton } from "@feralfile/play";
 
 mountPlayOnArtComputerButton({
   container: "#play-on-art-computer",
@@ -53,7 +58,7 @@ The button, popup copy, and styling are all overridable, and a headless API
 (`requestEphemeralSession` / `displayDp1Playlist`) is available for fully
 custom UI. The canonical reference for the full option surface, session
 lifecycle, and error handling is the
-[Third-Party Integration Guide](https://github.com/feral-file/ff-art-computer-handoff/blob/main/docs/third-party-integration.md)
+[Third-Party Integration Guide](https://github.com/feral-file/play/blob/main/docs/third-party-integration.md)
 in the repo.
 
 ## The playlist
@@ -79,8 +84,8 @@ If your site sets a `Content-Security-Policy`, allow these in `connect-src`:
 ## Status
 
 The library, hosted broker, mobile-app approval flow, and device playback work
-end to end today. The integration surface is pre-1.0: the library is consumed
-from the repo rather than npm, and API feedback is actively wanted. Tell us
-what is unclear, impractical, or missing —
-[open an issue](https://github.com/feral-file/ff-art-computer-handoff/issues)
+end to end today. The integration surface is pre-1.0, so expect additive API
+change between 0.x versions. API feedback is actively wanted — tell us what is
+unclear, impractical, or missing by
+[opening an issue](https://github.com/feral-file/play/issues)
 on the repo.
