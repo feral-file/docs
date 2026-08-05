@@ -41,8 +41,10 @@ Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play)
 npm i @feralfile/play
 ```
 
-For a static site with no build step, import it straight from a CDN instead:
-`import { mountPlayOnArtComputerButton } from "https://esm.sh/@feralfile/play"`.
+For a site with no build step, download `play.js` from the
+[latest release](https://github.com/feral-file/play/releases/latest) — a
+self-contained ESM bundle — host it next to your pages, and
+`import { mountPlayOnArtComputerButton } from "./play.js"`.
 
 ```ts
 import { mountPlayOnArtComputerButton } from "@feralfile/play";
