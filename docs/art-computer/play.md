@@ -1,12 +1,17 @@
-# Website Integration
+# Play on Art Computer
 
-Add a **Play on Art Computer** action to your website: a visitor selects works
-on your site, presses play, and the works appear on their Art Computer.
+Add a **Play on Art Computer** action to your product: someone selects works,
+presses play, and the works appear on their Art Computer. It is for any
+product where people encounter art — a marketplace, an artist's site, a
+gallery app, an agent.
 
-- What this is: a browser library that pairs your site with a visitor's Art
-  Computer and plays a DP-1 playlist on it.
-- Why use it: curation stays on your site; playback lands on the visitor's
-  device. No backend changes, no API key, no registration.
+- What this is: a browser library that pairs your product with a visitor's Art
+  Computer and plays a DP-1 playlist on it. It targets the web runtime —
+  websites, web apps, Electron, web views inside native apps — and fully
+  native clients can implement the documented protocol directly.
+- Why use it: curation stays where it already happens, in your product;
+  playback lands on the visitor's device. No backend changes, no API key, no
+  registration.
 - What to do next: mount the button, build a DP-1 playlist from the visitor's
   selection, and test against your own Art Computer.
 
@@ -58,7 +63,7 @@ The button, popup copy, and styling are all overridable, and a headless API
 (`requestEphemeralSession` / `displayDp1Playlist`) is available for fully
 custom UI. The canonical reference for the full option surface, session
 lifecycle, and error handling is the
-[Website Integration Guide](https://github.com/feral-file/play/blob/main/docs/website-integration.md)
+[Integration Guide](https://github.com/feral-file/play/blob/main/docs/integration.md)
 in the repo.
 
 ## The playlist

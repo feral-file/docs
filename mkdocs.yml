@@ -40,6 +40,8 @@ plugins:
         dp1-protocol/ff1-integration.md: ff-cli/index.md
         # Renamed 2026-05-27 (cleaner section URLs).
         api-reference/cli.md: ff-cli/index.md
+        # Renamed 2026-08-05 (Website/Browser Integration -> Play on Art Computer).
+        art-computer/browser-integration.md: art-computer/play.md
         dp1-protocol/feed-server.md: hosted-feed/index.md
 
 nav:
@@ -53,7 +55,7 @@ nav:
       - End-to-End Architecture: art-computer/how-it-works/display.md
       - OTA: art-computer/how-it-works/ota.md
     - Specification: art-computer/specification.md
-    - Website Integration: art-computer/browser-integration.md
+    - Play on Art Computer: art-computer/play.md
     - Upgrades: art-computer/upgrades.md
     - Print Your Own Faceplates: art-computer/faceplates/index.md
     - Network Requirements: art-computer/network-requirements.md
