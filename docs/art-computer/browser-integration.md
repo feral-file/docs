@@ -21,9 +21,11 @@ on your site, presses play, and the works appear on their Art Computer.
    is remembered per site origin until it expires or is revoked.
 
 Your site never receives device API keys or account credentials. It holds a
-short-lived, revokable browser session scoped to playback only. The pairing
-exchange is end-to-end encrypted between the visitor's browser and their
-device; the pairing broker in the middle cannot read it.
+short-lived, revokable browser session scoped to playback only. The mint
+request and the returned session travel end-to-end encrypted between the
+visitor's browser and their device, so the pairing broker never sees session
+tokens or playlist content. The broker does see the pairing code, your site's
+origin, and the browser metadata sent at channel join.
 
 ## Mount the button
 
