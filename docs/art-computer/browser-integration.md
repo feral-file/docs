@@ -1,4 +1,4 @@
-# Browser Integration
+# Website Integration
 
 Add a **Play on Art Computer** action to your website: a visitor selects works
 on your site, presses play, and the works appear on their Art Computer.
@@ -58,7 +58,7 @@ The button, popup copy, and styling are all overridable, and a headless API
 (`requestEphemeralSession` / `displayDp1Playlist`) is available for fully
 custom UI. The canonical reference for the full option surface, session
 lifecycle, and error handling is the
-[Third-Party Integration Guide](https://github.com/feral-file/play/blob/main/docs/third-party-integration.md)
+[Website Integration Guide](https://github.com/feral-file/play/blob/main/docs/website-integration.md)
 in the repo.
 
 ## The playlist
