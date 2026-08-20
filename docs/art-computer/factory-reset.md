@@ -15,8 +15,8 @@ If the Art Computer still responds to the app, reset it from there: the app send
 If the screen is stuck or black and the app cannot reach the device, there is a reset path that needs nothing but the power cord. It is deliberately awkward — five precise power cuts in a row — so it cannot happen by accident.
 
 1. **Unplug** the Art Computer's power.
-2. **Plug it back in** and watch the screen. When the **startup screen appears, unplug again.**
-3. **Repeat** until you have cut the power **5 times**. Keep the rhythm going — a pause of more than about 2 minutes between cycles resets the count.
+2. **Plug it back in** and let it boot. Once the device has **reached the system** (the startup screen has come and gone) — or, if you are not sure, simply **wait about 15 seconds** — **unplug again.** Pulling the power too early, before the system is up, does not count.
+3. **Repeat** until you have cut the power **5 times**. Keep the rhythm going — at least 15 seconds powered each time, and a pause of more than about 2 minutes between cycles resets the count.
 4. **Plug in once more and leave it.** The Art Computer restarts itself into a boot menu with **FF1 - Factory Reset** selected and a **60-second countdown** on screen.
 5. Choose:
     - **Let the countdown finish** → the factory reset runs.
@@ -28,8 +28,8 @@ If the screen is stuck or black and the app cannot reach the device, there is a 
 ### Rules the counter follows
 
 - **Only power-cord cuts count.** Restarts from the app, overnight update restarts, and normal power-offs never add to the count — the sequence has to be you, at the device, unplugging it on purpose.
-- **The timing must be deliberate.** Cut the power while the startup screen is showing, and keep each cycle under about 2 minutes. Slow or scattered power cuts — a storm, a flaky power strip — do not accumulate.
-- **Nothing appears? Just wait.** If the countdown screen does not show up, the device simply boots normally. Unplug and try again, cutting power promptly each time the startup screen appears.
+- **The timing must be deliberate.** Let the device reach the system (about 15 seconds after plugging in) before cutting the power, and keep each cycle under about 2 minutes. A cut that comes too early is not counted, and slow or scattered power cuts — a storm, a flaky power strip — do not accumulate.
+- **Nothing appears? Just wait.** If the countdown screen does not show up, the device simply boots normally. Unplug and try again, giving the device at least 15 seconds after each plug-in before cutting the power.
 
 ## With a keyboard (F2 into the boot menu)
 
