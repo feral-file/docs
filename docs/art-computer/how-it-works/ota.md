@@ -86,23 +86,25 @@ For major system changes, the device performs a complete system image update:
 3. **Extract and Mount** - Extract ISO and mount SquashFS filesystem
 4. **Selective Rsync** - Sync new files while preserving user data and configs
 5. **Update Bootloader** - Install new kernel, initramfs, and boot entries
-6. **Configure Rollback** - Set up boot entries for factory reset and OTA rollback
-7. **Reboot** - Restart to apply changes
+6. **One-Shot Candidate Boot** - Arm a single trial boot of the new system; if its kernel fails to boot, the next power cycle lands back on the previous system automatically
+7. **Reboot** - Restart into the candidate to apply changes
 
 #### Key Features:
 - **Progress Tracking** - Download progress with speed calculation and real-time updates
 - **Selective Sync** - Preserves user data, configurations, and sensitive files
-- **Rollback Support** - Creates multiple boot entries for different rollback scenarios
+- **One-Shot Candidate Boot** - The new system gets exactly one trial boot before it is promoted; a kernel that fails to boot falls back to the previous system
 - **Atomic Updates** - Uses Btrfs snapshots to ensure system consistency
 
 #### Critical Exclusions:
 The sync process carefully excludes system directories, temporary files, user configurations, network settings, SSH keys, and device-specific data to preserve the device's identity and user customizations while updating the core system.
 
 #### Boot Configuration:
-The system creates three boot entries:
+The system maintains two permanent boot entries, plus a temporary one during an update:
 - **arch.conf** - Normal boot
-- **factory_reset.conf** - Factory reset rollback
-- **ota_prev.conf** - Previous version rollback
+- **factory_reset.conf** - Factory reset (restores the factory system)
+- **arch-candidate.conf** - One-shot trial boot of a freshly downloaded update; removed once the update is promoted
+
+There is no previous-version rollback entry: once an update's trial boot succeeds, the new system is promoted and the previous version is deleted. Recovery from a bad update is a [factory reset](../factory-reset.md).
 
 ### 2. Package Update
 
@@ -122,10 +124,10 @@ The setupd daemon continuously monitors these structured logs using regular expr
 
 ## Error Handling and Recovery
 
-### 1. Automatic Rollback
-- **Btrfs Snapshots** - System can roll back to previous working state
-- **Boot Menu Options** - Multiple rollback scenarios available at boot
-- **Factory Reset** - Complete system reset option
+### 1. Recovery
+- **One-Shot Candidate Boot** - A downloaded update gets exactly one trial boot; if its kernel fails to start, the next power cycle automatically returns to the previous system and the failed update is discarded
+- **Factory Reset** - The recovery path for a system that boots but misbehaves: from the app, or with the keyboard-free [power-cord gesture](../factory-reset.md) when the app cannot reach the device
+- There is no automatic rollback to the previous version after an update has been promoted
 
 ### 2. Error Propagation
 - **BLE Error Codes** - Specific error codes sent to mobile app during setup
@@ -144,9 +146,9 @@ The setupd daemon continuously monitors these structured logs using regular expr
 - **Secure Endpoints** - Updates fetched from authenticated distribution server
 
 ### 2. Integrity
-- **Signed Packages** - Pacman packages are cryptographically signed
+- **Signed Packages** - Pacman packages are cryptographically signed; full images are signature-verified before installation
 - **Atomic Operations** - Btrfs snapshots ensure consistency
-- **Rollback Protection** - Multiple recovery options prevent bricking
+- **Recovery Path** - The factory system is kept on disk and reachable without a keyboard, so a bad state is recoverable in the field
 
 ## Systemd Integration
 
@@ -172,7 +174,7 @@ This prevents setup completion while an update is in progress and provides clear
 
 The Art Computer OTA system provides:
 - **Dual Update Modes** - Full system images for major changes, packages for minor updates
-- **Robust Recovery** - Multiple rollback options and atomic operations
+- **Recovery** - Atomic snapshot-based updates, a one-shot trial boot for new images, and a keyboard-free [factory reset](../factory-reset.md) as the field recovery path
 - **Progress Visibility** - Real-time progress reporting through device display
 - **Network Resilience** - Handles connection issues gracefully
 - **Security** - Authenticated downloads and signed packages
