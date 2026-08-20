@@ -17,7 +17,8 @@ Users can create and play artwork playlists through natural language text comman
 - **DP1 Feed Server** ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) — playlist storage and distribution (open-source reference; see [Hosted Feed (Feral File)](../../hosted-feed/index.md) for the managed option)
 - **Relayer** - WebSocket bridge between mobile and device
 - **Device OS** ([`ffos`](https://github.com/feral-file/ffos)) - FF OS, the Art Computer's runtime and system services
-- **Display Engine** - Chromium-based artwork renderer
+- **Device daemon** ([`ffos-user`](https://github.com/feral-file/ffos-user)) - `feral-controld`, the Go service that holds the relayer connection, serves the LAN API on port 1111, routes commands, and owns setup
+- **Display Engine** - Chromium kiosk running the bundled player, driven over the Chrome DevTools Protocol
 
 ---
 
@@ -30,7 +31,7 @@ sequenceDiagram
     participant CommandAPI as Command API<br/>(Cloudflare Workers)
     participant DP1Feed as DP1 Feed Server<br/>(Go/Gin + PostgreSQL)
     participant Relayer as Relayer<br/>(WebSocket Bridge)
-    participant Connectd as FF1 Connectd<br/>(Go Daemon)
+    participant Controld as feral-controld<br/>(Go Daemon)
     participant Player as Chromium Player<br/>(HTML/JS)
 
     User->>Mobile: Text Command<br/>"Show me Unsupervised art"
@@ -42,11 +43,11 @@ sequenceDiagram
     CommandAPI-->>Mobile: Stream Response<br/>{dp1_call, intent, response}
     
     Mobile->>Relayer: POST /api/cast<br/>playlist command + topicID
-    Relayer->>Connectd: WebSocket Message<br/>Command forwarding
+    Relayer->>Controld: WebSocket Message<br/>Command forwarding
     
-    Connectd->>Connectd: Command Processing<br/>Parse and validate
-    Connectd->>Player: CDP Request<br/>Runtime.evaluate
-    Player->>Player: Load Artwork<br/>setArtwork() function
+    Controld->>Controld: Command Processing<br/>Parse, rate-limit, route
+    Controld->>Player: CDP Request<br/>Runtime.evaluate (displayPlaylist)
+    Player->>Player: Load Artwork<br/>from the DP-1 playlist
     
     Player-->>User: Display Artwork<br/>Visual output on screen
 ```
@@ -124,16 +125,16 @@ Commands include:
 
 ### 6. Device Command Processing
 
-The Art Computer receives and processes commands through the `connectd` daemon:
+The Art Computer receives and processes commands through the `feral-controld` daemon. The same command envelope also arrives over the local network: [ff-cli](../../ff-cli/index.md), agents, and the app on the same LAN `POST` it to `/api/cast` on port 1111, and both paths share one command router.
 
-#### Command Validation
-- **Authentication** - Verify command authenticity and authorization
-- **Compatibility** - Ensure device capabilities match playlist requirements
-- **Resource Management** - Check available storage, bandwidth, and processing capacity
+#### Command Routing
+- **Device commands** (pairing, power, rotation, volume, sleep schedule, panel control, updates, factory reset) run in the device executor
+- **Player commands** (`displayPlaylist`, `refreshArtwork`, …) are forwarded to the bundled player over the Chrome DevTools Protocol
+- **Storm protection** - high-cost commands are rate-limited and bounded by a global concurrency budget; a rejected command comes back as `rate_limited` over the relayer, or as HTTP `429` on the LAN API
 
 #### Playlist Preparation
-- **Asset Fetching** - Download required artwork files and dependencies
-- **Signature Verification** - Validate DP-1 playlist signatures before rendering
+- **Direct fetch** - The player fetches the DP-1 playlist and the artworks it references directly from their URLs; playlist content never travels through the relayer
+- **Offline cache** - Items can be downloaded ahead of time (`downloadPlaylist`) so playback survives a network outage
 - **Display Configuration** - Apply user preferences and device-specific settings
 
 ### 7. Artwork Rendering and Display
@@ -165,7 +166,7 @@ The Chromium-based player handles diverse artwork types:
 2. **AI Processing** → Command API parses intent and generates playlists  
 3. **Storage** → DP1 Feed Server stores signed playlists
 4. **Routing** → Relayer forwards commands to specific Art Computers
-5. **Device Processing** → Connectd daemon handles commands via CDP
+5. **Device Processing** → `feral-controld` routes commands to the device executor or the player via CDP
 6. **Display** → Chromium player renders artwork on screen
 
 ---
@@ -178,9 +179,9 @@ The Chromium-based player handles diverse artwork types:
 - **Ed25519 Signatures** - Playlist authenticity and tamper protection
 
 ### Device Security  
-- **Device Pairing** - Secure BLE-based device registration
-- **Signed Heartbeats** - Regular device health reporting with signatures
-- **Read-only Root** - Immutable system with OTA update capability
+- **Device Pairing** - Wi-Fi setup over the device's own hotspot and captive portal; the device is bound to an account through the cloud via a QR code or app discovery on the local network
+- **Factory Reset** - Clears the pairing and Wi-Fi settings and boots the pristine factory snapshot; a reset device belongs to whoever pairs with it next
+- **Snapshot System** - Btrfs snapshots with a one-shot trial boot for OTA updates and a factory snapshot kept on disk for recovery
 
 ---
 
@@ -192,9 +193,9 @@ The Chromium-based player handles diverse artwork types:
 - **Playlist Validation** - Signature verification before display
 
 ### Device Communication Errors  
-- **Connection Loss** - Automatic reconnection with state preservation
-- **CDP Failures** - Watchdog system with automatic restart
-- **Display Issues** - Fallback to default content
+- **Connection Loss** - `feral-controld` reconnects to the relayer with randomized retry delays (1–5 s after a dropped connection, 10–60 s when the endpoint is busy); if reconnection keeps failing the daemon exits and systemd restarts it. The LAN API on port 1111 stays up throughout
+- **Kiosk Hangs** - `feral-watchdog` polls Chromium over the DevTools Protocol and restarts the kiosk on a hang, rebooting after repeated restarts
+- **Dead Player Page** - After boot, `feral-controld` checks the player's own status and re-navigates it if the page came up before Wi-Fi did
 
 ---
 

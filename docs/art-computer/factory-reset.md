@@ -8,7 +8,7 @@ A factory reset erases everything on the device: Wi-Fi settings, the pairing wit
 
 ## From the app (the normal way)
 
-If the Art Computer still responds to the app, reset it from there: the app sends the reset command directly to the device. Use this path whenever it works — it needs no physical access beyond the screen.
+If the Art Computer still responds to the app, reset it from there: the app sends the reset command to the device (over the cloud, or directly on the local network). The screen shows a factory-reset notice, the device stops taking commands, and it restarts into its factory software. Use this path whenever it works — it needs no physical access beyond the screen. If the device comes back up still paired and playing your art, the reset did not take (the factory boot is a one-shot that falls back to the running system if it fails) — simply run it again.
 
 ## With the power cord (when nothing else works)
 
@@ -23,7 +23,7 @@ If the screen is stuck or black and the app cannot reach the device, there is a 
     - **Unplug during the countdown** → the reset is cancelled. Nothing is remembered; the next start is a completely normal one.
 
 !!! warning "Once the reset starts, leave the power alone"
-    Cancelling is only safe **during the countdown**. After it reaches zero the device is rewriting its system — keep it powered until the pairing screen appears, usually within a few minutes.
+    Cancelling is only safe **during the countdown**. After it reaches zero the device is rewriting its system — keep it powered until the setup screen appears, usually within a few minutes.
 
 ### Rules the counter follows
 
@@ -38,13 +38,16 @@ If you have a USB keyboard handy, you can reach the same boot menu directly:
 1. **Unplug** the power and connect a **USB keyboard** to the Art Computer.
 2. **Plug the power back in** and immediately **tap F2 rapidly** on the keyboard, and keep tapping until the boot menu appears.
 3. The window for this is brief and varies between units — it may take a few attempts. If the device boots normally instead, unplug and try again.
-4. Use the **arrow keys** to select **FF1 - Factory Reset** and press **Enter**. The reset starts right away — there is no countdown on this path, since you confirm it yourself. Keep the device powered until the pairing screen appears.
+4. Use the **arrow keys** to select **FF1 - Factory Reset** and press **Enter**. The reset starts right away — there is no countdown on this path, since you confirm it yourself. Keep the device powered until the setup screen appears.
 
 ---
 
 ## After the reset
 
-The Art Computer boots its factory software and shows the pairing QR code. From there it is a first-time [setup](./index.md): pair with your phone, join Wi-Fi, and the device updates itself to the current FF OS before returning to your art. Artworks re-download in the background; how long that takes depends on the size of your library and your connection.
+The Art Computer boots its factory software and shows the Wi-Fi setup screen (or, on Ethernet, goes straight to the pairing screen). From there it is a first-time [setup](./index.md): join Wi-Fi from your phone, let the device update itself to the current FF OS — it will not show the pairing screen until it has — then pair with the app and it returns to your art. Artworks re-download in the background; how long that takes depends on the size of your library and your connection.
+
+!!! note "Very old factory software"
+    A device that has sat on a shelf for a long time may carry factory software too old to update itself over the air. It will stop before the pairing screen. The fix is a [USB reinstall](./index.md#step-3-advanced-reinstall-ff-os-from-usb) of the current release image, after which setup proceeds normally.
 
 !!! note "A reset device is an unclaimed device"
     After a factory reset, the Art Computer belongs to whoever pairs with it next. That is what makes it right for handing the device on — and worth knowing if the device is somewhere strangers can reach its power cord for several deliberate minutes.

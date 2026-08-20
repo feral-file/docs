@@ -14,7 +14,7 @@
 | **Power** | 19 V DC adapter (included), 65 W; designed for 24/7 operation within normal indoor temperature ranges |
 | **Enclosure** | Black-anodized aluminum finned lid and bottom (extruded 6061 top + CNC 6061 base) with 3D-printed ABS mesh side panels and rubber feet; 1 mm thermal pad couples to the metal chassis to the lid for ~15–28 W sustained loads |
 | **OS** | FF OS (Linux-based, deterministic WebGL/WebAssembly rendering) |
-| **Onboarding** | QR-code pairing via mobile app; typical setup in under five minutes |
+| **Onboarding** | Wi-Fi setup from a phone over the device's own setup hotspot and captive portal (or Ethernet); pairing via the mobile app on the same network or by QR code; typical setup in under five minutes |
 | **Updates** | Automatic over-the-air (OTA) system and player updates |
 | **Blockchain Support** | Ethereum (ERC-721, ERC-1155) and Tezos (FA2) collections, with on-chain ownership used for playback rights |
 | **Media Formats** | Images (JPG, PNG, SVG, GIF); Video (MP4 H.264/H.265, WebM VP9, MOV); Audio (AAC, MP3, OGG) |
