@@ -15,6 +15,11 @@ MOBILE_HEADING = re.compile(
     r"(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+)"
     r"(?: (?:—|-) .+)?$"
 )
+DATE_HEADING = re.compile(r"^[A-Za-z]+ [0-9]{1,2},? [0-9]{4}$")
+LEGACY_DATE_HEADING = re.compile(r"^[A-Za-z]+ [0-9]{1,2}$")
+# 1.5.5 is the first release governed by this validator. Older yearless
+# sections remain readable history, but every new entry must use a full date.
+DATED_CHANGELOG_CONTRACT_VERSION = (1, 5, 5)
 
 
 @dataclass(frozen=True)
@@ -84,6 +89,14 @@ def validate_mobile_changelog(markdown: str) -> list[str]:
             errors.append(
                 f"Line {entry.line_number}: mobile {entry.version_text} must be "
                 "inside a '## <date>' date section."
+            )
+        elif not DATE_HEADING.fullmatch(entry.date_section) and not (
+            entry.version < DATED_CHANGELOG_CONTRACT_VERSION
+            and LEGACY_DATE_HEADING.fullmatch(entry.date_section)
+        ):
+            errors.append(
+                f"Line {entry.line_number}: mobile {entry.version_text} must be "
+                "inside a valid date section such as '## Aug 22 2026'."
             )
         if not entry.body:
             errors.append(

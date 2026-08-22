@@ -35,10 +35,12 @@ Release-note body, no more than 500 characters.
 ---
 ```
 
-The date heading is required: the app groups entries by that `##` section.
-Versions must be unique and ordered newest to oldest. Keep the body non-empty
-and do not put another `##`, `###`, or `---` inside it because those markers end
-the store-note excerpt. Once a version is published, treat its entry as an
+The full date heading is required: the app groups entries by that `##` section,
+and the store publisher accepts the same month/day/year shape. Historical
+yearless headings before version 1.5.5 are explicitly grandfathered. Versions
+must be unique and ordered newest to oldest. Keep the body non-empty and do not
+put another `##`, `###`, or `---` inside it because those markers end the
+store-note excerpt. Once a version is published, treat its entry as an
 immutable release record; a code or notes correction gets a new patch version.
 
 Validate before opening a PR:
