@@ -17,3 +17,5 @@ jobs:
           python-version: '3.x'
       - run: pip install -r requirements.txt
       - run: mkdocs build --strict
+      - name: Verify raw mobile changelog
+        run: cmp docs/changelog.md site/docs/changelog.md

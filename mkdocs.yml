@@ -44,6 +44,9 @@ plugins:
         art-computer/browser-integration.md: art-computer/play.md
         dp1-protocol/feed-server.md: hosted-feed/index.md
 
+hooks:
+  - mkdocs_hooks.py
+
 nav:
   - Home: index.md
   - Agents: agents/index.md
@@ -63,7 +66,8 @@ nav:
   - Contact: https://feralfile.com/legal/contact
 
 # Pages built and served but intentionally absent from the nav.
-# changelog.md is fetched by the mobile app at /changelog/ — keep it published.
+# changelog.md is also copied verbatim to /docs/changelog.md for the mobile app
+# and release workflows. mkdocs_hooks.py owns that generated endpoint.
 not_in_nav: |
   changelog.md
 

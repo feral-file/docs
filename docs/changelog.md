@@ -1,5 +1,17 @@
 # Change logs
 
+## Aug 22 2026
+
+### Feral File Mobile App 1.5.5 — Collect series from Search
+
+Collect a Feral File catalog series directly into My Collection from Search.
+
+Wallet updates no longer start overlapping retries, followed Channel playlists stay attached after refresh, and playback returns to its last accepted mode when an Art Computer rejects a change.
+
+Controls are easier to tap, layouts remain usable with larger text, and retry messages stay available to screen readers.
+
+---
+
 ## Jul 16 2026
 
 ### Feral File Mobile App 1.3.4 — Durable Add, secure ff-cli pairing, and steadier playlists
