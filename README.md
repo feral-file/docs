@@ -18,3 +18,33 @@ pip install -r requirements.txt
 
 mkdocs serve
 ```
+
+## Mobile app changelog contract
+
+`docs/changelog.md` is the one authored source for the in-app screen, GitHub
+releases, Google Play, and TestFlight. Prepend each mobile release in this
+shape:
+
+```markdown
+## Aug 22 2026
+
+### Feral File Mobile App 1.5.5 — Short title
+
+Release-note body, no more than 500 characters.
+
+---
+```
+
+The date heading is required: the app groups entries by that `##` section.
+Versions must be unique and ordered newest to oldest. Keep the body non-empty
+and do not put another `##`, `###`, or `---` inside it because those markers end
+the store-note excerpt. Once a version is published, treat its entry as an
+immutable release record; a code or notes correction gets a new patch version.
+
+Validate before opening a PR:
+
+```bash
+python -m unittest tests/test_validate_mobile_changelog.py
+python scripts/validate_mobile_changelog.py docs/changelog.md
+mkdocs build --strict
+```
