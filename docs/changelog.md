@@ -2,6 +2,12 @@
 
 ## Aug 22 2026
 
+### Feral File Mobile App 1.5.6 — Muted artwork previews in Discover
+
+Artwork previews in Discover now start muted. Tap the sound control when you want to hear them, so opening Discover no longer plays audio unexpectedly.
+
+---
+
 ### Feral File Mobile App 1.5.5 — Collect series from Search
 
 Collect a Feral File catalog series directly into My Collection from Search.
