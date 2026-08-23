@@ -61,7 +61,9 @@ def validate_mobile_changelog(markdown: str) -> list[str]:
 
     for index, line in enumerate(lines):
         if line.startswith("## ") and not line.startswith("### "):
-            date_section = line.removeprefix("## ").strip() or None
+            # Match the store extractor: exactly one space after `##`, while
+            # allowing harmless trailing whitespace on the heading.
+            date_section = line.removeprefix("## ").rstrip() or None
             continue
 
         if not line.startswith(MOBILE_HEADING_PREFIX):
