@@ -1,5 +1,13 @@
 # Change logs
 
+## Aug 23 2026
+
+### Feral File Mobile App 1.5.7 — Minor improvements and bug fixes
+
+This release includes minor improvements and bug fixes.
+
+---
+
 ## Aug 22 2026
 
 ### Feral File Mobile App 1.5.6 — Muted artwork previews in Discover
