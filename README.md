@@ -40,8 +40,9 @@ and the store publisher accepts the same month/day/year shape. Historical
 yearless headings before version 1.5.5 are explicitly grandfathered. Versions
 must be unique and ordered newest to oldest. Keep the body non-empty and do not
 put another `##`, `###`, or `---` inside it because those markers end the
-store-note excerpt. Once a version is published, treat its entry as an
-immutable release record; a code or notes correction gets a new patch version.
+store-note excerpt. The 500-character limit includes Markdown whitespace.
+Once a version is published, treat its entry as an immutable release record; a
+code or notes correction gets a new patch version.
 
 Validate before opening a PR:
 

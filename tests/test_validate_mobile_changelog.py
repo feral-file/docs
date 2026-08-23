@@ -101,6 +101,26 @@ Duplicate.
         self.assertTrue(any("empty" in error for error in empty_errors))
         self.assertTrue(any("500" in error for error in long_errors))
 
+    def test_counts_trailing_markdown_whitespace_like_the_store_publisher(self):
+        errors = validate_mobile_changelog(
+            "## Aug 22 2026\n"
+            "### Feral File Mobile App 2.0.0\n"
+            + ("x" * 500)
+            + " \n---\n"
+        )
+
+        self.assertTrue(any("501" in error for error in errors))
+
+    def test_does_not_treat_an_indented_separator_as_a_store_terminator(self):
+        errors = validate_mobile_changelog(
+            "## Aug 22 2026\n"
+            "### Feral File Mobile App 2.0.0\n"
+            + ("x" * 495)
+            + "\n ---\nmore\n"
+        )
+
+        self.assertTrue(any("500" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

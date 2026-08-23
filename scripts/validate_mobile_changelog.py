@@ -17,6 +17,7 @@ MOBILE_HEADING = re.compile(
 )
 DATE_HEADING = re.compile(r"^[A-Za-z]+ [0-9]{1,2},? [0-9]{4}$")
 LEGACY_DATE_HEADING = re.compile(r"^[A-Za-z]+ [0-9]{1,2}$")
+ENTRY_SEPARATOR = re.compile(r"^---[ \t]*$")
 # 1.5.5 is the first release governed by this validator. Older yearless
 # sections remain readable history, but every new entry must use a full date.
 DATED_CHANGELOG_CONTRACT_VERSION = (1, 5, 5)
@@ -36,10 +37,18 @@ class MobileEntry:
 def _entry_body(lines: list[str], heading_index: int) -> str:
     body: list[str] = []
     for line in lines[heading_index + 1 :]:
-        if line.startswith("## ") or line.startswith("### ") or line.strip() == "---":
+        if (
+            line.startswith("## ")
+            or line.startswith("### ")
+            or ENTRY_SEPARATOR.fullmatch(line)
+        ):
             break
-        body.append(line.rstrip())
-    return "\n".join(body).strip()
+        body.append(line)
+    while body and not body[0].strip():
+        body.pop(0)
+    while body and not body[-1].strip():
+        body.pop()
+    return "\n".join(body)
 
 
 def validate_mobile_changelog(markdown: str) -> list[str]:
