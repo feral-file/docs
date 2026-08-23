@@ -15,6 +15,10 @@ MOBILE_HEADING = re.compile(
     r"(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+)"
     r"(?: (?:—|-) .+)?$"
 )
+MOBILE_HEADING_NEAR_MISS = re.compile(
+    r"^###\s*Feral\s+File\s+Mobile\s+App(?:\s|$)",
+    re.IGNORECASE,
+)
 DATE_HEADING = re.compile(r"^[A-Za-z]+ [0-9]{1,2},? [0-9]{4}$")
 LEGACY_DATE_HEADING = re.compile(r"^[A-Za-z]+ [0-9]{1,2}$")
 ENTRY_SEPARATOR = re.compile(r"^---[ \t]*$")
@@ -67,6 +71,11 @@ def validate_mobile_changelog(markdown: str) -> list[str]:
             continue
 
         if not line.startswith(MOBILE_HEADING_PREFIX):
+            if MOBILE_HEADING_NEAR_MISS.match(line):
+                errors.append(
+                    f"Line {index + 1}: invalid mobile heading; expected "
+                    "'### Feral File Mobile App X.Y.Z — Title'."
+                )
             continue
 
         match = MOBILE_HEADING.fullmatch(line)

@@ -38,10 +38,11 @@ Release-note body, no more than 500 characters.
 The full date heading is required, with exactly one space after `##`: the app
 groups entries by that section, and the store publisher accepts the same
 month/day/year shape. Historical yearless headings before version 1.5.5 are
-explicitly grandfathered. Versions
-must be unique and ordered newest to oldest. Keep the body non-empty and do not
-put another `##`, `###`, or `---` inside it because those markers end the
-store-note excerpt. The 500-character limit includes Markdown whitespace.
+explicitly grandfathered. Use the mobile H3 exactly as shown; spacing or case
+near-misses are rejected before deploy. Versions must be unique and ordered
+newest to oldest. Keep the body non-empty and do not put another `##`, `###`,
+or `---` inside it because those markers end the store-note excerpt. The
+500-character limit includes Markdown whitespace.
 Once a version is published, treat its entry as an immutable release record; a
 code or notes correction gets a new patch version.
 

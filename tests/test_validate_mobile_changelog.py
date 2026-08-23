@@ -66,6 +66,26 @@ The store parser rejects this heading.
 
         self.assertTrue(any("valid date section" in error for error in errors))
 
+    def test_rejects_noncanonical_mobile_heading_spacing(self):
+        errors = validate_mobile_changelog(
+            """# Change logs
+
+## Aug 22 2026
+
+###  Feral File Mobile App 2.0.0 — Invalid heading spacing
+
+The store parser rejects this heading.
+
+## Aug 21 2026
+
+### Feral File Mobile App 1.5.5 — Existing entry
+
+This keeps the document from failing only because no entries were found.
+"""
+        )
+
+        self.assertTrue(any("invalid mobile heading" in error for error in errors))
+
     def test_accepts_a_grandfathered_yearless_historical_date(self):
         errors = validate_mobile_changelog(
             """# Change logs
