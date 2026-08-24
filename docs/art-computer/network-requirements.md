@@ -1,6 +1,6 @@
 # Network Requirements
 
-On a home network, there is nothing to configure. Plug the Art Computer in, pair with the app, and it works.
+On a home network, there is nothing to configure. Plug the Art Computer in, join its setup hotspot from your phone, pick your Wi-Fi, pair with the app, and it works.
 
 This page is for IT teams putting an Art Computer on a managed network — a museum, gallery, office, or campus — where firewalls, VLANs, and wireless isolation policies are in play. It lists exactly what the device and its controllers need, and the policies that most often break them.
 
@@ -21,6 +21,11 @@ Allow outbound **TCP 443** (HTTPS and WSS) to:
 | `feralfile-remote-configs.pages.dev` | Remote configuration |
 | `raw.githubusercontent.com` | Release notes and legal documents |
 | `*.r2.cloudflarestorage.com` | Asset storage |
+| `ingest-metrics.feralfile.com` | Device telemetry. The analytics toggle in the app stops periodic metrics collection, but the device still pushes a few events (watchdog crash reports) over this connection, so keep the host allowed |
+| `support-logs.feralfile.com` | Log upload when you send logs to support from the app |
+| `handoff.feralfile.com` | Browser pairing broker for [Play on Art Computer](./play.md) |
+
+Artworks themselves are fetched from wherever the playlist points — artist sites, IPFS gateways, CDNs — so a network that allow-lists hosts will also need to allow whatever the collection references.
 
 Also allow:
 
@@ -32,24 +37,59 @@ Also allow:
 
 ---
 
+## Wi-Fi setup (the setup hotspot)
+
+The Art Computer is put on Wi-Fi from a phone, through a hotspot the device itself broadcasts — there is no Bluetooth step.
+
+- The device raises an access point named **`FF1-<device id>`** (WPA2, 8-digit numeric password). The SSID, password, and a join QR code are shown on the screen.
+- The phone joins that hotspot. The phone's captive-portal detection opens the setup page automatically; if it does not, browse to **`http://ff1.config`**. The page lists the networks the device can see, plus a manual field for hidden networks.
+- The user picks a network and enters the password. The hotspot goes down while the device joins; if the join fails it comes back so the user can retry.
+
+What this means for a managed network:
+
+- **Supported networks:** password-protected (personal / PSK) and open Wi-Fi, including hidden SSIDs. **Enterprise Wi-Fi (802.1X / WPA-Enterprise with usernames or certificates) cannot be entered through the setup page** — on those networks, use Ethernet.
+- The phone is off your network for the minute it is on the setup hotspot. Nothing on your network is involved in that step; MDM policies that block joining unknown SSIDs will block it.
+- The hotspot is raised on first boot, and again when a paired device has had **no link at all** (no cable, no Wi-Fi association) for about five minutes — a changed Wi-Fi password, a retired SSID — or boots somewhere none of its saved networks are in range. A **paired** device that is associated but has no internet (upstream outage) keeps its network connection and does not re-enter setup; the app can put it back into setup mode on demand (not while an Ethernet cable is connected).
+- An **unpaired** device that gets onto a network but cannot reach the internet — the classic "got an IP, firewalled from the relayer" case on a managed network — reopens its setup hotspot after about five minutes, for a few cycles, so setup can be redone. If you see the `FF1-…` hotspot keep reappearing on a new device, check the egress rules above rather than the Wi-Fi credentials.
+- While the hotspot is up, the device periodically drops it for up to a few minutes to scan for the user's network, then brings it back. A setup screen that disappears and returns on its own is not a fault.
+- A device with working Ethernet skips Wi-Fi setup entirely.
+
+---
+
 ## Wired Ethernet
 
-The Art Computer has a Gigabit Ethernet port behind its removable side panels (see the [specification](./specification.md)). On networks where wireless policy is the sticking point, wiring the device is often the simplest fix: the egress rules above still apply, but Wi-Fi onboarding, captive portals, and wireless isolation drop out of the picture.
+The Art Computer has a Gigabit Ethernet port behind its removable side panels (see the [specification](./specification.md)). On networks where wireless policy is the sticking point — enterprise Wi-Fi, wireless isolation, MDM restrictions on the phone — wiring the device is the simplest fix: the egress rules above still apply, but Wi-Fi setup, captive portals, and wireless isolation drop out of the picture.
 
-The stock enclosure ships sealed for simplicity. If you want the port permanently accessible, we have a 3D-printable side panel design with the LAN port exposed — email [support@feralfile.com](mailto:support@feralfile.com) for the files.
+Wired interfaces are armed for **Wake-on-LAN** (magic packet) at startup, on adapters that support it.
+
+The stock enclosure ships sealed for simplicity. If you want the port permanently accessible, there is a [3D-printable side panel](./faceplates/index.md) with the LAN port exposed.
+
+---
+
+## What the device exposes on the LAN
+
+The Art Computer listens on the local network for its own controllers. None of this needs to be reachable from the internet.
+
+| Port | Protocol | Purpose |
+| :-- | :-- | :-- |
+| TCP **1111** | HTTP / WebSocket | Device API: commands (`POST /api/cast`), status (`GET /api/status`, `/api/v2/status`), screenshot, notification stream, Prometheus `/metrics`. Up whenever the device has a link, internet or not. |
+| UDP **5353** | mDNS | Service advertisement `_ff1._tcp` (multicast `224.0.0.251`), so the app and `ff-cli` can find the device. |
+| TCP **80** | HTTP | Captive portal — served only while the setup hotspot is up. |
+| TCP **9431** | HTTP | Local metrics agent (vmagent): status UI and its metrics import endpoint. |
+
+!!! note "The LAN is the trust boundary"
+    The port 1111 API is **unauthenticated** in the current release: any host that can reach the device on the local network can drive it (and any host can push metrics into the agent on port 9431). That is the deliberate, release-scoped design — LAN presence is the authorization — and the reason to put the device on a network segment where local clients are trusted. Screen-anchored LAN pairing, where the device stores authorized controller keys, is the planned end state.
 
 ---
 
 ## Controlling with the Feral File app (default)
 
-The phone never connects to the Art Computer over your LAN. Both the phone and the device open outbound WebSocket connections to the cloud relayer, which brokers commands between them.
+The app reaches the Art Computer two ways:
 
-- Initial pairing uses **Bluetooth LE** (physical proximity only, no network requirements).
-- Ongoing control is **WSS over TCP 443** to the relayer.
-- The phone and the device do **not** need to be on the same network.
-- The app does not use mDNS.
+- **Over the cloud relayer.** Both the phone and the device open outbound WebSocket connections (WSS over TCP 443) to the relayer, which brokers commands between them. The phone and the device do **not** need to be on the same network, and nothing inbound is required.
+- **Over the LAN.** When the phone and the device are on the same network, the app discovers the device with mDNS (`_ff1._tcp`) and can talk to it directly on port 1111. This is the primary path for first-time pairing (the app finds the device and offers to pair it; the QR code on screen is the backup when discovery is blocked) and for local recovery such as re-running Wi-Fi setup.
 
-If the device egress rules above are in place, the app path needs nothing further.
+If the device egress rules above are in place, the relayer path needs nothing further. If your network blocks multicast or isolates clients, pairing still works by scanning the QR code — the phone then binds the device through the cloud.
 
 ---
 
@@ -76,10 +116,12 @@ If neither reachability nor a static address is workable on the main network, a 
 
 ## Common failure modes on managed networks
 
+- **Enterprise (802.1X) Wi-Fi only.** The setup page cannot take enterprise credentials. Use Ethernet, or a PSK guest SSID with the egress rules above.
+- **Phone cannot join the setup hotspot.** MDM or a policy blocking unknown SSIDs. Use a personal phone for the one-minute setup step, or wire the device.
 - **Client / AP isolation on.** The laptop cannot reach the device at all; ff-cli times out. Turn isolation off between the two, or use a dedicated SSID.
-- **Multicast / mDNS blocked.** Discovery fails but nothing else is wrong. Register the device by IP as shown above.
+- **Multicast / mDNS blocked.** Discovery fails but nothing else is wrong. The app falls back to the QR code for pairing; register the device by IP for ff-cli as shown above.
 - **TLS inspection / MITM proxy.** Interception on the WSS path breaks the relayer's WebSocket upgrade, so app control fails even though normal browsing works. Exempt the device from inspection.
 - **Captive portal with periodic re-authentication.** The device's relayer connection drops silently when the portal expires the session. Use a network that does not re-prompt, or whitelist the device's MAC address.
 - **NTP blocked.** All TLS fails with misleading certificate errors. Allow UDP 123.
 
-Still stuck? Email **[support@feralfile.com](mailto:support@feralfile.com)** with a description of your network setup.
+Still stuck? Email **[support@feralfile.com](mailto:support@feralfile.com)** with a description of your network setup. From the app, **Send logs** uploads the device's logs — including its network flight recorder — so support can see what the device saw.

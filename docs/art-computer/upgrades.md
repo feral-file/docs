@@ -103,7 +103,7 @@ You will need a small Phillips screwdriver and a USB drive of 8 GB or larger.
 6. **Slide both end plates back into their slots**, refit the lid, and replace the four screws. The lid is what holds the plates in, so they will sit loose until it is back on.
 7. **Reinstall FF OS** from the USB installer, following Getting Started Step 3.
 
-When the install finishes, the Art Computer shuts itself down. Remove the USB drive, power-cycle, and you should land on the pairing QR code.
+When the install finishes, the Art Computer shuts itself down. Remove the USB drive, power-cycle, and you should land on the Wi-Fi setup screen.
 
 ---
 
@@ -111,7 +111,7 @@ When the install finishes, the Art Computer shuts itself down. Remove the USB dr
 
 The Art Computer does not display its own memory or storage anywhere, so there is no number to check. Judge it by behaviour.
 
-It worked if the device boots to the pairing QR code, pairs, and plays artwork.
+It worked if the device boots to the Wi-Fi setup screen, connects, pairs, and plays artwork.
 
 **One failure stays quiet, so guard against it during the install rather than after.** A memory module can sit in its slot without latching. The machine then boots and runs normally on the other module, and nothing tells you that you are using half the memory bandwidth you just paid for. Press each module down until both clips snap in audibly, and tug gently on each one before closing the case.
 
@@ -121,7 +121,7 @@ Everything else fails loudly, and the troubleshooting below covers it.
 
 ## Troubleshooting
 
-- **No QR code after the upgrade.** Confirm the TV is on the right HDMI input and the USB installer has been removed. If the screen stays dark, power down, reopen, and reseat the SSD and both memory modules.
+- **No setup screen after the upgrade.** Confirm the TV is on the right HDMI input and the USB installer has been removed. If the screen stays dark, power down, reopen, and reseat the SSD and both memory modules.
 - **No video at all after the upgrade.** Almost always a memory module that is not fully latched. Power down, remove both modules, and reseat them until the clips snap.
 - **Wi-Fi will not connect after the upgrade.** Check the antenna leads where they meet the board. Pulling on the loose end plate is the usual cause.
 - **The install never finishes.** Re-flash the USB installer with the current `release` image and try again.
