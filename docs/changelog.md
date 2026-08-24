@@ -1,5 +1,13 @@
 # Change logs
 
+## Aug 24 2026
+
+### Feral File Mobile App 1.5.8 — Smarter automatic matte color
+
+Auto matte color now picks a real color from the artwork instead of an average that matched nothing. In the Control Center matte color picker, the A swatch fills with the sampled color so you can see the suggestion before applying it. Works on black or white grounds keep their ground color, and the app now tells you when a color can't be sampled.
+
+---
+
 ## Aug 23 2026
 
 ### Feral File Mobile App 1.5.7 — Minor improvements and bug fixes
