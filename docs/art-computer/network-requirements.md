@@ -42,8 +42,9 @@ Also allow:
 The Art Computer is put on Wi-Fi from a phone, through a hotspot the device itself broadcasts — there is no Bluetooth step.
 
 - The device raises an access point named **`FF1-<device id>`** (WPA2, 8-digit numeric password). The SSID, password, and a join QR code are shown on the screen.
-- The phone joins that hotspot. The phone's captive-portal detection opens the setup page automatically; if it does not, browse to **`http://ff1.config`**. The page lists the networks the device can see, plus a manual field for hidden networks.
-- The user picks a network and enters the password. The hotspot goes down while the device joins; if the join fails it comes back so the user can retry.
+- The phone joins that hotspot. Scanning the QR code may still require an explicit **Join** or **Connect** tap; some phones open Wi-Fi settings and leave the `FF1-…` network unselected. The phone's captive-portal detection then opens the setup page automatically; if it does not, browse to **`http://ff1.config`**.
+- The setup page lists the networks the device can see, excluding its own temporary `FF1-…` setup network, and starts with no destination selected. It also provides a manual field for hidden networks.
+- The user picks the network the Art Computer should use and enters that network's password, not the numeric setup password shown on the TV. The hotspot goes down while the device joins; if the join fails it comes back so the user can retry.
 
 What this means for a managed network:
 
