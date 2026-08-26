@@ -1,5 +1,13 @@
 # Change logs
 
+## Aug 26 2026
+
+### Feral File Mobile App 1.6.0 — Add to a playlist in one pass
+
+Adding a work to a playlist is now one pass. Tapping Add opens the playlist sheet directly, where each playlist shows its name over a strip of the works already in it. Mark as many as you want and press Done — nothing is saved until then. When Favorites is your only playlist it is already selected, so Add and Done is all it takes.
+
+---
+
 ## Aug 24 2026
 
 ### Feral File Mobile App 1.5.8 — Smarter automatic matte color
