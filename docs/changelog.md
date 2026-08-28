@@ -1,5 +1,13 @@
 # Change logs
 
+## Aug 28 2026
+
+### Feral File Mobile App 1.6.1 — Hide unwanted works from My Collection
+
+Hide unwanted or spam artworks from an address-based My Collection playlist. Hidden works stay out of collection playback, downloads, and Art Computer casting, remain hidden through sync and restart, and can be restored from the playlist's Hidden works menu.
+
+---
+
 ## Aug 26 2026
 
 ### Feral File Mobile App 1.6.0 — Minor improvements and bug fixes
