@@ -1,5 +1,13 @@
 # Change logs
 
+## Aug 29 2026
+
+### Feral File Mobile App 1.6.2 — Minor improvements and bug fixes
+
+**This release includes minor improvements and bug fixes.** It restores internal groundwork for a paused Art Computer capability; nothing changes in the app today.
+
+---
+
 ## Aug 28 2026
 
 ### Feral File Mobile App 1.6.1 — Hide unwanted works from My Collection
