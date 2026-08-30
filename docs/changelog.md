@@ -1,6 +1,36 @@
 # Change logs
 
+## Aug 29 2026
+
+### Feral File Mobile App 1.6.2 — Minor improvements and bug fixes
+
+**This release includes minor improvements and bug fixes.** It restores internal groundwork for a paused Art Computer capability; nothing changes in the app today.
+
+---
+
+## Aug 28 2026
+
+### Feral File Mobile App 1.6.1 — Hide unwanted works from My Collection
+
+Hide unwanted or spam artworks from an address-based My Collection playlist. Hidden works stay out of collection playback, downloads, and Art Computer casting, remain hidden through sync and restart, and can be restored from the playlist's Hidden works menu.
+
+---
+
+## Aug 26 2026
+
+### Feral File Mobile App 1.6.0 — Minor improvements and bug fixes
+
+This release includes minor improvements and bug fixes.
+
+---
+
 ## Aug 24 2026
+
+### Feral File Mobile App 1.5.9 — Add to a playlist in one pass
+
+Adding a work to a playlist is now one pass. Tapping Add opens the playlist sheet directly, where each playlist shows its name over a strip of the works already in it. Mark as many as you want and press Done — nothing is saved until then. When Favorites is your only playlist it is already selected, so Add and Done is all it takes.
+
+---
 
 ### Feral File Mobile App 1.5.8 — Smarter automatic matte color
 
