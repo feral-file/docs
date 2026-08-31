@@ -38,8 +38,8 @@ The Art Computer has no keyboard, so you give it your Wi-Fi password from your p
 
 1. On the TV you will see a network name like **`FF1-XXXXXXXX`**, a numeric password, and a QR code.
 2. Scan the QR code with your phone's camera, then tap **Join** or **Connect** when your phone asks. Scanning proposes the connection; it may not join automatically.
-3. If your phone opens Wi-Fi settings without joining, tap the **`FF1-XXXXXXXX` setup network**. You can also join it by hand with the numeric password on the TV. (Your phone has no internet while it is on this network; that is expected.)
-4. A setup page opens automatically. If it does not, open your browser and go to **`http://ff1.config`**.
+3. If your phone opens Wi-Fi settings without joining, tap the **`FF1-XXXXXXXX` setup network**. You can also join it by hand with the numeric password on the TV. If your phone warns that this network has no internet, choose to stay connected; the warning is expected. On Android, the choice may be labeled **Stay connected** or **Use this network without internet**.
+4. A setup page opens automatically. If it does not, stay connected to the `FF1-…` network, open your browser, and enter the numeric setup-page address shown on the TV. If the address still does not open, temporarily turn off mobile data and any VPN, then try it again.
 5. **Pick the Wi-Fi network your Art Computer should use** and enter that network's password. The numeric password on the TV is only for the temporary `FF1-…` setup network. Hidden network? Type its name in the manual field.
 6. Watch the TV. The setup hotspot switches off while the Art Computer joins your network. If the password was wrong, the hotspot comes back — join it again and retry.
 
@@ -111,7 +111,7 @@ After booting, you should see the **Wi-Fi setup screen** again. Go back to **Ste
   Confirm the TV is on the correct HDMI input. Try a different HDMI cable/port. Power-cycle the Art Computer.
 
 - **My phone can’t see the `FF1-…` network, or the setup page doesn’t open.**  
-  Stay close to the Art Computer. After scanning, tap **Join** or **Connect** if your phone asks; if it opens Wi-Fi settings, tap the `FF1-…` setup network. Once joined, open a browser and go to `http://ff1.config` if the page does not pop up. Some work phones are managed so they cannot join unknown networks — use another phone, or an Ethernet cable.
+  Stay close to the Art Computer. After scanning, tap **Join** or **Connect** if your phone asks; if it opens Wi-Fi settings, tap the `FF1-…` setup network. If your phone warns that the network has no internet, choose to stay connected. On Android, the choice may be labeled **Stay connected** or **Use this network without internet**. If the page still does not open, enter the numeric setup-page address shown on the TV. If your phone still cannot reach it, temporarily turn off mobile data and any VPN, then try the address again. Some work phones are managed so they cannot join unknown networks — use another phone, or an Ethernet cable.
 
 - **The Art Computer says it couldn’t join my Wi-Fi.**  
   Join the `FF1-…` network again and re-enter the password. Enterprise Wi-Fi that asks for a username (offices, campuses) cannot be entered here — use Ethernet, or see [Network Requirements](./network-requirements.md).
