@@ -36,7 +36,7 @@ flowchart TD
 Key points:
 
 - **The LAN API and mDNS come up first**, before the cloud relayer or the Chromium connection. A relayer outage can never block setup, and the device stays controllable on the local network even with no internet.
-- **Wi-Fi setup is a hotspot plus a captive portal.** A device with no saved Wi-Fi and no cable raises its own hotspot `FF1-<device id>` (WPA2, 8-digit numeric password shown on screen with a QR code). The phone joins it, the OS pops the captive portal (or the user opens `http://ff1.config`), and the user picks a network. The hotspot goes down while the device joins, and comes back up if the join fails so the user can retry.
+- **Wi-Fi setup is a hotspot plus a captive portal.** A device with no saved Wi-Fi and no cable raises its own hotspot `FF1-<device id>` (WPA2, 8-digit numeric password shown on screen with a QR code). The phone joins it, the OS pops the captive portal (or the user opens the direct numeric address shown on the TV), and the user picks a network. The hotspot goes down while the device joins, and comes back up if the join fails so the user can retry.
 - **Ethernet skips Wi-Fi setup.** A device with a cable and internet goes straight to the pairing screen.
 - **Pairing is gated on version.** An unclaimed device must be at or above the branch's minimum version before the pairing screen appears — see [OTA](./ota.md).
 - **The pairing screen offers two paths.** The primary path is the app discovering the device over the local network (mDNS `_ff1._tcp`); the QR code (`https://link.feralfile.com/device_connect/...`) is the backup for when discovery is blocked. Either way the phone binds the device to the account through the cloud.
