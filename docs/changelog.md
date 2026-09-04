@@ -1,5 +1,13 @@
 # Change logs
 
+## Sep 4 2026
+
+### Feral File Mobile App 1.7.0 — A faster catalog, and a name for each Art Computer
+
+**The catalog now arrives as it loads instead of downloading in one large block.** A new install reaches home right away and fills in as channels stream in, an interrupted update resumes where it stopped, and a playlist's works are fetched the first time you open it and kept for offline viewing. You can also give each Art Computer its own name, so two frames in one home are told apart by label instead of serial number.
+
+---
+
 ## Aug 29 2026
 
 ### Feral File Mobile App 1.6.2 — Minor improvements and bug fixes
