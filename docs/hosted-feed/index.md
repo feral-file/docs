@@ -32,7 +32,9 @@ Writes are authenticated by the cryptographic signatures in the request body. Th
 - **Create (`POST`)** is open to anyone. The body must carry a non-empty, verifiable `signatures[]` array, and at least one signature must come from the document's owner acting in the owner role — `curator` for playlists and playlist-groups, `publisher` for channels. The `curators[]` / `publisher` fields are optional; a document that declares neither must carry exactly one owner-role signature, and that key becomes the owner.
 
     Prefer a browser to a terminal? [DP-1 Publisher](https://publisher.feralfile.com) handles this flow for you: sign a playlist with your wallet and publish it to the hosted feed. It is an early release — feedback to [support@feralfile.com](mailto:support@feralfile.com) is welcome.
+
 - **Update (`PUT`)** replaces the whole document. The body pairs the full re-signed document with a signed `authorization` intent that binds the change to this resource and expires, so a previously published document cannot be replayed to roll a resource back. There is no `PATCH`.
+
 - **Delete (`DELETE`)** takes a signed delete-intent from an owner. Deleted IDs are tombstoned and cannot be recreated under the same ID.
 
 Only an owner can update or delete a resource: a key the stored document names in `curators[]` / `publisher`, or — when it declares neither — its single owner-role signer.
