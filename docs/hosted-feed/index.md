@@ -25,16 +25,17 @@ If you need full control, use [run your own using `dp1-feed-v2`](https://github.
 
 ## Authentication
 
-Reads (retrieve a playlist by ID or slug) require no authentication.
+Reads (retrieve a playlist, playlist-group, or channel by ID or slug) require no authentication.
 
-Writes authenticate one of two ways, per the [feed OpenAPI spec](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml):
+Writes are authenticated by the cryptographic signatures in the request body. There is no API key: the feed removed it, and neither sends nor accepts an `Authorization` header. The server verifies the signatures before persisting anything, per the [feed OpenAPI spec](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml).
 
-- **Signed playlist (the public path).** A request whose body carries a non-empty, verifiable `signatures[]` array is accepted on its signatures alone — no API key needed. The server verifies the signatures before persisting anything.
+- **Create (`POST`)** is open to anyone. The body must carry a non-empty, verifiable `signatures[]` array, and at least one signature must come from the document's owner acting in the owner role — `curator` for playlists and playlist-groups, `publisher` for channels. The `curators[]` / `publisher` fields are optional; a document that declares neither must carry exactly one owner-role signature, and that key becomes the owner.
 
     Prefer a browser to a terminal? [DP-1 Publisher](https://publisher.feralfile.com) handles this flow for you: sign a playlist with your wallet and publish it to the hosted feed. It is an early release — feedback to [support@feralfile.com](mailto:support@feralfile.com) is welcome.
-- **API key** (`Authorization: Bearer <key>`). On the hosted feed this key is preconfigured server infrastructure; Feral File does not issue API keys. Use the signed-playlist path instead, or run your own feed where you configure your own key.
+- **Update (`PUT`)** replaces the whole document. The body pairs the full re-signed document with a signed `authorization` intent that binds the change to this resource and expires, so a previously published document cannot be replayed to roll a resource back. There is no `PATCH`.
+- **Delete (`DELETE`)** takes a signed delete-intent from an owner. Deleted IDs are tombstoned and cannot be recreated under the same ID.
 
-DELETE and registry operations always require the API key, so they are not publicly available on the hosted feed.
+Only an owner can update or delete a resource: a key the stored document names in `curators[]` / `publisher`, or — when it declares neither — its single owner-role signer.
 
 ## Minimal hosted flow
 
