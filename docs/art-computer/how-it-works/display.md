@@ -104,7 +104,7 @@ Generated playlists are stored in the DP-1 Feed Server system:
 - **Schema Validation** - Strict adherence to DP-1 specification ensures compatibility
 
 #### Access Control
-- **API Authentication** - Bearer token authentication for write operations
+- **Signature-Authorized Writes** - A write carries no API key and no `Authorization` header. The feed verifies the signatures in the request body, and only an owner key can replace or delete a stored document (see [Hosted Feed](../../hosted-feed/index.md))
 - **Content Addressing** - Immutable playlist URLs enable reliable sharing and caching
 - **Licensing Enforcement** - Token-gated and subscription-based access controls
 

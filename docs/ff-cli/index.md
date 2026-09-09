@@ -80,11 +80,16 @@ ff-cli config validate
 - Sign a playlist: `ff-cli sign <file>`
 - Play a playlist file, playlist URL, or media URL on the Art Computer: `ff-cli play <source>`
 - Publish to feed server: `ff-cli publish <file>`
+- Replace the playlist already stored under this document id, instead of creating a new one: `ff-cli publish <file> --replace`
+- Save a published playlist from a feed server (the starting point for `--replace`): `ff-cli fetch <id-or-url>`
+- Delete a playlist from a feed server (signed delete; owner key required): `ff-cli unpublish <id-or-url>`
 - Manage SSH access on the Art Computer: `ff-cli ssh <enable|disable>`
 - List configured devices: `ff-cli device list`
 - Add a device (with mDNS discovery): `ff-cli device add`
 - Remove a device: `ff-cli device remove <name>`
 - Configure and inspect setup: `ff-cli config <init|show|validate>`
+
+Every command that takes a signing key with `-k, --key <privateKey>` also takes `--key-file <path>`, which reads the same key material from a file instead of the command line. Pass one or the other, not both.
 
 ## Copy-paste examples
 
