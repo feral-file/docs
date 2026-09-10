@@ -1,5 +1,13 @@
 # Change logs
 
+## Sep 10 2026
+
+### Feral File Mobile App 1.7.1 — Share a work, and find what you own
+
+**You can now hand a work to someone.** Share from a work's page sends a link; the person who opens it sees the work in their app and can play it on their Art Computer. A subscribed playlist shares the same way. Search now also finds the works you hold through your added addresses, alongside the catalog, so a title or artist name reaches your own collection. Home is now three doors: Daily, Channels, and You, and a channel's newest playlist can be previewed and played from its page.
+
+---
+
 ## Sep 4 2026
 
 ### Feral File Mobile App 1.7.0 — A faster catalog, and a name for each Art Computer
