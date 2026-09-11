@@ -4,8 +4,7 @@
 
 ### Feral File Mobile App 1.8.2 — Fuller channel cards, and artist pages that open from everywhere
 
-**Channel cards now show more of what a channel holds.** A card previews up to ten rows of works, reaching back through earlier playlists when the newest drop is small, so a channel with a deep back catalogue no longer looks like a single-work channel. While the catalog is loading — on first install or after Rebuild Metadata — the Channels tab now says how far along it is, and offers a retry when some channels could not be loaded. Artist pages open reliably from Search, from a work's Metadata, and from credits without an on-chain identity, and they list the works you hold by that artist alongside the catalog's. A work's page always renders the work live, even while it is playing on your Art Computer, and thumbnails are sharper and consistent with the catalog.
-
+**Channel cards now show more of what a channel holds,** reaching back through earlier playlists to fill the preview, and the Channels tab reports catalog loading progress with a retry when some channels fail. Artist pages open reliably from Search and a work’s Metadata, and list the works you hold by that artist. A work’s page renders live even while it plays on your Art Computer, and thumbnails are sharper and match the catalog.
 ---
 
 ## Sep 10 2026
