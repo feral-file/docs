@@ -2,9 +2,15 @@
 
 ## Sep 10 2026
 
-### Feral File Mobile App 1.7.2 — Controls follow the screen
+### Feral File Mobile App 1.8.2 — Controls follow the screen
 
 Control Center now reflects the Art Computer's current Fit/Fill, matte size, and matte color when you reopen it or change works. Changes made from another phone appear in the controls too. Update the Art Computer to FFOS 2.0.6 to receive its current composition.
+
+---
+
+### Feral File Mobile App 1.8.1 — History and viewing controls
+
+History in You lets you return to works played on compatible Art Computers. New viewing preferences control mature-labelled previews and playback from your phone, with separate device settings where supported. Search and subscribed channels update more reliably, artist results show portraits, and IPFS artworks open directly. Paired websites can stay connected until you revoke them.
 
 ---
 
