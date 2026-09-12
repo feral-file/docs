@@ -1,12 +1,19 @@
 # Change logs
 
-## Sep 10 2026
+## Sep 11 2026
 
-### Feral File Mobile App 1.8.2 — Controls follow the screen
+### Feral File Mobile App 1.8.4 — Controls follow the screen
 
 Control Center now reflects the Art Computer's current Fit/Fill, matte size, and matte color when you reopen it or change works. Changes made from another phone appear in the controls too. Update the Art Computer to FFOS 2.0.6 to receive its current composition.
 
 ---
+
+### Feral File Mobile App 1.8.2 — Fuller channel cards, and artist pages that open from everywhere
+
+**Channel cards now show more of what a channel holds,** reaching back through earlier playlists to fill the preview, and the Channels tab reports catalog loading progress with a retry when some channels fail. Artist pages open reliably from Search and a work’s Metadata, and list the works you hold by that artist. A work’s page renders live even while it plays on your Art Computer, and thumbnails are sharper and match the catalog.
+---
+
+## Sep 10 2026
 
 ### Feral File Mobile App 1.8.1 — History and viewing controls
 
