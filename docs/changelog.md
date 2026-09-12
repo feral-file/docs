@@ -2,6 +2,12 @@
 
 ## Sep 11 2026
 
+### Feral File Mobile App 1.8.3 — More room for the work
+
+Artwork grids adapt to foldable and wider screens, with readable credits and artwork beside its information on Daily and work pages. Folding preserves your place and live preview. You is now Mine. Support asks one question and attaches diagnostics automatically, with stronger redaction of private links.
+
+---
+
 ### Feral File Mobile App 1.8.2 — Fuller channel cards, and artist pages that open from everywhere
 
 **Channel cards now show more of what a channel holds,** reaching back through earlier playlists to fill the preview, and the Channels tab reports catalog loading progress with a retry when some channels fail. Artist pages open reliably from Search and a work’s Metadata, and list the works you hold by that artist. A work’s page renders live even while it plays on your Art Computer, and thumbnails are sharper and match the catalog.
