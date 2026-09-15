@@ -2,6 +2,12 @@
 
 ## Sep 15 2026
 
+### Feral File Mobile App 1.8.5 — Start where you tapped
+
+Play a playlist from the work you tapped, in Favorites and your own playlists, instead of from the top. Playlists you subscribe to still start where their publisher put them; that fix is next.
+
+---
+
 ### Feral File Mobile App 1.8.4 — Back to the work
 
 Tap the Now Playing header to open the work on your wall, with its description and favorites. Daily says when the next work arrives, the search field says what it searches, and the Token link opens the work's own page. .tez domains resolve, Forgot I Exist resets cleanly, sliders are easier to grab, and personal works carry no Channel label.
