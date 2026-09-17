@@ -2,6 +2,12 @@
 
 ## Sep 17 2026
 
+### Feral File Mobile App 1.8.6 — Share what you made
+
+A playlist you put together is now something you can send. Publish it and share the link, and your friend opens it in their app. Change it and the link updates; unpublish it and the link stops. Favorites stays out of the way until you have one.
+
+---
+
 ### Feral File Mobile App 1.8.5 — Start where you tapped
 
 Play a playlist from the work you tapped, and swipe left or right to move between works without backing out. Playlists cast to your wall arrive exactly as their publisher signed them, with a setting to verify signatures. A work keeps playing through a phone lock, a dead page reloads with a tap, and thumbnails wait until they resolve. Artist pages say Works and Collects, and related works read More from the channel.
