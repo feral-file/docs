@@ -1,12 +1,14 @@
 # Change logs
 
-## Sep 15 2026
+## Sep 17 2026
 
 ### Feral File Mobile App 1.8.5 — Start where you tapped
 
-Play a playlist from the work you tapped, in Favorites and your own playlists, instead of from the top. Playlists you subscribe to still start where their publisher put them; that fix is next.
+Play a playlist from the work you tapped, and swipe left or right to move between works without backing out. Playlists cast to your wall arrive exactly as their publisher signed them, with a setting to verify signatures. A work keeps playing through a phone lock, a dead page reloads with a tap, and thumbnails wait until they resolve. Artist pages say Works and Collects, and related works read More from the channel.
 
 ---
+
+## Sep 15 2026
 
 ### Feral File Mobile App 1.8.4 — Back to the work
 
