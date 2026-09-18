@@ -4,7 +4,7 @@
 
 ### Feral File Mobile App 1.8.6 — Share what you made
 
-A playlist you put together is now something you can send. Publish it and share the link, and your friend opens it in their app. Change it and the link updates; unpublish it and the link stops. Favorites stays out of the way until you have one.
+A playlist you put together is now something you can send. Publish it and share the link, and your friend opens it in their app. Change it and the link updates; unpublish it and the link stops. A series now plays from the Now Playing bar: first work, random, or the whole run. Favorites stays out of the way until you have one.
 
 ---
 
