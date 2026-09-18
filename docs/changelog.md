@@ -1,5 +1,13 @@
 # Change logs
 
+## Sep 18 2026
+
+### Feral File Mobile App 1.8.7 — Labels that find the work
+
+A label chip on a work now opens every work that carries it, in catalog order, instead of a handful of scattered search results. Publish a personal playlist and the share sheet opens right away, ready to send. A pinch that starts as a swipe now zooms the artwork instead of flicking to the next one. Work Detail names the playlist a work belongs to, and its Labels row folds to three chips with the rest one tap away. Mine now shows your Art Computer's Downloads beside History, and empty sections stay out of the way.
+
+---
+
 ## Sep 17 2026
 
 ### Feral File Mobile App 1.8.6 — Share what you made
