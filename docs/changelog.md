@@ -4,7 +4,7 @@
 
 ### Feral File Mobile App 1.8.7 — Labels that find the work
 
-A label chip on a work now opens every work that carries it, in catalog order, instead of a handful of scattered search results. Publish a personal playlist and the share sheet opens right away, ready to send. A pinch that starts as a swipe now zooms the artwork instead of flicking to the next one. Work Detail names the playlist a work belongs to, and its Labels row folds to three chips with the rest one tap away. Mine now shows your Art Computer's Downloads beside History, and empty sections stay out of the way.
+A label chip on a work now opens every work with that label, in catalog order — not scattered search results. Publish a playlist and the share sheet opens right away. A pinch that starts as a swipe now zooms the artwork instead of flicking to the next work. Work Detail names the playlist a work belongs to; Labels folds to three chips with the rest a tap away. Mine now shows your Art Computer's Downloads beside History, with empty sections hidden.
 
 ---
 
