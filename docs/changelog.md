@@ -2,6 +2,12 @@
 
 ## Sep 18 2026
 
+### Feral File Mobile App 1.8.8 — Settings that answer questions
+
+Your Art Computer's settings now read top to bottom as questions about the machine: how it shows a work, what it shows, when it is on, who can play to it, and the machine itself. Content uses the page's own Hide/Show choices, with the personal choice inside hiding. An artist page draws the editions of one release as a single series tile that opens the release. A playlist you published is recognized as yours when its own link is opened.
+
+---
+
 ### Feral File Mobile App 1.8.7 — Labels that find the work
 
 A label chip on a work now opens every work with that label, in catalog order — not scattered search results. Publish a playlist and the share sheet opens right away. A pinch that starts as a swipe now zooms the artwork instead of flicking to the next work. Work Detail names the playlist a work belongs to; Labels folds to three chips with the rest a tap away. Mine now shows your Art Computer's Downloads beside History, with empty sections hidden.
