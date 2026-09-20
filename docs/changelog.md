@@ -1,5 +1,13 @@
 # Change logs
 
+## Sep 20 2026
+
+### Feral File Mobile App 1.8.9 — Next and Previous, restored
+
+Next and Previous work again, and tapping a work in the playing list jumps straight to it — both had stopped responding on some Art Computers. Detail pages ease their header aside as you scroll and bring it back on the way up. A playlist plays from its preview before you save it. Downloads moved into the options menu, empty About sections stay hidden, and Matting only shows while Fill is selected.
+
+---
+
 ## Sep 18 2026
 
 ### Feral File Mobile App 1.8.8 — Settings that answer questions
