@@ -1,5 +1,13 @@
 # Change logs
 
+## Sep 21 2026
+
+### Feral File Mobile App 1.8.10 — Channels fit your screen
+
+Channels use two columns on unfolded phones and wider screens, with titles and descriptions below each cover. Folding and loading previews keep your place, and channels without images stay compact. Label pages show when more works are still loading. This update also fixes a database upgrade issue.
+
+---
+
 ## Sep 20 2026
 
 ### Feral File Mobile App 1.8.9 — Next and Previous, restored
