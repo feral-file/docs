@@ -1,5 +1,13 @@
 # Change logs
 
+## Sep 22 2026
+
+### Feral File Mobile App 1.8.11 — Publisher, back on the Channels tab
+
+Channels now group by publisher, with a Publisher page listing its channels and its own link. Leaving a channel's works carousel and coming back no longer resets it. Search collapses artist rows that share a wallet address, and Artist pages show that address when known. Device settings show selected Content options at full brightness, with a smoother Mine reveal. Labels stay honest when the catalog can't answer, and Mine's empty message shows only when the tab truly is empty.
+
+---
+
 ## Sep 21 2026
 
 ### Feral File Mobile App 1.8.10 — Channels fit your screen
