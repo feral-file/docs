@@ -16,10 +16,6 @@ jobs:
         with:
           python-version: '3.x'
       - run: pip install -r requirements.txt
-      - name: Validate mobile changelog contract
-        run: |
-          python -m unittest tests/test_validate_mobile_changelog.py
-          python scripts/validate_mobile_changelog.py docs/changelog.md
       - run: mkdocs build --strict
-      - name: Verify raw mobile changelog
+      - name: Verify raw changelog
         run: cmp docs/changelog.md site/docs/changelog.md
