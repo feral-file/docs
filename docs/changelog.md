@@ -1,4 +1,20 @@
-# Change logs
+# Product updates
+
+Weekly notes on changes available in Feral File. Each entry lists the versions it covers.
+
+## Week of Sep 21 2026
+
+### Finding your way through Channels
+
+Channels now group by publisher. Open a publisher's page to browse its channels, or share its link.
+
+- On unfolded phones and wider screens, channels use two columns with titles and descriptions below their covers. Folding the phone, loading previews, and returning from a work keep your place.
+- Search combines artist results that share a wallet address. Artist pages show that address when it is known.
+- Label pages show when more works are loading and when the catalog cannot answer, instead of presenting an incomplete answer as finished.
+
+Covers mobile app 1.8.10–1.8.11. These changes are available in 1.8.11 on iOS and Android.
+
+---
 
 ## Sep 22 2026
 

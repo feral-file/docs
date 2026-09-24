@@ -4,14 +4,13 @@ Authoritative documentation for Feral File’s open technology stack.
 
 * Live site: **https://docs.feralfile.com**
 * Private companion repo: `feral-file/docs-private`
-* Device‑specific docs (FF1): see submodule `docs/devices/ff1`.
+* Art Computer docs: `docs/art-computer/`.
 
 ## Quick start
 
 ```bash
 git clone https://github.com/feral-file/docs.git
 cd docs
-git submodule update --init   # pulls in ff1-docs
 python -m venv .venv 
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -19,37 +18,34 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-## Mobile app changelog contract
+## Weekly product updates
 
-`docs/changelog.md` is the one authored source for the in-app screen, GitHub
-releases, Google Play, and TestFlight. Prepend each mobile release in this
-shape:
+`docs/changelog.md` is the public, authored weekly summary. Write one entry
+for a week with meaningful changes, grouped by what people can now do. Lead
+with the news, then use three to five changes when there is enough to say.
+Skip quiet weeks; an urgent action can be announced immediately.
 
-```markdown
-## Aug 22 2026
+Use `## Week of Sep 21 2026` (the Monday starting that week), newest first.
+End the entry with the versions it covers and any iOS/Android availability
+differences. Check the public stores or promotion record: a merged PR,
+GitHub release, TestFlight build, or internal Play upload is not evidence of
+public availability. Correct a factual mistake in place.
 
-### Feral File Mobile App 1.5.5 — Short title
+The first trial groups mobile versions 1.8.10–1.8.11. Earlier per-release
+entries remain as history, including the records used to ground that trial.
+Judge it by whether a reader can understand what changed and which version
+they need in under a minute.
 
-Release-note body, no more than 500 characters.
-
----
-```
-
-The full date heading is required, with exactly one space after `##`: the app
-groups entries by that section, and the store publisher accepts the same
-month/day/year shape. Historical yearless headings before version 1.5.5 are
-explicitly grandfathered. Use the mobile H3 exactly as shown; spacing or case
-near-misses are rejected before deploy. Versions must be unique and ordered
-newest to oldest. Keep the body non-empty and do not put another `##`, `###`,
-or `---` inside it because those markers end the store-note excerpt. The
-500-character limit includes Markdown whitespace.
-Once a version is published, treat its entry as an immutable release record; a
-code or notes correction gets a new patch version.
+GitHub keeps automatically generated per-version details. The mobile store
+workflows generate a short link to this page; they do not parse this Markdown.
+There is no 500-character limit on the weekly entry and no second set of
+release copy to author. The mobile workflow change is in `feral-file/ff-app`;
+its Release Notes browser handoff is PR #967. The raw `/docs/changelog.md`
+endpoint remains available to already-installed versions with the old reader.
 
 Validate before opening a PR:
 
 ```bash
-python -m unittest tests/test_validate_mobile_changelog.py
-python scripts/validate_mobile_changelog.py docs/changelog.md
 mkdocs build --strict
+cmp docs/changelog.md site/docs/changelog.md
 ```

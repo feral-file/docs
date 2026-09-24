@@ -67,8 +67,8 @@ nav:
   - Contact: https://feralfile.com/legal/contact
 
 # Pages built and served but intentionally absent from the nav.
-# changelog.md is also copied verbatim to /docs/changelog.md for the mobile app
-# and release workflows. mkdocs_hooks.py owns that generated endpoint.
+# changelog.md is also copied verbatim to /docs/changelog.md for installed
+# app readers. mkdocs_hooks.py owns that generated endpoint.
 not_in_nav: |
   changelog.md
 
