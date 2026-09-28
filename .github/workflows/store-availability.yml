@@ -1,0 +1,27 @@
+name: store-availability
+
+# Merges a weekly changelog PR labelled `awaiting-stores` once the App Store
+# and Google Play both serve the version its closing line names. See
+# .github/scripts/store_availability.py and README "Weekly product updates".
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: store-availability
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 .github/scripts/store_availability.py
+        env:
+          GH_TOKEN: ${{ github.token }}
