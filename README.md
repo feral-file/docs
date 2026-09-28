@@ -31,6 +31,15 @@ differences. Check the public stores or promotion record: a merged PR,
 GitHub release, TestFlight build, or internal Play upload is not evidence of
 public availability. Correct a factual mistake in place.
 
+Write the entry when you promote the build, then label the PR
+`awaiting-stores` and leave it. The `store-availability` workflow runs
+hourly: it reads the version from the closing line ("available in X.Y.Z on
+iOS and Android"), checks the App Store lookup API and the Play store page,
+and merges the PR once both serve that version. If one store has served it
+for 48 hours and the other has not, the workflow comments once; rewrite the
+closing line as an availability difference and merge by hand. Run it locally
+with `python3 .github/scripts/store_availability.py --dry-run`.
+
 The first trial groups mobile versions 1.8.10–1.8.11. Earlier per-release
 entries remain as history, including the records used to ground that trial.
 Judge it by whether a reader can understand what changed and which version
