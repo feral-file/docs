@@ -78,6 +78,12 @@ Tap the Now Playing header to open the work on your wall, with its description a
 
 ## Sep 11 2026
 
+### Feral File Mobile App 1.8.4 — Controls follow the screen
+
+Control Center now reflects the Art Computer's current Fit/Fill, matte size, and matte color when you reopen it or change works. Changes made from another phone appear in the controls too. Update the Art Computer to FFOS 2.0.6 to receive its current composition.
+
+---
+
 ### Feral File Mobile App 1.8.3 — More room for the work
 
 Artwork grids adapt to foldable and wider screens, with readable credits and artwork beside its information on Daily and work pages. Folding preserves your place and live preview. You is now Mine. Support asks one question and attaches diagnostics automatically, with stronger redaction of private links.
