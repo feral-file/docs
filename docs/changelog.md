@@ -2,6 +2,21 @@
 
 Weekly notes on changes available in Feral File. Each entry lists the versions it covers.
 
+## Week of Sep 28 2026
+
+### Fit or Fill, saved on your Art Computer
+
+Each Art Computer now keeps its own display settings. Open Settings, pick a computer by name, and choose how it frames a work: Follow artwork, Fit, or Fill. The choice stays on that device. Mature content is one Hide or Show choice per Art Computer too, and previews and playback follow it. Settings pages are grouped into Display, Content, Power, Connections, and About, and they follow your phone's light or dark appearance.
+
+- Search groups results by kind. Chips narrow them to artists, curators, exhibitions, channels, playlists, or works, and results curated onto the catalog carry a Curated badge.
+- Generative works open in Work Detail on iOS; they used to open black. Leaving a web artwork now stops its sound.
+- Control Center responds when you tap a row, hides Volume for works that cannot make sound, and plays a single work from a wallet on its own rather than starting the whole wallet.
+- Icons that rendered black are visible again, and large text wraps instead of clipping.
+
+Covers mobile app 1.8.12–1.8.18. These changes are available in 1.8.18 on iOS and Android.
+
+---
+
 ## Week of Sep 21 2026
 
 ### Finding your way through Channels
