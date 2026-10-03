@@ -19,17 +19,18 @@ gallery app, an agent.
 
 1. They press **Play on Art Computer** on your site.
 2. First time only, a pairing dialog opens:
-   - **On a phone or tablet** it shows **Open the Feral File app**. They tap
-     it, the app opens with the request, and they tap **Accept**.
-   - **On a desktop or laptop** it shows a QR code. They scan it with the
-     phone camera or the Feral File app, and tap **Accept** in the app.
+    - **On a phone or tablet** it shows **Open the Feral File app**. They tap
+      it, the app opens with the request, and they approve it.
+    - **On a desktop or laptop** it shows a QR code. They scan it with the
+      phone camera or the Feral File app, and approve in the app.
 
-   A six-digit code sits under the button or QR on both. A visitor can type it
-   into the app instead: **Pair a site** in their Art Computer's settings. A
-   code lasts five minutes; when it runs out the dialog shows a fresh one, up
-   to twice.
+    A six-digit code sits under the button or QR on both. A visitor can type it
+    into the app instead: **Pair a site** in their Art Computer's settings. A
+    code lasts five minutes; when it runs out the dialog shows a fresh one, up
+    to twice.
+
 3. The playlist plays. Later plays from your site skip pairing — the session
-   is remembered per site origin until it expires or is removed.
+    is remembered per site origin until it expires or is removed.
 
 Your site shows the request and the app, which holds the authority, accepts
 it. The visitor never opens a settings page on the Art Computer or carries a
