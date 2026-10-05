@@ -2,6 +2,104 @@
 
 Weekly notes on changes available in Feral File. Each entry lists the versions it covers.
 
+## Oct 5 2026
+
+### Feral File Mobile App 1.8.25 — Artist pages show a Raster artist's works
+
+An artist opened from a Raster search result now shows that artist's works on the Work tab, and what the artist collects in the Collected-by section, not only the About profile.
+
+---
+
+## Oct 3 2026
+
+### Feral File Mobile App 1.8.24 — Add to a playlist from Now Playing
+
+Now Playing can add the playing work to a playlist, and the add control stays in place for works that can be added. Mine lists Collection first, with History and Downloads last. Search has a clear (X) button. A playlist still indexing reads as indexing, not empty, until the indexer answers. The Play approval sheet is one line: "Let <site> play on <Art Computer>?"
+
+---
+
+## Oct 2 2026
+
+### Feral File Mobile App 1.8.23 — Expanded previews on every channel card
+
+Artwork previews expand on every channel card.
+
+---
+
+### Feral File Mobile App 1.8.22 — Search finds Raster works, artists, and curators
+
+Search now finds Raster tokens and artists, and a wallet, ENS, or TNS address resolves to its Artist, Publisher, or Curator. Personal playlists are found by name. Release pages have an About tab with the vendor, edition count, and credited artists. Curator pages list a curator's playlists, and channels link to their Publisher and Curator. Artist pages show the artist's biography, links, and avatar. External links that used to leave the app with no way back now return you to it.
+
+---
+
+## Sep 30 2026
+
+### Feral File Mobile App 1.8.20 — Publisher search, and steadier series
+
+Search adds a Publisher lane and credits playlist and channel results with their real publisher or curator. Browsing cards hide passive download badges. Series keep their identity and preview strips, and a series you started from its page keeps playing through the playbar. The app waits for the database to open, with a timeout, before it starts recovery.
+
+---
+
+## Sep 28 2026
+
+### Feral File Mobile App 1.8.19 — Publish with a keyring, and clearer sharing
+
+Publishing explains itself before it runs, and Unpublish is now Stop sharing. Publishing keys are kept in a keyring, and each key signs its own publish. Channels show the selected objkt and NODE cover images. ENS and TNS names are no longer mangled while you type them. The mature-content label says it comes from the publisher, not from the device.
+
+---
+
+## Sep 27 2026
+
+### Feral File Mobile App 1.8.18 — Play starts from the right place
+
+Playing a work inside a wallet plays that work, not the wallet from the top. Coach marks and tooltips follow the target Play will use, and the series title keeps room beside the Play pill.
+
+---
+
+## Sep 26 2026
+
+### Feral File Mobile App 1.8.17 — Pair a website with your Art Computer
+
+A site can ask to play on your Art Computer. Pair it from a link, a scan, or a typed code. Each approval is matched to the request it answers, and a refused or unverifiable request ends with a clear message. Recognised app links open the pairing directly.
+
+---
+
+## Sep 25 2026
+
+### Feral File Mobile App 1.8.16 — Volume and orientation that match the work
+
+The Volume row appears only for works that can produce audio, and it stays visible while a work is still being classified. The Display Orientation preview rotates with the frame. ENS and TNS names are repaired when a stray space is typed after the dot, and links and coordinates are left as typed.
+
+---
+
+### Feral File Mobile App 1.8.15 — Search groups results, and Mine keeps its shelves
+
+Search results are grouped by entity, and filter chips narrow them. Art catalog results carry a Curated badge. Mine keeps its Downloads and History shelves in place across tab switches. The DP-1 signing seed stays on the device and cannot be deleted. Icons default to white instead of black on dark surfaces.
+
+---
+
+## Sep 24 2026
+
+### Feral File Mobile App 1.8.14 — Device settings follow system appearance
+
+Device settings follow your system light or dark appearance. Matting follows the device composition, and scope edits apply to showings. The Channels cover shows text over the image again.
+
+---
+
+## Sep 23 2026
+
+### Feral File Mobile App 1.8.13 — Named Art Computers in scrolling sections
+
+Settings organizes your named Art Computers into scrolling sections. Label pills on Artwork keep their state per mode, and framing rollback and disabled states are fixed.
+
+---
+
+### Feral File Mobile App 1.8.12 — Fit and Fill in Art Computer Settings
+
+Fit and Fill is a persistent setting in Art Computer Settings. Typography is simpler and lays out at 2× text size, and the settings list scrolls with its footer. Artwork loads from one CDN by default. Generative WebGL works render on iOS Work Detail. The artwork options menu opens as a titled bottom sheet, and the playlist verification setting was removed.
+
+---
+
 ## Week of Sep 21 2026
 
 ### Finding your way through Channels
@@ -172,6 +270,38 @@ Collect a Feral File catalog series directly into My Collection from Search.
 Wallet updates no longer start overlapping retries, followed Channel playlists stay attached after refresh, and playback returns to its last accepted mode when an Art Computer rejects a change.
 
 Controls are easier to tap, layouts remain usable with larger text, and retry messages stay available to screen readers.
+
+---
+
+## Aug 18 2026
+
+### Feral File Mobile App 1.5.4 — Steadier Art Computer control, and Raster in search
+
+Hidden artwork no longer keeps using CPU. Control Center rows are aligned and their labels are tappable. Art Computer resolution keeps working through a refresh, and LAN endpoints are not dropped on a transient failure. Search adds the Raster art index as a lane.
+
+---
+
+## Aug 11 2026
+
+### Feral File Mobile App 1.5.2 — Offline downloads, and LAN control
+
+The app prefers your local network for Art Computer control. Offline downloads have a way out of a partial capture, and confirmations name the Art Computer. Subscribing to a feed opens the playlist it produced. The Play coach mark is anchored to the live button.
+
+---
+
+## Aug 10 2026
+
+### Feral File Mobile App 1.5.1 — Search all of Feral File, and paste identifiers
+
+Search covers all of Feral File and accepts pasted identifiers. Add is retired from the main menu, Channel Detail, and search. The Control Center shows what is on the wall on one screen. Collections borrow their cover from the art inside them, and the playing bar no longer cuts its message in half. The system bars are transparent, and text can scale to 2×.
+
+---
+
+## Jul 29 2026
+
+### Feral File Mobile App 1.4.1 — Play from search and releases, and clearer cast failures
+
+Works from a search, or a series on a release page, can play on your Art Computer. A cast that never reaches the device now says so. Adding to a playlist commits immediately instead of previewing. Dark-surface text is legible, and playback status stays in step with the device.
 
 ---
 
@@ -562,6 +692,22 @@ The Now Displaying bar uses sharper thumbnails, back navigation and titles track
 
 ---
 
+## Mar 25 2026
+
+### Feral File Mobile App 1.1.5 — Steadier Art Computer connection, and iOS stability
+
+The iOS app no longer crashes when a webview shuts down. Wi-Fi connections to your Art Computer tear down cleanly. The now displaying bar keeps your work when enrichment is unavailable, and carousel items open the work.
+
+---
+
+## Mar 21 2026
+
+### Feral File Mobile App 1.1.4 — Favorites survive catalog updates
+
+Your Favorite playlist is kept when the catalog updates. Artist search matches more names and metadata, and your address playlist shows even when it is empty.
+
+---
+
 ## Mar 19 2026
 
 ### FF OS 1.0.10 — Shuffle and loop controls, and stability for heavy artworks
@@ -595,6 +741,20 @@ Upgrading from an older version of the app could cause paired FF1 devices to dis
 **Work count in the Me section is now correct**
 
 The work count in the Me section now shows the correct number while scrolling.
+
+---
+
+## Mar 16 2026
+
+### Feral File Mobile App 1.1.2 — Favorite playlist, Shuffle, and Loop
+
+Favorites is now a playlist of its own, and the History playlist was removed. Shuffle and Loop actions were added. Forget I Exist clears your favorites cleanly. Work and channel links open directly by id, and text keeps its designed size on small phones.
+
+---
+
+### Feral File Mobile App 1.1.1 — Retry seed downloads, and rebuild a work's metadata
+
+Interrupted database downloads resume. A work's metadata can be rebuilt through the indexer, and work details show provenance. The QR scanner resumes reliably. The now displaying bar hides behind modals, and playlists load faster.
 
 ---
 
