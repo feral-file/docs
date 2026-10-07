@@ -59,6 +59,20 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 - **Exhibitions OpenAPI** — `https://feralfile.com/.well-known/openapi.json`. Read-only endpoints for discovering exhibitions, series, and artworks. Complementary to `ff-cli`, not an alternative.
 - **No MCP server today.** Use `ff-cli` (CLI) or the Exhibitions OpenAPI (HTTP).
 
+## Owner remote maintenance (development pilot)
+
+An optional FFOS integration lets an owner's existing agent computer reach an
+FF1 over the owner's Tailscale network. It requires a development image and
+explicit enrollment of that computer and its SSH public key. Owner access
+persists until revocation or factory reset, including when controld needs repair.
+This is not a released or hardware-validated feature.
+
+Follow the [owner-access pilot procedure](https://github.com/feral-file/ffos/blob/7353e43a7a29273aaffd1ea1e221cdac3d41bc7b/docs/OWNER_TAILSCALE.md)
+for enrollment, diagnostics, disconnect and the required hardware checks. Use
+the existing `ff-control` skill and explicit FF1 Tailscale IPv4 address. Tailscale
+must run on the computer executing the agent; a connected phone does not give a
+cloud agent access. Required pairing approvals still belong to the owner.
+
 ## On-device agents
 
 OpenClaw and variants ("Claws") run agentic workflows *on* the Art Computer itself — same category as the coding agents above, different deployment shape. Public docs for OpenClaw will land here as it matures.
