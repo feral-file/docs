@@ -65,10 +65,11 @@ An optional FFOS integration lets an owner's existing agent computer reach an
 FF1 over the owner's Tailscale network. It requires firmware containing
 `feral-tailscale` and explicit enrollment of that computer and its SSH public key. Owner access
 persists until revocation or factory reset, including when controld needs repair.
-Check `command -v feral-tailscale` on the FF1. If absent, update through the
-normal firmware release channel to a version that includes owner access.
+Follow the procedure’s full-image installation checks. If support is absent,
+check the normal firmware release channel for availability; enrollment waits
+until a version containing owner access is published and installed.
 
-Follow the [owner-access procedure](https://github.com/feral-file/ffos/blob/23a4d04c5c1a6f1f81767cf559c8cdfa1611d51c/docs/OWNER_TAILSCALE.md)
+Follow the [owner-access procedure](https://github.com/feral-file/ffos/blob/36e25cec84505271a7232d6936bb46a19fab5cfd/docs/OWNER_TAILSCALE.md)
 for enrollment, diagnostics, disconnect and access verification. Use
 the existing `ff-control` skill and explicit FF1 Tailscale IPv4 address. Tailscale
 must run on the computer executing the agent; a connected phone does not give a

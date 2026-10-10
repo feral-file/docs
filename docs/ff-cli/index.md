@@ -93,15 +93,16 @@ Every command that takes a signing key with `-k, --key <privateKey>` also takes 
 
 ## Owner remote maintenance
 
-For an explicitly enrolled FFOS image containing `feral-tailscale`, `ff-cli` can use the FF1's
+For an explicitly enrolled FF1 with firmware containing `feral-tailscale`, `ff-cli` can use the FF1's
 Tailscale IPv4 address as its explicit host. Preserve its physical device ID and
 existing name when replacing the configured host; there is no automatic
 LAN/Tailscale failover. Persistent owner SSH uses port 2222 and remains separate
 from `ff-cli ssh`, which manages temporary support access on port 22.
 
-See the [owner-access procedure](https://github.com/feral-file/ffos/blob/23a4d04c5c1a6f1f81767cf559c8cdfa1611d51c/docs/OWNER_TAILSCALE.md).
-Check `command -v feral-tailscale` on the FF1 first. If absent, update through
-the normal firmware release channel to a version that includes owner access.
+See the [owner-access procedure](https://github.com/feral-file/ffos/blob/36e25cec84505271a7232d6936bb46a19fab5cfd/docs/OWNER_TAILSCALE.md).
+Follow the procedure’s full-image installation checks first. If support is
+absent, check the normal firmware release channel for availability; enrollment
+waits until a version containing owner access is published and installed.
 
 ## Copy-paste examples
 
