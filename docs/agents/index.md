@@ -67,7 +67,7 @@ explicit enrollment of that computer and its SSH public key. Owner access
 persists until revocation or factory reset, including when controld needs repair.
 This is not a released or hardware-validated feature.
 
-Follow the [owner-access pilot procedure](https://github.com/feral-file/ffos/blob/7353e43a7a29273aaffd1ea1e221cdac3d41bc7b/docs/OWNER_TAILSCALE.md)
+Follow the [owner-access pilot procedure](https://github.com/feral-file/ffos/blob/f24ba771043ba2b5eb8c4edb51f7241df7c36d06/docs/OWNER_TAILSCALE.md)
 for enrollment, diagnostics, disconnect and the required hardware checks. Use
 the existing `ff-control` skill and explicit FF1 Tailscale IPv4 address. Tailscale
 must run on the computer executing the agent; a connected phone does not give a

@@ -99,7 +99,7 @@ existing name when replacing the configured host; there is no automatic
 LAN/Tailscale failover. Persistent owner SSH uses port 2222 and remains separate
 from `ff-cli ssh`, which manages temporary support access on port 22.
 
-See the [owner-access pilot procedure](https://github.com/feral-file/ffos/blob/7353e43a7a29273aaffd1ea1e221cdac3d41bc7b/docs/OWNER_TAILSCALE.md).
+See the [owner-access pilot procedure](https://github.com/feral-file/ffos/blob/f24ba771043ba2b5eb8c4edb51f7241df7c36d06/docs/OWNER_TAILSCALE.md).
 Hardware validation is pending; this is not an installation instruction for a
 released FFOS version.
 
