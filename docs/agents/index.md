@@ -59,16 +59,17 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 - **Exhibitions OpenAPI** — `https://feralfile.com/.well-known/openapi.json`. Read-only endpoints for discovering exhibitions, series, and artworks. Complementary to `ff-cli`, not an alternative.
 - **No MCP server today.** Use `ff-cli` (CLI) or the Exhibitions OpenAPI (HTTP).
 
-## Owner remote maintenance (development pilot)
+## Owner remote maintenance
 
 An optional FFOS integration lets an owner's existing agent computer reach an
-FF1 over the owner's Tailscale network. It requires a development image and
-explicit enrollment of that computer and its SSH public key. Owner access
+FF1 over the owner's Tailscale network. It requires firmware containing
+`feral-tailscale` and explicit enrollment of that computer and its SSH public key. Owner access
 persists until revocation or factory reset, including when controld needs repair.
-This is not a released or hardware-validated feature.
+Check `command -v feral-tailscale` on the FF1. If absent, update through the
+normal firmware release channel to a version that includes owner access.
 
-Follow the [owner-access pilot procedure](https://github.com/feral-file/ffos/blob/f24ba771043ba2b5eb8c4edb51f7241df7c36d06/docs/OWNER_TAILSCALE.md)
-for enrollment, diagnostics, disconnect and the required hardware checks. Use
+Follow the [owner-access procedure](https://github.com/feral-file/ffos/blob/23a4d04c5c1a6f1f81767cf559c8cdfa1611d51c/docs/OWNER_TAILSCALE.md)
+for enrollment, diagnostics, disconnect and access verification. Use
 the existing `ff-control` skill and explicit FF1 Tailscale IPv4 address. Tailscale
 must run on the computer executing the agent; a connected phone does not give a
 cloud agent access. Required pairing approvals still belong to the owner.
