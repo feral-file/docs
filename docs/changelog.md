@@ -2,6 +2,22 @@
 
 Weekly notes on changes available in Feral File. Each entry lists the versions it covers.
 
+## Oct 12 2026
+
+### Feral File Mobile App 1.8.31 — One page per person, and Art Computers from the bar
+
+An artist, curator, or publisher now has one page covering every role they hold, instead of three separate pages each reachable only from its own credit. The Now Playing bar switches between your saved Art Computers without a trip to Settings, playing a single work plays only that work, and a playing work no longer shows a blank tile when its own row carries no image.
+
+- Search draws works from the art catalog, Feral File, and Raster as one list ranked by relevance rather than one source stacked above the next, and a work found by two sources appears once. Works you hold stay first.
+- Role labels on a person's page come from what is actually recorded, so a curator is no longer labelled a publisher. A publisher's cover, website, and description come from its own profile instead of being pieced together from its channels, and the Collected section now shows Tezos works a wallet genuinely holds.
+- Rebuild metadata succeeds on works where it used to fail every time, and says when to try again when it does fail. Artwork hosted on any IPFS gateway loads, a work that cannot be displayed shows a warning icon, and an artwork sits further from its artist credit.
+- Adding a playlist to Mine asks you to confirm first, playlist rows no longer flash empty when you leave Mine and come back, and the Add to playlist sheet shows each playlist's works while they load.
+- On an Art Computer, Update sits directly under the Software Version, the Device Configuration page no longer reloads when you return to the app, the Display Orientation preview is drawn in the panel's own shape, and the pairing QR and browser pairing follow what is actually on the screen.
+
+Covers mobile app 1.8.26–1.8.31. These changes are available in 1.8.31 on iOS and Android.
+
+---
+
 ## Oct 5 2026
 
 ### Feral File Mobile App 1.8.25 — Artist pages show a Raster artist's works
