@@ -2,10 +2,9 @@
 
 {#-
   Brand header. Replaces Material's default header with the Feral File
-  horizontal lockup and the same global nav feralfile.com ships in
-  feralfile-client `src/app/core/header_v3` — Exhibitions / System / Learn,
-  each marked by a circle, filled when that section is current. Docs lives
-  under Learn, so Learn is always the filled one here.
+  horizontal lockup and one link back to feralfile.com. It does not mirror
+  the site's own nav, so the site's URL scheme can change without touching
+  this file.
 
   Keeps `md-header` and `data-md-component="header"`: Material's JS measures
   this element to offset anchor scrolling and to position the search results.

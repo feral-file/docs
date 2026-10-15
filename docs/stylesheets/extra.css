@@ -3,7 +3,10 @@
 
    Values come from feralfile-client/design/web.tokens.json — the same tokens
    feralfile.com renders from. Do not invent new colors or type steps here;
-   add them to the token file first.
+   add them to the token file first. Where the site corrects the token file,
+   the site wins: feral-file/ff3 src/styles/_variables.scss is the owner of
+   the rendered values (light grey is #f2f2f2 there, not the token file's
+   #e3e3e3).
 
      Color   Black #000000 · White #FFFFFF · Medium Grey #B7B7B7
              Dark Grey #4A4A4A · Dark Dark Grey #232323 · Highlight #ECFF0C
@@ -62,7 +65,7 @@
   --ff-black: #000000;
   --ff-white: #ffffff;
   --ff-medium-grey: #b7b7b7;
-  --ff-light-grey: #e3e3e3;
+  --ff-light-grey: #f2f2f2;
   --ff-dark-grey: #4a4a4a;
   --ff-dark-dark-grey: #232323;
   --ff-highlight: #ecff0c;
