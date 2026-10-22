@@ -25,7 +25,7 @@ npm i -g @feralfile/cli
 # 2) Run guided setup
 ff-cli setup
 
-# 3) Build one playlist from a URL (or wallet, or on-chain coords)
+# 3) Build one playlist from an artwork or collection URL (or on-chain coords)
 ff-cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak -o playlist.json
 
 # 4) Play on your Art Computer
@@ -78,7 +78,7 @@ Setup runs without prompts whenever stdin is not a terminal. It refuses to repla
 
 ## Commands by job
 
-- Build playlist from a URL, on-chain coords, or wallet address: `ff-cli find <input>`
+- Build playlist from an artwork or collection URL, on-chain coords, or an artist's address: `ff-cli find <input>`
 - Build playlist from deterministic params, including what a wallet owns: `ff-cli build [params.json]` (`ff-cli build --help` lists the requirement types)
 - Validate a playlist file or URL: `ff-cli validate <file-or-url>`
 - Sign a playlist: `ff-cli sign <file>`
@@ -112,7 +112,7 @@ waits until a version containing owner access is published and installed.
 
 ### Find from a URL or address
 
-`ff-cli find` takes a marketplace URL, raw on-chain coordinates, or a wallet address and builds a playlist directly. No LLM API key required.
+`ff-cli find` takes a marketplace URL, raw on-chain coordinates, or an artist's address and builds a playlist directly. No LLM API key required.
 
 ```bash
 # Marketplace URL — paste from the artwork or collection page
@@ -145,7 +145,7 @@ ff-cli build ./params.json -o playlist.json
 What a wallet owns:
 
 ```bash
-echo '{"requirements":[{"type":"query_address","ownerAddress":"0xf3860788d1597cecf938424baabe976fac87dc26","quantity":5}]}' \
+echo '{"requirements":[{"type":"query_address","ownerAddress":"0xf3860788d1597cecf938424baabe976fac87dc26","quantity":5}],"playlistSettings":{"title":"My collection"}}' \
   | ff-cli build -o wallet.json
 ```
 

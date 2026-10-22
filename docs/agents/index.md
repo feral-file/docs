@@ -58,7 +58,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 
 ### Rules that keep agents on track
 
-- **Pass `-y` to `find`.** Without a terminal, a question fails with exit 1 and names the flag that answers it. `-y` plays by default; add `--no-play` to only save the playlist.
+- **Pass `-y` to `find`.** Without a terminal, a question fails with exit 1 and names the flag that answers it. With `-y` and no `-o`, `find` plays the playlist; add `--no-play` to only save it.
 - **Trust the exit code.** Non-zero means what was asked did not happen, including a `build` that saved only part of the playlist, or a send to an unreachable device.
 - **`find` on a wallet address plays one work by the artist at that address**, not what the wallet owns. For holdings, use `build` with `query_address`.
 - **`play` refuses a URL that does not exist** (HTTP 404 or 410, or a host that does not resolve), so a typo is never cast as an error page.
