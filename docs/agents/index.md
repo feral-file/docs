@@ -18,11 +18,11 @@ Run these in order. On any non-zero exit, stop and report the failing command an
    ```bash
    npm i -g @feralfile/cli
    ```
-   If the global install is refused for permissions, the installer puts the same package under `~/.local` without sudo. `pipefail` makes a failed download fail the command, and the `export` puts `ff-cli` on this shell's PATH:
+   If the global install is refused for permissions, the installer puts the same package under `~/.local` without sudo. `pipefail` makes a failed download fail the command, and the `export` (only after success) puts `ff-cli` on this shell's PATH:
    ```bash
-   set -o pipefail; curl -fsSL https://feralfile.com/ff-cli-install | bash
-   export PATH="$HOME/.local/bin:$PATH"
+   set -o pipefail; curl -fsSL https://feralfile.com/ff-cli-install | bash && export PATH="$HOME/.local/bin:$PATH"
    ```
+   Then check that `ff-cli --version` matches `npm view @feralfile/cli version`. If it does not, an older copy comes first on PATH: `command -v ff-cli` shows which one; remove it, or put the new one first.
 
 2. **Install the `ff-control` skill**, so the agent knows these commands in its next session.
    For Claude Code and Grok (Grok also reads `~/.claude/skills`):

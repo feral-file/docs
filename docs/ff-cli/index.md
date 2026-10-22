@@ -55,8 +55,7 @@ npm i -g @feralfile/cli
 Installs the same npm package under `~/.local` and links `ff-cli` into `~/.local/bin`. Use it when a global npm install is refused for permissions. Needs Node.js 22 or newer.
 
 ```bash
-set -o pipefail; curl -fsSL https://feralfile.com/ff-cli-install | bash
-export PATH="$HOME/.local/bin:$PATH"   # if ~/.local/bin is not already on your PATH
+set -o pipefail; curl -fsSL https://feralfile.com/ff-cli-install | bash && export PATH="$HOME/.local/bin:$PATH"
 ```
 
 ### Alternate: one-off with npx
