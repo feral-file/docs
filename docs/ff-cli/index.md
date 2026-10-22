@@ -55,7 +55,8 @@ npm i -g @feralfile/cli
 Installs the same npm package under `~/.local` and links `ff-cli` into `~/.local/bin`. Use it when a global npm install is refused for permissions. Needs Node.js 22 or newer.
 
 ```bash
-curl -fsSL https://feralfile.com/ff-cli-install | bash
+set -o pipefail; curl -fsSL https://feralfile.com/ff-cli-install | bash
+export PATH="$HOME/.local/bin:$PATH"   # if ~/.local/bin is not already on your PATH
 ```
 
 ### Alternate: one-off with npx
@@ -70,11 +71,11 @@ npx @feralfile/cli find https://www.artblocks.io/collection/ringers-by-dmitri-ch
 If you are scripting setup or need direct config actions:
 
 ```bash
-ff-cli setup --non-interactive --generate-key --device-host http://<device-ip>:1111 --device-name "Living Room"
+ff-cli setup --non-interactive --device-host http://<device-ip>:1111 --device-name "Living Room"
 ff-cli config validate
 ```
 
-Setup runs without prompts whenever stdin is not a terminal. It refuses to replace a signing key that is already configured, because that key owns the playlists you published; `--force` replaces it.
+Setup runs without prompts whenever stdin is not a terminal. It generates a signing key when none is configured and keeps one that is. `--generate-key`, `--key`, and `--key-file` refuse to replace a configured key, because it owns the playlists you published; `--force` replaces it.
 
 ## Commands by job
 
@@ -136,7 +137,7 @@ Combine with `--play`, `--publish`, or `--output` to skip straight to delivery; 
 
 ### Build from structured params
 
-`ff-cli build` takes a JSON parameters file (or stdin) and builds a playlist deterministically — no network guessing, no LLM. It exits 1 when any requirement finds nothing or the send to `playlistSettings.deviceName` fails, and still saves what it collected.
+`ff-cli build` takes a JSON parameters file (or stdin) and builds a playlist deterministically — no network guessing, no LLM. It exits 1 when a requirement finds nothing, named `tokenIds` do not all resolve, or the send to `playlistSettings.deviceName` fails. The playlist is still saved when anything was collected.
 
 ```bash
 ff-cli build ./params.json -o playlist.json

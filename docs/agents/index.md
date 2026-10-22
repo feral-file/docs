@@ -12,15 +12,16 @@ Your agent runs the setup below. Works in Claude Code, Codex, Grok, Cursor, Open
 
 ## Setup (the agent runs this)
 
-Run these in order. On any non-zero exit, stop and report the failing command and exit code — don't paper over errors. If `ff-cli status` already succeeds, ff-cli is installed and configured: skip to step 5.
+Run these in order. On any non-zero exit, stop and report the failing command and exit code — don't paper over errors. Always run step 1, which installs ff-cli or upgrades an older copy; if `ff-cli status` then succeeds, ff-cli is configured: skip to step 5.
 
 1. **Install `ff-cli`** (needs Node.js 22 or newer):
    ```bash
    npm i -g @feralfile/cli
    ```
-   If the global install is refused for permissions, the installer puts the same package under `~/.local` without sudo:
+   If the global install is refused for permissions, the installer puts the same package under `~/.local` without sudo. `pipefail` makes a failed download fail the command, and the `export` puts `ff-cli` on this shell's PATH:
    ```bash
-   curl -fsSL https://feralfile.com/ff-cli-install | bash
+   set -o pipefail; curl -fsSL https://feralfile.com/ff-cli-install | bash
+   export PATH="$HOME/.local/bin:$PATH"
    ```
 
 2. **Install the `ff-control` skill**, so the agent knows these commands in its next session.
@@ -40,9 +41,9 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 
 4. **Configure** (no prompts; ff-cli needs no LLM API key):
    ```bash
-   ff-cli setup --non-interactive --generate-key --device-host http://<device-id>.local:1111 --device-name "<name>"
+   ff-cli setup --non-interactive --device-host http://<device-id>.local:1111 --device-name "<name>"
    ```
-   This makes a signing key and registers the device. Setup refuses to replace a signing key that is already configured, because that key owns the user's published playlists; never add `--force` unless the user asks to replace it. Add more devices later with `ff-cli device add --host http://<address>:1111 --name "<name>"`.
+   This registers the device, and makes a signing key when none is configured (an existing key is kept). Setup refuses to replace a signing key that is already configured, because that key owns the user's published playlists; never add `--force` unless the user asks to replace it. Add more devices later with `ff-cli device add --host http://<address>:1111 --name "<name>"`.
 
 5. **Run what the user asked for:**
 
@@ -59,7 +60,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 ### Rules that keep agents on track
 
 - **Pass `-y` to `find`.** Without a terminal, a question fails with exit 1 and names the flag that answers it. With `-y` and no `-o`, `find` plays the playlist; add `--no-play` to only save it.
-- **Trust the exit code.** Non-zero means what was asked did not happen, including a `build` that saved only part of the playlist, or a send to an unreachable device.
+- **Read the exit code, then the output.** Non-zero means what was asked did not happen, including a send to an unreachable device and a `build` that lost a requirement or a named token. A zero exit can still carry a partial result: `find` and `build` print how many items they saved and which tokens could not be resolved, so report those.
 - **`find` on a wallet address plays one work by the artist at that address**, not what the wallet owns. For holdings, use `build` with `query_address`.
 - **`play` refuses a URL that does not exist** (HTTP 404 or 410, or a host that does not resolve), so a typo is never cast as an error page.
 
