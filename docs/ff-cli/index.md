@@ -50,7 +50,9 @@ ff-cli find https://objkt.com/tokens/hicetnunc/111068 --play
 npm i -g @feralfile/cli
 ```
 
-### Alternate: prebuilt binary installer
+### Alternate: installer (no sudo)
+
+Installs the same npm package under `~/.local` and links `ff-cli` into `~/.local/bin`. Use it when a global npm install is refused for permissions. Needs Node.js 22 or newer.
 
 ```bash
 curl -fsSL https://feralfile.com/ff-cli-install | bash
@@ -68,24 +70,26 @@ npx @feralfile/cli find https://www.artblocks.io/collection/ringers-by-dmitri-ch
 If you are scripting setup or need direct config actions:
 
 ```bash
-ff-cli config init
+ff-cli setup --non-interactive --generate-key --device-host http://<device-ip>:1111 --device-name "Living Room"
 ff-cli config validate
 ```
+
+Setup runs without prompts whenever stdin is not a terminal. It refuses to replace a signing key that is already configured, because that key owns the playlists you published; `--force` replaces it.
 
 ## Commands by job
 
 - Build playlist from a URL, on-chain coords, or wallet address: `ff-cli find <input>`
-- Build playlist from deterministic params: `ff-cli build [params.json]`
+- Build playlist from deterministic params, including what a wallet owns: `ff-cli build [params.json]` (`ff-cli build --help` lists the requirement types)
 - Validate a playlist file or URL: `ff-cli validate <file-or-url>`
 - Sign a playlist: `ff-cli sign <file>`
-- Play a playlist file, playlist URL, or media URL on the Art Computer: `ff-cli play <source>`
+- Play a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli play <source>` (`--web` plays a page on a marketplace site as a page)
 - Publish to feed server: `ff-cli publish <file>`
 - Replace the playlist already stored under this document id, instead of creating a new one: `ff-cli publish <file> --replace`
 - Save a published playlist from a feed server (the starting point for `--replace`): `ff-cli fetch <id-or-url>`
 - Delete a playlist from a feed server (signed delete; owner key required): `ff-cli unpublish <id-or-url>`
 - Manage SSH access on the Art Computer: `ff-cli ssh <enable|disable>`
 - List configured devices: `ff-cli device list`
-- Add a device (with mDNS discovery): `ff-cli device add`
+- Add a device: `ff-cli device add --host http://<device-ip>:1111 --name "<name>"` (bare `ff-cli device add` tries mDNS discovery)
 - Remove a device: `ff-cli device remove <name>`
 - Configure and inspect setup: `ff-cli config <init|show|validate>`
 
@@ -120,21 +124,29 @@ ff-cli find https://feralfile.com/exhibitions/artwork/{id} -o playlist.json
 ff-cli find ethereum:0xababababab20053426ad1c782de9ea8444358070:5001410 -o playlist.json
 ff-cli find tezos:KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton:111068 -o playlist.json
 
-# Wallet address — picks an artwork from the address's catalog
+# Artist address — plays one work by the artist at that address
+# (for what a wallet owns, see "Build from structured params" below)
 ff-cli find 0xf3860788d1597cecf938424baabe976fac87dc26 -o playlist.json
 ff-cli find tz1fQTvvcCy5PTt8HcUSQTu64dH9mJjjDudi -o playlist.json
 ```
 
 Supported sources: Objkt, fxhash (`/gentk/...`, `/iteration/{slug}`, `/project/{slug}`, `/generative/{slug}`), Art Blocks, OpenSea, SuperRare, Feral File, Neort, Verse, Raster, plus raw `ethereum:` / `tezos:` coords and `0x…` / `tz1.../tz2.../tz3...` addresses.
 
-Combine with `--play`, `--publish`, or `--output` to skip straight to delivery; see `ff-cli find --help` for the full flag set.
+Combine with `--play`, `--publish`, or `--output` to skip straight to delivery; see `ff-cli find --help` for the full flag set. In scripts and agents, add `-y`: without a terminal, a question fails with exit 1 and names the flag that answers it.
 
 ### Build from structured params
 
-`ff-cli build` takes a JSON parameters file (or stdin) and builds a playlist deterministically — no network guessing, no LLM.
+`ff-cli build` takes a JSON parameters file (or stdin) and builds a playlist deterministically — no network guessing, no LLM. It exits 1 when any requirement finds nothing or the send to `playlistSettings.deviceName` fails, and still saves what it collected.
 
 ```bash
 ff-cli build ./params.json -o playlist.json
+```
+
+What a wallet owns:
+
+```bash
+echo '{"requirements":[{"type":"query_address","ownerAddress":"0xf3860788d1597cecf938424baabe976fac87dc26","quantity":5}]}' \
+  | ff-cli build -o wallet.json
 ```
 
 A minimal `params.json` for specific tokens from a contract:
@@ -173,8 +185,16 @@ ff-cli play playlist.json
 ff-cli play "https://cdn.example.com/playlist.json"
 
 # Direct media URL
-ff-cli play "https://example.com/video.mp4" --skip-verify
+ff-cli play "https://example.com/video.mp4"
+
+# Any web page
+ff-cli play "https://example.com/"
+
+# A page on a marketplace site, as a page (play otherwise sends these to find)
+ff-cli play --web "https://feralfile.com/"
 ```
+
+`play` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
 
 ## Common failure points
 
