@@ -2,6 +2,22 @@
 
 Weekly notes on changes available in Feral File. Each entry lists the versions it covers.
 
+## Oct 22 2026
+
+### ff-cli 3.0.0 — Agents get a clear answer, never a silent one
+
+Every failure now exits with an error that names the fix, instead of a success that did nothing or cast the wrong thing. Coding agents could not see those silent successes. `play --web` puts any web page on your Art Computer, including pages on marketplace sites. The installer at feralfile.com/ff-cli-install works again.
+
+- `setup` will not replace a signing key that is already in use, because that key owns the playlists you published. `--force` replaces it on purpose.
+- With no terminal, a question exits 1 and names the flag that answers it (`find`: `-y`), instead of exiting 0 having built nothing.
+- `build` exits 1 when part of the request did not happen, and still saves what it collected. `build --help` lists every requirement type.
+- `play` refuses a URL that does not exist instead of casting an error page.
+- `device add` treats the same address on another port as a second device.
+
+Covers ff-cli 3.0.0. This is a major version because existing scripts can see new refusals and exit codes; the [release notes](https://github.com/feral-file/ff-cli/releases/tag/3.0.0) list each one. Install or upgrade with `npm i -g @feralfile/cli`.
+
+---
+
 ## Oct 12 2026
 
 ### Feral File Mobile App 1.8.31 — One page per person, and Art Computers from the bar
