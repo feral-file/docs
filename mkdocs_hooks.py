@@ -6,8 +6,14 @@ Three generated files, all written after the build:
   so an agent reads the text without parsing the rendered HTML.
 - /llms.txt: what the site is and one line per page with its HTML and
   Markdown URLs (https://llmstxt.org).
+
+Every rendered page also links its twin as rel="alternate", and its code
+blocks keep spaces as plain text: Pygments wraps each run of whitespace in its
+own span, and some HTML-to-text tools drop or add spaces around those spans
+(an agent reads `npm i -g@feralfile/cli`).
 """
 
+import re
 from pathlib import Path
 from shutil import copyfile
 
@@ -18,6 +24,16 @@ def on_files(files, config, **_kwargs):
     """Remember every documentation page; on_post_build writes their twins and llms.txt."""
     _PAGES[:] = list(files.documentation_pages())
     return files
+
+
+_WHITESPACE_SPAN = re.compile(r'<span class="w">(\s*)</span>')
+
+
+def on_post_page(output, page, config, **_kwargs):
+    """Link the page's Markdown twin and unwrap whitespace spans in code blocks."""
+    output = _WHITESPACE_SPAN.sub(r"\1", output)
+    link = '<link rel="alternate" type="text/markdown" href="index.md">'
+    return output.replace("</head>", f"{link}\n</head>", 1)
 
 
 def _title(src):
