@@ -12,6 +12,8 @@ Your agent runs the setup below. Works in Claude Code, Codex, Grok, Cursor, Open
 
 ## Setup (the agent runs this)
 
+Read the commands from this page's Markdown, https://docs.feralfile.com/agents/index.md: a tool that converts the HTML to text can drop or add spaces inside them.
+
 Run these in order. On any non-zero exit, stop and report the failing command and exit code — don't paper over errors. Always run step 1, which installs ff-cli or upgrades an older copy; if `ff-cli status` then succeeds, ff-cli is configured: skip to step 5.
 
 1. **Install `ff-cli`** (needs Node.js 22 or newer):
