@@ -5,12 +5,12 @@ This page covers the hosted DP-1 feed operated by Feral File.
 Use it when you want a managed endpoint instead of running your own feed server.
 
 - What this is: hosted feed usage guidance for Feral File-managed infrastructure.
-- Why use it: quickest managed path to publish and retrieve playlists.
+- Why use it: quickest managed path to publish and retrieve playlists and channels.
 - What to do next: validate a payload, then POST to the hosted endpoint.
 
 ## What this is
 
-The hosted feed accepts DP-1 playlists, validates payloads, and serves playlist data over HTTP APIs.
+The hosted feed accepts DP-1 playlists, playlist-groups, and channels, validates payloads, and serves them over HTTP APIs.
 
 Base URL:
 
@@ -53,6 +53,79 @@ curl -H "Content-Type: application/json" \
   -X POST https://feed.feralfile.com/api/v1/playlists \
   -d @signed-playlist.json
 ```
+
+## Publish a channel
+
+A channel is a signed, ordered list of playlist URLs under one publisher ([channel extension spec](https://github.com/display-protocol/dp1/blob/main/extensions/channels/channel.md)). The publisher signature covers those URLs, so publish the playlists first and sign the channel once they have their final URLs. One publisher key can sign several channels.
+
+In a browser, [DP-1 Publisher](https://publisher.feralfile.com) publishes channels too, signing with your wallet as `publisher`. It strips any signatures already on a pasted document and signs again with the connected wallet.
+
+From a terminal, [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md) signs with an Ed25519 key. This sequence was run end to end with dp1-cli v2.0.0-beta.3 against a local [dp1-feed-v2](https://github.com/display-protocol/dp1-feed-v2) v1.2.0:
+
+1. Set up a signing key. The key that signs a channel as `publisher` owns it: only that key can replace or delete the channel, so keep a copy of it off this machine. Check for a saved key first:
+
+    ```bash
+    dp1-cli key show
+    ```
+
+    If it prints a `did:key`, use that key. If it reports no signing key, create one:
+
+    ```bash
+    dp1-cli key generate --save-config
+    ```
+
+    `--save-config` writes the private key to `~/.dp1/config.yaml`, replacing any key already saved there. If you keep the key elsewhere, pass `--private-key` or set `DP1_PRIVATE_KEY` when you sign.
+
+2. Sign, verify, and publish each playlist. Start from an unsigned playlist with a `slug`. The feed requires the slug (`400 bad_request — slug is required`). `sign` keeps any signatures already in the file, so delete placeholder or stale ones first; the dp1-cli quickstart sample carries a placeholder.
+
+    ```bash
+    dp1-cli playlist sign playlist.json
+    dp1-cli playlist verify playlist.json
+    dp1-cli playlist publish playlist.json --feed-url https://feed.feralfile.com
+    ```
+
+    The playlist's URL is `https://feed.feralfile.com/api/v1/playlists/<slug>`; its ID works in place of the slug.
+
+3. Write `channel.json`, listing the playlist URLs in the order you want them:
+
+    ```json
+    {
+      "id": "<UUID v4>",
+      "slug": "my-channel",
+      "title": "My Channel",
+      "version": "1.0.0",
+      "created": "2026-10-22T00:00:00Z",
+      "summary": "One or two sentences about the channel.",
+      "publisher": {
+        "name": "My Organization",
+        "key": "<your did:key>",
+        "url": "https://example.com"
+      },
+      "playlists": [
+        "https://feed.feralfile.com/api/v1/playlists/<slug>"
+      ]
+    }
+    ```
+
+    `version` is the channel extension version, `1.0.0`, not a version number for your channel. Give each channel its own `id` and `slug`: `publish` creates, and reusing either returns `409 conflict`.
+
+4. Sign, verify, and publish the channel:
+
+    ```bash
+    dp1-cli channel sign channel.json
+    dp1-cli channel verify channel.json
+    dp1-cli channel publish channel.json --feed-url https://feed.feralfile.com
+    ```
+
+    The feed adds its own `feed` signature and serves the channel at `https://feed.feralfile.com/api/v1/channels/<slug>`.
+
+Before you publish:
+
+- `--feed-url` takes the host only. dp1-cli appends `/api/v1/...` itself, so a URL ending in `/api/v1` returns 404.
+- The feed rejects any field it does not recognize (`400 bad_request — json: unknown field`), even when `dp1-cli channel validate` or `dp1-cli playlist validate` passes. Remove the field, sign again, and publish.
+- `feed.feralfile.com` is production, and there is no staging feed. To rehearse, run [dp1-feed-v2](https://github.com/display-protocol/dp1-feed-v2#quick-start) locally and point `--feed-url` at it.
+
+A published channel appears in the Feral File app once Feral File lists it.
 
 ## API reference source
 
