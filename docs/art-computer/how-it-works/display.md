@@ -13,7 +13,7 @@ Users can create and play artwork playlists through natural language text comman
 ## Architecture Components
 
 ### Core Services
-- **Mobile App** - Art Computer and Digital Art System controller
+- **Mobile App** - Art Computer and Toko controller
 - **DP1 Feed Server** ([`dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) — playlist storage and distribution (open-source reference; see [Hosted Feed (Feral File)](../../hosted-feed/index.md) for the managed option)
 - **Relayer** - WebSocket bridge between mobile and device
 - **Device OS** ([`ffos`](https://github.com/feral-file/ffos)) - FF OS, the Art Computer's runtime and system services
@@ -128,7 +128,7 @@ Commands include:
 The Art Computer receives and processes commands through the `feral-controld` daemon. The same command envelope also arrives over the local network: [ff-cli](../../ff-cli/index.md), agents, and the app on the same LAN `POST` it to `/api/cast` on port 1111, and both paths share one command router.
 
 #### Command Routing
-- **Device commands** (pairing, power, rotation, volume, sleep schedule, panel control, updates, factory reset) run in the device executor
+- **Device commands** (pairing, power, rotation, volume, sleep schedule, display control, updates, factory reset) run in the device executor
 - **Player commands** (`displayPlaylist`, `refreshArtwork`, …) are forwarded to the bundled player over the Chrome DevTools Protocol
 - **Storm protection** - high-cost commands are rate-limited and bounded by a global concurrency budget; a rejected command comes back as `rate_limited` over the relayer, or as HTTP `429` on the LAN API
 

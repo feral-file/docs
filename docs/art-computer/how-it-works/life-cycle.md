@@ -100,7 +100,7 @@ flowchart TD
     Error --> Response
 ```
 
-Both transports — the cloud relayer and the LAN API on port 1111 — accept the same JSON envelope (`{"command": ..., "request": {...}}`) and go through the same router. Commands the device itself owns (pairing, power, network, panel control, updates) run in the device executor; everything about what is on screen (`displayPlaylist`, `refreshArtwork`, …) is forwarded to the bundled player in the Chromium kiosk over the Chrome DevTools Protocol. The router also protects the device from command storms: high-cost commands are rate-limited and bounded by a global concurrency budget, and a rejected command comes back as `rate_limited` over the relayer, or as HTTP `429` on the LAN API.
+Both transports — the cloud relayer and the LAN API on port 1111 — accept the same JSON envelope (`{"command": ..., "request": {...}}`) and go through the same router. Commands the device itself owns (pairing, power, network, display control, updates) run in the device executor; everything about what is on screen (`displayPlaylist`, `refreshArtwork`, …) is forwarded to the bundled player in the Chromium kiosk over the Chrome DevTools Protocol. The router also protects the device from command storms: high-cost commands are rate-limited and bounded by a global concurrency budget, and a rejected command comes back as `rate_limited` over the relayer, or as HTTP `429` on the LAN API.
 
 The device also pushes notifications the other way — `player_status` (what is playing and whether it rendered) and `device_status` (rotation, Wi-Fi name, installed and latest version, volume, sleep schedule, …) — over the relayer and, for local clients, over a WebSocket at `/api/notification` on port 1111.
 
