@@ -58,3 +58,7 @@ Validate before opening a PR:
 mkdocs build --strict
 cmp docs/changelog.md site/docs/changelog.md
 ```
+
+## License
+
+The documentation is CC BY 4.0 (see [LICENSE](LICENSE)); the faceplate files under `docs/art-computer/faceplates/` carry their own CC BY-SA 4.0 license.

@@ -2,6 +2,8 @@
 
 On a home network, there is nothing to configure. Plug the Art Computer in, join its setup hotspot from your phone, pick your Wi-Fi, pair with the app, and it works.
 
+What keeps working when none of these hosts can be reached is on [Running without Feral File](without-feral-file.md).
+
 This page is for IT teams putting an Art Computer on a managed network — a museum, gallery, office, or campus — where firewalls, VLANs, and wireless isolation policies are in play. It lists exactly what the device and its controllers need, and the policies that most often break them.
 
 ---
@@ -14,7 +16,7 @@ Allow outbound **TCP 443** (HTTPS and WSS) to:
 
 | Host | Purpose |
 | :-- | :-- |
-| `tv-cast-coordination.autonomy-system.workers.dev` | Cloud relayer for app control (critical) |
+| `tv-cast-coordination.autonomy-system.workers.dev` | Cloud relayer for app control from another network. Playback and the LAN API do not depend on it |
 | `dp1-feed-operator-api-prod.autonomy-system.workers.dev` | Playlists and channels |
 | `customer-vt0p8j34ppjv1kd4.cloudflarestream.com` | Video assets (HLS) |
 | `indexer-v2.feralfile.com` | Artwork metadata |
