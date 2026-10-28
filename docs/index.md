@@ -17,6 +17,7 @@ Feral File is a cultural institution and technology company championing computat
 - **[ff-cli](ff-cli/index.md)** — command-line tool. Build a DP-1 playlist from a URL or wallet, play it on a device, publish it to a feed.
 - **[Art Computer](art-computer/index.md)** — the computer inside Toko. On its own, plug it into any display to play DP-1 playlists.
 - **[Hosted Feed](hosted-feed/index.md)** — our hosted DP-1 feed at `feed.feralfile.com` for publishing and retrieving playlists.
+- **[Open source](open-source.md)** — what is open, under which license, where the code is, and [what the Art Computer does without Feral File](art-computer/without-feral-file.md).
 - **[Agents](agents/index.md)** — for coding agents (off-device) and OpenClaw runtimes (on-device).
 - **[Artwork Library](https://github.com/feral-file/ffa-js)** — JS library artists embed in software artworks for provenance, deterministic randomness, and on-chain data. Docs live with the library.
 - **[Exhibitions OpenAPI](https://feralfile.com/.well-known/openapi.json)** — read-only endpoints for discovering exhibitions, series, and artworks. Complementary to `ff-cli`.
