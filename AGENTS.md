@@ -29,7 +29,7 @@ Help three lanes succeed fast:
 - The Digital Art System = the hardware family
 - FF1 = art computer
 - Toko = what Feral File sells: a display with the Art Computer inside, on one cord
-- The display half: "display" in public copy, never "canvas" or "screen" for the object; "panel" is the trade word for the LCD part inside; "Art Panel" (FFP) names only the Batch 1 product its owners have
+- The display half: "display" everywhere (public copy, team notes and vendor files alike), never "canvas" or "screen" for the object; the part inside is the LCD cell, a component; "Art Panel" (FFP) names only the Batch 1 product its owners have
 - DP-1 = protocol only, never a device
 - Public-facing surfaces: prefer "play"
 - Developer-facing surfaces: "run" is acceptable
