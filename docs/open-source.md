@@ -19,7 +19,7 @@ What Feral File keeps is where it chooses: the Feral File app, which is how we c
 | Faceplates | The Art Computer's faceplate CAD | [Print Your Own Faceplates](art-computer/faceplates/index.md) | CC BY-SA 4.0 |
 | This documentation | docs.feralfile.com | [feral-file/docs](https://github.com/feral-file/docs) | CC BY 4.0 |
 
-Apache 2.0 and MPL 2.0 include a patent license. MPL 2.0 asks one thing of a product that ships a changed copy of one of these files: publish that file's changes. The product's own code stays its own.
+Apache 2.0 and MPL 2.0 include a patent license. MPL 2.0 asks one thing of a product that ships a changed copy of one of these files: whoever receives the product receives that file's source too. The product's own code stays its own, and nothing has to be sent to Feral File.
 
 Contributions come in under the repository's license. There is no contributor agreement, and the same license applies to everyone. A license is never withdrawn from a released version.
 
@@ -27,7 +27,8 @@ Contributions come in under the repository's license. There is no contributor ag
 
 | Component | What it is | What works without it |
 | :-- | :-- | :-- |
-| The Feral File app | How we curate and publish our channels, and one way to control an Art Computer | Setup from the Art Computer's own hotspot page, and control from ff-cli or any program on the same network, over the LAN API |
-| The relayer | The cloud link between the app and an Art Computer on a different network | Everything on the local network |
+| The Feral File app | How we curate and publish our channels, and one way to control an Art Computer | Wi-Fi setup from the Art Computer's own hotspot page, and control from ff-cli or any program on the same network, over the LAN API. Pairing an Art Computer to an account is the app's. |
+| The relayer | The cloud link between the app and an Art Computer on a different network | Direct control over the LAN API |
+| Video and asset hosting | Where Feral File keeps the files of the works it publishes | Works hosted anywhere else |
 | The hosted feed at feed.feralfile.com | One DP-1 feed server among any number | Your own feed server, from the open-source code above |
 | The catalog and exhibitions API | Feral File's own record of its exhibitions | Playlists from anywhere else |
