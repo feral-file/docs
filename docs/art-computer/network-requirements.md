@@ -2,7 +2,7 @@
 
 On a home network, there is nothing to configure. Plug the Art Computer in, join its setup hotspot from your phone, pick your Wi-Fi, pair with the app, and it works.
 
-What keeps working when none of these hosts can be reached is on [Running without Feral File](without-feral-file.md).
+What keeps working when none of these hosts can be reached is on [Open source](../open-source.md#running-without-feral-file).
 
 This page is for IT teams putting an Art Computer on a managed network — a museum, gallery, office, or campus — where firewalls, VLANs, and wireless isolation policies are in play. It lists exactly what the device and its controllers need, and the policies that most often break them.
 

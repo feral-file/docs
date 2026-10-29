@@ -43,6 +43,8 @@ plugins:
         # Renamed 2026-08-05 (Website/Browser Integration -> Play on Art Computer).
         art-computer/browser-integration.md: art-computer/play.md
         dp1-protocol/feed-server.md: hosted-feed/index.md
+        # Merged into Open source.
+        art-computer/without-feral-file.md: open-source.md
 
 hooks:
   - mkdocs_hooks.py
@@ -62,7 +64,6 @@ nav:
     - Upgrades: art-computer/upgrades.md
     - Print Your Own Faceplates: art-computer/faceplates/index.md
     - Network Requirements: art-computer/network-requirements.md
-    - Running without Feral File: art-computer/without-feral-file.md
     - Factory Reset: art-computer/factory-reset.md
   - Hosted Feed: hosted-feed/index.md
   - Open source: open-source.md
