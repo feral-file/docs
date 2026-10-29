@@ -45,13 +45,14 @@ plugins:
         dp1-protocol/feed-server.md: hosted-feed/index.md
         # Merged into Open source.
         art-computer/without-feral-file.md: open-source.md
+        # Folded into the home page: the agent prompt and setup now open docs.feralfile.com.
+        agents/index.md: index.md
 
 hooks:
   - mkdocs_hooks.py
 
 nav:
   - Home: index.md
-  - Agents: agents/index.md
   - ff-cli: ff-cli/index.md
   - Art Computer:
     - Getting Started: art-computer/index.md

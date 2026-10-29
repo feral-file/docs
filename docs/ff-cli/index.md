@@ -40,7 +40,7 @@ You are successful when the playlist builds and plays on your configured Art Com
 ff-cli find https://objkt.com/tokens/hicetnunc/111068 --play
 ```
 
-**Want natural language?** ff-cli has no built-in chat. Drive it conversationally from a coding agent — Claude Code, Codex, or Cursor — using the `ff-control` skill; the agent translates your request into `ff-cli` commands. See [Agents](../agents/index.md).
+**Want natural language?** ff-cli has no built-in chat. Drive it conversationally from a coding agent — Claude Code, Codex, or Cursor — using the `ff-control` skill; the agent translates your request into `ff-cli` commands. The home page carries the [prompt and setup](../index.md).
 
 ## Install options
 
@@ -107,6 +107,8 @@ See the [owner-access procedure](https://github.com/feral-file/ffos/blob/36e25ce
 Follow the procedure’s full-image installation checks first. If support is
 absent, check the normal firmware release channel for availability; enrollment
 waits until a version containing owner access is published and installed.
+Tailscale must run on the computer executing the agent; a connected phone does
+not give a cloud agent access. Required pairing approvals still belong to the owner.
 
 ## Copy-paste examples
 

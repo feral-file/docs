@@ -104,7 +104,7 @@ If the device egress rules above are in place, the relayer path needs nothing fu
 
 ## Controlling with ff-cli or a coding agent
 
-The [ff-cli](../ff-cli/index.md) and [agent](../agents/index.md) workflows run on a laptop that talks **directly to the Art Computer over the local network**:
+The [ff-cli](../ff-cli/index.md) and [agent](../index.md) workflows run on a laptop that talks **directly to the Art Computer over the local network**:
 
 - The laptop sends commands to the device over **HTTP on TCP 1111**.
 - The laptop and the device must be able to reach each other — same VLAN, or routed with port 1111 allowed between them.
