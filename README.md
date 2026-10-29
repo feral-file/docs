@@ -59,6 +59,16 @@ mkdocs build --strict
 cmp docs/changelog.md site/docs/changelog.md
 ```
 
+## After a Material upgrade
+
+The brand layer (`docs/stylesheets/extra.css`, `overrides/main.html`) restates three Material assumptions that break on a `mkdocs-material` bump: the search float collapses the adjacent nav link, the results panel is revealed by a toggle outside the header, and the rail width is pinned by a padding rule. `scripts/brand-check.js` reads all three in a built page and returns them as JSON. Build the site at the old and the new version, run the check on each, and compare the readings; a pixel diff of screenshots at 1280 and 390 wide is the second check.
+
+```bash
+# build each version to its own directory, then, with ff3's shot script (needs Chromium on PATH):
+DIST=<site dir> SHOT_PORT=4411 node ~/Work/ff3/scripts/shot.mjs /art-computer/ 1280x800 - old.png "$(cat scripts/brand-check.js)"
+DIST=<site dir> SHOT_PORT=4412 node ~/Work/ff3/scripts/shot.mjs /art-computer/ 390x844 - old-phone.png "$(cat scripts/brand-check.js)"
+```
+
 ## License
 
 The documentation is CC BY 4.0 (see [LICENSE](LICENSE)); the faceplate files under `docs/art-computer/faceplates/` carry their own CC BY-SA 4.0 license.
