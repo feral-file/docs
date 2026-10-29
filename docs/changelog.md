@@ -2,6 +2,21 @@
 
 Weekly notes on changes available in Feral File. Each entry lists the versions it covers.
 
+## Oct 29 2026
+
+### Feral File Mobile App 1.8.40 — Share a playlist by link, and it keeps itself current
+
+**A playlist you made now travels as a link, and it stays living: everyone following it gets each edit without you sending anything.** Publish became Share, because publishers have channels and people share playlists. A link you receive previews the playlist and plays it; nothing enters your library until you press Follow.
+
+- **Sharing.** Share hands out a link that opens the playlist in the app, and sends a phone without the app to the store. Anyone with the link can play the playlist on their own Art Computer and pass the link on. A shared playlist is unlisted, so no public list on the feed carries it — only the link reaches it. Your edits go out on their own, and when they cannot the playlist says "Followers don't have your latest changes yet" with a Retry on the line. Stop sharing ends the link for good; sharing again later makes a new one.
+- **Following.** A tapped link opens a preview you can play, and only Follow keeps it, so a link can no longer quietly put a changing playlist in your library. A followed playlist refreshes once a minute while the app is open, and offers Unfollow instead of Delete. You give your name the first time you share, and the people following it read that name as the playlist's curator instead of "Me". A playlist whose link has been taken down stops presenting itself as shared.
+- **Playing and browsing.** A shuffle button sits beside Play on a playlist, and one tap plays the whole list shuffled. A Mine address page carries chips for the artists it holds the most works by, and for Ethereum and Tezos when it holds both; choosing one narrows the grid across the whole collection. The Now Playing bar shows the Art Computer picker only when you have saved more than one.
+- **Art Computer.** Volume and mute moved into Art Computer Settings beside Display, where the device has always treated sound as global — a still image no longer leaves you with no volume control at all. A browser pairing that failed after you approved it now says so and tells you to try again from the site, instead of looking like it worked.
+- **Works and search.** A work links to the site that gave it to us: a Feral File work to feralfile.com, an Art Blocks work to artblocks.io, a work found through Raster to raster.art. The keyboard submits a search and the magnifier button is gone. A work the catalog and Raster both return appears once. Labels chips and their catalog-wide listing are gone from a work's page — that vocabulary was written as search input, not as a description of the work. Yellow is retired app-wide for light blue, the works count on a collection card has room to read as its own line, a video that cannot be prepared shows an error instead of spinning, and a thumbnail no longer tries to draw a video file as an image.
+- **Speed.** A large channel or playlist document is parsed off the screen's own thread, so subscribing to one of several thousand works no longer stalls the app. A publisher's page no longer stutters as it opens: the works strips on it read only the thumbnail, title and labels they draw, instead of every work's whole record. A person's Playlists tab builds the rows near what you are looking at rather than all of them at once, so opening the tab of someone who curates hundreds of playlists is no longer slow the first time. Legal pages are read from feralfile.com and version files from the remote-config repository, so an edit to either reaches the app.
+
+---
+
 ## Oct 22 2026
 
 ### ff-cli 3.0.0 — Agents get a clear answer, never a silent one
