@@ -1,7 +1,7 @@
 site_name: Feral File Docs
 site_url: https://docs.feralfile.com
-# No repo_url: the source repo is private, so a GitHub link here would 404 for
-# every visitor. The docs themselves stay public at the site_url above.
+# No repo_url: the custom header in overrides/main.html does not show Material's
+# repository link. The source repo is public and linked from docs/open-source.md.
 theme:
   name: material
   custom_dir: overrides
