@@ -9,7 +9,9 @@
    #e3e3e3).
 
      Color   Black #000000 · White #FFFFFF · Medium Grey #B7B7B7
-             Dark Grey #4A4A4A · Dark Dark Grey #232323 · Highlight #ECFF0C
+             Dark Grey #4A4A4A · Dark Dark Grey #232323 · Blue link #B9E5FF
+             (the site's dark-theme --blueLink, the $collecting token; the
+             yellow Highlight #ECFF0C is no longer used)
      Type    H1 48/110% · Body 20/130% · Small 16/120% (PP Mori)
              Mono 14/120% (Space Mono) · Mobile H1 28/110%
 
@@ -68,7 +70,7 @@
   --ff-light-grey: #f2f2f2;
   --ff-dark-grey: #4a4a4a;
   --ff-dark-dark-grey: #232323;
-  --ff-highlight: #ecff0c;
+  --ff-blue-link: #b9e5ff;
 
   --ff-sans: "PP Mori", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --ff-mono: "Space Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -99,11 +101,11 @@
   --md-primary-fg-color--dark: var(--ff-dark-dark-grey);
   --md-primary-bg-color: var(--ff-white);
   --md-primary-bg-color--light: var(--ff-medium-grey);
-  --md-accent-fg-color: var(--ff-highlight);
+  --md-accent-fg-color: var(--ff-blue-link);
 
   --md-typeset-color: var(--ff-white);
   --md-typeset-a-color: var(--ff-white);
-  --md-typeset-mark-color: var(--ff-highlight);
+  --md-typeset-mark-color: var(--ff-blue-link);
 
   --md-code-bg-color: var(--ff-dark-dark-grey);
   --md-code-fg-color: var(--ff-white);
@@ -206,7 +208,7 @@ body {
 }
 
 .ff-header__nav a:hover {
-  color: var(--ff-highlight);
+  color: var(--ff-blue-link);
 }
 
 .ff-header__out {
@@ -327,8 +329,8 @@ body {
 
 .md-typeset a:hover,
 .md-typeset a:focus-visible {
-  color: var(--ff-highlight);
-  text-decoration-color: var(--ff-highlight);
+  color: var(--ff-blue-link);
+  text-decoration-color: var(--ff-blue-link);
 }
 
 /* Heading anchors stay quiet until the heading is hovered. */
@@ -382,7 +384,7 @@ body {
 
 /* keywords and operators */
 .md-typeset .highlight :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .o, .ow) {
-  color: var(--ff-highlight);
+  color: var(--ff-blue-link);
 }
 
 /* strings */
@@ -396,7 +398,7 @@ body {
 
 .md-typeset .md-clipboard:hover,
 .md-typeset :hover > .md-clipboard {
-  color: var(--ff-highlight);
+  color: var(--ff-blue-link);
 }
 
 /* Let the agent-prompt code block read like a sentence: wrap instead of
@@ -589,7 +591,7 @@ body {
 }
 
 .md-search-result__more > summary:hover > div {
-  color: var(--ff-highlight);
+  color: var(--ff-blue-link);
   background-color: transparent;
 }
 
