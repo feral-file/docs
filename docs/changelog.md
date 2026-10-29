@@ -4,7 +4,7 @@ Weekly notes on changes available in Feral File. Each entry lists the versions i
 
 ## Oct 29 2026
 
-### Feral File Mobile App 1.8.39 — Share a playlist by link, and it keeps itself current
+### Feral File Mobile App 1.8.40 — Share a playlist by link, and it keeps itself current
 
 **A playlist you made now travels as a link, and it stays living: everyone following it gets each edit without you sending anything.** Publish became Share, because publishers have channels and people share playlists. A link you receive previews the playlist and plays it; nothing enters your library until you press Follow.
 
@@ -13,7 +13,7 @@ Weekly notes on changes available in Feral File. Each entry lists the versions i
 - **Playing and browsing.** A shuffle button sits beside Play on a playlist, and one tap plays the whole list shuffled. A Mine address page carries chips for the artists it holds the most works by, and for Ethereum and Tezos when it holds both; choosing one narrows the grid across the whole collection. The Now Playing bar shows the Art Computer picker only when you have saved more than one.
 - **Art Computer.** Volume and mute moved into Art Computer Settings beside Display, where the device has always treated sound as global — a still image no longer leaves you with no volume control at all. A browser pairing that failed after you approved it now says so and tells you to try again from the site, instead of looking like it worked.
 - **Works and search.** A work links to the site that gave it to us: a Feral File work to feralfile.com, an Art Blocks work to artblocks.io, a work found through Raster to raster.art. The keyboard submits a search and the magnifier button is gone. A work the catalog and Raster both return appears once. Labels chips and their catalog-wide listing are gone from a work's page — that vocabulary was written as search input, not as a description of the work. Yellow is retired app-wide for light blue, the works count on a collection card has room to read as its own line, a video that cannot be prepared shows an error instead of spinning, and a thumbnail no longer tries to draw a video file as an image.
-- **Under the hood.** A large channel or playlist document is parsed off the screen's own thread, so subscribing to one of several thousand works no longer stalls the app. Legal pages are read from feralfile.com and version files from the remote-config repository, so an edit to either reaches the app.
+- **Speed.** A large channel or playlist document is parsed off the screen's own thread, so subscribing to one of several thousand works no longer stalls the app. A publisher's page no longer stutters as it opens: the works strips on it read only the thumbnail, title and labels they draw, instead of every work's whole record. A person's Playlists tab builds the rows near what you are looking at rather than all of them at once, so opening the tab of someone who curates hundreds of playlists is no longer slow the first time. Legal pages are read from feralfile.com and version files from the remote-config repository, so an edit to either reaches the app.
 
 ---
 
