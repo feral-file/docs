@@ -15,8 +15,6 @@ Weekly notes on changes available in Feral File. Each entry lists the versions i
 - **Works and search.** A work links to the site that gave it to us: a Feral File work to feralfile.com, an Art Blocks work to artblocks.io, a work found through Raster to raster.art. The keyboard submits a search and the magnifier button is gone. A work the catalog and Raster both return appears once. Labels chips and their catalog-wide listing are gone from a work's page — that vocabulary was written as search input, not as a description of the work. Yellow is retired app-wide for light blue, the works count on a collection card has room to read as its own line, a video that cannot be prepared shows an error instead of spinning, and a thumbnail no longer tries to draw a video file as an image.
 - **Under the hood.** A large channel or playlist document is parsed off the screen's own thread, so subscribing to one of several thousand works no longer stalls the app. Legal pages are read from feralfile.com and version files from the remote-config repository, so an edit to either reaches the app.
 
-Covers mobile app 1.8.32–1.8.39. These changes are available in 1.8.39 on iOS and Android.
-
 ---
 
 ## Oct 22 2026
