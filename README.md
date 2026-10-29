@@ -57,6 +57,7 @@ Validate before opening a PR:
 ```bash
 mkdocs build --strict
 cmp docs/changelog.md site/docs/changelog.md
+python3 scripts/check-twins.py site
 ```
 
 ## After a Material upgrade

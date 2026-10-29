@@ -19,3 +19,5 @@ jobs:
       - run: mkdocs build --strict
       - name: Verify raw changelog
         run: cmp docs/changelog.md site/docs/changelog.md
+      - name: Verify Markdown twins
+        run: python3 scripts/check-twins.py site

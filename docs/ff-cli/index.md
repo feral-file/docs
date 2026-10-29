@@ -16,29 +16,30 @@ Use your toolchain's supported version and verify against the canonical spec bef
 
 ## First success in minutes
 
-This path uses the canonical commands from `feral-file/ff-cli`.
+This path uses the canonical commands from `feral-file/ff-cli`. It is the same sequence the [home page](../index.md) gives a coding agent, so a person and an agent reach the first success the same way.
 
 ```bash
 # 1) Install (shortest path)
 npm i -g @feralfile/cli
 
-# 2) Run guided setup
-ff-cli setup
+# 2) Register your Art Computer (no prompts). The device ID (FF1-XXXXXXXX) is on
+#    the TV during Wi-Fi setup and in the Feral File app's device info.
+ff-cli setup --non-interactive --device-host http://<device-id>.local:1111 --device-name "Living Room"
 
-# 3) Build one playlist from an artwork or collection URL (or on-chain coords)
-ff-cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak -o playlist.json
+# 3) Build a playlist from an artwork or collection URL (or on-chain coords) and play it
+ff-cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --play -y
+```
 
-# 4) Play on your Art Computer
+You are successful when the works play on your Art Computer.
+
+`ff-cli find` validates the playlist as part of the build, so a separate `validate` command is optional for this first run. To keep the playlist as a file and play it later:
+
+```bash
+ff-cli find https://objkt.com/tokens/hicetnunc/111068 -o playlist.json
 ff-cli play playlist.json
 ```
 
-You are successful when the playlist builds and plays on your configured Art Computer.
-
-`ff-cli find` validates the playlist as part of the build, so a separate `validate` command is optional for this first run. To build and play in one step, add `--play`:
-
-```bash
-ff-cli find https://objkt.com/tokens/hicetnunc/111068 --play
-```
+Prefer to be asked? `ff-cli setup` with no flags walks you through the same registration.
 
 **Want natural language?** ff-cli has no built-in chat. Drive it conversationally from a coding agent — Claude Code, Codex, or Cursor — using the `ff-control` skill; the agent translates your request into `ff-cli` commands. The home page carries the [prompt and setup](../index.md).
 
@@ -65,9 +66,9 @@ npx @feralfile/cli setup
 npx @feralfile/cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --play
 ```
 
-### Manual configuration path (advanced)
+### Setup options
 
-If you are scripting setup or need direct config actions:
+`ff-cli setup` with no flags asks for the device address and name. The non-interactive form takes them as flags, and `config validate` checks the result:
 
 ```bash
 ff-cli setup --non-interactive --device-host http://<device-ip>:1111 --device-name "Living Room"
