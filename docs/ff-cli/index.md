@@ -89,6 +89,7 @@ Setup runs without prompts whenever stdin is not a terminal. It generates a sign
 - Save a published playlist from a feed server (the starting point for `--replace`): `ff-cli fetch <id-or-url>`
 - Delete a playlist from a feed server (signed delete; owner key required): `ff-cli unpublish <id-or-url>`
 - Manage SSH access on the Art Computer: `ff-cli ssh <enable|disable>`
+- Report a problem to Feral File support: `ff-cli report --file <report.txt>` (add `-d "<name>"` and the Art Computer uploads its logs under the same reference)
 - List configured devices: `ff-cli device list`
 - Add a device: `ff-cli device add --host http://<device-ip>:1111 --name "<name>"` (bare `ff-cli device add` tries mDNS discovery)
 - Remove a device: `ff-cli device remove <name>`
