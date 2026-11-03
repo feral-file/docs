@@ -71,6 +71,7 @@ import { mountPlayOnArtComputerButton } from "@feralfile/play";
 mountPlayOnArtComputerButton({
   container: "#play-on-art-computer",
   buttonLabel: "Display on Art Computer",
+  dialog: { copy: { title: "Display on your Art Computer" } },
   playlist: () => buildDp1PlaylistFromSelection(),
   brokerBaseUrl: "https://handoff.feralfile.com",
   // Fallback when the session carries no relayer URL; see Network endpoints.

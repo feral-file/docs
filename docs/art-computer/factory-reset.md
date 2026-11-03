@@ -20,7 +20,7 @@ If the screen is stuck or black and the app cannot reach the device, there is a 
 4. **Plug in once more and leave it.** The Art Computer restarts itself into a boot menu with **FF1 - Factory Reset** selected and a **60-second countdown** on screen.
 5. Choose:
     - **Let the countdown finish** → the factory reset runs.
-    - **Unplug during the countdown** → the reset is cancelled. Nothing is remembered; the next start is a completely normal one.
+    - **Unplug during the countdown** → the reset is canceled. Nothing is remembered; the next start is a completely normal one.
 
 !!! warning "Once the reset starts, leave the power alone"
     Cancelling is only safe **during the countdown**. After it reaches zero the device is rewriting its system — keep it powered until the setup screen appears, usually within a few minutes.

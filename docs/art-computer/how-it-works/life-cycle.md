@@ -1,6 +1,6 @@
 # Art Computer life cycle
 
-All of the behaviour on this page lives in `feral-controld`, the Go device daemon in [`ffos-user`](https://github.com/feral-file/ffos-user). It owns connectivity, command routing, and the whole setup domain: the Wi-Fi setup hotspot and captive portal, the OTA gate, the on-screen setup narration, pairing, factory reset, and the LAN API. There is no separate setup daemon and no Bluetooth path.
+All of the behavior on this page lives in `feral-controld`, the Go device daemon in [`ffos-user`](https://github.com/feral-file/ffos-user). It owns connectivity, command routing, and the whole setup domain: the Wi-Fi setup hotspot and captive portal, the OTA gate, the on-screen setup narration, pairing, factory reset, and the LAN API. There is no separate setup daemon and no Bluetooth path.
 
 ## Setup and startup
 
@@ -40,7 +40,7 @@ Key points:
 - **Ethernet skips Wi-Fi setup.** A device with a cable and internet goes straight to the pairing screen.
 - **Pairing is gated on version.** An unclaimed device must be at or above the branch's minimum version before the pairing screen appears — see [OTA](./ota.md).
 - **The pairing screen offers two paths.** The primary path is the app discovering the device over the local network (mDNS `_ff1._tcp`); the QR code (`https://link.feralfile.com/device_connect/...`) is the backup for when discovery is blocked. Either way the phone binds the device to the account through the cloud.
-- **An already-paired device that loses its network does not show setup over its artwork.** It keeps retrying quietly; only after five minutes with no link at all (no cable, no Wi-Fi association — a changed Wi-Fi password or a vanished network) does it raise the hotspot again. One case is faster: a device that **boots** with no link and cannot see any of its saved networks — the signature of a frame that has been moved — is recognised within about a minute and raises the hotspot straight away. A device whose Wi-Fi is associated but has no upstream (ISP outage, air-gapped gallery) stays put: it keeps its LAN API and mDNS. To move a paired device to a new Wi-Fi while the old one is still in range, the app puts it back into setup mode on demand (`startWifiSetup`, over the LAN or the relayer).
+- **An already-paired device that loses its network does not show setup over its artwork.** It keeps retrying quietly; only after five minutes with no link at all (no cable, no Wi-Fi association — a changed Wi-Fi password or a vanished network) does it raise the hotspot again. One case is faster: a device that **boots** with no link and cannot see any of its saved networks — the signature of a frame that has been moved — is recognized within about a minute and raises the hotspot straight away. A device whose Wi-Fi is associated but has no upstream (ISP outage, air-gapped gallery) stays put: it keeps its LAN API and mDNS. To move a paired device to a new Wi-Fi while the old one is still in range, the app puts it back into setup mode on demand (`startWifiSetup`, over the LAN or the relayer).
 - **An unpaired device is never left stranded.** If a device is online but nobody pairs it, it periodically re-opens the setup hotspot on its own (the *setup-incomplete* cycle) so the Wi-Fi step can be redone without the app.
 
 ### App update
@@ -110,7 +110,7 @@ Telemetry is a pull-then-push pipeline, not a heartbeat message:
 
 1. `feral-sys-monitord` samples the device every few seconds and publishes system metrics on the local D-Bus session bus (for `feral-controld` and `feral-watchdog`) and as Prometheus metrics on `localhost:9001`.
 2. `feral-controld` exposes playback and network metrics on the LAN API at `:1111/metrics`.
-3. A local `vmagent` scrapes both endpoints once a minute and remote-writes them to `https://ingest-metrics.feralfile.com`, labelled with the device id, FF OS version, branch, and CPU / memory model. `feral-watchdog` adds a `ff_crash_reboot{reason=...}` event when it has to reboot the device.
+3. A local `vmagent` scrapes both endpoints once a minute and remote-writes them to `https://ingest-metrics.feralfile.com`, labeled with the device id, FF OS version, branch, and CPU / memory model. `feral-watchdog` adds a `ff_crash_reboot{reason=...}` event when it has to reboot the device.
 
 Telemetry is only sent while the device has network connectivity; vmagent queues locally (bounded) while offline. Turning **analytics off** in the app stops the scraping entirely — only explicit events such as crash reboots and OTA results are still pushed.
 

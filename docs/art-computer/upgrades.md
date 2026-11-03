@@ -109,7 +109,7 @@ When the install finishes, the Art Computer shuts itself down. Remove the USB dr
 
 ## After the upgrade
 
-The Art Computer does not display its own memory or storage anywhere, so there is no number to check. Judge it by behaviour.
+The Art Computer does not display its own memory or storage anywhere, so there is no number to check. Judge it by behavior.
 
 It worked if the device boots to the Wi-Fi setup screen, connects, pairs, and displays artwork.
 
