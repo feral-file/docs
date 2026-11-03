@@ -25,7 +25,7 @@ Allow outbound **TCP 443** (HTTPS and WSS) to:
 | `*.r2.cloudflarestorage.com` | Asset storage |
 | `ingest-metrics.feralfile.com` | Device telemetry. The analytics toggle in the app stops periodic metrics collection, but the device still pushes a few events (watchdog crash reports) over this connection, so keep the host allowed |
 | `support-logs.feralfile.com` | Log upload when you send logs to support from the app. The upload is two steps: the device posts to this host, which hands back a presigned upload URL, and the device then PUTs the log archive to that URL. Allow the presigned upload URL as well, or the upload gets a submission id and no logs |
-| `handoff.feralfile.com` | Browser pairing broker for [Play on Art Computer](./play.md) |
+| `handoff.feralfile.com` | Browser pairing broker for [Display on Art Computer](./play.md) |
 | `link.feralfile.com` | Pairing QR target. The QR code on screen encodes a `link.feralfile.com` address that the owner's phone opens, so allow it for the phone doing the pairing, not only for the device |
 | `8.8.8.8` and `8.8.4.4` | Internet-reachability check. The device decides whether it is online by opening a TCP connection to port 443 on these two addresses |
 | `1.1.1.1` | Neutral reachability probe used by the network diagnostics the device runs when it believes it is offline |

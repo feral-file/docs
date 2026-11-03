@@ -1,6 +1,6 @@
 # Upgrading Memory and Storage
 
-Most people never need this page. The Art Computer ships with enough memory and storage to play everything Feral File distributes, and it updates itself over the air.
+Most people never need this page. The Art Computer ships with enough memory and storage to display everything Feral File distributes, and it updates itself over the air.
 
 This page is for owners who want more headroom: a large local library, or real-time generative work that leans on the GPU. Both the RAM and the SSD are user-serviceable, and both are reachable in one sitting with the case open.
 
@@ -111,7 +111,7 @@ When the install finishes, the Art Computer shuts itself down. Remove the USB dr
 
 The Art Computer does not display its own memory or storage anywhere, so there is no number to check. Judge it by behaviour.
 
-It worked if the device boots to the Wi-Fi setup screen, connects, pairs, and plays artwork.
+It worked if the device boots to the Wi-Fi setup screen, connects, pairs, and displays artwork.
 
 **One failure stays quiet, so guard against it during the install rather than after.** A memory module can sit in its slot without latching. The machine then boots and runs normally on the other module, and nothing tells you that you are using half the memory bandwidth you just paid for. Press each module down until both clips snap in audibly, and tug gently on each one before closing the case.
 
