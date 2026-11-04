@@ -1,6 +1,6 @@
 # Getting Started with the Art Computer
 
-**The Art Computer is Feral File's instrument for digital art.** It plays digital art on any screen. Plug it into a TV, projector, or monitor, put it on your Wi-Fi from your phone, pair it with the app, and your collection of art appears.
+**The Art Computer is Feral File's instrument for digital art.** It displays digital art on any screen. Plug it into a TV, projector, or monitor, put it on your Wi-Fi from your phone, pair it with the app, and your collection of art appears.
 
 The Art Computer updates itself automatically over the air (OTA). For resets, troubleshooting, or experiments, you can also reinstall the OS manually. This guide covers the basics: what you need, plugging it in, Wi-Fi setup, pairing, and (optionally) reinstalling FF OS.
 

@@ -8,7 +8,7 @@ A factory reset erases everything on the device: Wi-Fi settings, the pairing wit
 
 ## From the app (the normal way)
 
-If the Art Computer still responds to the app, reset it from there: the app sends the reset command to the device (over the cloud, or directly on the local network). The screen shows a factory-reset notice, the device stops taking commands, and it restarts into its factory software. Use this path whenever it works — it needs no physical access beyond the screen. If the device comes back up still paired and playing your art, the reset did not take (the factory boot is a one-shot that falls back to the running system if it fails) — simply run it again.
+If the Art Computer still responds to the app, reset it from there: the app sends the reset command to the device (over the cloud, or directly on the local network). The screen shows a factory-reset notice, the device stops taking commands, and it restarts into its factory software. Use this path whenever it works — it needs no physical access beyond the screen. If the device comes back up still paired and displaying your art, the reset did not take (the factory boot is a one-shot that falls back to the running system if it fails) — simply run it again.
 
 ## With the power cord (when nothing else works)
 
@@ -20,7 +20,7 @@ If the screen is stuck or black and the app cannot reach the device, there is a 
 4. **Plug in once more and leave it.** The Art Computer restarts itself into a boot menu with **FF1 - Factory Reset** selected and a **60-second countdown** on screen.
 5. Choose:
     - **Let the countdown finish** → the factory reset runs.
-    - **Unplug during the countdown** → the reset is cancelled. Nothing is remembered; the next start is a completely normal one.
+    - **Unplug during the countdown** → the reset is canceled. Nothing is remembered; the next start is a completely normal one.
 
 !!! warning "Once the reset starts, leave the power alone"
     Cancelling is only safe **during the countdown**. After it reaches zero the device is rewriting its system — keep it powered until the setup screen appears, usually within a few minutes.

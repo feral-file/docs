@@ -1,11 +1,11 @@
 # ff-cli: Start Here
 
-ff-cli is a command-line tool that builds DP-1 playlists from NFT and feed data and plays them on an Art Computer.
+ff-cli is a command-line tool that builds DP-1 playlists from NFT and feed data and displays them on an Art Computer.
 
 Use it when you want the shortest path from a URL, wallet, or set of tokens to visible playback on an Art Computer.
 
-- What this is: the primary command workflow for building, signing, and playing playlists.
-- Why use it: fastest route from a link to play on the Art Computer. No LLM API key required.
+- What this is: the primary command workflow for building, signing, and displaying playlists.
+- Why use it: fastest route from a link to displaying it on the Art Computer. No LLM API key required.
 - What to do next: run the first success flow below.
 
 ## Version note
@@ -26,13 +26,13 @@ npm i -g @feralfile/cli
 #    the TV during Wi-Fi setup and in the Feral File app's device info.
 ff-cli setup --non-interactive --device-host http://<device-id>.local:1111 --device-name "Living Room"
 
-# 3) Build a playlist from an artwork or collection URL (or on-chain coords) and play it
+# 3) Build a playlist from an artwork or collection URL (or on-chain coords) and display it
 ff-cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --play -y
 ```
 
-You are successful when the works play on your Art Computer.
+You are successful when the works are on display on your Art Computer.
 
-`ff-cli find` validates the playlist as part of the build, so a separate `validate` command is optional for this first run. To keep the playlist as a file and play it later:
+`ff-cli find` validates the playlist as part of the build, so a separate `validate` command is optional for this first run. To keep the playlist as a file and display it later:
 
 ```bash
 ff-cli find https://objkt.com/tokens/hicetnunc/111068 -o playlist.json
@@ -83,7 +83,7 @@ Setup runs without prompts whenever stdin is not a terminal. It generates a sign
 - Build playlist from deterministic params, including what a wallet owns: `ff-cli build [params.json]` (`ff-cli build --help` lists the requirement types)
 - Validate a playlist file or URL: `ff-cli validate <file-or-url>`
 - Sign a playlist: `ff-cli sign <file>`
-- Play a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli play <source>` (`--web` plays a page on a marketplace site as a page)
+- Display a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli play <source>` (`--web` displays a page on a marketplace site as a page)
 - Publish to feed server: `ff-cli publish <file>`
 - Replace the playlist already stored under this document id, instead of creating a new one: `ff-cli publish <file> --replace`
 - Save a published playlist from a feed server (the starting point for `--replace`): `ff-cli fetch <id-or-url>`
@@ -127,7 +127,7 @@ ff-cli find https://feralfile.com/exhibitions/artwork/{id} -o playlist.json
 ff-cli find ethereum:0xababababab20053426ad1c782de9ea8444358070:5001410 -o playlist.json
 ff-cli find tezos:KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton:111068 -o playlist.json
 
-# Artist address — plays one work by the artist at that address
+# Artist address — displays one work by the artist at that address
 # (for what a wallet owns, see "Build from structured params" below)
 ff-cli find 0xf3860788d1597cecf938424baabe976fac87dc26 -o playlist.json
 ff-cli find tz1fQTvvcCy5PTt8HcUSQTu64dH9mJjjDudi -o playlist.json
@@ -178,7 +178,7 @@ echo '{"requirements":[{"type":"fetch_feed","playlistName":"Unsupervised","quant
 
 Feed playlist requests depend on configured feed servers and network reachability. The current open-source feed implementation is [`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2); see its [Quick Start](https://github.com/display-protocol/dp1-feed-v2#quick-start) to run your own.
 
-### Play on your configured Art Computer
+### Display on your configured Art Computer {#play-on-your-configured-art-computer}
 
 ```bash
 # Local playlist file

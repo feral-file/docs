@@ -11,14 +11,14 @@ Feral File is a cultural institution and technology company championing computat
 Paste this into your coding agent. Hover over the prompt and click the copy button in its top-right corner:
 
 ```{ .text .copy-prompt }
-Read https://docs.feralfile.com and set me up to play artwork on my Art Computer.
+Read https://docs.feralfile.com and set me up to display artwork on my Art Computer.
 ```
 
 Works in Claude Code, Codex, Grok, Cursor, OpenCode, or any agent that can shell out. Any other job on these pages works the same way: keep the address, name the job. Reinstalling FF OS, moving the Art Computer to another network, and publishing a playlist to the hosted feed are all here.
 
 No agent?
 
-- **From the terminal** — the same capabilities via `ff-cli`. Find, build, validate, sign, play, publish, and manage devices. → [ff-cli](ff-cli/index.md)
+- **From the terminal** — the same capabilities via `ff-cli`. Find, build, validate, sign, display, publish, and manage devices. → [ff-cli](ff-cli/index.md)
 - **From the browser** — sign and publish DP-1 playlists with your wallet, no tooling required (early release). → [DP-1 Publisher](https://publisher.feralfile.com)
 
 ## Setup (the agent runs this)
@@ -72,15 +72,15 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 
 ### Rules that keep agents on track
 
-- **Pass `-y` to `find`.** Without a terminal, a question fails with exit 1 and names the flag that answers it. With `-y` and no `-o`, `find` plays the playlist; add `--no-play` to only save it.
+- **Pass `-y` to `find`.** Without a terminal, a question fails with exit 1 and names the flag that answers it. With `-y` and no `-o`, `find` displays the playlist on your Art Computer; add `--no-play` to only save it.
 - **Read the exit code, then the output.** Non-zero means what was asked did not happen, including a send to an unreachable device and a `build` that lost a requirement or a named token. A zero exit can still carry a partial result: `find` and `build` print how many items they saved and which tokens could not be resolved, so report those.
-- **`find` on a wallet address plays one work by the artist at that address**, not what the wallet owns. For holdings, use `build` with `query_address`.
+- **`find` on a wallet address displays one work by the artist at that address**, not what the wallet owns. For holdings, use `build` with `query_address`.
 - **`play` refuses a URL that does not exist** (HTTP 404 or 410, or a host that does not resolve), so a typo is never cast as an error page.
 
 ## What's here
 
-- **[ff-cli](ff-cli/index.md)** — command-line tool. Build a DP-1 playlist from a URL or wallet, play it on a device, publish it to a feed. The action surface.
-- **[Art Computer](art-computer/index.md)** — the computer inside Toko. On its own, plug it into any display to play DP-1 playlists. Setup, Wi-Fi, pairing, and reinstalling FF OS from USB.
+- **[ff-cli](ff-cli/index.md)** — command-line tool. Build a DP-1 playlist from a URL or wallet, display it on a device, publish it to a feed. The action surface.
+- **[Art Computer](art-computer/index.md)** — the computer inside Toko. On its own, plug it into any TV, projector, or monitor to display DP-1 playlists. Setup, Wi-Fi, pairing, and reinstalling FF OS from USB.
 - **[Hosted Feed](hosted-feed/index.md)** — our hosted DP-1 feed at `feed.feralfile.com` for publishing and retrieving playlists.
 - **[Open source](open-source.md)** — what is open, under which license, where the code is, and what the Art Computer does without Feral File.
 - **[dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md)** (public beta) — validate, sign, and publish DP-1 protocol payloads.

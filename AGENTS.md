@@ -31,7 +31,7 @@ Help three lanes succeed fast:
 - Toko = what Feral File sells: a display with the Art Computer inside, on one cord
 - The display half: "display" everywhere (public copy, team notes and vendor files alike), never "canvas" or "screen" for the object; the part inside is the LCD cell, a component; "Art Panel" (FFP) names only the Batch 1 product its owners have
 - DP-1 = protocol only, never a device
-- Public-facing surfaces: prefer "play"
+- The verb for art is "display", not "play": people play games and videos, they display art. This holds on public and developer pages alike; "playlist" stays the noun, and `play` appears only as the ff-cli command, the `@feralfile/play` package, code names, URLs and app store names
 - Developer-facing surfaces: "run" is acceptable
 - Hardware is an instrument, not a gadget
 
@@ -61,7 +61,7 @@ Goal:
 - install
 - build
 - validate / sign
-- send / play
+- send / display
 
 ### DP-1
 
@@ -77,7 +77,7 @@ Goal:
 - understand the protocol quickly
 - validate a sample
 - run or connect to a feed
-- play on FF1 or another compatible player
+- display on FF1 or another compatible player
 
 ### Agents
 
