@@ -21,12 +21,12 @@ Weekly notes on changes available in Feral File. Each entry lists the versions i
 
 ### ff-cli 3.0.0 — Agents get a clear answer, never a silent one
 
-Every failure now exits with an error that names the fix, instead of a success that did nothing or cast the wrong thing. Coding agents could not see those silent successes. `play --web` puts any web page on your Art Computer, including pages on marketplace sites. The installer at feralfile.com/ff-cli-install works again.
+Every failure now exits with an error that names the fix, instead of a success that did nothing or displayed the wrong thing. Coding agents could not see those silent successes. `play --web` puts any web page on your Art Computer, including pages on marketplace sites. The installer at feralfile.com/ff-cli-install works again.
 
 - `setup` will not replace a signing key that is already in use, because that key owns the playlists you published. `--force` replaces it on purpose.
 - With no terminal, a question exits 1 and names the flag that answers it (`find`: `-y`), instead of exiting 0 having built nothing.
 - `build` exits 1 when part of the request did not happen, and still saves what it collected. `build --help` lists every requirement type.
-- `play` refuses a URL that does not exist instead of casting an error page.
+- `play` refuses a URL that does not exist instead of displaying an error page.
 - `device add` treats the same address on another port as a second device.
 
 Covers ff-cli 3.0.0. This is a major version because existing scripts can see new refusals and exit codes; the [release notes](https://github.com/feral-file/ff-cli/releases/tag/3.0.0) list each one. Install or upgrade with `npm i -g @feralfile/cli`.
@@ -209,7 +209,7 @@ A playlist you put together is now something you can send. Publish it and share 
 
 ### Feral File Mobile App 1.8.5 — Start where you tapped
 
-Play a playlist from the work you tapped, and swipe left or right to move between works without backing out. Playlists cast to your wall arrive exactly as their publisher signed them, with a setting to verify signatures. A work keeps playing through a phone lock, a dead page reloads with a tap, and thumbnails wait until they resolve. Artist pages say Works and Collects, and related works read More from the channel.
+Play a playlist from the work you tapped, and swipe left or right to move between works without backing out. Playlists sent to your Art Computer arrive exactly as their publisher signed them, with a setting to verify signatures. A work keeps playing through a phone lock, a dead page reloads with a tap, and thumbnails wait until they resolve. Artist pages say Works and Collects, and related works read More from the channel.
 
 ---
 
@@ -268,7 +268,7 @@ History in You lets you return to works played on compatible Art Computers. New 
 
 ### Feral File Mobile App 1.6.1 — Hide unwanted works from My Collection
 
-Hide unwanted or spam artworks from an address-based My Collection playlist. Hidden works stay out of collection playback, downloads, and Art Computer casting, remain hidden through sync and restart, and can be restored from the playlist's Hidden works menu.
+Hide unwanted or spam artworks from an address-based My Collection playlist. Hidden works stay out of collection playback, downloads, and display on the Art Computer, remain hidden through sync and restart, and can be restored from the playlist's Hidden works menu.
 
 ---
 
@@ -346,9 +346,9 @@ Search covers all of Feral File and accepts pasted identifiers. Add is retired f
 
 ## Jul 29 2026
 
-### Feral File Mobile App 1.4.1 — Play from search and releases, and clearer cast failures
+### Feral File Mobile App 1.4.1 — Play from search and releases, and clearer display failures
 
-Works from a search, or a series on a release page, can play on your Art Computer. A cast that never reaches the device now says so. Adding to a playlist commits immediately instead of previewing. Dark-surface text is legible, and playback status stays in step with the device.
+Works from a search, or a series on a release page, can play on your Art Computer. A display request that never reaches the device now says so. Adding to a playlist commits immediately instead of previewing. Dark-surface text is legible, and playback status stays in step with the device.
 
 ---
 
@@ -392,7 +392,7 @@ Works from a search, or a series on a release page, can play on your Art Compute
 
 **Browser Pairing is back on supported FF1 builds.** Device Settings shows Browser Pairing again when your Art Computer runs a supported FFOS version, so linking stays available without workarounds.
 
-**Playlist play on FF1 is more resilient.** Casting a playlist is steadier: local playlists convert cleanly for playback, and rows that cannot be read no longer block the entire playlist from playing.
+**Playlist play on FF1 is more resilient.** Displaying a playlist is steadier: local playlists convert cleanly for playback, and rows that cannot be read no longer block the entire playlist from playing.
 
 **Copy is clearer across the app.** Wi‑Fi, Device ID, accessibility labels, and playlist messages now use consistent native English wording, with checks in place to keep future copy on track.
 
@@ -437,7 +437,7 @@ Pairing is more reliable too. Setting up an Art Computer no longer stalls when t
 A patch release on top of 2.0.0.
 
 - **Signed media URLs play correctly again.** A media URL with a query string or fragment — e.g. `art.png?sig=…` or `clip.mp4#t=1`, common for signed/CDN links — was misread and could play as a still or lose its display duration. The type is now read from the URL path only, so images get their duration and videos play their natural length.
-- **`play` points marketplace links to `find`.** Pasting a marketplace URL `play` can't cast directly (for example a legacy Art Blocks `/projects/{id}` link) now tells you to use `ff-cli find <url> --play` instead of trying to render the web page.
+- **`play` points marketplace links to `find`.** Pasting a marketplace URL `play` can't display directly (for example a legacy Art Blocks `/projects/{id}` link) now tells you to use `ff-cli find <url> --play` instead of trying to render the web page.
 
 Update with `npm i -g @feralfile/cli@latest`.
 
@@ -459,7 +459,7 @@ This is a breaking change: the `chat` command and the `defaultModel` / `models` 
 
 **`play` points you to `find` for marketplace links**
 
-Hand `ff-cli play` a marketplace URL, on-chain coordinates, or a wallet address and it now points you to `ff-cli find <input> --play`, which resolves the artwork through the indexer — rather than trying to cast the web page itself. `play` stays the exact-source command (playlist files, hosted playlists, direct media/web URLs); `find` stays the discovery command.
+Hand `ff-cli play` a marketplace URL, on-chain coordinates, or a wallet address and it now points you to `ff-cli find <input> --play`, which resolves the artwork through the indexer — rather than trying to display the web page itself. `play` stays the exact-source command (playlist files, hosted playlists, direct media/web URLs); `find` stays the discovery command.
 
 **Install**
 
