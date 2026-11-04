@@ -1,4 +1,4 @@
-# Display on Art Computer {#play-on-art-computer}
+# Display on Art Computer
 
 Add a **Display on Art Computer** action to your product: someone selects
 works, presses the button, and the works appear on their Art Computer. It is
@@ -53,25 +53,26 @@ the approval prompt in the app names the site that actually asked.
 
 ## Mount the button
 
-Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play)
+Install [`@feralfile/display`](https://www.npmjs.com/package/@feralfile/display)
 (source lives in [`feral-file/play`](https://github.com/feral-file/play)):
 
 ```sh
-npm i @feralfile/play
+npm i @feralfile/display
 ```
 
-For a site with no build step, download `play.js` from the
+For a site with no build step, download `display.js` from the
 [latest release](https://github.com/feral-file/play/releases/latest) — a
 self-contained ESM bundle — host it next to your pages, and
-`import { mountPlayOnArtComputerButton } from "./play.js"`.
+`import { mountDisplayOnArtComputerButton } from "./display.js"`.
+
+The names from `@feralfile/play`, such as `mountPlayOnArtComputerButton` and
+`PlayError`, still work as deprecated aliases.
 
 ```ts
-import { mountPlayOnArtComputerButton } from "@feralfile/play";
+import { mountDisplayOnArtComputerButton } from "@feralfile/display";
 
-mountPlayOnArtComputerButton({
-  container: "#play-on-art-computer",
-  buttonLabel: "Display on Art Computer",
-  dialog: { copy: { title: "Display on your Art Computer" } },
+mountDisplayOnArtComputerButton({
+  container: "#display-on-art-computer",
   playlist: () => buildDp1PlaylistFromSelection(),
   brokerBaseUrl: "https://handoff.feralfile.com",
   // Fallback when the session carries no relayer URL; see Network endpoints.
@@ -100,7 +101,7 @@ installed and offers the install otherwise. For fully custom UI:
   to analytics.
 - `displayDp1Playlist` sends the playlist on an approved session.
 
-Errors are `PlayError` instances with a stable `code`: `pairing_code_expired`,
+Errors are `DisplayError` instances with a stable `code`: `pairing_code_expired`,
 `mint_rejected`, `approval_timeout`, `session_rejected`, `pairing_canceled`,
 `display_failed`, `display_rejected`. Match on the code, not the message. The
 canonical reference for the full option surface, session lifecycle, and error
@@ -132,7 +133,7 @@ the URLs in your playlist.
 
 To hand-check a playlist before wiring up the button, use
 [ff-cli](../ff-cli/index.md) (`ff-cli validate playlist.json`) or display it on
-your own device with `ff-cli play`.
+your own device with `ff-cli display`.
 
 ## Network endpoints
 
