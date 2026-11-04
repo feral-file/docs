@@ -27,7 +27,7 @@ npm i -g @feralfile/cli
 ff-cli setup --non-interactive --device-host http://<device-id>.local:1111 --device-name "Living Room"
 
 # 3) Build a playlist from an artwork or collection URL (or on-chain coords) and display it
-ff-cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --play -y
+ff-cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --display -y
 ```
 
 You are successful when the works are on display on your Art Computer.
@@ -36,7 +36,7 @@ You are successful when the works are on display on your Art Computer.
 
 ```bash
 ff-cli find https://objkt.com/tokens/hicetnunc/111068 -o playlist.json
-ff-cli play playlist.json
+ff-cli display playlist.json
 ```
 
 Prefer to be asked? `ff-cli setup` with no flags walks you through the same registration.
@@ -63,7 +63,7 @@ set -o pipefail; curl -fsSL https://feralfile.com/ff-cli-install | bash && expor
 
 ```bash
 npx @feralfile/cli setup
-npx @feralfile/cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --play
+npx @feralfile/cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --display
 ```
 
 ### Setup options
@@ -83,7 +83,7 @@ Setup runs without prompts whenever stdin is not a terminal. It generates a sign
 - Build playlist from deterministic params, including what a wallet owns: `ff-cli build [params.json]` (`ff-cli build --help` lists the requirement types)
 - Validate a playlist file or URL: `ff-cli validate <file-or-url>`
 - Sign a playlist: `ff-cli sign <file>`
-- Display a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli play <source>` (`--web` displays a page on a marketplace site as a page)
+- Display a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli display <source>` (`--web` displays a page on a marketplace site as a page)
 - Publish to feed server: `ff-cli publish <file>`
 - Replace the playlist already stored under this document id, instead of creating a new one: `ff-cli publish <file> --replace`
 - Save a published playlist from a feed server (the starting point for `--replace`): `ff-cli fetch <id-or-url>`
@@ -135,7 +135,7 @@ ff-cli find tz1fQTvvcCy5PTt8HcUSQTu64dH9mJjjDudi -o playlist.json
 
 Supported sources: Objkt, fxhash (`/gentk/...`, `/iteration/{slug}`, `/project/{slug}`, `/generative/{slug}`), Art Blocks, OpenSea, SuperRare, Feral File, Neort, Verse, Raster, plus raw `ethereum:` / `tezos:` coords and `0x…` / `tz1.../tz2.../tz3...` addresses.
 
-Combine with `--play`, `--publish`, or `--output` to skip straight to delivery; see `ff-cli find --help` for the full flag set. In scripts and agents, add `-y`: without a terminal, a question fails with exit 1 and names the flag that answers it.
+Combine with `--display`, `--publish`, or `--output` to skip straight to delivery; see `ff-cli find --help` for the full flag set. In scripts and agents, add `-y`: without a terminal, a question fails with exit 1 and names the flag that answers it.
 
 ### Build from structured params
 
@@ -182,28 +182,28 @@ Feed playlist requests depend on configured feed servers and network reachabilit
 
 ```bash
 # Local playlist file
-ff-cli play playlist.json
+ff-cli display playlist.json
 
 # Hosted playlist URL
-ff-cli play "https://cdn.example.com/playlist.json"
+ff-cli display "https://cdn.example.com/playlist.json"
 
 # Direct media URL
-ff-cli play "https://example.com/video.mp4"
+ff-cli display "https://example.com/video.mp4"
 
 # Any web page
-ff-cli play "https://example.com/"
+ff-cli display "https://example.com/"
 
-# A page on a marketplace site, as a page (play otherwise sends these to find)
-ff-cli play --web "https://feralfile.com/"
+# A page on a marketplace site, as a page (display otherwise sends these to find)
+ff-cli display --web "https://feralfile.com/"
 ```
 
-`play` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
+`display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
 
 ## Common failure points
 
 - `config validate` fails: run `ff-cli config show`, fix the reported values, then re-run validation.
-- `play` cannot find device: check device host/name in config and make sure the Art Computer is reachable on your network. On managed networks (museums, offices), see [Network Requirements](../art-computer/network-requirements.md).
-- `play` version error: FF OS is below the minimum supported version for that command; update FF OS and retry.
+- `display` cannot find device: check device host/name in config and make sure the Art Computer is reachable on your network. On managed networks (museums, offices), see [Network Requirements](../art-computer/network-requirements.md).
+- `display` version error: FF OS is below the minimum supported version for that command; update FF OS and retry.
 - Signature shape across the ecosystem: ff-cli emits the spec-current `signatures[]`, but some other tools still emit the legacy top-level `signature`. If you integrate with multiple tools, verify both forms validate as expected.
 
 ## Deeper references

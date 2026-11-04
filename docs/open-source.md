@@ -12,7 +12,7 @@ Everything that displays the work is open source: the protocol, the operating sy
 | ff-cli | Build a playlist, display it on an Art Computer on your network, publish it to a feed | [feral-file/ff-cli](https://github.com/feral-file/ff-cli) | MIT |
 | DP-1 feed server | The server that holds playlists and channels for players to fetch; Feral File's hosted feed runs it | [display-protocol/dp1-feed-v2](https://github.com/display-protocol/dp1-feed-v2) | MPL 2.0 |
 | DP-1 tools and SDKs | Validation tool, publisher, Go and JavaScript SDKs | [dp1-cli](https://github.com/display-protocol/dp1-cli), [dp1-publisher](https://github.com/display-protocol/dp1-publisher), [dp1-go](https://github.com/display-protocol/dp1-go), [dp1-js](https://github.com/display-protocol/dp1-js) | MPL 2.0 |
-| Display on Art Computer | The browser library behind [Display on Art Computer](art-computer/play.md), and the pairing broker that connects a web page to an Art Computer | [feral-file/play](https://github.com/feral-file/play) | Apache 2.0 |
+| Display on Art Computer | The browser library behind [Display on Art Computer](art-computer/display.md), and the pairing broker that connects a web page to an Art Computer | [feral-file/play](https://github.com/feral-file/play) | Apache 2.0 |
 | Indexer | Artwork metadata from Ethereum and Tezos | [feral-file/ff-indexer-v2](https://github.com/feral-file/ff-indexer-v2) | MPL 2.0 |
 | Faceplates | The CAD files for the Art Computer's faceplate | [Print Your Own Faceplates](art-computer/faceplates/index.md) | CC BY-SA 4.0 |
 | This documentation | docs.feralfile.com | [feral-file/docs](https://github.com/feral-file/docs) | CC BY 4.0 |
@@ -30,7 +30,7 @@ Contributions come in under the repository's license. There is no contributor ag
 In the test, every Feral File host was blocked on an Art Computer for ten minutes and its open connections to them were cut. Two things were checked:
 
 - **The playlist it was displaying stayed on display**, and it loaded the next work from the host the playlist points to, a third-party site.
-- **A work sent from a computer on the same network went on display.** `ff-cli play` on a laptop sent it to the LAN API, the command interface the Art Computer serves on your local network, signed with the laptop's own key.
+- **A work sent from a computer on the same network went on display.** `ff-cli display` on a laptop sent it to the LAN API, the command interface the Art Computer serves on your local network, signed with the laptop's own key.
 
 A playlist stays on display as long as its media stays reachable or is in the Art Computer's offline cache. So a playlist whose media Feral File hosts stops with Feral File once the cache runs out, and one whose media is anywhere else does not.
 
@@ -40,7 +40,7 @@ So an institution can run its own [DP-1 feed server](https://github.com/display-
 
 ```bash
 ff-cli sign playlist.json            # signs with the key in your ff-cli config
-ff-cli play playlist.json -d <name>  # over the LAN API; play refuses an unsigned file
+ff-cli display playlist.json -d <name>  # over the LAN API; display refuses an unsigned file
 ```
 
 `ff-cli build` signs what it writes when a key is configured, and `ff-cli publish` sends a signed playlist to a feed.
@@ -59,7 +59,7 @@ Two things are not open source: the Feral File app and the relayer. The rest of 
 | Hosting of works | The video and files of the works Feral File publishes | Those works, once the offline cache runs out. Works hosted anywhere else stay on display. |
 | Remote configuration | Settings the player reads when it starts | Nothing within a session; the player keeps the copy it read. After a restart with the source unreachable it runs on its built-in defaults. |
 | Software updates | FF OS updates, which come only from Feral File's signed channel | Updates. The Art Computer keeps running the version it has. |
-| The browser pairing broker | `handoff.feralfile.com`, which pairs a web page with an Art Computer for [Display on Art Computer](art-computer/play.md), even on the same network | Pairing a new site. A site already paired keeps sending display requests through the relayer until its session expires. |
+| The browser pairing broker | `handoff.feralfile.com`, which pairs a web page with an Art Computer for [Display on Art Computer](art-computer/display.md), even on the same network | Pairing a new site. A site already paired keeps sending display requests through the relayer until its session expires. |
 | Support logs and telemetry | Log upload when you send logs to support, and the metrics Feral File reads | Sending logs to support, and the metrics. |
 
 ## What is yours

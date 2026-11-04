@@ -1,4 +1,4 @@
-# Display on Art Computer {#play-on-art-computer}
+# Display on Art Computer
 
 Add a **Display on Art Computer** action to your product: someone selects
 works, presses the button, and the works appear on their Art Computer. It is
@@ -53,23 +53,25 @@ the approval prompt in the app names the site that actually asked.
 
 ## Mount the button
 
-Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play)
+Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play) 0.4.0
 (source lives in [`feral-file/play`](https://github.com/feral-file/play)):
 
 ```sh
-npm i @feralfile/play
+npm i @feralfile/play@0.4.0
 ```
 
 For a site with no build step, download `play.js` from the
-[latest release](https://github.com/feral-file/play/releases/latest) — a
+[0.4.0 release](https://github.com/feral-file/play/releases/tag/0.4.0) — a
 self-contained ESM bundle — host it next to your pages, and
 `import { mountPlayOnArtComputerButton } from "./play.js"`.
+
+The library's own defaults say play, so pass the display copy:
 
 ```ts
 import { mountPlayOnArtComputerButton } from "@feralfile/play";
 
 mountPlayOnArtComputerButton({
-  container: "#play-on-art-computer",
+  container: "#display-on-art-computer",
   buttonLabel: "Display on Art Computer",
   dialog: { copy: { title: "Display on your Art Computer" } },
   playlist: () => buildDp1PlaylistFromSelection(),
@@ -78,6 +80,13 @@ mountPlayOnArtComputerButton({
   relayerBaseUrl: "https://tv-cast-coordination.autonomy-system.workers.dev"
 });
 ```
+
+The library continues as [`@feralfile/display`](https://www.npmjs.com/package/@feralfile/display)
+from 0.5.0, whose own copy says display and which casts with a display grant
+the Art Computer issues. 0.5 needs an Art Computer on FF OS 3.0.0; on older
+firmware it fails with `device_unsupported`. Stay on 0.4.0 until 3.0.0 is
+broadly deployed; the 0.5.0 release notes say how to move, and the play names
+keep working there as deprecated aliases.
 
 On click this checks for a stored browser session; when there is none it
 opens the pairing dialog, waits for the Art Computer to join and the owner to
@@ -132,7 +141,7 @@ the URLs in your playlist.
 
 To hand-check a playlist before wiring up the button, use
 [ff-cli](../ff-cli/index.md) (`ff-cli validate playlist.json`) or display it on
-your own device with `ff-cli play`.
+your own device with `ff-cli display`.
 
 ## Network endpoints
 
