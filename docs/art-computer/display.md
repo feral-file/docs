@@ -53,32 +53,40 @@ the approval prompt in the app names the site that actually asked.
 
 ## Mount the button
 
-Install [`@feralfile/display`](https://www.npmjs.com/package/@feralfile/display)
+Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play) 0.4.0
 (source lives in [`feral-file/play`](https://github.com/feral-file/play)):
 
 ```sh
-npm i @feralfile/display
+npm i @feralfile/play@0.4.0
 ```
 
-For a site with no build step, download `display.js` from the
-[latest release](https://github.com/feral-file/play/releases/latest) — a
+For a site with no build step, download `play.js` from the
+[0.4.0 release](https://github.com/feral-file/play/releases/tag/0.4.0) — a
 self-contained ESM bundle — host it next to your pages, and
-`import { mountDisplayOnArtComputerButton } from "./display.js"`.
+`import { mountPlayOnArtComputerButton } from "./play.js"`.
 
-The names from `@feralfile/play`, such as `mountPlayOnArtComputerButton` and
-`PlayError`, still work as deprecated aliases.
+The library's own defaults say play, so pass the display copy:
 
 ```ts
-import { mountDisplayOnArtComputerButton } from "@feralfile/display";
+import { mountPlayOnArtComputerButton } from "@feralfile/play";
 
-mountDisplayOnArtComputerButton({
+mountPlayOnArtComputerButton({
   container: "#display-on-art-computer",
+  buttonLabel: "Display on Art Computer",
+  dialog: { copy: { title: "Display on your Art Computer" } },
   playlist: () => buildDp1PlaylistFromSelection(),
   brokerBaseUrl: "https://handoff.feralfile.com",
   // Fallback when the session carries no relayer URL; see Network endpoints.
   relayerBaseUrl: "https://tv-cast-coordination.autonomy-system.workers.dev"
 });
 ```
+
+The library continues as [`@feralfile/display`](https://www.npmjs.com/package/@feralfile/display)
+from 0.5.0, whose own copy says display and which casts with a display grant
+the Art Computer issues. 0.5 needs an Art Computer on FF OS 3.0.0; on older
+firmware it fails with `device_unsupported`. Stay on 0.4.0 until 3.0.0 is
+broadly deployed; the 0.5.0 release notes say how to move, and the play names
+keep working there as deprecated aliases.
 
 On click this checks for a stored browser session; when there is none it
 opens the pairing dialog, waits for the Art Computer to join and the owner to
@@ -101,7 +109,7 @@ installed and offers the install otherwise. For fully custom UI:
   to analytics.
 - `displayDp1Playlist` sends the playlist on an approved session.
 
-Errors are `DisplayError` instances with a stable `code`: `pairing_code_expired`,
+Errors are `PlayError` instances with a stable `code`: `pairing_code_expired`,
 `mint_rejected`, `approval_timeout`, `session_rejected`, `pairing_canceled`,
 `display_failed`, `display_rejected`. Match on the code, not the message. The
 canonical reference for the full option surface, session lifecycle, and error
