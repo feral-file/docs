@@ -75,7 +75,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 - **Pass `-y` to `find`.** Without a terminal, a question fails with exit 1 and names the flag that answers it. With `-y` and no `-o`, `find` displays the playlist on your Art Computer; add `--no-display` to only save it.
 - **Read the exit code, then the output.** Non-zero means what was asked did not happen, including a send to an unreachable device and a `build` that lost a requirement or a named token. A zero exit can still carry a partial result: `find` and `build` print how many items they saved and which tokens could not be resolved, so report those.
 - **`find` on a wallet address displays one work by the artist at that address**, not what the wallet owns. For holdings, use `build` with `query_address`.
-- **`display` refuses a URL that does not exist** (HTTP 404 or 410, or a host that does not resolve), so a typo is never cast as an error page.
+- **`display` refuses a URL that does not exist** (HTTP 404 or 410, or a host that does not resolve), so a typo is never shown as an error page.
 
 ## What's here
 

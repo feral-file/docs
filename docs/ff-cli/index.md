@@ -197,7 +197,7 @@ ff-cli display "https://example.com/"
 ff-cli display --web "https://feralfile.com/"
 ```
 
-`display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
+`display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never shown as an error page.
 
 ## Common failure points
 
