@@ -1,6 +1,6 @@
 # Getting Started with the Art Computer
 
-**The Art Computer is Feral File's instrument for digital art.** It plays digital art on any screen. Plug it into a TV, projector, or monitor, put it on your Wi-Fi from your phone, pair it with the app, and your collection of art appears.
+**The Art Computer is Feral File's instrument for digital art.** It displays digital art on any screen. Plug it into a TV, projector, or monitor, put it on your Wi-Fi from your phone, pair it with the app, and your collection of art appears.
 
 The Art Computer updates itself automatically over the air (OTA). For resets, troubleshooting, or experiments, you can also reinstall the OS manually. This guide covers the basics: what you need, plugging it in, Wi-Fi setup, pairing, and (optionally) reinstalling FF OS.
 
@@ -88,9 +88,18 @@ Use this section only if:
 
 ### Create a bootable USB
 
-1. Download **BalenaEtcher**: <https://balena.io/etcher>
-2. Download the latest system image on branch `release`: <https://ffos.feralfile.com>
+1. Download the latest system image on branch `release`: <https://ffos.feralfile.com>
+2. Download **BalenaEtcher**: <https://balena.io/etcher>
 3. Use Etcher to flash the image onto a USB drive.
+
+**With a coding agent**, paste `Read https://docs.feralfile.com and reinstall FF OS on my Art Computer.` and the agent does this half for you. What it runs: `https://ffos.feralfile.com/api/latest/release` returns the version and `image_url` as JSON; the image's signature is at the same path with `.sig` appended. It downloads both, then checks the image against the FF1 release public key, the same check the Art Computer runs before an update:
+
+```bash
+curl -fsSLO https://raw.githubusercontent.com/feral-file/ffos/release/archiso-ff1/airootfs/root/.ff1-release-public-key.pem
+openssl dgst -sha256 -verify .ff1-release-public-key.pem -signature <image>.iso.sig <image>.iso
+```
+
+Then it asks you which disk is the USB drive before writing anything (a wrong disk erases your computer), writes the image to that disk, and hands you the steps below. Those stay by hand.
 
 ### Install (fully automatic)
 

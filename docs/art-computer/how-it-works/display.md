@@ -6,7 +6,7 @@
 
 ## Overview
 
-Users can create and play artwork playlists through natural language text commands in the mobile app. The system parses these commands to generate DP-1 compliant playlists, stores them in a feed server, and delivers them to the Art Computer for playback.
+Users can create and display artwork playlists through natural language text commands in the mobile app. The system parses these commands to generate DP-1 compliant playlists, stores them in a feed server, and delivers them to the Art Computer for playback.
 
 ---
 

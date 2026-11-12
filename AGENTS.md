@@ -31,7 +31,8 @@ Help three lanes succeed fast:
 - Toko = what Feral File sells: a display with the Art Computer inside, on one cord
 - The display half: "display" everywhere (public copy, team notes and vendor files alike), never "canvas" or "screen" for the object; the part inside is the LCD cell, a component; "Art Panel" (FFP) names only the Batch 1 product its owners have
 - DP-1 = protocol only, never a device
-- Public-facing surfaces: prefer "play"
+- The verb for art is "display", not "play": people play games and videos, they display art. This holds on public and developer pages alike; "playlist" stays the noun. The docs show `ff-cli display`, `find --display` and `@feralfile/display`; `ff-cli play` and `find --play` are hidden aliases and the package's Play names are deprecated aliases, so the docs do not teach them. `play` appears only in the `feral-file/play` repository name, the one line naming the deprecated package names, old URLs and anchors, and app store names
+- Keeping a shared playlist or channel in the app is "Add"; giving it back is "Remove", never Follow, Subscribe or Unfollow
 - Developer-facing surfaces: "run" is acceptable
 - Hardware is an instrument, not a gadget
 
@@ -61,7 +62,7 @@ Goal:
 - install
 - build
 - validate / sign
-- send / play
+- send / display
 
 ### DP-1
 
@@ -77,7 +78,7 @@ Goal:
 - understand the protocol quickly
 - validate a sample
 - run or connect to a feed
-- play on FF1 or another compatible player
+- display on FF1 or another compatible player
 
 ### Agents
 

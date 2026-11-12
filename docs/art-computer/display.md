@@ -1,12 +1,12 @@
-# Play on Art Computer
+# Display on Art Computer
 
-Add a **Play on Art Computer** action to your product: someone selects works,
-presses play, and the works appear on their Art Computer. It is for any
-product where people encounter art — a marketplace, an artist's site, a
-gallery app, an agent.
+Add a **Display on Art Computer** action to your product: someone selects
+works, presses the button, and the works appear on their Art Computer. It is
+for any product where people encounter art — a marketplace, an artist's site,
+a gallery app, an agent.
 
 - What this is: a browser library that pairs your product with a visitor's Art
-  Computer and plays a DP-1 playlist on it. It targets the web runtime —
+  Computer and displays a DP-1 playlist on it. It targets the web runtime —
   websites, web apps, Electron, web views inside native apps — and fully
   native clients can implement the documented protocol directly.
 - Why use it: curation stays where it already happens, in your product;
@@ -17,7 +17,7 @@ gallery app, an agent.
 
 ## How it works for the visitor
 
-1. They press **Play on Art Computer** on your site.
+1. They press **Display on Art Computer** on your site.
 2. First time only, a pairing dialog opens:
     - **On a phone or tablet** it shows **Open the Feral File app**. They tap
       it, the app opens with the request, and they approve it.
@@ -29,8 +29,8 @@ gallery app, an agent.
     code lasts five minutes; when it runs out the dialog shows a fresh one, up
     to twice.
 
-3. The playlist plays. Later plays from your site skip pairing — the session
-    is remembered per site origin until it expires or is removed.
+3. The playlist goes on display. Later requests from your site skip pairing —
+    the session is remembered per site origin until it expires or is removed.
 
 Your site shows the request and the app, which holds the authority, accepts
 it. The visitor never opens a settings page on the Art Computer or carries a
@@ -53,23 +53,27 @@ the approval prompt in the app names the site that actually asked.
 
 ## Mount the button
 
-Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play)
+Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play) 0.4.0
 (source lives in [`feral-file/play`](https://github.com/feral-file/play)):
 
 ```sh
-npm i @feralfile/play
+npm i @feralfile/play@0.4.0
 ```
 
 For a site with no build step, download `play.js` from the
-[latest release](https://github.com/feral-file/play/releases/latest) — a
+[0.4.0 release](https://github.com/feral-file/play/releases/tag/0.4.0) — a
 self-contained ESM bundle — host it next to your pages, and
 `import { mountPlayOnArtComputerButton } from "./play.js"`.
+
+The library's own defaults say play, so pass the display copy:
 
 ```ts
 import { mountPlayOnArtComputerButton } from "@feralfile/play";
 
 mountPlayOnArtComputerButton({
-  container: "#play-on-art-computer",
+  container: "#display-on-art-computer",
+  buttonLabel: "Display on Art Computer",
+  dialog: { copy: { title: "Display on your Art Computer" } },
   playlist: () => buildDp1PlaylistFromSelection(),
   brokerBaseUrl: "https://handoff.feralfile.com",
   // Fallback when the session carries no relayer URL; see Network endpoints.
@@ -77,9 +81,16 @@ mountPlayOnArtComputerButton({
 });
 ```
 
+The library continues as [`@feralfile/display`](https://www.npmjs.com/package/@feralfile/display)
+from 0.5.0, whose own copy says display and which casts with a display grant
+the Art Computer issues. 0.5 needs an Art Computer on FF OS 3.0.0; on older
+firmware it fails with `device_unsupported`. Stay on 0.4.0 until 3.0.0 is
+broadly deployed; the 0.5.0 release notes say how to move, and the play names
+keep working there as deprecated aliases.
+
 On click this checks for a stored browser session; when there is none it
 opens the pairing dialog, waits for the Art Computer to join and the owner to
-approve in the app, then plays the playlist. `playlist` accepts an async
+approve in the app, then displays the playlist. `playlist` accepts an async
 function, so you can build the DP-1 document at click time from the visitor's
 current selection.
 
@@ -129,8 +140,8 @@ Feral File pairing infrastructure: the device fetches the works directly from
 the URLs in your playlist.
 
 To hand-check a playlist before wiring up the button, use
-[ff-cli](../ff-cli/index.md) (`ff-cli validate playlist.json`) or play it on
-your own device with `ff-cli play`.
+[ff-cli](../ff-cli/index.md) (`ff-cli validate playlist.json`) or display it on
+your own device with `ff-cli display`.
 
 ## Network endpoints
 
@@ -138,7 +149,7 @@ If your site sets a `Content-Security-Policy`, allow these in `connect-src`:
 
 - `https://handoff.feralfile.com` — the pairing broker
 - `https://tv-cast-coordination.autonomy-system.workers.dev` — the relayer
-  that carries the play request. The approved session carries the base URL
+  that carries the display request. The approved session carries the base URL
   actually used (`session.relayerBaseUrl`); read it from there at runtime.
 
 `https://link.feralfile.com` needs no entry: the app link is a navigation,

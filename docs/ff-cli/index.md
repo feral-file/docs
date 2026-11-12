@@ -1,11 +1,11 @@
 # ff-cli: Start Here
 
-ff-cli is a command-line tool that builds DP-1 playlists from NFT and feed data and plays them on an Art Computer.
+ff-cli is a command-line tool that builds DP-1 playlists from NFT and feed data and displays them on an Art Computer.
 
 Use it when you want the shortest path from a URL, wallet, or set of tokens to visible playback on an Art Computer.
 
-- What this is: the primary command workflow for building, signing, and playing playlists.
-- Why use it: fastest route from a link to play on the Art Computer. No LLM API key required.
+- What this is: the primary command workflow for building, signing, and displaying playlists.
+- Why use it: fastest route from a link to displaying it on the Art Computer. No LLM API key required.
 - What to do next: run the first success flow below.
 
 ## Version note
@@ -26,17 +26,17 @@ npm i -g @feralfile/cli
 #    the TV during Wi-Fi setup and in the Feral File app's device info.
 ff-cli setup --non-interactive --device-host http://<device-id>.local:1111 --device-name "Living Room"
 
-# 3) Build a playlist from an artwork or collection URL (or on-chain coords) and play it
-ff-cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --play -y
+# 3) Build a playlist from an artwork or collection URL (or on-chain coords) and display it
+ff-cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --display -y
 ```
 
-You are successful when the works play on your Art Computer.
+You are successful when the works are on display on your Art Computer.
 
-`ff-cli find` validates the playlist as part of the build, so a separate `validate` command is optional for this first run. To keep the playlist as a file and play it later:
+`ff-cli find` validates the playlist as part of the build, so a separate `validate` command is optional for this first run. To keep the playlist as a file and display it later:
 
 ```bash
 ff-cli find https://objkt.com/tokens/hicetnunc/111068 -o playlist.json
-ff-cli play playlist.json
+ff-cli display playlist.json
 ```
 
 Prefer to be asked? `ff-cli setup` with no flags walks you through the same registration.
@@ -63,7 +63,7 @@ set -o pipefail; curl -fsSL https://feralfile.com/ff-cli-install | bash && expor
 
 ```bash
 npx @feralfile/cli setup
-npx @feralfile/cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --play
+npx @feralfile/cli find https://www.artblocks.io/collection/ringers-by-dmitri-cherniak --display
 ```
 
 ### Setup options
@@ -83,7 +83,7 @@ Setup runs without prompts whenever stdin is not a terminal. It generates a sign
 - Build playlist from deterministic params, including what a wallet owns: `ff-cli build [params.json]` (`ff-cli build --help` lists the requirement types)
 - Validate a playlist file or URL: `ff-cli validate <file-or-url>`
 - Sign a playlist: `ff-cli sign <file>`
-- Play a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli play <source>` (`--web` plays a page on a marketplace site as a page)
+- Display a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli display <source>` (`--web` displays a page on a marketplace site as a page)
 - Publish to feed server: `ff-cli publish <file>`
 - Replace the playlist already stored under this document id, instead of creating a new one: `ff-cli publish <file> --replace`
 - Save a published playlist from a feed server (the starting point for `--replace`): `ff-cli fetch <id-or-url>`
@@ -128,7 +128,7 @@ ff-cli find https://feralfile.com/exhibitions/artwork/{id} -o playlist.json
 ff-cli find ethereum:0xababababab20053426ad1c782de9ea8444358070:5001410 -o playlist.json
 ff-cli find tezos:KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton:111068 -o playlist.json
 
-# Artist address — plays one work by the artist at that address
+# Artist address — displays one work by the artist at that address
 # (for what a wallet owns, see "Build from structured params" below)
 ff-cli find 0xf3860788d1597cecf938424baabe976fac87dc26 -o playlist.json
 ff-cli find tz1fQTvvcCy5PTt8HcUSQTu64dH9mJjjDudi -o playlist.json
@@ -136,7 +136,7 @@ ff-cli find tz1fQTvvcCy5PTt8HcUSQTu64dH9mJjjDudi -o playlist.json
 
 Supported sources: Objkt, fxhash (`/gentk/...`, `/iteration/{slug}`, `/project/{slug}`, `/generative/{slug}`), Art Blocks, OpenSea, SuperRare, Feral File, Neort, Verse, Raster, plus raw `ethereum:` / `tezos:` coords and `0x…` / `tz1.../tz2.../tz3...` addresses.
 
-Combine with `--play`, `--publish`, or `--output` to skip straight to delivery; see `ff-cli find --help` for the full flag set. In scripts and agents, add `-y`: without a terminal, a question fails with exit 1 and names the flag that answers it.
+Combine with `--display`, `--publish`, or `--output` to skip straight to delivery; see `ff-cli find --help` for the full flag set. In scripts and agents, add `-y`: without a terminal, a question fails with exit 1 and names the flag that answers it.
 
 ### Build from structured params
 
@@ -179,32 +179,32 @@ echo '{"requirements":[{"type":"fetch_feed","playlistName":"Unsupervised","quant
 
 Feed playlist requests depend on configured feed servers and network reachability. The current open-source feed implementation is [`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2); see its [Quick Start](https://github.com/display-protocol/dp1-feed-v2#quick-start) to run your own.
 
-### Play on your configured Art Computer
+### Display on your configured Art Computer {#play-on-your-configured-art-computer}
 
 ```bash
 # Local playlist file
-ff-cli play playlist.json
+ff-cli display playlist.json
 
 # Hosted playlist URL
-ff-cli play "https://cdn.example.com/playlist.json"
+ff-cli display "https://cdn.example.com/playlist.json"
 
 # Direct media URL
-ff-cli play "https://example.com/video.mp4"
+ff-cli display "https://example.com/video.mp4"
 
 # Any web page
-ff-cli play "https://example.com/"
+ff-cli display "https://example.com/"
 
-# A page on a marketplace site, as a page (play otherwise sends these to find)
-ff-cli play --web "https://feralfile.com/"
+# A page on a marketplace site, as a page (display otherwise sends these to find)
+ff-cli display --web "https://feralfile.com/"
 ```
 
-`play` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
+`display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
 
 ## Common failure points
 
 - `config validate` fails: run `ff-cli config show`, fix the reported values, then re-run validation.
-- `play` cannot find device: check device host/name in config and make sure the Art Computer is reachable on your network. On managed networks (museums, offices), see [Network Requirements](../art-computer/network-requirements.md).
-- `play` version error: FF OS is below the minimum supported version for that command; update FF OS and retry.
+- `display` cannot find device: check device host/name in config and make sure the Art Computer is reachable on your network. On managed networks (museums, offices), see [Network Requirements](../art-computer/network-requirements.md).
+- `display` version error: FF OS is below the minimum supported version for that command; update FF OS and retry.
 - Signature shape across the ecosystem: ff-cli emits the spec-current `signatures[]`, but some other tools still emit the legacy top-level `signature`. If you integrate with multiple tools, verify both forms validate as expected.
 
 ## Deeper references

@@ -5,8 +5,8 @@ Three generated files, all written after the build:
 - <page>/index.md beside every page: the page's Markdown source, so an agent
   reads the text without parsing the rendered HTML. Relative links are
   rewritten to the twins they point at: a page's twin lives at the page's
-  URL, which for `art-computer/play.md` is one directory deeper than the
-  source (`/art-computer/play/index.md`), and `open-source.md` is served as
+  URL, which for `art-computer/display.md` is one directory deeper than the
+  source (`/art-computer/display/index.md`), and `open-source.md` is served as
   `/open-source/index.md`. A redirected URL gets a twin that names the new
   page, so an agent holding an old link still lands.
 - /llms.txt: what the site is and one line per page with its HTML and
