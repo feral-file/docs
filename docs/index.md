@@ -19,7 +19,7 @@ Works in Claude Code, Codex, Grok, Cursor, OpenCode, or any agent that can shell
 No agent?
 
 - **From the terminal** — the same capabilities via `ff-cli`. Find, build, validate, sign, display, publish, and manage devices. → [ff-cli](ff-cli/index.md)
-- **From the browser** — sign and publish DP-1 playlists with your wallet, no tooling required (early release). → [DP-1 Publisher](https://publisher.feralfile.com)
+- **From the browser** — sign and publish DP-1 playlists with your wallet, no tooling required. → [DP-1 Publisher](https://publisher.feralfile.com)
 
 ## Setup (the agent runs this)
 
@@ -84,8 +84,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 - **[Art Computer](art-computer/index.md)** — the computer inside Toko. On its own, plug it into any TV, projector, or monitor to display DP-1 playlists. Setup, Wi-Fi, pairing, and reinstalling FF OS from USB.
 - **[Hosted Feed](hosted-feed/index.md)** — our hosted DP-1 feed at `feed.feralfile.com` for publishing and retrieving playlists.
 - **[Open source](open-source.md)** — what is open, under which license, where the code is, and what the Art Computer does without Feral File.
-- **[dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md)** (public beta) — validate, sign, and publish DP-1 protocol payloads.
+- **[dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md)** — validate, sign, and publish DP-1 protocol payloads.
 - **[Artwork Library](https://github.com/feral-file/ffa-js)** — JS library artists embed in software artworks for provenance, deterministic randomness, and on-chain data. Docs live with the library.
 - **[Exhibitions OpenAPI](https://feralfile.com/.well-known/openapi.json)** — read-only endpoints for discovering exhibitions, series, and artworks. Complementary to `ff-cli`, not an alternative.
-- **No MCP server today.** Use `ff-cli` (CLI) or the Exhibitions OpenAPI (HTTP).
-- **On-device agents.** OpenClaw and variants ("Claws") run agentic workflows *on* the Art Computer itself — same category as the coding agents above, different deployment shape. No public docs yet.
+- **No MCP server.** Use `ff-cli` (CLI) or the Exhibitions OpenAPI (HTTP).

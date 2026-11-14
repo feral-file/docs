@@ -46,7 +46,8 @@ Help three lanes succeed fast:
 - Reliability before novelty
 - No invented claims, roadmap, integrations, benchmarks, or support promises
 - State what was tested and what was not in the pull request, never on the page: a page tells its reader what to do and what it needs, and a test record is not for them
-- A version number belongs on a page only as a requirement the reader can act on ("needs ff-cli 4.2.0 or later"); never "this page describes version X", which goes stale with the next release
+- Keep version numbers off the pages. One appears only where the reader must type it or cannot proceed without it (an install pin, a field value). No "this page describes version X", no "since X", no beta or early-release labels; the changelog is where versions live
+- No template filler: no "What this is / Why use it / What to do next" bullets, no Status or Notes sections, no narration of how the page or the product got here
 
 ## Audience lanes
 

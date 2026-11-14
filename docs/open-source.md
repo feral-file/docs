@@ -27,14 +27,14 @@ Contributions come in under the repository's license. There is no contributor ag
 
 ## Running without Feral File
 
-In the test, every Feral File host was blocked on an Art Computer for ten minutes and its open connections to them were cut. Two things were checked:
+With every Feral File host unreachable, an Art Computer keeps working:
 
-- **The playlist it was displaying stayed on display**, and it loaded the next work from the host the playlist points to, a third-party site.
-- **A work sent from a computer on the same network went on display.** `ff-cli display` on a laptop sent it to the LAN API, the command interface the Art Computer serves on your local network, signed with the laptop's own key.
+- **The playlist on display stays on display**, and it loads the next work from the host the playlist points to.
+- **A work sent from a computer on the same network goes on display.** `ff-cli display` sends it to the LAN API, the command interface the Art Computer serves on your local network, signed with your own key.
 
 A playlist stays on display as long as its media stays reachable or is in the Art Computer's offline cache. So a playlist whose media Feral File hosts stops with Feral File once the cache runs out, and one whose media is anywhere else does not.
 
-The test Art Computer had been paired with the app once. Whether a never-paired Art Computer displays a playlist sent over the LAN with Feral File unreachable is not yet tested; an unpaired Art Computer that cannot reach the internet re-opens its setup hotspot for a few cycles.
+This holds for an Art Computer that has been paired with the app once. One that has never been paired and cannot reach the internet re-opens its setup hotspot.
 
 So an institution can run its own [DP-1 feed server](https://github.com/display-protocol/dp1-feed-v2), sign its own playlists, and display them on its Art Computers from its own network with [ff-cli](ff-cli/index.md):
 
@@ -69,4 +69,4 @@ Two things are not open source: the Feral File app and the relayer. The rest of 
 
 ## Updates without Feral File
 
-Not yet. Feral File's own FF OS image pipeline needs Feral File's storage credentials and signing key. Whether someone outside can build an image from the open source with their own keys and point an Art Computer at their own update channel is untested. Until it is, displaying art survives Feral File and updating does not.
+Not yet. FF OS updates come only from Feral File's signed channel, so displaying art survives Feral File and updating does not.

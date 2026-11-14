@@ -4,10 +4,6 @@ This page covers the hosted DP-1 feed operated by Feral File.
 
 Use it when you want a managed endpoint instead of running your own feed server.
 
-- What this is: hosted feed usage guidance for Feral File-managed infrastructure.
-- Why use it: quickest managed path to publish and retrieve playlists and channels.
-- What to do next: validate a payload, then POST to the hosted endpoint.
-
 ## What this is
 
 The hosted feed accepts DP-1 playlists, playlist-groups, and channels, validates payloads, and serves them over HTTP APIs.
@@ -27,11 +23,11 @@ If you need full control, use [run your own using `dp1-feed-v2`](https://github.
 
 Reads (retrieve a playlist, playlist-group, or channel by ID or slug) require no authentication.
 
-Writes are authenticated by the cryptographic signatures in the request body. There is no API key: the feed removed it, and neither sends nor accepts an `Authorization` header. The server verifies the signatures before persisting anything, per the [feed OpenAPI spec](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml).
+Writes are authenticated by the cryptographic signatures in the request body. There is no API key and no `Authorization` header. The server verifies the signatures before persisting anything, per the [feed OpenAPI spec](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml).
 
 - **Create (`POST`)** is open to anyone. The body must carry a non-empty, verifiable `signatures[]` array, and at least one signature must come from the document's owner acting in the owner role — `curator` for playlists and playlist-groups, `publisher` for channels. The `curators[]` / `publisher` fields are optional; a document that declares neither must carry exactly one owner-role signature, and that key becomes the owner.
 
-    Prefer a browser to a terminal? [DP-1 Publisher](https://publisher.feralfile.com) handles this flow for you: sign a playlist with your wallet and publish it to the hosted feed. It is an early release — feedback to [support@feralfile.com](mailto:support@feralfile.com) is welcome.
+    Prefer a browser to a terminal? [DP-1 Publisher](https://publisher.feralfile.com) handles this flow for you: sign a playlist with your wallet and publish it to the hosted feed.
 
 - **Update (`PUT`)** replaces the whole document. The body pairs the full re-signed document with a signed `authorization` intent that binds the change to this resource and expires, so a previously published document cannot be replayed to roll a resource back. There is no `PATCH`.
 
@@ -41,7 +37,7 @@ Only an owner can update or delete a resource: a key the stored document names i
 
 ## Minimal hosted flow
 
-1. Build and sign a DP-1 playlist (`ff-cli sign`, or [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md), public beta).
+1. Build and sign a DP-1 playlist (`ff-cli sign`, or [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md)).
 2. Validate it with dp1-cli.
 3. POST it to the hosted feed — the signatures authenticate the request.
 4. Retrieve by ID or slug.
@@ -60,7 +56,7 @@ A channel is a signed, ordered list of playlist URLs under one publisher ([chann
 
 In a browser, [DP-1 Publisher](https://publisher.feralfile.com) publishes channels too, signing with your wallet as `publisher`. It strips any signatures already on a pasted document and signs again with the connected wallet.
 
-From a terminal, [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md) signs with an Ed25519 key. This sequence was run end to end with dp1-cli v2.0.0-beta.3 against a local [dp1-feed-v2](https://github.com/display-protocol/dp1-feed-v2) v1.2.0:
+From a terminal, [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md) signs with an Ed25519 key:
 
 1. Set up a signing key. The key that signs a channel as `publisher` owns it: only that key can replace or delete the channel, so keep a copy of it off this machine. Check for a saved key first:
 
@@ -130,12 +126,6 @@ A published channel appears in the Feral File app once Feral File lists it.
 ## API reference source
 
 - Canonical feed server OpenAPI: <https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml>
-
-## Notes
-
-- DP-1 is protocol-first and vendor-neutral; the hosted feed is one deployment option.
-- The open-source reference operator repo is not the same thing as Feral File's hosted production feed service.
-- If you need deployment details, storage model, or infrastructure tuning, use the open implementation docs in [`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2).
 
 ## Next step
 
