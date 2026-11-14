@@ -4,19 +4,9 @@ ff-cli is a command-line tool that builds DP-1 playlists from NFT and feed data 
 
 Use it when you want the shortest path from a URL, wallet, or set of tokens to visible playback on an Art Computer.
 
-- What this is: the primary command workflow for building, signing, and displaying playlists.
-- Why use it: fastest route from a link to displaying it on the Art Computer. No LLM API key required.
-- What to do next: run the first success flow below.
-
-## Version note
-
-ff-cli builds playlists at `dpVersion: 1.1.0` with the multi-signature `signatures[]` envelope, matching the canonical DP-1 specification.
-
-Use your toolchain's supported version and verify against the canonical spec before production use.
+It needs no LLM API key.
 
 ## First success in minutes
-
-This path uses the canonical commands from `feral-file/ff-cli`. It is the same sequence the [home page](../index.md) gives a coding agent, so a person and an agent reach the first success the same way.
 
 ```bash
 # 1) Install (shortest path)
@@ -201,7 +191,7 @@ ff-cli display "https://example.com/"
 ff-cli display --web "https://feralfile.com/"
 ```
 
-A page declares its playlist with one `<link>` line in its head; Feral File exhibition pages do. To add it to your own pages, see [Declare your page's playlist](../art-computer/display.md#declare-your-pages-playlist). This needs ff-cli 4.2.0 or later.
+A page declares its playlist with one `<link>` line in its head; Feral File exhibition pages do. To add it to your own pages, see [Declare your page's playlist](../art-computer/display.md#declare-your-pages-playlist).
 
 `display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
 
@@ -219,4 +209,4 @@ A page declares its playlist with one `<link>` line in its head; Feral File exhi
 - More examples: <https://github.com/feral-file/ff-cli/blob/main/docs/EXAMPLES.md>
 - Agent skill prompt (`ff-control`): <https://github.com/feral-file/ff-cli/blob/main/skills/ff-control/SKILL.md>
 - DP-1 protocol spec: <https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md>
-- DP-1 CLI (**public beta**; validate, sign, verify, publish): <https://github.com/display-protocol/dp1-cli> — **dp1-cli** is the **actively maintained** successor to the legacy **dp1-validator** tag line in that **same repository** (legacy tags are frozen).
+- DP-1 CLI (validate, sign, verify, publish): <https://github.com/display-protocol/dp1-cli>

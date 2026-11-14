@@ -5,15 +5,11 @@ works, presses the button, and the works appear on their Art Computer. It is
 for any product where people encounter art — a marketplace, an artist's site,
 a gallery app, an agent.
 
-- What this is: a browser library that pairs your product with a visitor's Art
-  Computer and displays a DP-1 playlist on it. It targets the web runtime —
-  websites, web apps, Electron, web views inside native apps — and fully
-  native clients can implement the documented protocol directly.
-- Why use it: curation stays where it already happens, in your product;
-  playback lands on the visitor's device. No backend changes, no API key, no
-  registration.
-- What to do next: mount the button, build a DP-1 playlist from the visitor's
-  selection, and test against your own Art Computer.
+It is a browser library that pairs your product with a visitor's Art Computer
+and displays a DP-1 playlist on it. It runs anywhere the web does: websites,
+web apps, Electron, web views inside native apps. Curation stays in your
+product, and the works land on the visitor's device. It needs no backend
+changes, no API key, and no registration.
 
 ## How it works for the visitor
 
@@ -38,9 +34,7 @@ code from it to your site.
 
 When approving, the owner can keep your site paired. That session does not
 expire; it lasts until they remove it under **Paired sites** in the Art
-Computer's settings in the app. Otherwise the session is short-lived. A site
-on a library older than 0.3.0 gets a timed session even when the owner keeps
-it paired.
+Computer's settings in the app. Otherwise the session is short-lived.
 
 Your site never receives device API keys or account credentials. It holds a
 revokable browser session scoped to playback only. The mint request and the
@@ -81,12 +75,9 @@ mountPlayOnArtComputerButton({
 });
 ```
 
-The library continues as [`@feralfile/display`](https://www.npmjs.com/package/@feralfile/display)
-from 0.5.0, whose own copy says display and which casts with a display grant
-the Art Computer issues. 0.5 needs an Art Computer on FF OS 3.0.0; on older
-firmware it fails with `device_unsupported`. Stay on 0.4.0 until 3.0.0 is
-broadly deployed; the 0.5.0 release notes say how to move, and the play names
-keep working there as deprecated aliases.
+The library continues as [`@feralfile/display`](https://www.npmjs.com/package/@feralfile/display),
+which needs an Art Computer on FF OS 3.0.0. Until that is broadly deployed,
+install `@feralfile/play` 0.4.0 as shown here.
 
 On click this checks for a stored browser session; when there is none it
 opens the pairing dialog, waits for the Art Computer to join and the owner to
@@ -116,20 +107,6 @@ canonical reference for the full option surface, session lifecycle, and error
 handling is the
 [Integration Guide](https://github.com/feral-file/play/blob/main/docs/integration.md)
 in the repo.
-
-## Upgrading from 0.3.x
-
-Sites on 0.3.x pair the other way — the Art Computer shows a code and the
-visitor types it into the site — and keep working; the hosted broker still
-serves that path. To move to 0.4.0:
-
-- **Wrapped button:** no change. `appLinkBaseUrl` is optional.
-- **`requestEphemeralSession`:** the `pairing` input (`{ shortCode }` /
-  `{ qrPayload }`) is removed, along with `parsePairingQrPayload` and
-  `pairingToResolved`. Pass `brokerBaseUrl` and `onPairingMaterial` instead.
-- **Dialog:** `createPairingCodeDialog` is now `createPairingDialog`.
-- **Errors:** drop matches on `pairing_code_not_found` and
-  `pairing_code_used`; a site can no longer hit them.
 
 ## The playlist
 
@@ -164,7 +141,7 @@ what goes on display.
   playlist, and being linked from your page grants it nothing.
 - Declare one playlist per page. A client uses the first matching link.
 
-[ff-cli](../ff-cli/index.md) 4.2.0 and later follows this line:
+[ff-cli](../ff-cli/index.md) follows this line:
 
 ```bash
 ff-cli display "https://feralfile.com/exhibitions/e-volved-formulae-8an"
@@ -177,9 +154,7 @@ displays the page itself.
 
 This works alongside the button: the button serves a visitor in the browser,
 and the declared playlist serves anyone, or any agent, holding the page's
-address. Tested with ff-cli 4.2.0: a page on an independent site was displayed
-on an Art Computer from its address, and a feralfile.com exhibition address
-resolved to its playlist and passed verification.
+address.
 
 ## Network endpoints
 
@@ -193,13 +168,7 @@ If your site sets a `Content-Security-Policy`, allow these in `connect-src`:
 `https://link.feralfile.com` needs no entry: the app link is a navigation,
 never a `fetch`, and the QR is drawn in the page by the library.
 
-## Status
+## Feedback
 
-The library, hosted broker, mobile-app approval flow, and device playback work
-end to end today; this page describes `@feralfile/play` 0.4.0. Joining a
-site's channel needs Art Computer software 2.0.10 or later, and the app offers
-**Pair a site** only for an Art Computer that has it. The integration surface
-is pre-1.0, so expect additive API change between 0.x versions. API feedback is actively wanted — tell us what is
-unclear, impractical, or missing by
-[opening an issue](https://github.com/feral-file/play/issues)
-on the repo.
+Tell us what is unclear, impractical, or missing by
+[opening an issue](https://github.com/feral-file/play/issues) on the repo.

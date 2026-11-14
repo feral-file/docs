@@ -45,7 +45,9 @@ Help three lanes succeed fast:
 - Deletion-first: remove friction before adding explanation
 - Reliability before novelty
 - No invented claims, roadmap, integrations, benchmarks, or support promises
-- State what was tested and what was not
+- State what was tested and what was not in the pull request, never on the page: a page tells its reader what to do and what it needs, and a test record is not for them
+- Keep version numbers off the pages. One appears only where the reader must type it or cannot proceed without it (an install pin, a field value). No "this page describes version X", no "since X", no beta or early-release labels; the changelog is where versions live
+- No template filler: no "What this is / Why use it / What to do next" bullets, no Status or Notes sections, no narration of how the page or the product got here
 
 ## Audience lanes
 
