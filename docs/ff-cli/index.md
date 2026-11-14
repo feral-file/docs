@@ -83,7 +83,7 @@ Setup runs without prompts whenever stdin is not a terminal. It generates a sign
 - Build playlist from deterministic params, including what a wallet owns: `ff-cli build [params.json]` (`ff-cli build --help` lists the requirement types)
 - Validate a playlist file or URL: `ff-cli validate <file-or-url>`
 - Sign a playlist: `ff-cli sign <file>`
-- Display a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli display <source>` (`--web` displays a page on a marketplace site as a page)
+- Display a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli display <source>` (a page that declares its DP-1 playlist displays the playlist; `--web` displays a page as a page)
 - Publish to feed server: `ff-cli publish <file>`
 - Replace the playlist already stored under this document id, instead of creating a new one: `ff-cli publish <file> --replace`
 - Save a published playlist from a feed server (the starting point for `--replace`): `ff-cli fetch <id-or-url>`
@@ -191,12 +191,17 @@ ff-cli display "https://cdn.example.com/playlist.json"
 # Direct media URL
 ff-cli display "https://example.com/video.mp4"
 
-# Any web page
+# A web page that declares its DP-1 playlist: displays the playlist, not the page
+ff-cli display "https://feralfile.com/exhibitions/e-volved-formulae-8an"
+
+# Any other web page
 ff-cli display "https://example.com/"
 
 # A page on a marketplace site, as a page (display otherwise sends these to find)
 ff-cli display --web "https://feralfile.com/"
 ```
+
+A page declares its playlist with one `<link>` line in its head; Feral File exhibition pages do. To add it to your own pages, see [Declare your page's playlist](../art-computer/display.md#declare-your-pages-playlist). This needs ff-cli 4.2.0 or later.
 
 `display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
 
