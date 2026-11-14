@@ -177,9 +177,7 @@ displays the page itself.
 
 This works alongside the button: the button serves a visitor in the browser,
 and the declared playlist serves anyone, or any agent, holding the page's
-address. Tested with ff-cli 4.2.0: a page on an independent site was displayed
-on an Art Computer from its address, and a feralfile.com exhibition address
-resolved to its playlist and passed verification.
+address.
 
 ## Network endpoints
 
