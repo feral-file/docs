@@ -143,6 +143,44 @@ To hand-check a playlist before wiring up the button, use
 [ff-cli](../ff-cli/index.md) (`ff-cli validate playlist.json`) or display it on
 your own device with `ff-cli display`.
 
+## Declare your page's playlist
+
+A page that presents a set of works can name the DP-1 playlist that carries
+them. Put one line in the page's `<head>`:
+
+```html
+<link rel="alternate" type="application/json" href="https://example.com/show/playlist.json" title="DP-1 playlist">
+```
+
+A client given the page's address can then find the playlist without the
+visitor hunting for it. The page stays the thing people share; the playlist is
+what goes on display.
+
+- `rel` includes `alternate`, and `title` is exactly `DP-1 playlist`. The title
+  is what marks the link, because `application/json` alone does not say DP-1.
+- `href` is the playlist's `http(s)` address. It may be relative to the page.
+- The address serves the playlist as JSON to any client, with no login. Sign
+  the playlist: a client verifies it the same way it verifies any hosted
+  playlist, and being linked from your page grants it nothing.
+- Declare one playlist per page. A client uses the first matching link.
+
+[ff-cli](../ff-cli/index.md) 4.2.0 and later follows this line:
+
+```bash
+ff-cli display "https://feralfile.com/exhibitions/e-volved-formulae-8an"
+```
+
+That displays the exhibition's works, not the page. Feral File exhibition
+pages declare their playlists this way. If the declared playlist does not
+load, `display` stops with an error and sends nothing; `ff-cli display --web`
+displays the page itself.
+
+This works alongside the button: the button serves a visitor in the browser,
+and the declared playlist serves anyone, or any agent, holding the page's
+address. Tested with ff-cli 4.2.0: a page on an independent site was displayed
+on an Art Computer from its address, and a feralfile.com exhibition address
+resolved to its playlist and passed verification.
+
 ## Network endpoints
 
 If your site sets a `Content-Security-Policy`, allow these in `connect-src`:
