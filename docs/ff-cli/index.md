@@ -193,7 +193,7 @@ ff-cli display --web "https://feralfile.com/"
 
 A page declares its playlist with one `<link>` line in its head; Feral File exhibition pages do. To add it to your own pages, see [Declare your page's playlist](../art-computer/display.md#declare-your-pages-playlist).
 
-`display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never cast as an error page.
+`display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never shown as an error page.
 
 ## Common failure points
 
