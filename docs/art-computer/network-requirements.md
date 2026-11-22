@@ -98,7 +98,7 @@ The app reaches the Art Computer two ways:
 - **Over the cloud relayer.** Both the phone and the device open outbound WebSocket connections (WSS over TCP 443) to the relayer, which brokers commands between them. The phone and the device do **not** need to be on the same network, and nothing inbound is required.
 - **Over the LAN.** When the phone and the device are on the same network, the app discovers the device with mDNS (`_ff1._tcp`) and can talk to it directly on port 1111. First-time pairing runs here: the phone scans the code on screen, then secures the device as its first owner over the LAN. Local recovery, such as re-running Wi-Fi setup, runs here too.
 
-If the device egress rules above are in place, the relayer path needs nothing further. If your network blocks multicast or isolates clients, pairing from the scanned code still completes, but the app says the Art Computer is not secured yet. Secure it later from a phone that can reach it on the LAN (**Secure this Art Computer** in its settings).
+If the device egress rules above are in place, the relayer path needs nothing further. If your network blocks multicast or isolates clients, the phone cannot reach a new Art Computer, and the app asks you to put both on the same Wi-Fi; nothing is set up until they can reach each other. Set it up on a network where they can, then move it.
 
 ---
 
@@ -128,7 +128,7 @@ If neither reachability nor a static address is workable on the main network, a 
 - **Enterprise (802.1X) Wi-Fi only.** The setup page cannot take enterprise credentials. Use Ethernet, or a PSK guest SSID with the egress rules above.
 - **Phone cannot join the setup hotspot.** MDM or a policy blocking unknown SSIDs. Use a personal phone for the one-minute setup step, or wire the device.
 - **Client / AP isolation on.** The laptop cannot reach the device at all; ff-cli times out. Turn isolation off between the two, or use a dedicated SSID.
-- **Multicast / mDNS blocked.** Discovery fails but nothing else is wrong. Pairing from the code on screen completes without securing the device (see above); register the device by IP for ff-cli as shown above.
+- **Multicast / mDNS blocked.** Discovery fails, and so does setting up a new Art Computer, which needs the phone to reach it on the LAN (see above). An Art Computer you already own keeps working over the cloud relayer; register it by IP for ff-cli as shown above.
 - **TLS inspection / MITM proxy.** Interception on the WSS path breaks the relayer's WebSocket upgrade, so app control fails even though normal browsing works. Exempt the device from inspection.
 - **Captive portal with periodic re-authentication.** The device's relayer connection drops silently when the portal expires the session. Use a network that does not re-prompt, or whitelist the device's MAC address.
 - **NTP blocked.** All TLS fails with misleading certificate errors. Allow UDP 123.
