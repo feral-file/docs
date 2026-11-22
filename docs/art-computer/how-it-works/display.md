@@ -179,7 +179,7 @@ The Chromium-based player handles diverse artwork types:
 - **Ed25519 Signatures** - Playlist authenticity and tamper protection
 
 ### Device Security  
-- **Device Pairing** - Wi-Fi setup over the device's own hotspot and captive portal; the device is bound to an account through the cloud via a QR code or app discovery on the local network
+- **Device Pairing** - Wi-Fi setup over the device's own hotspot and captive portal; the device is bound to its first owner by a phone on its Wi-Fi scanning the code on its screen
 - **Factory Reset** - Clears the pairing and Wi-Fi settings and boots the pristine factory snapshot; a reset device belongs to whoever pairs with it next
 - **Snapshot System** - Btrfs snapshots with a one-shot trial boot for OTA updates and a factory snapshot kept on disk for recovery
 

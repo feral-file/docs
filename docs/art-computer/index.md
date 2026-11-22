@@ -47,14 +47,10 @@ Once the Art Computer is online it checks for a required update (it may install 
 
 ### Pair with the app
 
-The pairing screen gives you two ways in; either works.
-
-**Let the app find it (same Wi-Fi).** Open the **Feral File app** on a phone connected to the same Wi-Fi as the Art Computer. The app discovers the device on the local network and offers to pair it. Confirm, and you are done.
-
-**Or scan the QR code.** Open your phone’s **Camera**, point it at the **QR code** on the TV, and tap the link that appears.
+On a phone connected to the same Wi-Fi as the Art Computer, scan the **code on the TV** with your phone's **Camera** or the **Feral File app**.
 
 - If you already have the **Feral File app**, it opens and continues pairing.
-- If you don’t have the app yet, the link takes you to the App Store / Play Store. Install the app, then tap **Open** from the store page, or re-scan the QR code if pairing doesn’t resume automatically.
+- If you don’t have the app yet, the link takes you to the App Store / Play Store. Install the app, then tap **Open** from the store page, or scan the code again if pairing doesn’t resume automatically.
 
 ### “You’re done” success state
 
@@ -125,8 +121,8 @@ After booting, you should see the **Wi-Fi setup screen** again. Go back to **Ste
 - **The Art Computer says it couldn’t join my Wi-Fi.**  
   Join the `FF1-…` network again and re-enter the password. Enterprise Wi-Fi that asks for a username (offices, campuses) cannot be entered here — use Ethernet, or see [Network Requirements](./network-requirements.md).
 
-- **The app doesn’t find the Art Computer.**  
-  Make sure the phone is on the same Wi-Fi as the Art Computer, then wait a few seconds. If it still does not appear, scan the QR code on the TV instead.
+- **Scanning the code doesn’t pair.**  
+  Put the phone on the same Wi-Fi as the Art Computer, then scan the code on the TV again. Setting up a new Art Computer always starts from that code.
 
 - **The Art Computer seems to restart over and over (boot loop).**  
   A failing HDMI cable can look exactly like a boot loop: the screen drops and re-syncs while the Art Computer itself is running fine. Swap in a known-good HDMI cable before assuming the device is faulty.
