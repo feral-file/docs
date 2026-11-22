@@ -17,7 +17,7 @@ Allow outbound **TCP 443** (HTTPS and WSS) to:
 | Host | Purpose |
 | :-- | :-- |
 | `tv-cast-coordination.autonomy-system.workers.dev` | Cloud relayer for app control from another network. Playback and the LAN API do not depend on it |
-| `dp1-feed-operator-api-prod.autonomy-system.workers.dev` | Playlists and channels |
+| `feed.feralfile.com` | Playlists and channels from Feral File's hosted feed |
 | `customer-vt0p8j34ppjv1kd4.cloudflarestream.com` | Video assets (HLS) |
 | `indexer-v2.feralfile.com` | Artwork metadata |
 | `feralfile-remote-configs.pages.dev` | Remote configuration |

@@ -4,19 +4,9 @@ ff-cli is a command-line tool that builds DP-1 playlists from NFT and feed data 
 
 Use it when you want the shortest path from a URL, wallet, or set of tokens to visible playback on an Art Computer.
 
-- What this is: the primary command workflow for building, signing, and displaying playlists.
-- Why use it: fastest route from a link to displaying it on the Art Computer. No LLM API key required.
-- What to do next: run the first success flow below.
-
-## Version note
-
-ff-cli builds playlists at `dpVersion: 1.1.0` with the multi-signature `signatures[]` envelope, matching the canonical DP-1 specification.
-
-Use your toolchain's supported version and verify against the canonical spec before production use.
+It needs no LLM API key.
 
 ## First success in minutes
-
-This path uses the canonical commands from `feral-file/ff-cli`. It is the same sequence the [home page](../index.md) gives a coding agent, so a person and an agent reach the first success the same way.
 
 ```bash
 # 1) Install (shortest path)
@@ -83,12 +73,13 @@ Setup runs without prompts whenever stdin is not a terminal. It generates a sign
 - Build playlist from deterministic params, including what a wallet owns: `ff-cli build [params.json]` (`ff-cli build --help` lists the requirement types)
 - Validate a playlist file or URL: `ff-cli validate <file-or-url>`
 - Sign a playlist: `ff-cli sign <file>`
-- Display a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli display <source>` (`--web` displays a page on a marketplace site as a page)
+- Display a playlist file, playlist URL, media URL, or any web page on the Art Computer: `ff-cli display <source>` (a page that declares its DP-1 playlist displays the playlist; `--web` displays a page as a page)
 - Publish to feed server: `ff-cli publish <file>`
 - Replace the playlist already stored under this document id, instead of creating a new one: `ff-cli publish <file> --replace`
 - Save a published playlist from a feed server (the starting point for `--replace`): `ff-cli fetch <id-or-url>`
 - Delete a playlist from a feed server (signed delete; owner key required): `ff-cli unpublish <id-or-url>`
 - Manage SSH access on the Art Computer: `ff-cli ssh <enable|disable>`
+- Report a problem to Feral File support: `ff-cli report --file <report.txt>` (add `-d "<name>"` and the Art Computer uploads its logs under the same reference)
 - List configured devices: `ff-cli device list`
 - Add a device: `ff-cli device add --host http://<device-ip>:1111 --name "<name>"` (bare `ff-cli device add` tries mDNS discovery)
 - Remove a device: `ff-cli device remove <name>`
@@ -190,12 +181,17 @@ ff-cli display "https://cdn.example.com/playlist.json"
 # Direct media URL
 ff-cli display "https://example.com/video.mp4"
 
-# Any web page
+# A web page that declares its DP-1 playlist: displays the playlist, not the page
+ff-cli display "https://feralfile.com/exhibitions/e-volved-formulae-8an"
+
+# Any other web page
 ff-cli display "https://example.com/"
 
 # A page on a marketplace site, as a page (display otherwise sends these to find)
 ff-cli display --web "https://feralfile.com/"
 ```
+
+A page declares its playlist with one `<link>` line in its head; Feral File exhibition pages do. To add it to your own pages, see [Declare your page's playlist](../art-computer/display.md#declare-your-pages-playlist).
 
 `display` refuses a URL that answers 404 or 410, or whose host does not resolve, so a typo is never shown as an error page.
 
@@ -213,4 +209,4 @@ ff-cli display --web "https://feralfile.com/"
 - More examples: <https://github.com/feral-file/ff-cli/blob/main/docs/EXAMPLES.md>
 - Agent skill prompt (`ff-control`): <https://github.com/feral-file/ff-cli/blob/main/skills/ff-control/SKILL.md>
 - DP-1 protocol spec: <https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md>
-- DP-1 CLI (**public beta**; validate, sign, verify, publish): <https://github.com/display-protocol/dp1-cli> — **dp1-cli** is the **actively maintained** successor to the legacy **dp1-validator** tag line in that **same repository** (legacy tags are frozen).
+- DP-1 CLI (validate, sign, verify, publish): <https://github.com/display-protocol/dp1-cli>

@@ -43,7 +43,7 @@ Buy to the requirements below. Any part that meets them will work — the specif
 
 ### Known-good parts
 
-Verified August 2026. Confirm the part number at checkout: vendors list regional variants and heatsink versions under near-identical SKUs.
+Confirm the part number at checkout: vendors list regional variants and heatsink versions under near-identical SKUs.
 
 | Component | Product | Part number |
 | :-- | :-- | :-- |

@@ -65,7 +65,7 @@ The mesh is the airflow path, not decoration. Venting through the plates rather 
 
 The stock plates measure **roughly 25% open area** — 912 mm² on the ported plate and 982 mm² on the plain one, out of a 3,698 mm² face. Keep at least that much, and keep it in the same region of the plate. On the ported plate that means keeping the mesh band where the stock plate has it; the three port cutouts sit off to one side precisely so they stay out of the way of the fins.
 
-These numbers are measured from the stock parts, not derived from a thermal model. Treat them as "match the factory plate," not as a validated threshold.
+These are the stock plates' own measurements. Match them.
 
 Both plates use the same grid, which is the simplest thing to copy:
 
