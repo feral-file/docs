@@ -138,7 +138,7 @@ After booting, you should see the **Wi-Fi setup screen** again. Go back to **Ste
   Open the app, then **scan the QR code again** with your phone camera.
 
 - **Art isn’t loading.**  
-  Check your internet connection and try again. If the Art Computer has lost its Wi-Fi entirely (the password changed, or the network is gone), it brings the setup hotspot back on its own after a few minutes — repeat Step 2. If it is on Wi-Fi but you want to move it to a different network, use the app to start Wi-Fi setup again (unplug any Ethernet cable first).
+  Check your internet connection and try again. If the Art Computer has lost its Wi-Fi entirely (the password changed, or the network is gone), it brings the setup hotspot back on its own after a few minutes and shows the join code over its work for about a minute — repeat Step 2. If the code has already cleared, unplug the Art Computer and plug it back in. If it is on Wi-Fi but you want to move it to a different network, use the app to start Wi-Fi setup again (unplug any Ethernet cable first).
 
 - **The `FF1-…` hotspot disappeared while I was setting up.**  
   While it is waiting, the Art Computer briefly switches the hotspot off every few minutes to look for your network, then brings it back. Wait a minute and join it again — nothing is broken.
