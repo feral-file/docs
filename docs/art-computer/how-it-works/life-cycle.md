@@ -25,8 +25,8 @@ flowchart TD
     Claimed --> |No| Gate1{Below minimum<br/>version?}
     Gate1 --> |Yes| Update(Update, then restart)
     Update --> Start
-    Gate1 --> |No| ClaimQR["Show pairing screen:<br/>app finds device on LAN,<br/>or scan QR"]
-    ClaimQR --> |App pairs| Artwork(Artwork playback)
+    Gate1 --> |No| ClaimQR["Show pairing screen:<br/>scan the code on screen"]
+    ClaimQR --> |Phone on its Wi-Fi scans, app pairs| Artwork(Artwork playback)
 
     Claimed --> |Yes| Gate2{Boot-time check:<br/>below minimum version?}
     Gate2 --> |Yes| Update
@@ -39,7 +39,7 @@ Key points:
 - **Wi-Fi setup is a hotspot plus a captive portal.** A device with no saved Wi-Fi and no cable raises its own hotspot `FF1-<device id>` (WPA2, 8-digit numeric password shown on screen with a QR code). The phone joins it, the OS pops the captive portal (or the user opens the direct numeric address shown on the TV), and the user picks a network. The hotspot goes down while the device joins, and comes back up if the join fails so the user can retry.
 - **Ethernet skips Wi-Fi setup.** A device with a cable and internet goes straight to the pairing screen.
 - **Pairing is gated on version.** An unclaimed device must be at or above the branch's minimum version before the pairing screen appears — see [OTA](./ota.md).
-- **The pairing screen offers two paths.** The primary path is the app discovering the device over the local network (mDNS `_ff1._tcp`); the QR code (`https://link.feralfile.com/device_connect/...`) is the backup for when discovery is blocked. Either way the phone binds the device to the account through the cloud.
+- **The pairing screen has one path: the code on screen.** The code (`https://link.feralfile.com/device_connect/...`) carries the invitation, and the phone that scans it from the Art Computer's Wi-Fi becomes its first owner. First-owner pairing runs over the local network, so it needs no cloud route. The app finding the device on the local network (mDNS `_ff1._tcp`) is how it controls an Art Computer it already owns, not how it sets up a new one.
 - **An already-paired device that loses its network does not show setup over its artwork.** It keeps retrying quietly; only after five minutes with no link at all (no cable, no Wi-Fi association — a changed Wi-Fi password or a vanished network) does it raise the hotspot again. One case is faster: a device that **boots** with no link and cannot see any of its saved networks — the signature of a frame that has been moved — is recognized within about a minute and raises the hotspot straight away. A device whose Wi-Fi is associated but has no upstream (ISP outage, air-gapped gallery) stays put: it keeps its LAN API and mDNS. To move a paired device to a new Wi-Fi while the old one is still in range, the app puts it back into setup mode on demand (`startWifiSetup`, over the LAN or the relayer).
 - **An unpaired device is never left stranded.** If a device is online but nobody pairs it, it periodically re-opens the setup hotspot on its own (the *setup-incomplete* cycle) so the Wi-Fi step can be redone without the app.
 
