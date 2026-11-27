@@ -12,6 +12,7 @@ Everything that displays the work is open source: the protocol, the operating sy
 | ff-cli | Build a playlist, display it on an Art Computer on your network, publish it to a feed | [feral-file/ff-cli](https://github.com/feral-file/ff-cli) | MIT |
 | DP-1 feed server | The server that holds playlists and channels for players to fetch; Feral File's hosted feed runs it | [display-protocol/dp1-feed-v2](https://github.com/display-protocol/dp1-feed-v2) | MPL 2.0 |
 | DP-1 tools and SDKs | Validation tool, publisher, Go and JavaScript SDKs | [dp1-cli](https://github.com/display-protocol/dp1-cli), [dp1-publisher](https://github.com/display-protocol/dp1-publisher), [dp1-go](https://github.com/display-protocol/dp1-go), [dp1-js](https://github.com/display-protocol/dp1-js) | MPL 2.0 |
+| dp1c | Build and check preservation capsules: [Conservation](conservation.md) | [display-protocol/dp1-capsule](https://github.com/display-protocol/dp1-capsule) | MPL 2.0 |
 | Display on Art Computer | The browser library behind [Display on Art Computer](art-computer/display.md), and the pairing broker that connects a web page to an Art Computer | [feral-file/play](https://github.com/feral-file/play) | Apache 2.0 |
 | Indexer | Artwork metadata from Ethereum and Tezos | [feral-file/ff-indexer-v2](https://github.com/feral-file/ff-indexer-v2) | MPL 2.0 |
 | Faceplates | The CAD files for the Art Computer's faceplate | [Print Your Own Faceplates](art-computer/faceplates/index.md) | CC BY-SA 4.0 |

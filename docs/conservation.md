@@ -1,0 +1,62 @@
+# Conservation
+
+Displaying a work made with code means running it. Keeping the work means being able to run it again, years later, after the servers it depended on have closed.
+
+A work made with code has two sides to keep: what it is made of (its code, libraries, media, and inputs such as a token's seed) and what draws it (a browser engine). A preservation capsule is one file that keeps both together, so anyone can run the work offline and check that it still renders as it did.
+
+Capsules are built and checked with [dp1c](https://github.com/display-protocol/dp1-capsule), a prototype, open source under MPL 2.0. The capsule format is section 9 of the [DP-1 specification](https://github.com/display-protocol/dp1/blob/main/core/v1.1.0/spec.md).
+
+## How a work stops displaying
+
+Casey Reas's *There's No Distance #1* (2023) was released on fxhash, and its files are stored on Ethereum. The token's metadata, the indexers, and the players all reached those files through fxhash's servers. When fxhash closed in August 2026, the files were intact on chain and the work stopped displaying everywhere.
+
+dp1c reads the work's five files directly from the contract, checks each one against its on-chain address, and packs them into a capsule. The work renders again from the capsule, offline, with no fxhash server involved.
+
+## What a capsule holds
+
+| Part | What it is |
+| :-- | :-- |
+| The work | Every file the work loads, each listed by its SHA-256 |
+| The engine | The exact browser engine the work was checked in, named by the SHA-256 of an image that holds that Chromium and its fonts |
+| The render settings | Viewport size, the token's seed, time zone, and a fixed clock |
+| The reference frame | The frame the work rendered when the capsule was packed, with its hashes |
+| The tolerance | How far a later render may differ from the reference frame and still pass |
+| Provenance | The contract and token, as the DP-1 playlist item carries them |
+
+A signature travels in a file beside the capsule. It shows which key signed the capsule and that nobody changed it after.
+
+The tolerance is the artist's to set. The default accepts a small shift in shade or position, and a tolerance of 0 asks for exact pixels.
+
+## Check a capsule
+
+On Linux with Python 3 (and its `zstandard` and `Pillow` packages), bubblewrap, and Chromium:
+
+```bash
+git clone https://github.com/display-protocol/dp1-capsule
+cd dp1-capsule
+python3 dp1c.py verify examples/theres-no-distance-1.dp1c --host
+```
+
+The check runs with the network off and uses no Feral File service. It reports three things separately:
+
+- **The files** are exactly what was packed: nothing missing, extra, or changed.
+- **The reference frame** agrees with itself across the playlist, its record, and the image's own pixels.
+- **A fresh render** lands within the capsule's tolerance of the reference frame.
+
+`--host` renders in your computer's own Chromium, and a pass reads `reproducedOnDifferentEngine`. A pass inside the engine the capsule names reads `reproduced`. That needs the engine image, which is not published for the example capsules; `engine/build-engine.sh` in the repository builds an engine image from the Arch Linux package archive.
+
+## Where a capsule's files come from
+
+| Source | Example in the repository |
+| :-- | :-- |
+| A contract that generates the work on chain | Tyler Hobbs, *Fidenza #503*, read from the Art Blocks generator |
+| Files stored on chain (`onchfs://`) | Casey Reas, *There's No Distance #1* |
+| A contract call that returns the work (`web3://`) | Han, *Digital Soul* and *Prodigy* |
+| What an Art Computer saved when it displayed the work | Driessens & Verstappen, *E-volved Formula #22 #1* |
+| A directory of files | Any work you have the files for |
+
+## On the Art Computer
+
+An Art Computer saves the works it displays so they stay on display offline, and dp1c builds a capsule from that saved copy. Building and checking a capsule happens on a computer with dp1c. The Art Computer does not build or check capsules.
+
+The [dp1c README](https://github.com/display-protocol/dp1-capsule#readme) has every command, the measurements behind each claim on this page, and what the tool does not catch.
