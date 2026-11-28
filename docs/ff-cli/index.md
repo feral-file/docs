@@ -1,8 +1,6 @@
 # ff-cli: Start Here
 
-ff-cli is a command-line tool that builds DP-1 playlists from NFT and feed data and displays them on an Art Computer.
-
-Use it when you want the shortest path from a URL, wallet, or set of tokens to visible playback on an Art Computer.
+ff-cli is a command-line tool that builds DP-1 playlists from a URL, a wallet, a set of tokens, or a feed, and displays them on an Art Computer.
 
 It needs no LLM API key.
 
