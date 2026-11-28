@@ -10,21 +10,22 @@ Capsules are built and checked with [dp1c](https://github.com/display-protocol/d
 
 ## Check a capsule
 
-On Linux:
+On a Mac or a Linux computer with Docker:
 
 ```bash
 git clone https://github.com/display-protocol/dp1-capsule
 cd dp1-capsule
-python3 dp1c.py verify examples/theres-no-distance-1.dp1c --host
+curl -LO https://github.com/display-protocol/dp1-capsule/releases/download/engine-f0d8ced3/engine-f0d8ced301b3ff85d6e94dbac22ecd991c5a978e03c8af5e003a6f4a5390d400.tar.zst
+./verify-in-docker.sh engine-f0d8ced301b3ff85d6e94dbac22ecd991c5a978e03c8af5e003a6f4a5390d400.tar.zst examples/theres-no-distance-1.dp1c
 ```
 
-The check runs with the network off and uses no Feral File service. It reports three things separately:
+The second-to-last line downloads the engine image the example capsules name. The check runs with the network off and uses no Feral File service. It reports three things separately:
 
 - **The files** are exactly what was packed: nothing missing, extra, or changed.
 - **The reference frame** is the same frame in the playlist, in the capsule's record, and in the image file.
-- **A fresh render** lands within the capsule's tolerance of the reference frame.
+- **A fresh render** in the named engine lands within the capsule's tolerance of the reference frame.
 
-`--host` renders in your computer's own Chromium. A render within tolerance reads `reproducedOnDifferentEngine`, and the command exits 2. The verdict `reproduced`, exit 0, needs the engine image the capsule names. That image is not published for the example capsules; `engine/build-engine.sh` in the repository builds an engine image from the Arch Linux package archive.
+When all three hold, the verdict is `reproduced` and the command exits 0.
 
 ## What a capsule holds
 
