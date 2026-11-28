@@ -1,31 +1,14 @@
-# Hosted Feed (Feral File)
+# Hosted Feed
 
-This page covers the hosted DP-1 feed operated by Feral File.
-
-Use it when you want a managed endpoint instead of running your own feed server.
-
-## What this is
-
-The hosted feed accepts DP-1 playlists, playlist-groups, and channels, validates payloads, and serves them over HTTP APIs.
-
-Base URL:
-
-`https://feed.feralfile.com/api/v1`
-
-## Hosted vs self-hosted
-
-- Hosted (this page): managed endpoint at `feed.feralfile.com`
-- Self-hosted: run your own open-source reference feed operator ([`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2)) in your infrastructure
-
-If you need full control, use [run your own using `dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2#quick-start).
+Feral File runs a hosted DP-1 feed. It accepts signed playlists and channels and serves them over HTTP at `https://feed.feralfile.com/api/v1`. To run your own, the same server is open source: [`display-protocol/dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2#quick-start).
 
 ## Authentication
 
-Reads (retrieve a playlist, playlist-group, or channel by ID or slug) require no authentication.
+Reads (retrieve a playlist or channel by ID or slug) require no authentication.
 
 Writes are authenticated by the cryptographic signatures in the request body. There is no API key and no `Authorization` header. The server verifies the signatures before persisting anything, per the [feed OpenAPI spec](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml).
 
-- **Create (`POST`)** is open to anyone. The body must carry a non-empty, verifiable `signatures[]` array, and at least one signature must come from the document's owner acting in the owner role — `curator` for playlists and playlist-groups, `publisher` for channels. The `curators[]` / `publisher` fields are optional; a document that declares neither must carry exactly one owner-role signature, and that key becomes the owner.
+- **Create (`POST`)** is open to anyone. The body must carry a non-empty, verifiable `signatures[]` array, and at least one signature must come from the document's owner acting in the owner role — `curator` for playlists, `publisher` for channels. The `curators[]` / `publisher` fields are optional; a document that declares neither must carry exactly one owner-role signature, and that key becomes the owner.
 
     Prefer a browser to a terminal? [DP-1 Publisher](https://publisher.feralfile.com) handles this flow for you: sign a playlist with your wallet and publish it to the hosted feed.
 
@@ -72,7 +55,7 @@ From a terminal, [dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main
 
     `--save-config` writes the private key to `~/.dp1/config.yaml`, replacing any key already saved there. If you keep the key elsewhere, pass `--private-key` or set `DP1_PRIVATE_KEY` when you sign.
 
-2. Sign, verify, and publish each playlist. Start from an unsigned playlist with a `slug`. The feed requires the slug (`400 bad_request — slug is required`). `sign` keeps any signatures already in the file, so delete placeholder or stale ones first; the dp1-cli quickstart sample carries a placeholder.
+2. Sign, verify, and publish each playlist. Start from an unsigned playlist with a `slug`. The feed requires the slug (`400 bad_request — slug is required`). `sign` replaces only a signature made by the same key in the same role and keeps the others, so delete placeholder or stale ones first; the dp1-cli quickstart sample carries a placeholder.
 
     ```bash
     dp1-cli playlist sign playlist.json
@@ -123,10 +106,4 @@ Before you publish:
 
 A published channel appears in the Feral File app once Feral File lists it.
 
-## API reference source
-
-- Canonical feed server OpenAPI: <https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml>
-
-## Next step
-
-If you want your own deployment, follow [run your own using `dp1-feed-v2`](https://github.com/display-protocol/dp1-feed-v2#quick-start).
+The feed server's [OpenAPI file](https://github.com/display-protocol/dp1-feed-v2/blob/main/api/openapi.yaml) is the reference for every route.

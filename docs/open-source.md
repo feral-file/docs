@@ -65,7 +65,7 @@ Two things are not open source: the Feral File app and the relayer. The rest of 
 
 ## What is yours
 
-- **Root access.** `ff-cli ssh enable --pubkey <key.pub> --ttl 30m -d <name>` opens SSH on the local network until the time runs out; without `--ttl` it stays open until `ff-cli ssh disable`. The login is the `feralfile` account, which has sudo. The command is accepted only from a controller the owner has registered. Over Tailscale, a VPN, owner access lasts until it is revoked or the Art Computer is factory reset, and remote reach ends when the Tailscale key expires ([ff-cli](ff-cli/index.md#owner-remote-maintenance)).
+- **Root access.** `ff-cli ssh enable --pubkey <key.pub> --ttl 30m -d <name>` opens SSH on the local network until the time runs out; without `--ttl` it stays open until `ff-cli ssh disable`. The login is the `feralfile` account, which has sudo. The command is accepted only from a controller the owner has registered. Over Tailscale, a VPN, owner access lasts until it is revoked or the Art Computer is factory reset, and remote reach ends when the Tailscale key expires ([ff-cli's usage docs](https://github.com/feral-file/ff-cli/blob/main/docs/README.md)).
 - **The operating system.** FF OS can be reinstalled from a USB stick ([Reinstall FF OS](art-computer/reinstall.md)), and Secure Boot is off.
 
 ## Updates without Feral File

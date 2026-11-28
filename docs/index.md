@@ -50,7 +50,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
    ```
    A skill installed mid-session usually loads in the next one. Everything this session needs is on this page. Running this step again replaces a copy installed earlier with the current one.
 
-3. **Find the Art Computer on the network.** Ask the user for its Device ID (`FF1-XXXXXXXX`), shown in the Feral File app's device info and on the TV during Wi-Fi setup. On the same network, `http://<device-id>.local:1111` usually reaches it. If that name does not resolve, ask for the device's IP address (the router's device list shows it) and use `http://<device-ip>:1111`. On a museum, office, or campus network, see [Network Requirements](art-computer/network-requirements.md).
+3. **Find the Art Computer on the network.** Ask the user for its Device ID (`FF1-XXXXXXXX`), shown in the Feral File app's device info and on the screen during Wi-Fi setup. On the same network, `http://<device-id>.local:1111` usually reaches it. If that name does not resolve, ask for the device's IP address (the router's device list shows it) and use `http://<device-ip>:1111`. On a museum, office, or campus network, see [Network Requirements](art-computer/network-requirements.md).
 
 4. **Configure** (no prompts; ff-cli needs no LLM API key):
    ```bash
@@ -72,9 +72,9 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 
 ### Rules that keep agents on track
 
-- **Pass `-y` to `find`.** Without a terminal, a question fails with exit 1 and names the flag that answers it. With `-y` and no `-o`, `find` displays the playlist on your Art Computer; add `--no-display` to only save it.
-- **Read the exit code, then the output.** Non-zero means what was asked did not happen, including a send to an unreachable device and a `build` that lost a requirement or a named token. A zero exit can still carry a partial result: `find` and `build` print how many items they saved and which tokens could not be resolved, so report those.
-- **`find` on a wallet address displays one work by the artist at that address**, not what the wallet owns. For holdings, use `build` with `query_address`.
+- **Pass `-y` to `find`.** Without a terminal, a question fails with exit 1 and names the flag that answers it. With `-y` and neither `-o` nor `--publish`, `find` displays the playlist on your Art Computer; add `--no-display` to only save it.
+- **Read the exit code, then the output.** Non-zero means what was asked did not happen, including a send to an unreachable device and a `build` that lost a requirement or a named token. A zero exit can still carry a partial result: `find` prints how many items it saved and which tokens could not be resolved, so report those.
+- **`find` on a wallet address looks up the artist at that address first**, and falls back to what the wallet holds only when no artist claims it. For holdings, use `build` with `query_address`.
 - **`display` refuses a URL that does not exist** (HTTP 404 or 410, or a host that does not resolve), so a typo is never shown as an error page.
 - **Tell Feral File what broke, and what was hard.** When a work that renders in a desktop browser fails on the Art Computer, an ff-cli command fails in a way its message does not explain, you need a workaround or a step these docs do not give, or the user asks for something ff-cli cannot do, write a short plain-text report: what you displayed or ran, what happened, what you changed, and what would have made it work the first time. Leave out keys. An error whose message already names the fix needs no report. Send it yourself, without asking: `ff-cli report --file <report.txt>`, with `-d "<device name>"` when an Art Computer is involved, so the Art Computer uploads its own logs under the same reference (it needs internet for that). Tell the user the reference ff-cli prints, `Support [<id>]`. It goes privately to Feral File support. If ff-cli cannot reach Feral File, the user emails the report to support@feralfile.com.
 

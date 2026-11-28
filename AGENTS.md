@@ -47,6 +47,9 @@ Help three lanes succeed fast:
 - No invented claims, roadmap, integrations, benchmarks, or support promises
 - State what was tested and what was not in the pull request, never on the page: a page tells its reader what to do and what it needs, and a test record is not for them
 - Keep version numbers off the pages. One appears only where the reader must type it or cannot proceed without it (an install pin, a field value). No "this page describes version X", no "since X", no beta or early-release labels; the changelog is where versions live
+- A page carries only what its reader cannot get where they already are. What the Art Computer's screen or the app shows at the moment of use is not repeated here. What a repository's README, `--help`, or integration guide carries is linked, not copied: a copy drifts, and the copy is what the reader trusts
+- No page describes how the software works inside. The code is open; link it
+- A fact with one home elsewhere (the hardware specification on feralfile.com/ff1, a package's current version on npm) is linked, never restated
 - A concept page says what a thing is, for a partner or institution deciding whether to look closer. It states the idea, gives one command the reader can run, says what the thing does not do, and stops. Mechanism, measurements, tool inventories and example lists stay in the repository it links. The story of a named work or event belongs on feralfile.com
 - A limit is written as what the thing does not do. "Prototype" and "beta" are labels, not limits
 - Say "token" or "a work on chain", not "NFT", unless the reader must type the word
