@@ -14,9 +14,9 @@ If the Art Computer still responds to the app, reset it from there: the app send
 
 If the screen is stuck or black and the app cannot reach the device, there is a reset path that needs nothing but the power cord. It is deliberately awkward — five precise power cuts in a row — so it cannot happen by accident.
 
-1. **Unplug** the Art Computer's power.
-2. **Plug it back in** and let it boot. Once the device has **reached the system** (the startup screen has come and gone) — or, if you are not sure, simply **wait about 15 seconds** — **unplug again.** Pulling the power too early, before the system is up, does not count.
-3. **Repeat** until you have cut the power **5 times**. Keep the rhythm going — at least 15 seconds powered each time, and a pause of more than about 2 minutes between cycles resets the count.
+1. Start with the Art Computer **unplugged**.
+2. **Plug it in** and let it boot. Once the device has **reached the system** (the startup screen has come and gone) — or, if you are not sure, simply **wait about 15 seconds** — **unplug again.** Pulling the power too early, before the system is up, does not count.
+3. **Repeat** until you have cut the power **5 times**. Keep the rhythm going: at least 15 seconds powered each time, and under about 2 minutes from one plug-in to the next. A longer gap starts the count over.
 4. **Plug in once more and leave it.** The Art Computer restarts itself into a boot menu with **FF1 - Factory Reset** selected and a **60-second countdown** on screen.
 5. Choose:
     - **Let the countdown finish** → the factory reset runs.
@@ -27,7 +27,7 @@ If the screen is stuck or black and the app cannot reach the device, there is a 
 
 ### Rules the counter follows
 
-- **Only power-cord cuts count.** Restarts from the app, overnight update restarts, and normal power-offs never add to the count — the sequence has to be you, at the device, unplugging it on purpose.
+- **Only power-cord cuts count.** Restarts from the app, overnight update restarts, and normal power-offs never add to the count, and an orderly shutdown clears it — the sequence has to be you, at the device, unplugging it on purpose.
 - **The timing must be deliberate.** Let the device reach the system (about 15 seconds after plugging in) before cutting the power, and keep each cycle under about 2 minutes. A cut that comes too early is not counted, and slow or scattered power cuts — a storm, a flaky power strip — do not accumulate.
 - **Nothing appears? Just wait.** If the countdown screen does not show up, the device simply boots normally. Unplug and try again, giving the device at least 15 seconds after each plug-in before cutting the power.
 
@@ -47,7 +47,7 @@ If you have a USB keyboard handy, you can reach the same boot menu directly:
 The Art Computer boots its factory software and shows the Wi-Fi setup screen (or, on Ethernet, goes straight to the pairing screen). From there it is a first-time [setup](./index.md): join Wi-Fi from your phone, let the device update itself to the current FF OS — it will not show the pairing screen until it has — then pair with the app and it returns to your art. Artworks re-download in the background; how long that takes depends on the size of your library and your connection.
 
 !!! note "Very old factory software"
-    A device that has sat on a shelf for a long time may carry factory software too old to update itself over the air. It will stop before the pairing screen. The fix is a [USB reinstall](./index.md#step-3-advanced-reinstall-ff-os-from-usb) of the current release image, after which setup proceeds normally.
+    A device that has sat on a shelf for a long time may carry factory software too old to update itself over the air. It will stop before the pairing screen. The fix is a [USB reinstall](./reinstall.md) of the current release image, after which setup proceeds normally.
 
 !!! note "A reset device is an unclaimed device"
     After a factory reset, the Art Computer belongs to whoever pairs with it next. That is what makes it right for handing the device on — and worth knowing if the device is somewhere strangers can reach its power cord for several deliberate minutes.

@@ -13,7 +13,7 @@ Everything that displays the work is open source: the protocol, the operating sy
 | DP-1 feed server | The server that holds playlists and channels for players to fetch; Feral File's hosted feed runs it | [display-protocol/dp1-feed-v2](https://github.com/display-protocol/dp1-feed-v2) | MPL 2.0 |
 | DP-1 tools and SDKs | Validation tool, publisher, Go and JavaScript SDKs | [dp1-cli](https://github.com/display-protocol/dp1-cli), [dp1-publisher](https://github.com/display-protocol/dp1-publisher), [dp1-go](https://github.com/display-protocol/dp1-go), [dp1-js](https://github.com/display-protocol/dp1-js) | MPL 2.0 |
 | dp1c | Build and check preservation capsules: [Conservation](conservation.md) | [display-protocol/dp1-capsule](https://github.com/display-protocol/dp1-capsule) | MPL 2.0 |
-| Display on Art Computer | The browser library behind [Display on Art Computer](art-computer/display.md), and the pairing broker that connects a web page to an Art Computer | [feral-file/play](https://github.com/feral-file/play) | Apache 2.0 |
+| Display on Art Computer | The browser library behind [Display on Art Computer](art-computer/display.md), and the pairing broker that connects a web page to an Art Computer | [feral-file/ff-send](https://github.com/feral-file/ff-send) | Apache 2.0 |
 | Indexer | Artwork metadata from Ethereum and Tezos | [feral-file/ff-indexer-v2](https://github.com/feral-file/ff-indexer-v2) | MPL 2.0 |
 | Faceplates | The CAD files for the Art Computer's faceplate | [Print Your Own Faceplates](art-computer/faceplates/index.md) | CC BY-SA 4.0 |
 | This documentation | docs.feralfile.com | [feral-file/docs](https://github.com/feral-file/docs) | CC BY 4.0 |
@@ -52,9 +52,9 @@ Two things are not open source: the Feral File app and the relayer. The rest of 
 
 | Feral File's | What it is | What stops without it |
 | :-- | :-- | :-- |
-| The Feral File app | The phone app: browse the art Feral File publishes, keep your collection, pair an Art Computer to your account, and control it | Pairing to an account, and control from your phone. Wi-Fi setup from the Art Computer's own setup hotspot keeps working, and so does control from ff-cli, or any program on the same network, over the LAN API. |
+| The Feral File app | The phone app: browse the art Feral File publishes, keep your collection, pair an Art Computer to your account, and control it | Pairing to an account, and control from your phone. Wi-Fi setup from the Art Computer's own setup hotspot keeps working. So does displaying a playlist from ff-cli, or any program on the same network, over the LAN API, unless the owner has turned Guest control off. |
 | The relayer | The cloud service that carries commands to an Art Computer from the app on another network, and from a web page using Display on Art Computer | Control from the app when the phone is on another network, and display requests from a browser. The LAN API keeps working. |
-| Pairing | Binding an Art Computer to an account, over the local network or by the QR code; both paths go through Feral File's cloud | Pairing a new Art Computer. One paired before stays paired, and control over the LAN API needs no pairing step after that. |
+| Pairing | Making a phone the Art Computer's first owner, from the code on its screen. The code appears after a version check against Feral File's update host | Pairing a new Art Computer. One paired before stays paired. |
 | The hosted feed | feed.feralfile.com, Feral File's own DP-1 feed | Feral File's channels, Daily among them. Playlists from any other feed, or sent directly, keep working. |
 | The indexer | Artwork metadata for works found through Feral File | Metadata for those works. A playlist that carries its own metadata keeps working. |
 | Hosting of works | The video and files of the works Feral File publishes | Those works, once the offline cache runs out. Works hosted anywhere else stay on display. |
@@ -65,8 +65,8 @@ Two things are not open source: the Feral File app and the relayer. The rest of 
 
 ## What is yours
 
-- **Root access.** `ff-cli ssh enable --pubkey <key.pub> --ttl 30m -d <name>` opens SSH on the local network until the time runs out; without `--ttl` it stays open until `ff-cli ssh disable`. On firmware that includes Tailscale, a VPN, owner access over it stays open once enrolled ([ff-cli](ff-cli/index.md#owner-remote-maintenance)).
-- **The operating system.** FF OS can be reinstalled from a USB stick ([Getting Started](art-computer/index.md)), and Secure Boot is off.
+- **Root access.** `ff-cli ssh enable --pubkey <key.pub> --ttl 30m -d <name>` opens SSH on the local network until the time runs out; without `--ttl` it stays open until `ff-cli ssh disable`. The login is the `feralfile` account, which has sudo. The command is accepted only from a controller the owner has registered. Over Tailscale, a VPN, owner access lasts until it is revoked or the Art Computer is factory reset, and remote reach ends when the Tailscale key expires ([ff-cli's usage docs](https://github.com/feral-file/ff-cli/blob/main/docs/README.md)).
+- **The operating system.** FF OS can be reinstalled from a USB stick ([Reinstall FF OS](art-computer/reinstall.md)), and Secure Boot is off.
 
 ## Updates without Feral File
 

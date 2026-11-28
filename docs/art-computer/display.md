@@ -1,124 +1,29 @@
 # Display on Art Computer
 
-Add a **Display on Art Computer** action to your product: someone selects
-works, presses the button, and the works appear on their Art Computer. It is
-for any product where people encounter art — a marketplace, an artist's site,
-a gallery app, an agent.
+Add a **Display on Art Computer** button to your website. A visitor selects works, presses the button, and the works go on display on their Art Computer. It is for any product where people encounter art: a marketplace, an artist's site, a gallery's site.
 
-It is a browser library that pairs your product with a visitor's Art Computer
-and displays a DP-1 playlist on it. It runs anywhere the web does: websites,
-web apps, Electron, web views inside native apps. Curation stays in your
-product, and the works land on the visitor's device. It needs no backend
-changes, no API key, and no registration.
-
-## How it works for the visitor
-
-1. They press **Display on Art Computer** on your site.
-2. First time only, a pairing dialog opens:
-    - **On a phone or tablet** it shows **Open the Feral File app**. They tap
-      it, the app opens with the request, and they approve it.
-    - **On a desktop or laptop** it shows a QR code. They scan it with the
-      phone camera or the Feral File app, and approve in the app.
-
-    A six-digit code sits under the button or QR on both. A visitor can type it
-    into the app instead: **Pair a site** in their Art Computer's settings. A
-    code lasts five minutes; when it runs out the dialog shows a fresh one, up
-    to twice.
-
-3. The playlist goes on display. Later requests from your site skip pairing —
-    the session is remembered per site origin until it expires or is removed.
-
-Your site shows the request and the app, which holds the authority, accepts
-it. The visitor never opens a settings page on the Art Computer or carries a
-code from it to your site.
-
-When approving, the owner can keep your site paired. That session does not
-expire; it lasts until they remove it under **Paired sites** in the Art
-Computer's settings in the app. Otherwise the session is short-lived.
-
-Your site never receives device API keys or account credentials. It holds a
-revokable browser session scoped to playback only. The mint request and the
-returned session travel end-to-end encrypted between the visitor's browser and
-their device, so the pairing broker never sees session tokens or playlist
-content. The broker does see your site's origin, the browser metadata you
-supply, and the pairing code it issues. The origin is attested, not claimed:
-the broker reads it from the `Origin` header the visitor's browser sets, so
-the approval prompt in the app names the site that actually asked.
+The button is a browser library. Your site builds a [DP-1](https://github.com/display-protocol/dp1) playlist, and the library pairs with the visitor's Art Computer and sends it. The first time, the visitor approves your site in the Feral File app. It needs no backend changes, no API key, and no registration.
 
 ## Mount the button
 
-Install [`@feralfile/play`](https://www.npmjs.com/package/@feralfile/play) 0.4.0
-(source lives in [`feral-file/play`](https://github.com/feral-file/play)):
-
 ```sh
-npm i @feralfile/play@0.4.0
+npm i @feralfile/display
 ```
 
-For a site with no build step, download `play.js` from the
-[0.4.0 release](https://github.com/feral-file/play/releases/tag/0.4.0) — a
-self-contained ESM bundle — host it next to your pages, and
-`import { mountPlayOnArtComputerButton } from "./play.js"`.
-
-The library's own defaults say play, so pass the display copy:
-
 ```ts
-import { mountPlayOnArtComputerButton } from "@feralfile/play";
+import { mountDisplayOnArtComputerButton } from "@feralfile/display";
 
-mountPlayOnArtComputerButton({
+mountDisplayOnArtComputerButton({
   container: "#display-on-art-computer",
-  buttonLabel: "Display on Art Computer",
-  dialog: { copy: { title: "Display on your Art Computer" } },
   playlist: () => buildDp1PlaylistFromSelection(),
   brokerBaseUrl: "https://handoff.feralfile.com",
-  // Fallback when the session carries no relayer URL; see Network endpoints.
   relayerBaseUrl: "https://tv-cast-coordination.autonomy-system.workers.dev"
 });
 ```
 
-The library continues as [`@feralfile/display`](https://www.npmjs.com/package/@feralfile/display),
-which needs an Art Computer on FF OS 3.0.0. Until that is broadly deployed,
-install `@feralfile/play` 0.4.0 as shown here.
+`playlist` can be an async function, so you can build the playlist when the visitor clicks. To check a playlist before wiring the button, run `ff-cli validate playlist.json`, or display it on your own Art Computer with [ff-cli](../ff-cli/index.md).
 
-On click this checks for a stored browser session; when there is none it
-opens the pairing dialog, waits for the Art Computer to join and the owner to
-approve in the app, then displays the playlist. `playlist` accepts an async
-function, so you can build the DP-1 document at click time from the visitor's
-current selection.
-
-The button, dialog copy, and styling are all overridable. `appLinkBaseUrl`
-sets where the app link points; it defaults to
-`https://link.feralfile.com/pair`, which opens the Feral File app when it is
-installed and offers the install otherwise. For fully custom UI:
-
-- `requestEphemeralSessionWithPairingUi` reuses a stored session or runs the
-  pairing dialog; pass `createDialog` to replace the dialog entirely, or start
-  from `createPairingDialog`.
-- `requestEphemeralSession` is the headless core. It hands you the pairing
-  material through `onPairingMaterial({ appLink, shortCode, expiresAt })`:
-  open or encode `appLink` as a QR, show `shortCode`. The app link carries a
-  single-use pairing token — show it to the visitor, never log it or send it
-  to analytics.
-- `displayDp1Playlist` sends the playlist on an approved session.
-
-Errors are `PlayError` instances with a stable `code`: `pairing_code_expired`,
-`mint_rejected`, `approval_timeout`, `session_rejected`, `pairing_canceled`,
-`display_failed`, `display_rejected`. Match on the code, not the message. The
-canonical reference for the full option surface, session lifecycle, and error
-handling is the
-[Integration Guide](https://github.com/feral-file/play/blob/main/docs/integration.md)
-in the repo.
-
-## The playlist
-
-The button takes a [DP-1](https://github.com/display-protocol/dp1) playlist
-document. Each item points at a URL the Art Computer can render — artwork
-pages, media files, generative works. Playlist content never travels through
-Feral File pairing infrastructure: the device fetches the works directly from
-the URLs in your playlist.
-
-To hand-check a playlist before wiring up the button, use
-[ff-cli](../ff-cli/index.md) (`ff-cli validate playlist.json`) or display it on
-your own device with `ff-cli display`.
+The [Integration Guide](https://github.com/feral-file/ff-send/blob/main/docs/integration.md) in the library's repository has the rest: what the visitor sees, a build with no bundler, custom buttons and dialogs, error codes, what Feral File's servers can and cannot see, and the hosts to allow in a `Content-Security-Policy`.
 
 ## Declare your page's playlist
 
@@ -156,19 +61,6 @@ This works alongside the button: the button serves a visitor in the browser,
 and the declared playlist serves anyone, or any agent, holding the page's
 address.
 
-## Network endpoints
-
-If your site sets a `Content-Security-Policy`, allow these in `connect-src`:
-
-- `https://handoff.feralfile.com` — the pairing broker
-- `https://tv-cast-coordination.autonomy-system.workers.dev` — the relayer
-  that carries the display request. The approved session carries the base URL
-  actually used (`session.relayerBaseUrl`); read it from there at runtime.
-
-`https://link.feralfile.com` needs no entry: the app link is a navigation,
-never a `fetch`, and the QR is drawn in the page by the library.
-
 ## Feedback
 
-Tell us what is unclear, impractical, or missing by
-[opening an issue](https://github.com/feral-file/play/issues) on the repo.
+Tell us what is unclear or missing by [opening an issue](https://github.com/feral-file/ff-send/issues).

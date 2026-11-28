@@ -31,7 +31,7 @@ Help three lanes succeed fast:
 - Toko = what Feral File sells: a display with the Art Computer inside, on one cord
 - The display half: "display" everywhere (public copy, team notes and vendor files alike), never "canvas" or "screen" for the object; the part inside is the LCD cell, a component; "Art Panel" (FFP) names only the Batch 1 product its owners have
 - DP-1 = protocol only, never a device
-- The verb for art is "display", not "play": people play games and videos, they display art. This holds on public and developer pages alike; "playlist" stays the noun. The docs show `ff-cli display`, `find --display` and `@feralfile/display`; `ff-cli play` and `find --play` are hidden aliases and the package's Play names are deprecated aliases, so the docs do not teach them. `play` appears only in the `feral-file/play` repository name, the one line naming the deprecated package names, old URLs and anchors, and app store names
+- The verb for art is "display", not "play": people play games and videos, they display art. This holds on public and developer pages alike; "playlist" stays the noun. The docs show `ff-cli display`, `find --display` and `@feralfile/display`; `ff-cli play` and `find --play` are hidden aliases, so the docs do not teach them. `play` appears only in old URLs and anchors, and app store names
 - Keeping a shared playlist or channel in the app is "Add"; giving it back is "Remove", never Follow, Subscribe or Unfollow
 - Developer-facing surfaces: "run" is acceptable
 - Hardware is an instrument, not a gadget
@@ -47,6 +47,9 @@ Help three lanes succeed fast:
 - No invented claims, roadmap, integrations, benchmarks, or support promises
 - State what was tested and what was not in the pull request, never on the page: a page tells its reader what to do and what it needs, and a test record is not for them
 - Keep version numbers off the pages. One appears only where the reader must type it or cannot proceed without it (an install pin, a field value). No "this page describes version X", no "since X", no beta or early-release labels; the changelog is where versions live
+- A page carries only what its reader cannot get where they already are. What the Art Computer's screen or the app shows at the moment of use is not repeated here. What a repository's README, `--help`, or integration guide carries is linked, not copied: a copy drifts, and the copy is what the reader trusts
+- No page describes how the software works inside. The code is open; link it
+- A fact with one home elsewhere (the hardware specification on feralfile.com/ff1, a package's current version on npm) is linked, never restated
 - A concept page says what a thing is, for a partner or institution deciding whether to look closer. It states the idea, gives one command the reader can run, says what the thing does not do, and stops. Mechanism, measurements, tool inventories and example lists stay in the repository it links. The story of a named work or event belongs on feralfile.com
 - A limit is written as what the thing does not do. "Prototype" and "beta" are labels, not limits
 - Say "token" or "a work on chain", not "NFT", unless the reader must type the word
