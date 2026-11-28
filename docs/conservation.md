@@ -2,7 +2,7 @@
 
 Displaying a work made with code means running it. Keeping the work means being able to run it again after the servers it depended on have closed.
 
-Storing a work's files on chain does not by itself keep it on display. Players often reach those files through a marketplace's servers, and when those servers close the work stops displaying while its files are intact.
+A work's files can be intact and the work still not display. That happens when the address a player was given for the files runs through a server that has since closed.
 
 A preservation capsule is one file that holds every file a work loads and names the exact browser engine it was checked in. With the capsule and that engine, the work renders offline, and the render can be compared with the frame recorded when the capsule was packed.
 
@@ -10,7 +10,7 @@ Capsules are built and checked with [dp1c](https://github.com/display-protocol/d
 
 ## Check a capsule
 
-On Linux with Python 3 (and its `zstandard` and `Pillow` packages), bubblewrap, and Chromium:
+On Linux:
 
 ```bash
 git clone https://github.com/display-protocol/dp1-capsule
@@ -49,8 +49,6 @@ A signature travels in a file beside the capsule. It shows which key signed the 
 
 The repository has an example capsule for each of the first four.
 
-## What it does not do
+## What the check does not cover
 
-The Art Computer does not build or check capsules. That happens on a computer with dp1c, which can start from the copy an Art Computer saved.
-
-The check does not cover every work. CSS animations, transitions, and video run on a clock the engine does not control, so a work whose picture depends on them may not reproduce. The repository's [README](https://github.com/display-protocol/dp1-capsule#readme) has every command, the measurements, and what the check does not catch.
+CSS animations, transitions, and video run on a clock the engine does not control, so a work whose picture depends on them may not reproduce. The repository's [README](https://github.com/display-protocol/dp1-capsule#readme) has what the check needs installed, every command, the measurements, and what the check does not catch.
