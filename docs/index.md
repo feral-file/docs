@@ -83,6 +83,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 - **[ff-cli](ff-cli/index.md)** — command-line tool. Build a DP-1 playlist from a URL or wallet, display it on a device, publish it to a feed. The action surface.
 - **[Art Computer](art-computer/index.md)** — the computer inside Toko. On its own, plug it into any TV, projector, or monitor to display DP-1 playlists. Setup, Wi-Fi, pairing, and reinstalling FF OS from USB.
 - **[Hosted Feed](hosted-feed/index.md)** — our hosted DP-1 feed at `feed.feralfile.com` for publishing and retrieving playlists.
+- **[Conservation](conservation.md)** — keeping a work made with code runnable after its servers close. Preservation capsules: what one holds, and how to check one offline.
 - **[Open source](open-source.md)** — what is open, under which license, where the code is, and what the Art Computer does without Feral File.
 - **[dp1-cli](https://github.com/display-protocol/dp1-cli/blob/main/docs/quickstart.md)** — validate, sign, and publish DP-1 protocol payloads.
 - **[Artwork Library](https://github.com/feral-file/ffa-js)** — JS library artists embed in software artworks for provenance, deterministic randomness, and on-chain data. Docs live with the library.
