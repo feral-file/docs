@@ -14,7 +14,7 @@ Paste this into your coding agent. Hover over the prompt and click the copy butt
 Read https://docs.feralfile.com and set me up to display artwork on my Art Computer.
 ```
 
-Works in Claude Code, Codex, Grok, Cursor, OpenCode, or any agent that can shell out. Any other job on these pages works the same way: keep the address, name the job. Reinstalling FF OS, moving the Art Computer to another network, and publishing a playlist to the hosted feed are all here.
+Works in Claude Code, Codex, Grok, Cursor, OpenCode, or any agent that can shell out. Any other job on these pages works the same way: keep the address, name the job. Reinstalling FF OS and publishing a playlist to the hosted feed are both here.
 
 No agent?
 
@@ -81,7 +81,7 @@ Run these in order. On any non-zero exit, stop and report the failing command an
 ## What's here
 
 - **[ff-cli](ff-cli/index.md)** — command-line tool. Build a DP-1 playlist from a URL or wallet, display it on a device, publish it to a feed. The action surface.
-- **[Art Computer](art-computer/index.md)** — the computer inside Toko. On its own, plug it into any TV, projector, or monitor to display DP-1 playlists. Setup, Wi-Fi, pairing, and reinstalling FF OS from USB.
+- **[Art Computer](art-computer/index.md)** — the computer inside Toko. On its own, plug it into any TV, projector, or monitor to display DP-1 playlists. Managed networks, factory reset, reinstalling FF OS, and upgrades.
 - **[Hosted Feed](hosted-feed/index.md)** — our hosted DP-1 feed at `feed.feralfile.com` for publishing and retrieving playlists.
 - **[Conservation](conservation.md)** — keeping a work made with code runnable after its servers close. Preservation capsules: what one holds, and how to check one offline.
 - **[Open source](open-source.md)** — what is open, under which license, where the code is, and what the Art Computer does without Feral File.

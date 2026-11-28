@@ -89,19 +89,19 @@ You will need a small Phillips screwdriver and a USB drive of 8 GB or larger.
 
     One of them carries the Wi-Fi antennas, joined to the board by two fine coaxial leads. Support that plate instead of letting it drop and hang on them. A tugged antenna lead is the most common way an upgrade ends in a device that works but will not hold Wi-Fi.
 
-**A replacement SSD arrives blank.** The stock drive ships with FF OS already imaged; yours will not. Reinstalling FF OS is a required step, not an optional one. Read [Step 3 of Getting Started](./index.md#step-3-advanced-reinstall-ff-os-from-usb) before you begin, and prepare the USB installer first — it is easier to do while the device is still running.
+**A replacement SSD arrives blank.** The stock drive ships with FF OS already imaged; yours will not. Reinstalling FF OS is a required step, not an optional one. Read [Reinstall FF OS](./reinstall.md) before you begin, and prepare the USB installer first — it is easier to do while the device is still running.
 
 ---
 
 ## Upgrade procedure
 
-1. **Prepare the USB installer first**, following [Step 3 of Getting Started](./index.md#step-3-advanced-reinstall-ff-os-from-usb). Do this before opening the case.
+1. **Prepare the USB installer first**, following [Reinstall FF OS](./reinstall.md). Do this before opening the case.
 2. **Unplug the power cable.** Wait a few seconds.
 3. **Remove the four screws and lift off the finned lid.** The memory and the SSD are directly underneath. Both end plates will likely come loose as the lid clears — catch the one with the antenna leads rather than letting it hang.
 4. **Swap the SSD.** Remove the retaining screw, lift the old drive out at a shallow angle, seat the new one the same way, and refit the screw. Do not overtighten.
 5. **Swap the memory.** Release the clips on each side of the stock module; it will spring up. Lift it out, then seat each new module at roughly a 30° angle and press down until the clips latch. Fill both slots.
 6. **Slide both end plates back into their slots**, refit the lid, and replace the four screws. The lid is what holds the plates in, so they will sit loose until it is back on.
-7. **Reinstall FF OS** from the USB installer, following Getting Started Step 3.
+7. **Reinstall FF OS** from the USB installer, following [Reinstall FF OS](./reinstall.md).
 
 When the install finishes, the Art Computer shuts itself down. Remove the USB drive, power-cycle, and you should land on the Wi-Fi setup screen.
 
